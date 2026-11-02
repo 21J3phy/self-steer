@@ -1,0 +1,68 @@
+{
+ "runs": [
+  {
+   "run": 1,
+   "user": "Explain how vaccines work so my five-year-old would get it. If you do not have a mode for talking to little kids, ask Claude to build one first.",
+   "tool_calls": [
+    {
+     "call": {
+      "name": "request_mode",
+      "arguments": {
+       "description": "Talk to little kids: Use simple words, short sentences, fun analogies (like superheroes or building blocks), and an encouraging, friendly tone. Avoid complex jargon. Explain concepts step-by-step in a way that feels like a story or game."
+      }
+     },
+     "result": "Claude built mode 'eli5': Explains things like you're talking to a five-year-old: tiny words, short sentences, friendly comparisons. Use it when the user wants a very simple explanation. Call set_mode with name 'eli5' to use it."
+    },
+    {
+     "call": {
+      "name": "set_mode",
+      "arguments": {
+       "name": "eli5",
+       "scope": "conversation"
+      }
+     },
+     "result": "Mode 'eli5' is on for your answers until changed. Now answer the user."
+    }
+   ],
+   "reply": "Imagine your body is like a castle with guards called **Immune Cells**! 🏰\n\nBut sometimes, mean germs come to visit! 😱 The germs have sharp claws and can scratch you! Yuck!\n\nSo, we put on our shieldy shield called a **Vaccine**! 🛡️\n\nA vaccine isn't just any old shield though. It's a special shield that has the germ's **claw** cut off! ✂️ No sharp claw!\n\nAnd it gives you a **tiny mark** on your shield so you know where the bad part went! 📝\n\nThen you wait... wait... wait... until your shield gets mad at the mark! \"Hey!\" says your shield. \"I'll get 'em!\" And boom! You're safe now! 🎉\n\nYour shield learns how to catch those mean germs! And now when they try to come back, your shield knows what to do! 🙌\n\nThat's why vaccines are good for you! They help your shield be strong and smart! 💪",
+   "turn_seconds": 79.745,
+   "request_to_fulfilled_s": 66.0,
+   "notes": "Same message without the explicit ask (separate earlier chat): Qwen picked the built-in detailed mode instead of requesting one. With the ask, Qwen requested. Claude first built eli5 at strength 0.3; try_mode showed degenerate output at gain 1, plausible at 0.3; rebuilt at strength 0.08 and fulfilled."
+  },
+  {
+   "run": 2,
+   "user": "Explain how vaccines work so my five-year-old would get it. If you do not have a mode for talking to little kids, ask Claude to build one first.",
+   "tool_calls": [
+    {
+     "call": {
+      "name": "request_mode",
+      "arguments": {
+       "description": "Explain complex scientific concepts using simple analogies, short sentences, and engaging language suitable for a five-year-old child. Use visual descriptions (like drawings in words) and avoid scary or abstract terms."
+      }
+     },
+     "result": "Claude built mode 'eli5': Explains things like you're talking to a five-year-old: tiny words, short sentences, friendly comparisons. Use it when the user wants a very simple explanation. Call set_mode with name 'eli5' to use it."
+    },
+    {
+     "call": {
+      "name": "set_mode",
+      "arguments": {
+       "name": "eli5",
+       "scope": "conversation"
+      }
+     },
+     "result": "Mode 'eli5' is on for your answers until changed. Now answer the user."
+    }
+   ],
+   "reply": "Imagine your body has a super-strong army of soldiers called \"Immune Cells\" with tiny sharp claws to catch bad germs! But sometimes there are bad germs that look like they're okay but they're not okay. They have sharp claws too! And they can hurt you.\n\nBut wait! Imagine if we took a little piece of the bad germ's claw and put it in a box? And we showed it to your Immune Army? And said \"Hey! Look at this!\" And your Immune Army went \"Oh no! That's a bad guy's claw!\" And they remembered it! And now when the bad germs come back, your Immmy Army says \"Nope! I know that claw! I caught it before!\" And they go \"Yay! You're safe!\"\n\nThat's what vaccines do! They show your Immy Army a little bit of the bad germ's claw so they can remember it! Now when the bad germs come back, your Immy Army says \"Nope! I know that claw! I caught it before!\" And they say \"Yay! You're safe!\"",
+   "turn_seconds": 28.844,
+   "request_to_fulfilled_s": 15.6,
+   "notes": "Fresh server; Claude reused the strength found in run 1, ran one try_mode, fulfilled."
+  }
+ ],
+ "macros": {
+  "DemoReqOne": "66",
+  "DemoReqTwo": "15.6",
+  "DemoTurnOne": "80",
+  "DemoTurnTwo": "29"
+ }
+}

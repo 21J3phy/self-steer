@@ -1,0 +1,34 @@
+\section{Introduction}
+
+Interpretability work keeps finding small, legible handles inside language models: single neurons, directions, and low-rank edits that turn behaviors up or down~\cite{turner2023actadd,rimsky2023caa,zou2023repe}. Most of these handles are used statically. A researcher picks an edit, applies it to every input, and measures the average effect.
+
+Our starting point is such an edit. Lazy Genius Qwen~\cite{lazygenius} is a recipe of 344 MLP neuron doses, applied only to the first six answer positions of Qwen3.5-4B. It makes answers about 37\% shorter. In two pre-registered, blind-graded tests, core accuracy stayed within a point of the unedited model. But the average hides structure. The edit helps code (Python answers 77\% shorter and slightly \emph{more} accurate) and hurts multi-step planning and scheduling, where the terse model takes greedy shortcuts. An always-on edit is the wrong unit. The edit should be on for some requests and off for others.
+
+This paper asks who should flip the switch, and whether the switch can be flipped live, in the middle of a conversation, without retraining, reloading, or losing the conversation. We build \textbf{self-steer}, a harness in which:
+\begin{enumerate}
+\item every edit is a bias patch or a rank-1 weight patch on a layer's MLP output projection, kept next to the frozen 8-bit weights and switchable between any two tokens;
+\item the model itself can switch its edits through an ordinary tool call (\texttt{set\_mode});
+\item when no edit fits, the model can ask an outside controller (Claude, over the Model Context Protocol) to build one (\texttt{request\_mode}). The controller writes a few contrastive examples, which become a new edit in seconds.
+\end{enumerate}
+
+Our contributions are:
+\begin{itemize}
+\item \textbf{A faithful runtime for live edits.} It reproduces published Lazy Genius generations token for token (\FidelityCells{} of \FidelityCells{} cells). Switching costs microseconds, and decode speed is unchanged (\S\ref{sec:e1}, \S\ref{sec:e2}).
+\item \textbf{Evidence that switching mid-conversation does not break memory}, and a measurement of how much a steered cache differs from a clean one (\S\ref{sec:e3}).
+\item \textbf{A pre-registered test of who should decide} (\S\ref{sec:e4}).
+  \begin{itemize}
+  \item \emph{Claude routing on the question text alone} kept accuracy (\RoutedCore{} pts core, 95\% CI \RoutedCoreCI) with \RoutedWords\% fewer words.
+  \item \emph{The 4B model deciding for itself} cut \SelfWords\% of words but lost \SelfCoreAbs{} points of core accuracy.
+  \item \emph{A ``be concise'' prompt} lost \PromptCoreAbs{} points.
+  \end{itemize}
+  A placebo control shows why self-selection fails: the edit compounds with the tool-use context.
+\item \textbf{A case study of a frontier model building new edits} for a small model over MCP, including a weight edit, evaluated on held-out prompts against prompting (\S\ref{sec:e5}).
+\end{itemize}
+
+\section{Related work}
+
+\paragraph{Activation steering and weight editing.} ActAdd~\cite{turner2023actadd} and contrastive activation addition (CAA)~\cite{rimsky2023caa} steer with mean activation differences; representation engineering~\cite{zou2023repe} reads and controls high-level concepts. CAST~\cite{lee2025cast} conditions a steering vector on the model's own activations, so the input decides whether a fixed edit applies. Weight-Space Programming~\cite{takehi2026wsp} has a frontier model read raw weights and edit a small model directly. It fixed Qwen3.5-0.8B's reasoning loops by removing one direction from 64 MLP output columns in each of two layers (0.016\% of weights), offline, with a budget of forward passes. Our \texttt{ablate} edits are the same kind of rank-1 weight edit, applied live and reversibly.
+
+\paragraph{Self-adaptive models.} Transformer$^2$~\cite{sun2025transformer2} runs a first pass to identify the task, then a second pass with mixed singular-value expert vectors. SEAL~\cite{zweiger2025seal} has the model write its own fine-tuning data and update its weights. Text-to-LoRA and Doc-to-LoRA~\cite{sakana2026doc2lora} generate adapters from text with a hypernetwork. WeAct (reported October 2026; we could not locate the paper) lets a Qwen3-32B agent load skill LoRAs through tool calls. These methods either need trained adapters or experts, or update weights slowly and permanently. self-steer uses small, interpretable edits that switch per token, and lets a frontier model mint new ones on demand.
+
+\paragraph{Steering and the cache.} Steered states written into the KV cache persist. Kang et al.~\cite{kang2026pad} identify cache contamination as a failure mode of residual steering in multi-turn dialogue. KV-cache steering~\cite{belitsky2025kvsteer} edits the cache once after prefill. We measure the effect for switched edits directly, and offer re-encoding as a policy.

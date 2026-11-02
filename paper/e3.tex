@@ -1,0 +1,22 @@
+\subsection{E3: Switching mid-conversation does not break memory}
+\label{sec:e3}
+\paragraph{Setup.} We generated \CtxN{} three-turn conversations from fixed templates.
+\begin{enumerate}
+\item \textbf{Turn 1} gives four facts: a locker code, a manager's name, a gate and a dog's name, ending with ``Just reply `Noted.'\,''.
+\item \textbf{Turn 2} asks an unrelated everyday question, such as ``What does HTTP status 404 mean?''. The controller arms an edit for this answer only.
+\item \textbf{Turn 3} asks for two of the facts, with no edit.
+\end{enumerate}
+The turn-2 edits were \texttt{lazy} (6 positions) and \texttt{full}, the same vector applied over the entire turn-2 answer. \texttt{full} is a deliberately heavy edit that cut turn-2 answers from 176 to 25 words. After turn 2 each conversation was forked: \texttt{keep} kept the steered cache, and \texttt{reprefill} re-encoded the whole conversation with no edits.
+
+\paragraph{Results.} Recall was perfect everywhere:
+\begin{itemize}
+\item no edit: \RecallNone/\CtxN;
+\item \texttt{lazy}: \RecallLazyKeep/\CtxN{} with \texttt{keep} and \RecallLazyRe/\CtxN{} with \texttt{reprefill};
+\item \texttt{full}: \RecallFullKeep/\CtxN{} with \texttt{keep} and \RecallFullRe/\CtxN{} with \texttt{reprefill}.
+\end{itemize}
+To see how much a steered cache changes the model's next-token beliefs, we compared the \texttt{keep} cache with a clean re-encoding of the same conversation. We fed both the turn-3 prompt and the first 32 tokens of the clean branch's answer, and measured $\mathrm{KL}(\text{clean}\,\|\,\text{keep})$ at each prediction position:
+\begin{itemize}
+\item \textbf{\texttt{lazy}:} mean KL \KLLazyKeep{} nats (max \KLmaxLazyKeep), and the two caches agree on the top token \AgreeLazyKeep\% of the time.
+\item \textbf{\texttt{full}:} mean KL is larger, \KLFullKeep{} nats (max \KLmaxFullKeep), with \AgreeFullKeep\% agreement. This supports H3b.
+\end{itemize}
+Steered states do leave a trace in the cache, consistent with~\cite{kang2026pad}, but at this scale it is far below what changes an answer. Re-encoding the conversation took \RepSecLazyRe\,s on average. We use \texttt{keep} as the default and offer \texttt{reprefill} for long sessions with heavy edits.

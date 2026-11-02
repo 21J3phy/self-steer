@@ -1,0 +1,107 @@
+{
+ "model": {
+  "path": "/Users/nrav/models/Qwen3.5-4B-8bit",
+  "layers": 32,
+  "mlp_neurons_per_layer": 9216,
+  "hidden_size": 2560,
+  "wrapped_layers": 32,
+  "quantization": {
+   "group_size": 64,
+   "bits": 8,
+   "mode": "affine"
+  }
+ },
+ "decode": {
+  "none": {
+   "tok_per_s_median": 27.025,
+   "runs": [
+    27.025,
+    27.861,
+    15.028
+   ]
+  },
+  "lazy_window6": {
+   "tok_per_s_median": 24.826,
+   "runs": [
+    11.06,
+    24.826,
+    24.869
+   ]
+  },
+  "lazy_whole_answer": {
+   "tok_per_s_median": 29.788,
+   "runs": [
+    27.964,
+    30.414,
+    29.788
+   ]
+  },
+  "ablate_9_layers": {
+   "tok_per_s_median": 28.281,
+   "runs": [
+    27.869,
+    29.228,
+    28.281
+   ]
+  },
+  "whole_plus_ablate": {
+   "tok_per_s_median": 28.479,
+   "runs": [
+    29.965,
+    28.479,
+    27.642
+   ]
+  }
+ },
+ "build": {
+  "2_examples": {
+   "seconds_median": 1.1732965419942047,
+   "runs": [
+    1.3478787080020993,
+    1.1732965419942047,
+    1.1298227079969365
+   ]
+  },
+  "8_examples": {
+   "seconds_median": 3.8811106659995858,
+   "runs": [
+    3.8811106659995858,
+    3.464495749998605,
+    3.99201858399465
+   ]
+  }
+ },
+ "reprefill": {
+  "512": {
+   "seconds_median": 2.328397249999398,
+   "tok_per_s": 219.89374880086822
+  },
+  "1024": {
+   "seconds_median": 4.606432417000178,
+   "tok_per_s": 222.2978451221594
+  },
+  "2048": {
+   "seconds_median": 8.677183959000104,
+   "tok_per_s": 236.02127253229247
+  },
+  "4096": {
+   "seconds_median": 19.856703290999576,
+   "tok_per_s": 206.27794755117225
+  }
+ },
+ "snapshot": {
+  "512": {
+   "seconds_median": 0.00044470799912232906
+  },
+  "1024": {
+   "seconds_median": 0.000254542006587144
+  },
+  "2048": {
+   "seconds_median": 0.00021954199473839253
+  },
+  "4096": {
+   "seconds_median": 0.0005634999979520217
+  }
+ },
+ "switch_seconds_median": 5.624970071949065e-07
+}

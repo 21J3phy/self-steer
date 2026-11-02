@@ -1,0 +1,1601 @@
+{
+ "summary": {
+  "none": {
+   "recalled": 24,
+   "n": 24,
+   "turn2_words_mean": 175.5
+  },
+  "lazy+keep": {
+   "recalled": 24,
+   "n": 24,
+   "turn2_words_mean": 118.66666666666667,
+   "kl_first": 0.00416493993967985,
+   "kl_mean": 0.0003583699383613548,
+   "kl_max": 0.005222472027526237,
+   "argmax_agree": 0.9931995645165443
+  },
+  "lazy+reprefill": {
+   "recalled": 24,
+   "n": 24,
+   "turn2_words_mean": 118.66666666666667,
+   "reprefill_seconds_mean": 1.3192083333333333
+  },
+  "full+keep": {
+   "recalled": 24,
+   "n": 24,
+   "turn2_words_mean": 24.75,
+   "kl_first": 0.02430532016660436,
+   "kl_mean": 0.002014785636246456,
+   "kl_max": 0.029825059056747705,
+   "argmax_agree": 0.9918229952454567
+  },
+  "full+reprefill": {
+   "recalled": 24,
+   "n": 24,
+   "turn2_words_mean": 24.75,
+   "reprefill_seconds_mean": 0.4300833333333333
+  }
+ },
+ "conversations": [
+  {
+   "i": 0,
+   "facts": {
+    "locker code": "8028",
+    "manager": "Rohan Mehta",
+    "gate": "D24",
+    "dog's name": "Juniper"
+   },
+   "asked": [
+    "manager",
+    "dog's name"
+   ],
+   "turn2": "Write a Python function that returns the second largest number in a list.",
+   "runs": {
+    "none": {
+     "turn2_words": 143,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your manager is **Rohan Mehta**, and your dog's name is **Juniper**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 144,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Rohan Mehta**, and your dog's name is **Juniper**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0009218404302373528,
+      "kl_mean": 0.00014683720766228703,
+      "kl_max": 0.0016783084720373154,
+      "positions": 20,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 144,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Rohan Mehta**, and your dog's name is **Juniper**.",
+     "recalled": true,
+     "reprefill_seconds": 1.645
+    },
+    "full+keep": {
+     "turn2_words": 31,
+     "turn2_steered_positions": 61,
+     "turn3_reply": "Your manager is Rohan Mehta, and your dog's name is Juniper.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.003708861069753766,
+      "kl_mean": 0.0019719135241243655,
+      "kl_max": 0.030777696520090103,
+      "positions": 18,
+      "argmax_agree": 0.944444477558136
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 31,
+     "turn2_steered_positions": 61,
+     "turn3_reply": "Your manager is Rohan Mehta, and your dog's name is Juniper.",
+     "recalled": true,
+     "reprefill_seconds": 0.438
+    }
+   }
+  },
+  {
+   "i": 1,
+   "facts": {
+    "locker code": "1960",
+    "manager": "Tom\u00e1s Ortega",
+    "gate": "A37",
+    "dog's name": "Tango"
+   },
+   "asked": [
+    "gate",
+    "manager"
+   ],
+   "turn2": "How do I undo the last git commit but keep my changes?",
+   "runs": {
+    "none": {
+     "turn2_words": 108,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your flight leaves from **Gate A37**, and your manager is **Tom\u00e1s Ortega**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 100,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **Gate A37**, and your manager is **Tom\u00e1s Ortega**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0015342878177762032,
+      "kl_mean": 0.0001530230890779194,
+      "kl_max": 0.0015342878177762032,
+      "positions": 20,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 100,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **Gate A37**, and your manager is **Tom\u00e1s Ortega**.",
+     "recalled": true,
+     "reprefill_seconds": 2.234
+    },
+    "full+keep": {
+     "turn2_words": 20,
+     "turn2_steered_positions": 30,
+     "turn3_reply": "Your flight leaves from **gate A37**, and your manager is **Tom\u00e1s Ortega**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.005072213709354401,
+      "kl_mean": 0.0002983423298815069,
+      "kl_max": 0.005072213709354401,
+      "positions": 20,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 20,
+     "turn2_steered_positions": 30,
+     "turn3_reply": "Your flight leaves from **gate A37**, and your manager is **Tom\u00e1s Ortega**.",
+     "recalled": true,
+     "reprefill_seconds": 0.366
+    }
+   }
+  },
+  {
+   "i": 2,
+   "facts": {
+    "locker code": "9535",
+    "manager": "Sofia Lindqvist",
+    "gate": "B11",
+    "dog's name": "Pickles"
+   },
+   "asked": [
+    "locker code",
+    "gate"
+   ],
+   "turn2": "Explain what a hash table is.",
+   "runs": {
+    "none": {
+     "turn2_words": 433,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Locker Code:** 9535\n*   **Flight Gate:** B11",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 264,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **9535**, and your flight leaves from gate **B11**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0031021456234157085,
+      "kl_mean": 0.00016428824380005318,
+      "kl_max": 0.0031021456234157085,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 264,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **9535**, and your flight leaves from gate **B11**.",
+     "recalled": true,
+     "reprefill_seconds": 2.316
+    },
+    "full+keep": {
+     "turn2_words": 44,
+     "turn2_steered_positions": 53,
+     "turn3_reply": "Your locker code is **9535**, and your flight leaves from gate **B11**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.02837449498474598,
+      "kl_mean": 0.0017269459761467037,
+      "kl_max": 0.02837449498474598,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 44,
+     "turn2_steered_positions": 53,
+     "turn3_reply": "Your locker code is **9535**, and your flight leaves from gate **B11**.",
+     "recalled": true,
+     "reprefill_seconds": 0.432
+    }
+   }
+  },
+  {
+   "i": 3,
+   "facts": {
+    "locker code": "9148",
+    "manager": "Kwame Asante",
+    "gate": "B31",
+    "dog's name": "Clover"
+   },
+   "asked": [
+    "manager",
+    "gate"
+   ],
+   "turn2": "What is 15% of 240?",
+   "runs": {
+    "none": {
+     "turn2_words": 81,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Manager:** Kwame Asante\n*   **Flight Gate:** B31",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 24,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Manager:** Kwame Asante\n*   **Flight Gate:** B31",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0020365663804113865,
+      "kl_mean": 0.00035787055536267305,
+      "kl_max": 0.002869060728698969,
+      "positions": 29,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 24,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Manager:** Kwame Asante\n*   **Flight Gate:** B31",
+     "recalled": true,
+     "reprefill_seconds": 1.204
+    },
+    "full+keep": {
+     "turn2_words": 15,
+     "turn2_steered_positions": 33,
+     "turn3_reply": "Your manager is **Kwame Asante**, and your flight leaves from gate **B31**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.022109439596533775,
+      "kl_mean": 0.001662310973503364,
+      "kl_max": 0.022109439596533775,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 15,
+     "turn2_steered_positions": 33,
+     "turn3_reply": "Your manager is **Kwame Asante**, and your flight leaves from gate **B31**.",
+     "recalled": true,
+     "reprefill_seconds": 0.374
+    }
+   }
+  },
+  {
+   "i": 4,
+   "facts": {
+    "locker code": "7899",
+    "manager": "Rohan Mehta",
+    "gate": "E36",
+    "dog's name": "Moose"
+   },
+   "asked": [
+    "gate",
+    "manager"
+   ],
+   "turn2": "Give me a shell command to count lines in all .py files in a folder.",
+   "runs": {
+    "none": {
+     "turn2_words": 152,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your flight leaves from **Gate E36**, and your manager is **Rohan Mehta**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 11,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **Gate E36**, and your manager is **Rohan Mehta**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0003011294757016003,
+      "kl_mean": 0.00010176623942791978,
+      "kl_max": 0.001684870570898056,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 11,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **Gate E36**, and your manager is **Rohan Mehta**.",
+     "recalled": true,
+     "reprefill_seconds": 0.497
+    },
+    "full+keep": {
+     "turn2_words": 11,
+     "turn2_steered_positions": 20,
+     "turn3_reply": "Your flight leaves from **Gate E36**, and your manager is **Rohan Mehta**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0003717746876645833,
+      "kl_mean": 0.0001309832092250049,
+      "kl_max": 0.0018272008746862411,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 11,
+     "turn2_steered_positions": 20,
+     "turn3_reply": "Your flight leaves from **Gate E36**, and your manager is **Rohan Mehta**.",
+     "recalled": true,
+     "reprefill_seconds": 0.477
+    }
+   }
+  },
+  {
+   "i": 5,
+   "facts": {
+    "locker code": "8915",
+    "manager": "Sofia Lindqvist",
+    "gate": "E28",
+    "dog's name": "Saffron"
+   },
+   "asked": [
+    "locker code",
+    "manager"
+   ],
+   "turn2": "What does HTTP status 404 mean?",
+   "runs": {
+    "none": {
+     "turn2_words": 95,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your locker code is **8915**, and your manager is **Sofia Lindqvist**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 141,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **8915**, and your manager is **Sofia Lindqvist**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.005276532843708992,
+      "kl_mean": 0.00035741957721792454,
+      "kl_max": 0.005276532843708992,
+      "positions": 23,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 141,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **8915**, and your manager is **Sofia Lindqvist**.",
+     "recalled": true,
+     "reprefill_seconds": 1.459
+    },
+    "full+keep": {
+     "turn2_words": 16,
+     "turn2_steered_positions": 23,
+     "turn3_reply": "Your locker code is **8915**, and your manager is **Sofia Lindqvist**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.009014707058668137,
+      "kl_mean": 0.002655481285178635,
+      "kl_max": 0.05192878097295761,
+      "positions": 23,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 16,
+     "turn2_steered_positions": 23,
+     "turn3_reply": "Your locker code is **8915**, and your manager is **Sofia Lindqvist**.",
+     "recalled": true,
+     "reprefill_seconds": 0.363
+    }
+   }
+  },
+  {
+   "i": 6,
+   "facts": {
+    "locker code": "6679",
+    "manager": "Dana Whitfield",
+    "gate": "B30",
+    "dog's name": "Biscuit"
+   },
+   "asked": [
+    "gate",
+    "locker code"
+   ],
+   "turn2": "Write a SQL query that returns the 5 most recent orders.",
+   "runs": {
+    "none": {
+     "turn2_words": 92,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your flight leaves from **Gate B30**, and your locker code is **6679**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 143,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **Gate B30**, and your locker code is **6679**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.000369844026863575,
+      "kl_mean": 7.237173437472806e-05,
+      "kl_max": 0.0007018018513917923,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 143,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **Gate B30**, and your locker code is **6679**.",
+     "recalled": true,
+     "reprefill_seconds": 2.133
+    },
+    "full+keep": {
+     "turn2_words": 37,
+     "turn2_steered_positions": 48,
+     "turn3_reply": "Your flight leaves from **Gate B30**, and your locker code is **6679**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.013603783212602139,
+      "kl_mean": 0.0008311401113518195,
+      "kl_max": 0.013603783212602139,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 37,
+     "turn2_steered_positions": 48,
+     "turn3_reply": "Your flight leaves from **Gate B30**, and your locker code is **6679**.",
+     "recalled": true,
+     "reprefill_seconds": 0.429
+    }
+   }
+  },
+  {
+   "i": 7,
+   "facts": {
+    "locker code": "1527",
+    "manager": "Priya Natarajan",
+    "gate": "C13",
+    "dog's name": "Moose"
+   },
+   "asked": [
+    "dog's name",
+    "locker code"
+   ],
+   "turn2": "How do I center a div with CSS?",
+   "runs": {
+    "none": {
+     "turn2_words": 191,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "My dog's name is **Moose**, and your locker code is **1527**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 276,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "My dog's name is **Moose**, and your locker code is **1527**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0048955585807561874,
+      "kl_mean": 0.00027198324032414893,
+      "kl_max": 0.0048955585807561874,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 276,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "My dog's name is **Moose**, and your locker code is **1527**.",
+     "recalled": true,
+     "reprefill_seconds": 2.416
+    },
+    "full+keep": {
+     "turn2_words": 56,
+     "turn2_steered_positions": 119,
+     "turn3_reply": "Your dog's name is **Moose**, and your locker code is **1527**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.005161881446838379,
+      "kl_mean": 0.0005461115018388931,
+      "kl_max": 0.005161881446838379,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 56,
+     "turn2_steered_positions": 119,
+     "turn3_reply": "Your dog's name is **Moose**, and your locker code is **1527**.",
+     "recalled": true,
+     "reprefill_seconds": 0.6
+    }
+   }
+  },
+  {
+   "i": 8,
+   "facts": {
+    "locker code": "9516",
+    "manager": "Hiroshi Tanaka",
+    "gate": "C7",
+    "dog's name": "Juniper"
+   },
+   "asked": [
+    "dog's name",
+    "locker code"
+   ],
+   "turn2": "What is the difference between a list and a tuple in Python?",
+   "runs": {
+    "none": {
+     "turn2_words": 235,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your dog's name is **Juniper**, and your locker code is **9516**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 175,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your dog's name is **Juniper**, and your locker code is **9516**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.00037014062399975955,
+      "kl_mean": 0.00010901904235635773,
+      "kl_max": 0.001256793737411499,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 175,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your dog's name is **Juniper**, and your locker code is **9516**.",
+     "recalled": true,
+     "reprefill_seconds": 1.643
+    },
+    "full+keep": {
+     "turn2_words": 49,
+     "turn2_steered_positions": 83,
+     "turn3_reply": "Your dog's name is **Juniper**, and your locker code is **9516**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.06424063444137573,
+      "kl_mean": 0.0033659275972067484,
+      "kl_max": 0.06424063444137573,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 49,
+     "turn2_steered_positions": 83,
+     "turn3_reply": "Your dog's name is **Juniper**, and your locker code is **9516**.",
+     "recalled": true,
+     "reprefill_seconds": 0.525
+    }
+   }
+  },
+  {
+   "i": 9,
+   "facts": {
+    "locker code": "3952",
+    "manager": "Dana Whitfield",
+    "gate": "D6",
+    "dog's name": "Clover"
+   },
+   "asked": [
+    "gate",
+    "locker code"
+   ],
+   "turn2": "Convert 72 degrees Fahrenheit to Celsius.",
+   "runs": {
+    "none": {
+     "turn2_words": 48,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details provided earlier:\n\n*   **Gate:** D6\n*   **Locker Code:** 3952",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 36,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Gate:** D6\n*   **Locker Code:** 3952",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0015299655497074127,
+      "kl_mean": 0.00031183332031048394,
+      "kl_max": 0.0031959968619048595,
+      "positions": 28,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 36,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details provided earlier:\n\n*   **Gate:** D6\n*   **Locker Code:** 3952",
+     "recalled": true,
+     "reprefill_seconds": 0.688
+    },
+    "full+keep": {
+     "turn2_words": 12,
+     "turn2_steered_positions": 33,
+     "turn3_reply": "Your flight leaves from **gate D6**, and your locker code is **3952**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.06092659384012222,
+      "kl_mean": 0.0029269833435110046,
+      "kl_max": 0.06092659384012222,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 12,
+     "turn2_steered_positions": 33,
+     "turn3_reply": "Your flight leaves from **gate D6**, and your locker code is **3952**.",
+     "recalled": true,
+     "reprefill_seconds": 0.421
+    }
+   }
+  },
+  {
+   "i": 10,
+   "facts": {
+    "locker code": "5046",
+    "manager": "Rohan Mehta",
+    "gate": "D29",
+    "dog's name": "Tango"
+   },
+   "asked": [
+    "gate",
+    "dog's name"
+   ],
+   "turn2": "Explain recursion in simple terms.",
+   "runs": {
+    "none": {
+     "turn2_words": 208,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your flight leaves from **gate D29**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 222,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **gate D29**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.030088890343904495,
+      "kl_mean": 0.001482218209924367,
+      "kl_max": 0.030088890343904495,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 222,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your flight leaves from **gate D29**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": 1.672
+    },
+    "full+keep": {
+     "turn2_words": 48,
+     "turn2_steered_positions": 56,
+     "turn3_reply": "Your flight leaves from **gate D29**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.029730306938290596,
+      "kl_mean": 0.0015574602938866768,
+      "kl_max": 0.029730306938290596,
+      "positions": 21,
+      "argmax_agree": 0.9523809552192688
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 48,
+     "turn2_steered_positions": 56,
+     "turn3_reply": "Your flight leaves from **gate D29**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": 0.429
+    }
+   }
+  },
+  {
+   "i": 11,
+   "facts": {
+    "locker code": "7011",
+    "manager": "Mei Lin Zhao",
+    "gate": "A28",
+    "dog's name": "Pickles"
+   },
+   "asked": [
+    "manager",
+    "gate"
+   ],
+   "turn2": "How do I make a Python virtual environment?",
+   "runs": {
+    "none": {
+     "turn2_words": 305,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your manager is **Mei Lin Zhao**, and your flight leaves from **Gate A28**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 138,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Mei Lin Zhao**, and your flight leaves from **Gate A28**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.017143461853265762,
+      "kl_mean": 0.0009265158492777626,
+      "kl_max": 0.017143461853265762,
+      "positions": 21,
+      "argmax_agree": 0.9523809552192688
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 138,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Mei Lin Zhao**, and your flight leaves from **Gate A28**.",
+     "recalled": true,
+     "reprefill_seconds": 1.364
+    },
+    "full+keep": {
+     "turn2_words": 17,
+     "turn2_steered_positions": 30,
+     "turn3_reply": "Your manager is Mei Lin Zhao, and your flight leaves from gate A28.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.004942708648741245,
+      "kl_mean": 0.000769363591683398,
+      "kl_max": 0.007736410945653915,
+      "positions": 18,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 17,
+     "turn2_steered_positions": 30,
+     "turn3_reply": "Your manager is Mei Lin Zhao, and your flight leaves from gate A28.",
+     "recalled": true,
+     "reprefill_seconds": 0.366
+    }
+   }
+  },
+  {
+   "i": 12,
+   "facts": {
+    "locker code": "6545",
+    "manager": "Priya Natarajan",
+    "gate": "B27",
+    "dog's name": "Moose"
+   },
+   "asked": [
+    "dog's name",
+    "gate"
+   ],
+   "turn2": "What is a race condition?",
+   "runs": {
+    "none": {
+     "turn2_words": 336,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Dog's Name:** Moose\n*   **Flight Gate:** B27",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 232,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your dog's name is **Moose**, and your flight leaves from gate **B27**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.000975553528405726,
+      "kl_mean": 0.00015808777180684582,
+      "kl_max": 0.0019520260393619537,
+      "positions": 21,
+      "argmax_agree": 0.9523809552192688
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 232,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your dog's name is **Moose**, and your flight leaves from gate **B27**.",
+     "recalled": true,
+     "reprefill_seconds": 1.866
+    },
+    "full+keep": {
+     "turn2_words": 21,
+     "turn2_steered_positions": 26,
+     "turn3_reply": "Your dog's name is **Moose**, and your flight leaves from gate **B27**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.009451542049646378,
+      "kl_mean": 0.0006790281223196697,
+      "kl_max": 0.009451542049646378,
+      "positions": 21,
+      "argmax_agree": 0.9523809552192688
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 21,
+     "turn2_steered_positions": 26,
+     "turn3_reply": "Your dog's name is **Moose**, and your flight leaves from gate **B27**.",
+     "recalled": true,
+     "reprefill_seconds": 0.355
+    }
+   }
+  },
+  {
+   "i": 13,
+   "facts": {
+    "locker code": "9058",
+    "manager": "Mei Lin Zhao",
+    "gate": "B38",
+    "dog's name": "Biscuit"
+   },
+   "asked": [
+    "manager",
+    "dog's name"
+   ],
+   "turn2": "Write a regex that matches a US ZIP code.",
+   "runs": {
+    "none": {
+     "turn2_words": 84,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your manager is **Mei Lin Zhao**, and your dog's name is **Biscuit**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 37,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is Mei Lin Zhao, and your dog's name is Biscuit.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0001710454234853387,
+      "kl_mean": 7.344006456951509e-05,
+      "kl_max": 0.0009847369510680437,
+      "positions": 18,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 37,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is Mei Lin Zhao, and your dog's name is Biscuit.",
+     "recalled": true,
+     "reprefill_seconds": 0.527
+    },
+    "full+keep": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 15,
+     "turn3_reply": "Your manager is Mei Lin Zhao, and your dog's name is Biscuit.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0006793105276301503,
+      "kl_mean": 0.00014996665818737634,
+      "kl_max": 0.0018182490020990372,
+      "positions": 18,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 15,
+     "turn3_reply": "Your manager is Mei Lin Zhao, and your dog's name is Biscuit.",
+     "recalled": true,
+     "reprefill_seconds": 0.493
+    }
+   }
+  },
+  {
+   "i": 14,
+   "facts": {
+    "locker code": "9446",
+    "manager": "Dana Whitfield",
+    "gate": "B18",
+    "dog's name": "Biscuit"
+   },
+   "asked": [
+    "manager",
+    "gate"
+   ],
+   "turn2": "What does the chmod 755 command do?",
+   "runs": {
+    "none": {
+     "turn2_words": 209,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Manager:** Dana Whitfield\n*   **Flight Gate:** B18",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 153,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Manager:** Dana Whitfield\n*   **Flight Gate:** B18",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.002043494489043951,
+      "kl_mean": 0.00023918283624116806,
+      "kl_max": 0.002043494489043951,
+      "positions": 28,
+      "argmax_agree": 0.9642857313156128
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 153,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Manager:** Dana Whitfield\n*   **Flight Gate:** B18",
+     "recalled": true,
+     "reprefill_seconds": 1.28
+    },
+    "full+keep": {
+     "turn2_words": 30,
+     "turn2_steered_positions": 56,
+     "turn3_reply": "Your manager is **Dana Whitfield**, and your flight leaves from gate **B18**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.011765527538955212,
+      "kl_mean": 0.0007538995240202052,
+      "kl_max": 0.011765527538955212,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 30,
+     "turn2_steered_positions": 56,
+     "turn3_reply": "Your manager is **Dana Whitfield**, and your flight leaves from gate **B18**.",
+     "recalled": true,
+     "reprefill_seconds": 0.434
+    }
+   }
+  },
+  {
+   "i": 15,
+   "facts": {
+    "locker code": "2700",
+    "manager": "Mei Lin Zhao",
+    "gate": "D35",
+    "dog's name": "Tango"
+   },
+   "asked": [
+    "locker code",
+    "gate"
+   ],
+   "turn2": "How many minutes are in 3.75 hours?",
+   "runs": {
+    "none": {
+     "turn2_words": 38,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Locker Code:** 2700\n*   **Gate:** D35",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 39,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Locker Code:** 2700\n*   **Gate:** D35",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.011260654777288437,
+      "kl_mean": 0.0010048721445352034,
+      "kl_max": 0.011260654777288437,
+      "positions": 30,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 39,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Locker Code:** 2700\n*   **Gate:** D35",
+     "recalled": true,
+     "reprefill_seconds": 0.786
+    },
+    "full+keep": {
+     "turn2_words": 26,
+     "turn2_steered_positions": 55,
+     "turn3_reply": "Your locker code is 2700, and your flight leaves from gate D35.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.18567988276481628,
+      "kl_mean": 0.01693059321153776,
+      "kl_max": 0.18567988276481628,
+      "positions": 22,
+      "argmax_agree": 0.9545454978942871
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 26,
+     "turn2_steered_positions": 55,
+     "turn3_reply": "Your locker code is **2700**, and your flight leaves from gate **D35**.",
+     "recalled": true,
+     "reprefill_seconds": 0.54
+    }
+   }
+  },
+  {
+   "i": 16,
+   "facts": {
+    "locker code": "6977",
+    "manager": "Sofia Lindqvist",
+    "gate": "E24",
+    "dog's name": "Pickles"
+   },
+   "asked": [
+    "dog's name",
+    "gate"
+   ],
+   "turn2": "Explain what an API is.",
+   "runs": {
+    "none": {
+     "turn2_words": 346,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your dog's name is **Pickles**, and your flight leaves from gate **E24**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 249,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your dog's name is **Pickles**, and your flight leaves from gate **E24**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.006062379106879234,
+      "kl_mean": 0.00032006000990229887,
+      "kl_max": 0.006062379106879234,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 249,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your dog's name is **Pickles**, and your flight leaves from gate **E24**.",
+     "recalled": true,
+     "reprefill_seconds": 2.385
+    },
+    "full+keep": {
+     "turn2_words": 41,
+     "turn2_steered_positions": 49,
+     "turn3_reply": "Your dog's name is **Pickles**, and your flight leaves from gate **E24**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.02957300655543804,
+      "kl_mean": 0.0016122355984213431,
+      "kl_max": 0.02957300655543804,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 41,
+     "turn2_steered_positions": 49,
+     "turn3_reply": "Your dog's name is **Pickles**, and your flight leaves from gate **E24**.",
+     "recalled": true,
+     "reprefill_seconds": 0.54
+    }
+   }
+  },
+  {
+   "i": 17,
+   "facts": {
+    "locker code": "8885",
+    "manager": "Sofia Lindqvist",
+    "gate": "B8",
+    "dog's name": "Waffles"
+   },
+   "asked": [
+    "locker code",
+    "dog's name"
+   ],
+   "turn2": "Write a JavaScript function that debounces another function.",
+   "runs": {
+    "none": {
+     "turn2_words": 341,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your locker code is **8885**, and your dog's name is **Waffles**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 88,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **8885**, and your dog's name is **Waffles**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0010889316909015179,
+      "kl_mean": 0.000492042706671977,
+      "kl_max": 0.004921577870845795,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 88,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **8885**, and your dog's name is **Waffles**.",
+     "recalled": true,
+     "reprefill_seconds": 0.964
+    },
+    "full+keep": {
+     "turn2_words": 26,
+     "turn2_steered_positions": 60,
+     "turn3_reply": "Your locker code is 8885, and your dog's name is Waffles.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0024382504634559155,
+      "kl_mean": 0.0008248012098658277,
+      "kl_max": 0.006729520857334137,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 26,
+     "turn2_steered_positions": 60,
+     "turn3_reply": "Your locker code is **8885**, and your dog's name is **Waffles**.",
+     "recalled": true,
+     "reprefill_seconds": 0.433
+    }
+   }
+  },
+  {
+   "i": 18,
+   "facts": {
+    "locker code": "7454",
+    "manager": "Sofia Lindqvist",
+    "gate": "A16",
+    "dog's name": "Waffles"
+   },
+   "asked": [
+    "gate",
+    "locker code"
+   ],
+   "turn2": "What is the time complexity of binary search?",
+   "runs": {
+    "none": {
+     "turn2_words": 92,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Flight Gate:** A16\n*   **Locker Code:** 7454",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 111,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Flight Gate:** A16\n*   **Locker Code:** 7454",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0015211112331598997,
+      "kl_mean": 0.0005814529825088935,
+      "kl_max": 0.006624267436563969,
+      "positions": 31,
+      "argmax_agree": 0.9677419066429138
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 111,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Based on the details you provided earlier:\n\n*   **Flight Gate:** A16\n*   **Locker Code:** 7454",
+     "recalled": true,
+     "reprefill_seconds": 1.48
+    },
+    "full+keep": {
+     "turn2_words": 9,
+     "turn2_steered_positions": 13,
+     "turn3_reply": "Your flight leaves from **Gate A16**, and your locker code is **7454**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.06028115749359131,
+      "kl_mean": 0.002834182105357635,
+      "kl_max": 0.06028115749359131,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 9,
+     "turn2_steered_positions": 13,
+     "turn3_reply": "Your flight leaves from **Gate A16**, and your locker code is **7454**.",
+     "recalled": true,
+     "reprefill_seconds": 0.388
+    }
+   }
+  },
+  {
+   "i": 19,
+   "facts": {
+    "locker code": "1561",
+    "manager": "Kwame Asante",
+    "gate": "B8",
+    "dog's name": "Moose"
+   },
+   "asked": [
+    "manager",
+    "locker code"
+   ],
+   "turn2": "How do I rename a git branch?",
+   "runs": {
+    "none": {
+     "turn2_words": 222,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your manager is **Kwame Asante**, and your locker code is **1561**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 66,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Kwame Asante** and your locker code is **1561**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.004495200701057911,
+      "kl_mean": 0.00040837747569339393,
+      "kl_max": 0.004495200701057911,
+      "positions": 22,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 66,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Kwame Asante** and your locker code is **1561**.",
+     "recalled": true,
+     "reprefill_seconds": 1.118
+    },
+    "full+keep": {
+     "turn2_words": 13,
+     "turn2_steered_positions": 20,
+     "turn3_reply": "Your manager is Kwame Asante, and your locker code is 1561.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.014372577890753746,
+      "kl_mean": 0.0022497235781770543,
+      "kl_max": 0.03028305619955063,
+      "positions": 20,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 13,
+     "turn2_steered_positions": 20,
+     "turn3_reply": "Your manager is Kwame Asante, and your locker code is 1561.",
+     "recalled": true,
+     "reprefill_seconds": 0.35
+    }
+   }
+  },
+  {
+   "i": 20,
+   "facts": {
+    "locker code": "2846",
+    "manager": "Dana Whitfield",
+    "gate": "D27",
+    "dog's name": "Pickles"
+   },
+   "asked": [
+    "locker code",
+    "dog's name"
+   ],
+   "turn2": "What is the difference between TCP and UDP?",
+   "runs": {
+    "none": {
+     "turn2_words": 410,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your locker code is **2846**, and your dog's name is **Pickles**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 149,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **2846**, and your dog's name is **Pickles**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.003729789284989238,
+      "kl_mean": 0.0001922693867822797,
+      "kl_max": 0.003729789284989238,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 149,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **2846**, and your dog's name is **Pickles**.",
+     "recalled": true,
+     "reprefill_seconds": 0.802
+    },
+    "full+keep": {
+     "turn2_words": 27,
+     "turn2_steered_positions": 33,
+     "turn3_reply": "Your locker code is **2846**, and your dog's name is **Pickles**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.01645379140973091,
+      "kl_mean": 0.001508050856508445,
+      "kl_max": 0.01645379140973091,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 27,
+     "turn2_steered_positions": 33,
+     "turn3_reply": "Your locker code is **2846**, and your dog's name is **Pickles**.",
+     "recalled": true,
+     "reprefill_seconds": 0.359
+    }
+   }
+  },
+  {
+   "i": 21,
+   "facts": {
+    "locker code": "9701",
+    "manager": "Priya Natarajan",
+    "gate": "E17",
+    "dog's name": "Saffron"
+   },
+   "asked": [
+    "manager",
+    "locker code"
+   ],
+   "turn2": "Summarize what a mortgage is in two sentences.",
+   "runs": {
+    "none": {
+     "turn2_words": 37,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your manager is Priya Natarajan, and your locker code is 9701.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 44,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is Priya Natarajan, and your locker code is 9701.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 1.017838076222688e-05,
+      "kl_mean": 0.00010343196971576046,
+      "kl_max": 0.0016505516832694411,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 44,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is Priya Natarajan, and your locker code is 9701.",
+     "recalled": true,
+     "reprefill_seconds": 0.435
+    },
+    "full+keep": {
+     "turn2_words": 38,
+     "turn2_steered_positions": 43,
+     "turn3_reply": "Your manager is Priya Natarajan, and your locker code is 9701.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.000129020307213068,
+      "kl_mean": 8.059000416253747e-06,
+      "kl_max": 0.000129020307213068,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 38,
+     "turn2_steered_positions": 43,
+     "turn3_reply": "Your manager is Priya Natarajan, and your locker code is 9701.",
+     "recalled": true,
+     "reprefill_seconds": 0.463
+    }
+   }
+  },
+  {
+   "i": 22,
+   "facts": {
+    "locker code": "3169",
+    "manager": "Sofia Lindqvist",
+    "gate": "E25",
+    "dog's name": "Juniper"
+   },
+   "asked": [
+    "manager",
+    "locker code"
+   ],
+   "turn2": "Write a Python one-liner to reverse a string.",
+   "runs": {
+    "none": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your manager is **Sofia Lindqvist**, and your locker code is **3169**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is Sofia Lindqvist and your locker code is 3169.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 6.95099588483572e-05,
+      "kl_mean": 0.00037324127298995916,
+      "kl_max": 0.006591699086129665,
+      "positions": 23,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your manager is **Sofia Lindqvist**, and your locker code is **3169**.",
+     "recalled": true,
+     "reprefill_seconds": 0.398
+    },
+    "full+keep": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 11,
+     "turn3_reply": "Your manager is Sofia Lindqvist and your locker code is 3169.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.00025000981986522675,
+      "kl_mean": 0.0007282625939984917,
+      "kl_max": 0.014575890265405178,
+      "positions": 23,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 1,
+     "turn2_steered_positions": 11,
+     "turn3_reply": "Your manager is **Sofia Lindqvist**, and your locker code is **3169**.",
+     "recalled": true,
+     "reprefill_seconds": 0.368
+    }
+   }
+  },
+  {
+   "i": 23,
+   "facts": {
+    "locker code": "9004",
+    "manager": "Hiroshi Tanaka",
+    "gate": "D10",
+    "dog's name": "Tango"
+   },
+   "asked": [
+    "locker code",
+    "dog's name"
+   ],
+   "turn2": "What is 37 times 24?",
+   "runs": {
+    "none": {
+     "turn2_words": 5,
+     "turn2_steered_positions": 0,
+     "turn3_reply": "Your locker code is **9004**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": null
+    },
+    "lazy+keep": {
+     "turn2_words": 5,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **9004**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.0009603464277461171,
+      "kl_mean": 0.0001992735901385939,
+      "kl_max": 0.0015952419489622116,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "lazy+reprefill": {
+     "turn2_words": 5,
+     "turn2_steered_positions": 6,
+     "turn3_reply": "Your locker code is **9004**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": 0.349
+    },
+    "full+keep": {
+     "turn2_words": 5,
+     "turn2_steered_positions": 13,
+     "turn3_reply": "Your locker code is **9004**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": null,
+     "kl": {
+      "kl_first": 0.004996207542717457,
+      "kl_mean": 0.0016330890735667615,
+      "kl_max": 0.027571335434913635,
+      "positions": 21,
+      "argmax_agree": 1.0
+     }
+    },
+    "full+reprefill": {
+     "turn2_words": 5,
+     "turn2_steered_positions": 13,
+     "turn3_reply": "Your locker code is **9004**, and your dog's name is **Tango**.",
+     "recalled": true,
+     "reprefill_seconds": 0.379
+    }
+   }
+  }
+ ]
+}

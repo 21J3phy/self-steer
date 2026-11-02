@@ -1,0 +1,71 @@
+\section{Experiments}
+
+All experiments were pre-registered in \texttt{experiments/PREREGISTRATION.md} (committed at \texttt{68bcf54} before any E2--E5 generation), except the placebo condition in E4. That condition was added after seeing the E4 results and is labeled exploratory. They ran on one Apple M2 Pro laptop with 16\,GB of memory, one model process at a time.
+
+\subsection{E1: The runtime reproduces Lazy Genius exactly}
+\label{sec:e1}
+We replayed published Lazy Genius test-2 cells~\cite{lazygenius} through the new engine: eight questions spanning all six categories, at seed 17, both unedited and with the \texttt{lazy} mode armed for the answer. \FidelityIdentical{} of \FidelityCells{} generations were token-identical to the published ones, including prompts, all six steered positions, and answers of up to 695 tokens. The engine therefore applies the same edit with the same sampling. This also lets E4 reuse the published, already-graded generations as its \texttt{baseline} and \texttt{lazy} conditions.
+
+\subsection{E2: Switching is free}
+\label{sec:e2}
+Table~\ref{tab:bench} shows the measured costs.
+\begin{itemize}
+\item \textbf{Decode speed.} With greedy decoding (median of three 256-token runs), speed is the same with no edit (\DecodeNone{} tok/s), with Lazy Genius over the whole answer (\DecodeWhole), with a 9-layer rank-1 ablation (\DecodeAblate), and with both (\DecodeBoth). The run-to-run spread on a shared laptop (11--30 tok/s) is larger than any difference between edits.
+\item \textbf{Switching} an edit on or off costs \SwitchUs\,$\mu$s of Python.
+\item \textbf{Building a mode} from 8 contrastive examples takes \BuildEight\,s, or \BuildTwo\,s from 2 examples.
+\item \textbf{Re-encoding a conversation} with no edits runs at about \ReprefillTps{} tok/s: \ReprefillB\,s for 1k tokens and \ReprefillD\,s for 4k.
+\item \textbf{A cache snapshot} (deep copy) takes \SnapshotMs\,ms.
+\end{itemize}
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lr}\toprule
+Operation & Median cost\\\midrule
+Decode, no edit / \texttt{lazy} (6 pos.) / whole-answer add / 9-layer ablate & \DecodeNone{} / \DecodeLazySix{} / \DecodeWhole{} / \DecodeAblate{} tok/s\\
+Switch an edit on and off & \SwitchUs\,$\mu$s\\
+Build a CAA mode from 2 / 8 examples & \BuildTwo{} / \BuildEight\,s\\
+Re-encode 512 / 1024 / 2048 / 4096 tokens & \ReprefillA{} / \ReprefillB{} / \ReprefillC{} / \ReprefillD\,s\\
+Snapshot the cache (2048 tokens) & \SnapshotMs\,ms\\\bottomrule
+\end{tabular}
+\caption{Overhead on an M2 Pro (16\,GB), Qwen3.5-4B 8-bit.}
+\label{tab:bench}
+\end{table}
+
+\input{e3.tex}
+
+\subsection{E4: Who should decide when to be lazy?}
+\label{sec:e4}
+\paragraph{Setup.} We used the 96-question sealed set from Lazy Genius test~1, with six categories: Python, shell/Git, arithmetic and time, writing and reading, concepts, and planning. Each question was run at seeds 17 and 29, giving \Cells{} (question, seed) cells per condition. The \texttt{baseline} and \texttt{lazy} (always on) answers are the published, blind-graded test-1 generations, which E1 shows the engine reproduces. The new conditions are:
+\begin{itemize}
+\item \texttt{self}: Qwen sees the \texttt{set\_mode} tool, a library containing only \texttt{lazy}, and its description (\S\ref{app:prompts}), and decides per question.
+\item \texttt{prompt}: no edit, with the system prompt ``Be concise. Give the answer directly, with no preamble, no restating the question, and no extra explanation unless asked.''
+\item \texttt{routed}: a Claude subagent read only the 96 question texts and the same mode description, and labeled each question lazy or normal. The cell's answer is the existing \texttt{lazy} or \texttt{baseline} generation.
+\item \texttt{oracle}: per cell, the \texttt{lazy} answer if its grade is at least the baseline's. This is a hindsight upper bound for a lazy/normal switch, not a policy.
+\end{itemize}
+
+\paragraph{Grading.} The \texttt{self} and \texttt{prompt} answers were shuffled with \CalN{} previously graded answers as calibration. Nine blind Claude Opus 5.5 graders then each graded 48 answers, with Lazy Genius's per-item rubrics and grading guide. On the calibration items the new graders matched the original grades on \CalCore/\CalN{} core and \CalWhole/\CalN{} whole-answer judgments.
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrrrr}\toprule
+Condition & Words & Fewer words & Core & $\Delta$ core (pts, 95\% CI) & $\Delta$ whole (pts, 95\% CI) & Chose lazy\\\midrule
+Normal Qwen & \BaseWordsMean & -- & \BaseCoreN/\Cells & -- & -- & --\\
+Lazy Genius, always on & \LazyWordsMean & \LazyWords\% & \LazyCoreN/\Cells & \LazyCore{} \LazyCoreCI & \LazyWhole{} \LazyWholeCI & \Cells\\
+Qwen decides (\texttt{self}) & \SelfWordsMean & \SelfWords\% & \SelfCoreN/\Cells & \SelfCore{} \SelfCoreCI & \SelfWhole{} \SelfWholeCI & \SelfChosen\\
+\quad placebo: tool, no edit$^\dagger$ & \PlaceboWordsMean & \PlaceboWords\% & \PlaceboCoreN/\Cells & \PlaceboCore{} \PlaceboCoreCI & \PlaceboWhole{} \PlaceboWholeCI & (\PlaceboChosen)\\
+``Be concise'' prompt & \PromptWordsMean & \PromptWords\% & \PromptCoreN/\Cells & \PromptCore{} \PromptCoreCI & \PromptWhole{} \PromptWholeCI & --\\
+Claude routes (\texttt{routed}) & \RoutedWordsMean & \RoutedWords\% & \RoutedCoreN/\Cells & \RoutedCore{} \RoutedCoreCI & \RoutedWhole{} \RoutedWholeCI & \RoutedChosen\\
+Hindsight oracle & \OracleWordsMean & \OracleWords\% & \OracleCoreN/\Cells & \OracleCore{} \OracleCoreCI & \OracleWhole{} \OracleWholeCI & \OracleChosen\\\bottomrule
+\end{tabular}
+\caption{E4 on 96 sealed questions $\times$ 2 seeds. ``Words'' is the mean words per answer, and ``fewer words'' is the total-word reduction vs.\ normal Qwen. $\Delta$ columns are paired bootstrap estimates over questions. $^\dagger$Exploratory, not pre-registered. Its ``chose lazy'' count is how often Qwen called \texttt{set\_mode(lazy)}, which did nothing.}
+\label{tab:e4}
+\end{table}
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.49\linewidth]{fig_tradeoff.pdf}\hfill
+\includegraphics[width=0.49\linewidth]{fig_choices.pdf}
+\caption{Left: length vs.\ accuracy for each policy. Right: how often each decider chose \texttt{lazy}, by question category.}
+\label{fig:e4}
+\end{figure}
+
+\input{e4text.tex}
+
+\input{e5.tex}

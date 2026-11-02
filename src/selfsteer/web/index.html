@@ -128,8 +128,10 @@ function handle(e) {
 (async () => {
   const past = await (await fetch('/api/history')).json();
   past.forEach(handle);
-  const es = new EventSource('/api/events');
-  es.onmessage = ev => handle(JSON.parse(ev.data));
+  if (!location.search.includes('static')) {
+    const es = new EventSource('/api/events');
+    es.onmessage = ev => handle(JSON.parse(ev.data));
+  }
   refresh();
 })();
 </script>

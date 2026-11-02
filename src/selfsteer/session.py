@@ -81,6 +81,7 @@ class Session:
         self.eos = engine.eos_ids()
         self.im_end = self.tok.convert_tokens_to_ids('<|im_end|>')
         self.tool_end = self.tok.convert_tokens_to_ids('</tool_call>')
+        self.tool_start = self.tok.convert_tokens_to_ids('<tool_call>')
 
     # -------------------------------------------------------------- helpers
     def _encode(self, text):
@@ -200,14 +201,17 @@ class Session:
                 self._emit('steer', modes=names, start=start,
                            windows={a.edit.name: a.edit.window for a in actives})
             detok.reset()
-            pieces = []
+            hidden = {'tool': False}
 
-            def on_token(token, position, pieces=pieces):
+            def on_token(token, position, hidden=hidden):
+                # Tool-call markup and stop tokens are shown as events, not text.
+                if token == self.tool_start:
+                    hidden['tool'] = True
+                if hidden['tool'] or token in stop_ids:
+                    return
                 detok.add_token(token)
-                piece = detok.last_segment
-                pieces.append(piece)
                 steered = self.engine.stack.names_at(position)
-                self._emit('token', text=piece, modes=steered)
+                self._emit('token', text=detok.last_segment, modes=steered)
 
             fed = list(self.pending)
             budget = s.max_tokens - len(history)

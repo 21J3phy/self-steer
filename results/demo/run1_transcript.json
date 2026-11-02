@@ -1,0 +1,76 @@
+{
+ "tool": "transcript",
+ "seconds": 0.04,
+ "is_error": null,
+ "result": {
+  "result": [
+   {
+    "user": "Explain how vaccines work so my five-year-old would get it. If you do not have a mode for talking to little kids, ask Claude to build one first.",
+    "reply": "Imagine your body is like a castle with guards called **Immune Cells**! 🏰\n\nBut sometimes, mean germs come to visit! 😱 The germs have sharp claws and can scratch you! Yuck!\n\nSo, we put on our shieldy shield called a **Vaccine**! 🛡️\n\nA vaccine isn't just any old shield though. It's a special shield that has the germ's **claw** cut off! ✂️ No sharp claw!\n\nAnd it gives you a **tiny mark** on your shield so you know where the bad part went! 📝\n\nThen you wait... wait... wait... until your shield gets mad at the mark! \"Hey!\" says your shield. \"I'll get 'em!\" And boom! You're safe now! 🎉\n\nYour shield learns how to catch those mean germs! And now when they try to come back, your shield knows what to do! 🙌\n\nThat's why vaccines are good for you! They help your shield be strong and smart! 💪",
+    "segments": [
+     {
+      "tokens": 74,
+      "reason": "stop",
+      "modes": [],
+      "steered_positions": 0,
+      "text": "<tool_call>\n<function=request_mode>\n<parameter=description>\nTalk to little kids: Use simple words, short sentences, fun analogies (like superheroes or building blocks), and an encouraging, friendly tone. Avoid complex jargon. Explain concepts step-by-step in a way that feels like a story or game.\n</parameter>\n</function>\n</tool_call>",
+      "first_token_s": 2.396,
+      "total_s": 4.847,
+      "decode_tok_per_s": 29.781
+     },
+     {
+      "tokens": 37,
+      "reason": "stop",
+      "modes": [],
+      "steered_positions": 0,
+      "text": "<tool_call>\n<function=set_mode>\n<parameter=name>\neli5\n</parameter>\n<parameter=scope>\nconversation\n</parameter>\n</function>\n</tool_call>",
+      "first_token_s": 0.401,
+      "total_s": 1.559,
+      "decode_tok_per_s": 31.088
+     },
+     {
+      "tokens": 221,
+      "reason": "stop",
+      "modes": [
+       "eli5"
+      ],
+      "steered_positions": 221,
+      "text": "Imagine your body is like a castle with guards called **Immune Cells**! 🏰\n\nBut sometimes, mean germs come to visit! 😱 The germs have sharp claws and can scratch you! Yuck!\n\nSo, we put on our shieldy shield called a **Vaccine**! 🛡️\n\nA vaccine isn't just any old shield though. It's a special shield that has the germ's **claw** cut off! ✂️ No sharp claw!\n\nAnd it gives you a **tiny mark** on your shield so you know where the bad part went! 📝\n\nThen you wait... wait... wait... until your shield gets mad at the mark! \"Hey!\" says your shield. \"I'll get 'em!\" And boom! You're safe now! 🎉\n\nYour shield learns how to catch those mean germs! And now when they try to come back, your shield knows what to do! 🙌\n\nThat's why vaccines are good for you! They help your shield be strong and smart! 💪",
+      "first_token_s": 0.215,
+      "total_s": 7.14,
+      "decode_tok_per_s": 31.769
+     }
+    ],
+    "tool_calls": [
+     {
+      "call": {
+       "name": "request_mode",
+       "arguments": {
+        "description": "Talk to little kids: Use simple words, short sentences, fun analogies (like superheroes or building blocks), and an encouraging, friendly tone. Avoid complex jargon. Explain concepts step-by-step in a way that feels like a story or game."
+       }
+      },
+      "result": "Claude built mode 'eli5': Explains things like you're talking to a five-year-old: tiny words, short sentences, friendly comparisons. Use it when the user wants a very simple explanation. Call set_mode with name 'eli5' to use it."
+     },
+     {
+      "call": {
+       "name": "set_mode",
+       "arguments": {
+        "name": "eli5",
+        "scope": "conversation"
+       }
+      },
+      "result": "Mode 'eli5' is on for your answers until changed. Now answer the user."
+     }
+    ],
+    "modes_used": [
+     "eli5"
+    ],
+    "generated_tokens": 332,
+    "finish": "stop",
+    "seconds": 79.745,
+    "reprefill_seconds": null,
+    "seed": 1420262096
+   }
+  ]
+ }
+}

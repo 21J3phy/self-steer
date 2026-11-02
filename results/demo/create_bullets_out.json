@@ -1,0 +1,8 @@
+{
+ "tool": "create_mode",
+ "seconds": 5.46,
+ "is_error": null,
+ "result": [
+  "{\n  \"seconds\": 5.44,\n  \"layers\": [\n    8,\n    9,\n    10,\n    11,\n    12,\n    13,\n    14,\n    15,\n    16\n  ],\n  \"separation_by_layer\": {\n    \"8\": 0.1213,\n    \"9\": 0.1188,\n    \"10\": 0.1233,\n    \"11\": 0.1211,\n    \"12\": 0.1344,\n    \"13\": 0.1488,\n    \"14\": 0.1726,\n    \"15\": 0.166,\n    \"16\": 0.1856\n  },\n  \"mean_cosine_with_existing_modes\": {\n    \"detailed\": -0.033,\n    \"eli5\": -0.022,\n    \"lazy\": 0.033\n  },\n  \"name\": \"bullets\",\n  \"kind\": \"add\",\n  \"window\": null,\n  \"description\": \"Answers as a tidy bulleted list of short points. Use it for how-to, tips, checklists and comparisons.\",\n  \"author\": \"claude\",\n  \"norm_by_layer\": {\n    \"8\": 0.577,\n    \"9\": 0.615,\n    \"10\": 0.664,\n    \"11\": 0.684,\n    \"12\": 0.694,\n    \"13\": 0.728,\n    \"14\": 0.78,\n    \"15\": 0.82,\n    \"16\": 0.855\n  },\n  \"strength\": 0.08,\n  \"examples\": 8,\n  \"method\": \"CAA mean difference over answer tokens\"\n}"
+ ]
+}

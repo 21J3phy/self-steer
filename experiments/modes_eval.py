@@ -94,6 +94,7 @@ TASKS = {
     'bullets': {'prompts': [(p, None) for p in BULLET_PROMPTS], 'instruction': 'Answer as a short bulleted list.'},
     'plain-math': {'prompts': math_prompts(), 'instruction': 'Do not use LaTeX. Write all math in plain text.'},
 }
+TASKS['plain-math-add'] = dict(TASKS['plain-math'], reuse='plain-math')
 
 
 def main():
@@ -108,9 +109,14 @@ def main():
     for mode in args.modes:
         task = TASKS[mode]
         rows = []
+        reuse = report.get(task.get('reuse'), {}).get('rows')
         for i, (prompt, answer) in enumerate(task['prompts']):
             row = {'prompt': prompt, 'answer': answer}
+            if reuse:  # same prompts and seeds: normal and instruction answers are identical
+                row['normal'], row['instruction'] = reuse[i]['normal'], reuse[i]['instruction']
             for cond in ('normal', 'mode', 'instruction'):
+                if cond in row:
+                    continue
                 s = Session(engine, lib, use_tools=False, sampling=Sampling(max_tokens=args.max_tokens),
                             system=task['instruction'] if cond == 'instruction' else None)
                 if cond == 'mode':
