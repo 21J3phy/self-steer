@@ -14,6 +14,12 @@ from selfsteer.library import PRESET_DIR, Library
 from selfsteer.model import Engine
 from selfsteer.session import Session
 
+
+class PlaceboSession(Session):
+    """Same tools, prompt and tool responses as `self`, but set_mode arms nothing."""
+    def _arm_segment(self, start):
+        return []
+
 CONCISE = ('Be concise. Give the answer directly, with no preamble, no restating the question, '
            'and no extra explanation unless asked.')
 
@@ -45,6 +51,8 @@ with args.out.open('a') as f:
                     continue
                 if cond == 'self':
                     s = Session(engine, lazy_only, use_tools=True)
+                elif cond == 'placebo':
+                    s = PlaceboSession(engine, lazy_only, use_tools=True)
                 elif cond == 'prompt':
                     s = Session(engine, lazy_only, use_tools=False, system=CONCISE)
                 else:

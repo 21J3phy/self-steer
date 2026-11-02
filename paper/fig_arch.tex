@@ -1,0 +1,21 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners=3pt, align=center, font=\small, inner sep=5pt},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+  lbl/.style={font=\scriptsize, align=center}]
+\node[box, fill=blue!6, minimum width=3.6cm] (qwen) {\textbf{Qwen3.5-4B}\\frozen 8-bit weights};
+\node[box, fill=orange!10, below=0.55cm of qwen, minimum width=3.6cm] (stack) {\textbf{edit stack}\\add = bias patch\\ablate = rank-1 weight patch};
+\node[box, fill=gray!8, left=1.6cm of qwen, minimum width=2.6cm] (user) {user};
+\node[box, fill=green!8, right=1.9cm of qwen, minimum width=3.0cm] (claude) {\textbf{Claude} (controller)\\over MCP};
+\node[box, fill=gray!8, below=0.55cm of claude, minimum width=3.0cm] (lib) {mode library\\lazy, detailed, \ldots};
+\draw[arr] (user) -- node[above, lbl]{message} (qwen);
+\draw[arr] (qwen.south) -- node[left, lbl]{\texttt{set\_mode}} (stack.north);
+\draw[arr] (stack.east) to[bend right=10] node[below, lbl]{} (qwen.south east);
+\draw[arr] (qwen.east) -- node[above, lbl]{\texttt{request\_mode}} (claude.west);
+\draw[arr] (claude.south) -- node[right, lbl]{\texttt{create\_mode}\\(CAA, seconds)} (lib.north);
+\draw[arr] (lib.west) -- node[below, lbl]{hot-loaded} (stack.east);
+\end{tikzpicture}
+\caption{Self-steering. Qwen switches edits on its own MLP layers through a tool call. Each edit is a bias or rank-1 patch next to the frozen weights, live from the next token. When no mode fits, Qwen asks the controller (Claude, over MCP), which builds one from a few contrastive examples and hands it back.}
+\label{fig:arch}
+\end{figure}

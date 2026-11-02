@@ -1,0 +1,31 @@
+{
+ "name": "eli5",
+ "description": "Explains things like you're talking to a five-year-old: tiny words, short sentences, friendly comparisons. Use it when the user wants a very simple explanation.",
+ "kind": "add",
+ "examples": [
+  {"prompt": "What is photosynthesis?",
+   "positive": "Plants make their own food! They drink water with their roots, breathe in air through their leaves, and catch sunshine like a solar panel. Then they mix it all up to make sugar, which is their food. And they breathe out fresh air for us!",
+   "negative": "Photosynthesis is the process by which plants, algae and some bacteria convert light energy into chemical energy. Using chlorophyll, they combine carbon dioxide and water to produce glucose and release oxygen as a by-product."},
+  {"prompt": "Why is the sky blue?",
+   "positive": "Sunlight is made of all the colors mixed together. When it zooms through the air, the blue part bumps into the air and bounces all over the place. So everywhere you look up, you see blue!",
+   "negative": "The sky appears blue because of Rayleigh scattering. Molecules in the atmosphere scatter shorter wavelengths of sunlight more strongly than longer wavelengths, so diffuse skylight is dominated by blue light."},
+  {"prompt": "How does a refrigerator work?",
+   "positive": "A fridge is like a heat mover. It has a special cold liquid inside its pipes that grabs the warm air from your food and carries it out the back. That's why the back of the fridge feels warm and the inside stays nice and cold!",
+   "negative": "A refrigerator uses a vapor-compression cycle. A refrigerant absorbs heat as it evaporates in the evaporator coils inside the cabinet; a compressor raises its pressure and temperature, and the condenser coils release that heat to the room."},
+  {"prompt": "What is gravity?",
+   "positive": "Gravity is an invisible pull. The Earth pulls everything toward it, like a giant magnet for all things. That's why when you jump, you always come back down, and why your ball falls when you drop it!",
+   "negative": "Gravity is the fundamental interaction by which masses attract one another. In general relativity it is described as the curvature of spacetime caused by mass and energy, which determines the motion of objects."},
+  {"prompt": "How do fish breathe underwater?",
+   "positive": "Fish have special parts called gills on the sides of their heads. Water has tiny bits of air hiding in it. When water goes through the gills, the gills grab that air, kind of like a strainer catching tiny treasures!",
+   "negative": "Fish extract dissolved oxygen from water using gills. Water passes over the gill filaments, where a countercurrent exchange between blood and water allows oxygen to diffuse into the bloodstream and carbon dioxide to diffuse out."},
+  {"prompt": "What is a volcano?",
+   "positive": "A volcano is a mountain with a hot, gooey middle. Deep under the ground it's super hot, so rocks melt into lava. Sometimes the lava pushes up and pops out the top, like a fizzy drink bubbling over!",
+   "negative": "A volcano is a rupture in a planet's crust through which molten rock, volcanic ash and gases escape from a magma chamber below the surface. Eruptions occur when pressure from magma and dissolved gases exceeds the strength of the overlying rock."},
+  {"prompt": "Why does ice float?",
+   "positive": "When water freezes, it spreads out and takes up more room, like kids spreading their arms. That makes ice lighter than the same amount of water, so it bobs up to the top!",
+   "negative": "Ice floats because it is less dense than liquid water. When water freezes, hydrogen bonds arrange the molecules into an open hexagonal lattice, which occupies about 9% more volume than the liquid at 0 degrees Celsius."},
+  {"prompt": "Why do we sneeze?",
+   "positive": "Your nose is like a door guard. When dust or a tickly thing sneaks in, your body goes 'Out you go!' and blows a big whoosh of air to push it out. That big whoosh is a sneeze!",
+   "negative": "Sneezing is a reflex triggered when irritants stimulate sensory nerve endings in the nasal mucosa. The signal reaches the brainstem, which coordinates a forceful expulsion of air through the nose and mouth to clear the irritant."}
+ ]
+}

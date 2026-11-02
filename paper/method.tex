@@ -1,0 +1,32 @@
+\section{System}
+\label{sec:system}
+
+\paragraph{Model.} We use Qwen3.5-4B, 8-bit affine quantization in MLX (\texttt{mlx-community/Qwen3.5-4B-8bit}, revision \texttt{1704583a}), in non-thinking mode with Qwen's recommended sampling: temperature 0.7, top-$p$ 0.8, top-$k$ 20, presence penalty 1.5, and at most 1024 new tokens per turn. The model has 32 decoder layers. Every fourth layer is full attention (a KV cache), and the other 24 are Gated DeltaNet linear-attention layers (a recurrent state). Each layer has a dense SwiGLU MLP with 9216 neurons, so there are 294{,}912 MLP neurons in total.
+
+\paragraph{Edits are patches on \texttt{down\_proj}.} Each layer's MLP output $o_\ell = W^{\text{down}}_\ell\, a_\ell$ is added directly to the residual stream. We wrap every \texttt{down\_proj} once and support two kinds of edit, both applied in float32 and cast back once:
+\begin{itemize}
+\item \textbf{add}: $o_\ell \leftarrow o_\ell + v_\ell$. This is exactly a bias patch on $W^{\text{down}}_\ell$. The Lazy Genius recipe is of this kind: $v_\ell=\sum_n d_n\, m_\ell\, w_{\ell,n}/\lVert w_{\ell,n}\rVert$, summed over its 344 (layer, neuron, dose) entries, where $w_{\ell,n}$ is the neuron's write column and $m_\ell$ the median residual norm at layer $\ell$. Vectors built from contrastive activation differences (CAA) are also of this kind.
+\item \textbf{ablate}: $o_\ell \leftarrow o_\ell - (o_\ell\!\cdot\! u_\ell)\,u_\ell$ for a unit direction $u_\ell$. This equals the rank-1 weight edit $W^{\text{down}}_\ell \leftarrow (I-u_\ell u_\ell^\top)W^{\text{down}}_\ell$. It is the same kind of edit Weight-Space Programming applied by hand~\cite{takehi2026wsp}, here applied next to the frozen quantized weights instead of rewriting them.
+\end{itemize}
+An edit can carry a \emph{window}: it is active only for the first $N$ answer positions, counted from the position that predicts the first answer token. Lazy Genius uses $N{=}6$.
+
+\paragraph{Switching between tokens.} The decode loop tells the edit stack the absolute positions of each forward pass. MLX builds its graph when the model is called from Python, so an edit changed between two forward passes applies to the very next prediction, with no reload and no recompilation. We wrote our own prefill and decode loop on a persistent cache rather than using \texttt{stream\_generate}, for two reasons. \texttt{stream\_generate} computes one token ahead, so an edit changed after token $n$ would first affect token $n{+}2$. It also resets the penalty history on every call. The loop reproduces \texttt{mlx\_lm} 0.31.3's prefill chunking, logits processors and Transformers-order sampler exactly (\S\ref{sec:e1}).
+
+\paragraph{Sessions and memory.} A session keeps an append-only \emph{token ledger}: exactly the tokens the model has read or written, including its own tool calls and the tool responses. New turns append rendered suffixes in Qwen's chat format instead of re-rendering the whole conversation, so the cache stays valid. Qwen's template drops earlier turns' empty \texttt{<think>} blocks when a chat is re-rendered, so re-rendering would invalidate the cache on every turn. After an edit has written steered states into the cache, the session follows one of two policies:
+\begin{itemize}
+\item \texttt{keep}: leave the steered states in place. This costs nothing.
+\item \texttt{reprefill}: before the next user turn, re-encode the whole ledger with no edits, so the model's memory of the conversation is the unedited model's.
+\end{itemize}
+The linear-attention state cannot be trimmed, so sessions can also be snapshotted and forked with a deep copy of the cache.
+
+\paragraph{The model's tools.} Qwen sees a \texttt{set\_mode(name, scope)} tool and a system prompt listing its modes, each with a one-line description of when it helps. When the decoder samples \texttt{</tool\_call>}, the session parses the call with \texttt{mlx\_lm}'s Qwen3-Coder parser and arms the edit for the next answer (\texttt{scope=answer}) or until changed (\texttt{conversation}). It then appends the tool response and lets Qwen continue. Scopes are enforced by the harness, not by the model. This matters because a model in lazy mode might never decide to switch lazy mode off. With a controller connected, Qwen also sees \texttt{request\_mode(description)}, which asks the controller to build a mode it does not have.
+
+\paragraph{The controller (Claude over MCP).} One process holds the model on a single worker thread. It exposes an MCP endpoint and a web chat. The controller tools are:
+\begin{itemize}
+\item \texttt{wait\_for\_request} and \texttt{fulfill\_request};
+\item \texttt{create\_mode} (from contrastive examples) and \texttt{try\_mode} (normal vs.\ mode, side by side);
+\item \texttt{set\_mode}, \texttt{chat}, \texttt{save\_mode}, \texttt{status} and \texttt{transcript}.
+\end{itemize}
+While Qwen waits on a request, the worker keeps processing other jobs, so the controller's \texttt{create\_mode} and \texttt{try\_mode} calls can use the model without deadlock. The controller in this paper is Claude (Opus 5.5) running in Claude Code.
+
+\paragraph{Building a mode in seconds (CAA).} \texttt{create\_mode} takes $K$ triples (prompt, positive answer, negative answer). For each answer we run the chat-formatted prompt plus answer through the unedited model and average the residual stream over the answer tokens after every layer. The direction at layer $\ell$ is $\delta_\ell=\overline{h^{+}_\ell}-\overline{h^{-}_\ell}$, averaged over the examples. An \textbf{add} mode uses $v_\ell=s\, m_\ell\,\delta_\ell/\lVert\delta_\ell\rVert$ on a chosen band of layers (8--16 by default), with strength $s$ in the same dose units as Lazy Genius. An \textbf{ablate} mode removes $\delta_\ell/\lVert\delta_\ell\rVert$ from those layers' MLP writes, which is a rank-1 weight edit.

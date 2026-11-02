@@ -31,8 +31,8 @@ def put(cond, row, extra=None):
     if seed not in a.seeds:
         return
     cells[(cond, row['base_question_id'], seed)] = {
-        'words': max(1, len(row['output'].split())), 'core': truth(row['core_correct']), 'whole': truth(row['correct']),
-        'fail': truth(row['completion_failure']), 'output': row['output'], **(extra or {})}
+        'words': max(1, len(row['output'].split()) if 'output' in row else int(row['word_count'])), 'core': truth(row['core_correct']), 'whole': truth(row['correct']),
+        'fail': truth(row['completion_failure']), **(extra or {})}
 
 
 for r in json.loads(a.old.read_text()):
