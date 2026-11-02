@@ -261,6 +261,18 @@ class Session:
                    generated_tokens=result.generated_tokens, seconds=result.seconds)
         return result
 
+    def fork(self, cache_policy=None, on_event=None):
+        """An independent copy of this conversation (cache included)."""
+        twin = Session(self.engine, self.library, use_tools=self.use_tools, allow_requests=self.allow_requests,
+                       system=self.extra_system, cache_policy=cache_policy or self.cache_policy,
+                       sampling=self.sampling, board=self.board, pump=self.pump, on_event=on_event,
+                       max_tool_calls=self.max_tool_calls, request_timeout=self.request_timeout)
+        twin.runner.restore(self.runner.snapshot())
+        twin.ledger, twin.pending = list(self.ledger), list(self.pending)
+        twin.armed = [Armed(**a.__dict__) for a in self.armed]
+        twin.dirty, twin.turns = self.dirty, list(self.turns)
+        return twin
+
     def transcript(self):
         return [t.public() for t in self.turns]
 
