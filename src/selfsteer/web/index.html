@@ -102,9 +102,7 @@ $('#f').onsubmit = async e => {
   const r = await fetch('/api/chat', {method:'POST', body: JSON.stringify({message: q})});
   if (!r.ok) chip(esc((await r.json()).error || 'busy'));
 };
-const es = new EventSource('/api/events');
-es.onmessage = ev => {
-  const e = JSON.parse(ev.data);
+function handle(e) {
   if (e.type === 'user') { const b = bubble('user', 'you'); b.querySelector('.body').textContent = e.text; cur = null; }
   else if (e.type === 'steer') { e.modes.forEach(m => { const w = e.windows[m]; chip(`⚡ <b>${esc(m)}</b> edit live ${w ? 'for the first ' + w + ' tokens' : 'for this answer'}`, 'edit', color(m)); }); cur = null; }
   else if (e.type === 'token') {
@@ -126,8 +124,14 @@ es.onmessage = ev => {
     cur = null; refresh();
   }
   else if (e.type === 'reset') { refresh(); }
-};
-refresh();
+}
+(async () => {
+  const past = await (await fetch('/api/history')).json();
+  past.forEach(handle);
+  const es = new EventSource('/api/events');
+  es.onmessage = ev => handle(JSON.parse(ev.data));
+  refresh();
+})();
 </script>
 </body>
 </html>

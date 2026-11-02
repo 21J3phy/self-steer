@@ -36,25 +36,29 @@ You can also set_mode on the live chat yourself, or chat with Qwen."""
 
 
 class Hub:
-    def __init__(self, engine, library, cache_policy='keep'):
+    def __init__(self, engine, library, cache_policy='keep', request_timeout=600.0):
         self.engine, self.library = engine, library
         self.worker = ModelWorker()
         self.board = RequestBoard()
         self.subscribers: set[asyncio.Queue] = set()
         self.loop: asyncio.AbstractEventLoop | None = None
         self.cache_policy = cache_policy
+        self.request_timeout = request_timeout
         self.busy = False
+        self.history: list[dict] = []
         self.session = self.new_session(cache_policy)
 
     def new_session(self, cache_policy=None):
         self.cache_policy = cache_policy or self.cache_policy
+        self.history = []
         self.session = Session(self.engine, self.library, use_tools=True, allow_requests=True,
                                board=self.board, pump=self.worker.pump, on_event=self.broadcast,
-                               cache_policy=self.cache_policy)
+                               cache_policy=self.cache_policy, request_timeout=self.request_timeout)
         self.broadcast({'type': 'reset', 'cache_policy': self.cache_policy, 't': time.time()})
         return self.session
 
     def broadcast(self, event):
+        self.history.append(event)
         if self.loop is None:
             return
         for q in list(self.subscribers):
@@ -178,6 +182,10 @@ def build_server(hub: Hub) -> MCPServer:
     async def api_state(request: Request):
         hub.loop = hub.loop or asyncio.get_running_loop()
         return JSONResponse(hub.state())
+
+    @mcp.custom_route('/api/history', methods=['GET'])
+    async def api_history(request: Request):
+        return JSONResponse(json.loads(json.dumps(hub.history, default=str)))
 
     @mcp.custom_route('/api/events', methods=['GET'])
     async def api_events(request: Request):
