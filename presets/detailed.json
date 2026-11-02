@@ -1,0 +1,10 @@
+{
+ "name": "detailed",
+ "derive": {
+  "from": "lazy.json",
+  "sign": -1.0
+ },
+ "window": 6,
+ "author": "builtin",
+ "description": "Longer, more thorough answers with more explanation. Good when the user wants a walkthrough, a tutorial, or the reasoning behind an answer."
+}
