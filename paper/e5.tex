@@ -4,10 +4,10 @@
 \paragraph{The request loop.} In the live web chat, the user wrote: ``Explain how vaccines work so my five-year-old would get it. If you do not have a mode for talking to little kids, ask Claude to build one first.''
 \begin{enumerate}
 \item Qwen called \texttt{request\_mode} with its own description of the mode it wanted (``Explain complex scientific concepts using simple analogies, short sentences, and engaging language suitable for a five-year-old child\ldots'').
-\item Claude, the controller in this paper's Claude Code session, received the request through \texttt{wait\_for\_request}. It called \texttt{create\_mode} with 8 contrastive examples it had written (kid-style vs.\ textbook answers to other questions), checked the result with one \texttt{try\_mode}, and called \texttt{fulfill\_request}.
+\item Claude, the controller in this paper's Claude Code session, received the request through \texttt{wait\_for\_request}. It called \texttt{create\_mode} with 8 contrastive examples it had written beforehand for this evaluation (kid-style vs.\ textbook answers to other questions), checked the result with one \texttt{try\_mode}, and called \texttt{fulfill\_request}.
 \item Qwen's tool call returned. Qwen called \texttt{set\_mode(eli5)} and answered under the new edit: a 170-word story about an ``Immune Army'' that remembers a germ's claw.
 \end{enumerate}
-The request was fulfilled \DemoReqTwo\,s after Qwen asked, and the whole turn took \DemoTurnTwo\,s (Figure~\ref{fig:demo}).
+The request was fulfilled \DemoReqTwo\,s after Qwen asked, and the whole turn took \DemoTurnTwo\,s (Figure~\ref{fig:demo}). Because the examples were prepared in advance, this time covers building, checking and returning the edit, not writing the examples.
 
 That was the second run. In the first, Claude's initial strength (0.3) made Qwen degenerate in \texttt{try\_mode}. Claude rebuilt the mode at 0.08 and fulfilled it after \DemoReqOne\,s. Without the explicit request in the message, Qwen did not ask for a new mode. It chose the built-in \texttt{detailed} mode and wrote a kid-friendly answer through prompting alone.
 

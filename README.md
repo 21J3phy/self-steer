@@ -15,7 +15,7 @@
 |---|---|
 | Reproduces published Lazy Genius generations | 16 of 16 token-identical |
 | Cost of switching an edit / decode slowdown | ~1 µs / none measurable |
-| Claude builds a new mode from 8 examples | 3.9 s of compute; 15.6 s from Qwen's request to a live edit |
+| Claude builds a new mode from 8 examples | 3.9 s of compute; 15.6 s from Qwen's request to a live edit (examples written in advance) |
 | Memory after switching edits mid-conversation | 24 of 24 recall; KL to a clean cache 0.0004 nats |
 
 **Who should decide when to switch on the 344-neuron `lazy` edit?** This was tested on 96 sealed questions × 2 seeds, blind-graded.
