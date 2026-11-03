@@ -173,3 +173,19 @@ Every outcome is reported whatever its direction. Deviations from this plan are 
 **Then:**
 - one read checks that the fixed edit no longer lowers the good openings after the tool call;
 - the pre-registered evaluation runs as in Addendum 2: self / self-fixed / placebo on 24 questions × seeds 17 and 29, blind-graded.
+
+---
+
+# Addendum 5 (2026-11-03, before any E7 evaluation generation)
+
+**E7 passes 7–8**, both teacher-forced reads of the 9 good placebo openings after the tool call:
+- **Pass 7, `lazy-fixed1`** = `lazy` + the digit direction projected out of all L31 MLP columns during the same 6 tokens.
+  - The digit level at L31 fell from 7.62 to 4.93, below the placebo's 5.53.
+  - The good openings got *less* likely: −1.57 per token, vs −1.30 for `lazy` and −1.15 for the placebo. Openings that restate numbers ("12:00 noon") were hurt.
+- **Pass 8, `lazy-fixed2`** = `lazy` + the 64 L31 neurons whose edit-induced change adds digit writes after the tool call, held at their placebo level (scale factor = placebo/edited mean, clipped to [0, 1]).
+  - The digit level fell to 6.72, near the bare+`lazy` level of 6.44.
+  - The good openings' log-prob did not change: −1.301 vs −1.300.
+
+**Choice.** `lazy-fixed2` goes to the evaluation. Its rule is the one the diagnosis suggests: make the edit act after the tool call as it does in a bare chat. It does so without lowering the good openings.
+
+Neither fix improved the log-prob proxy, so we expect a small effect at best. The evaluation runs as pre-registered (24 questions × seeds 17, 29; self / self-fixed / placebo; blind grading). For `self-fixed`, the tool Qwen sees is still named `lazy`, with the same description.
