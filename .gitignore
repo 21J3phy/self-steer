@@ -9,3 +9,5 @@ paper/*.log
 paper/*.out
 paper/main.pdf
 paper/_*
+remote/kaggle/
+remote/__pycache__/

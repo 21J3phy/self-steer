@@ -1,0 +1,962 @@
+[
+  {
+    "id": "round7_01",
+    "category": "python",
+    "question": "In Python, items is a list. Return a new list in which each run of consecutive equal elements is replaced by a single copy of that element, so [1, 1, 2, 1] becomes [1, 2, 1]. Equal elements that are not next to each other must all be kept. items may be empty and may contain None or 0; leave it unchanged.",
+    "answer": "[x for i, x in enumerate(items) if i == 0 or x != items[i - 1]]",
+    "rubric": "Returns a new list that keeps the first element of every run of adjacent equal elements, in order: [1, 1, 2, 1] gives [1, 2, 1], [0, 0, None, None, 0] gives [0, None, 0], and [] gives []. Removing every later repeat, for example with list(dict.fromkeys(items)) or a set, fails because it also drops equal elements that are not adjacent. Comparing the first element with items[-1] (an unguarded items[i - 1] at i = 0), pairing each element only with the next one so that the last element is lost, or dropping falsy elements such as 0 or None fails. [key for key, _ in itertools.groupby(items)], with the needed import, and other equivalent correct code are acceptable. Does not modify items.",
+    "reference": "[x for i, x in enumerate(items) if i == 0 or x != items[i - 1]]",
+    "core_rubric": "Collapses each run of adjacent equal elements to one copy, keeps non-adjacent repeats and falsy values, returns [] for [], and leaves items unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_02",
+    "category": "python",
+    "question": "In Python, return a new list that is items rotated left by k positions, so with items = [1, 2, 3, 4, 5] and k = 2 the result is [3, 4, 5, 1, 2]. k is a nonnegative integer and may be larger than the length of items; rotating by exactly the length leaves the order unchanged. If items is empty, return an empty list for any k. Leave items unchanged.",
+    "answer": "items[k % len(items):] + items[:k % len(items)] if items else []",
+    "rubric": "Returns a new list rotated left by k modulo the length: [1, 2, 3, 4, 5] gives [3, 4, 5, 1, 2] for k = 2 and also for k = 7, and an unchanged copy for k = 0 or k = 5. An empty list gives [] for any k. items[k:] + items[:k] without k % len(items) fails when k is larger than the length, and using k % len(items) without guarding the empty list fails with ZeroDivisionError. Rotating right instead of left fails. collections.deque with rotate(-k), converted back to a list, is acceptable. Does not modify items.",
+    "reference": "items[k % len(items):] + items[:k % len(items)] if items else []",
+    "core_rubric": "Returns a new list rotated left by k mod len(items), correct for k larger than the length, returning [] for an empty list, with items unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_03",
+    "category": "python",
+    "question": "In Python, shorten the string title to fit a display space of n characters, where n is an integer of at least 3. If title has n characters or fewer, return it unchanged. Otherwise return its first n - 3 characters followed by three periods, '...', so that the result is exactly n characters long.",
+    "answer": "title if len(title) <= n else title[:n - 3] + '...'",
+    "rubric": "Returns title unchanged when len(title) <= n, including a title of exactly n characters, and otherwise title[:n - 3] + '...', which is exactly n characters long: 'Hello world' with n = 8 gives 'Hello...', 'Hello' with n = 5 gives 'Hello', and 'abcd' with n = 3 gives '...'. Appending '...' to title[:n], which makes the result n + 3 characters long, fails. Using < instead of <=, so that a title of exactly n characters is shortened, fails. Using the single Unicode ellipsis character '…' instead of three periods fails. Equivalent correct code is acceptable.",
+    "reference": "title if len(title) <= n else title[:n - 3] + '...'",
+    "core_rubric": "Returns title unchanged if it has at most n characters; otherwise returns its first n - 3 characters plus '...', for a total length of exactly n.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_04",
+    "category": "python",
+    "question": "In Python, given two lists a and b, return a new list that alternates their elements: a[0], b[0], a[1], b[1], and so on. When one list is longer, its remaining elements go at the end in their original order. Either list may be empty, and the elements may include None; leave both lists unchanged.",
+    "answer": "[x for pair in zip(a, b) for x in pair] + a[len(b):] + b[len(a):]",
+    "rubric": "Returns a new list alternating a and b, starting with a, followed by the leftover elements of the longer list: [1, 2, 3] and ['x'] give [1, 'x', 2, 3], [] and [7, 8] give [7, 8], and [None, 0] and [None] give [None, None, 0]. Using zip alone fails because it drops the tail of the longer list. Using itertools.zip_longest and then removing None fails because it also removes real None elements. Simply concatenating a + b fails. zip_longest with a unique sentinel fill value that is then removed, or a loop over range(max(len(a), len(b))), is acceptable. Neither input is modified.",
+    "reference": "[x for pair in zip(a, b) for x in pair] + a[len(b):] + b[len(a):]",
+    "core_rubric": "Alternates elements of a and b starting with a, appends the longer list's remaining elements in order, keeps None elements, and leaves both lists unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_05",
+    "category": "python",
+    "question": "In Python, return the median of the list of numbers nums, which is not necessarily sorted. For an odd number of elements, the median is the middle value after sorting. For an even number, it is the mean of the two middle values, computed with true division. Return None if nums is empty, and leave nums unchanged.",
+    "answer": "None if not nums else sorted(nums)[len(nums) // 2] if len(nums) % 2 else (sorted(nums)[len(nums) // 2 - 1] + sorted(nums)[len(nums) // 2]) / 2",
+    "rubric": "Returns the middle value of the sorted numbers for an odd count and the true-division mean of the two middle values for an even count: [3, 1, 2] gives 2, [4, 1, 3, 2] gives 2.5, [1, 3] gives 2.0, and [] gives None. Taking the middle element of the unsorted list, returning one middle element for an even count, using floor division (//) for the even case, or returning the mean of all the numbers fails. Sorting nums in place with nums.sort() fails because it changes nums. statistics.median(nums) guarded for the empty list, with the needed import, is acceptable.",
+    "reference": "None if not nums else sorted(nums)[len(nums) // 2] if len(nums) % 2 else (sorted(nums)[len(nums) // 2 - 1] + sorted(nums)[len(nums) // 2]) / 2",
+    "core_rubric": "Returns the median of the sorted values (the true-division mean of the two middle values for an even count) and None for an empty list, without modifying nums.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_06",
+    "category": "python",
+    "question": "In Python, return True if the round brackets in the string s are balanced, and False otherwise. Balanced means every '(' is closed by a later ')', and no ')' appears before the '(' it would close, so ')(' is not balanced. Ignore every other character. An empty string, or a string with no brackets, counts as balanced.",
+    "answer": "all(s[:i + 1].count('(') >= s[:i + 1].count(')') for i in range(len(s))) and s.count('(') == s.count(')')",
+    "rubric": "Returns True exactly when, reading left to right, the number of ')' seen so far never exceeds the number of '(' seen so far, and the two totals are equal: '(a(b)c)', 'abc', and '' give True, while ')(', '(()', and '())(' give False. Comparing only the total counts fails because ')(' would give True. Checking only that s starts with '(' and ends with ')' fails. A loop with a running depth counter that returns False as soon as the depth goes negative, and checks for depth 0 at the end, is acceptable. Other bracket types such as [ ] are not considered.",
+    "reference": "all(s[:i + 1].count('(') >= s[:i + 1].count(')') for i in range(len(s))) and s.count('(') == s.count(')')",
+    "core_rubric": "Returns True exactly when no prefix of s has more ')' than '(' and the totals of '(' and ')' are equal; '' and strings without brackets give True.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_07",
+    "category": "python",
+    "question": "In Python, given a nonnegative integer seconds, return the duration as a string of the form H:MM:SS, where minutes and seconds always have two digits and hours are written without leading zeros. Hours must not wrap around at 24, so 90000 seconds gives '25:00:00', and 0 gives '0:00:00'.",
+    "answer": "f'{seconds // 3600}:{seconds % 3600 // 60:02d}:{seconds % 60:02d}'",
+    "rubric": "Returns hours, then two-digit minutes and two-digit seconds, separated by colons: 0 gives '0:00:00', 59 gives '0:00:59', 3725 gives '1:02:05', 86399 gives '23:59:59', and 90000 gives '25:00:00'. str(datetime.timedelta(seconds=seconds)) fails because it writes durations of a day or more as '1 day, 1:00:00'. Wrapping the hours at 24, for example with time.strftime, fails. Padding the hours to two digits ('01:02:05') or omitting the zero padding of minutes and seconds ('1:2:5') fails. Equivalent code using divmod or % formatting is acceptable.",
+    "reference": "f'{seconds // 3600}:{seconds % 3600 // 60:02d}:{seconds % 60:02d}'",
+    "core_rubric": "Returns H:MM:SS with unpadded, unwrapped hours and two-digit minutes and seconds, such as '0:00:00' for 0 and '25:00:00' for 90000.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_08",
+    "category": "python",
+    "question": "In Python, return True if the strings a and b are anagrams of each other, meaning they contain exactly the same characters, each the same number of times, in any order. The comparison is case-sensitive, and a space is a character like any other. Two empty strings are anagrams.",
+    "answer": "sorted(a) == sorted(b)",
+    "rubric": "Returns True exactly when a and b contain the same characters with the same counts: 'listen' and 'silent' give True, 'a b' and 'b a' give True, '' and '' give True, while 'aab' and 'abb', 'aa' and 'a', 'Listen' and 'silent', and 'ab c' and 'abc' give False. set(a) == set(b) fails because it ignores how many times each character occurs. Lowercasing or removing spaces before comparing fails. Comparing only the lengths fails. collections.Counter(a) == collections.Counter(b), with the needed import, is acceptable.",
+    "reference": "sorted(a) == sorted(b)",
+    "core_rubric": "Returns True exactly when a and b have the same characters with the same counts, compared case- and space-sensitively; two empty strings give True.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_09",
+    "category": "python",
+    "question": "In Python, n is a nonnegative integer. Return n rounded to the nearest multiple of 10, as an integer. A value ending in 5 is exactly halfway and must round up, so 25 gives 30 and 15 gives 20.",
+    "answer": "(n + 5) // 10 * 10",
+    "rubric": "Returns an int that is the nearest multiple of 10, with values ending in 5 rounding up: 0 gives 0, 4 gives 0, 5 gives 10, 25 gives 30, 44 gives 40, 45 gives 50, and 995 gives 1000. round(n, -1) and round(n / 10) * 10 fail because Python rounds exact halves to the even neighbor, so 25 gives 20. Always rounding down (n // 10 * 10) or always rounding up fails. Code that returns a float such as 30.0 fails because an integer is requested. Equivalent integer code, such as adding 10 to n - n % 10 when n % 10 >= 5, is acceptable.",
+    "reference": "(n + 5) // 10 * 10",
+    "core_rubric": "Returns the nearest multiple of 10 as an int, rounding values that end in 5 up (25 gives 30).",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_10",
+    "category": "python",
+    "question": "In Python, host is a string. If host starts with the exact lowercase prefix 'www.', return host with that one prefix removed; otherwise return host unchanged. Remove the prefix at most once and never change any other part of the string, so 'www.www.site' gives 'www.site' and 'wiki.org' stays 'wiki.org'.",
+    "answer": "host[4:] if host.startswith('www.') else host",
+    "rubric": "Removes exactly one leading 'www.' and nothing else: 'www.example.com' gives 'example.com', 'www.www.site' gives 'www.site', 'www.' gives '', and 'wiki.org', 'example.www.com', and 'WWW.site' are unchanged. host.lstrip('www.') fails because lstrip removes any run of leading w and . characters, so 'wiki.org' becomes 'iki.org'. host.replace('www.', ''), with or without a count of 1, fails because it can remove an occurrence that is not at the start. Slicing host[4:] without checking the prefix fails. host.removeprefix('www.') (Python 3.9 and later) is acceptable.",
+    "reference": "host[4:] if host.startswith('www.') else host",
+    "core_rubric": "Removes a single leading lowercase 'www.' when present and otherwise returns host unchanged, without touching any other occurrence or character.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_11",
+    "category": "python",
+    "question": "In Python, meetings is a list of (start, end) tuples of integers, each with start < end, in no particular order. A meeting occupies the times from start up to but not including end, so (9, 10) and (10, 11) do not overlap. Return True if any two meetings overlap and False otherwise. meetings may be empty; leave it unchanged.",
+    "answer": "any(b[0] < a[1] for a, b in zip(sorted(meetings), sorted(meetings)[1:]))",
+    "rubric": "Returns True exactly when some pair of meetings shares time, with end times exclusive: [(9, 10), (10, 11)] gives False, [(9, 11), (10, 12)] gives True, [(10, 11), (9, 10), (11, 12)] gives False, [(1, 10), (2, 3), (4, 5)] gives True, and [] or a single meeting gives False. Sorting by start time and comparing each meeting with the next is acceptable, and so is checking every pair with a[0] < b[1] and b[0] < a[1]. Treating touching meetings as overlapping (<= instead of <), comparing neighbors without sorting first, or only looking for duplicate tuples fails. Sorting meetings in place fails because it changes the list.",
+    "reference": "any(b[0] < a[1] for a, b in zip(sorted(meetings), sorted(meetings)[1:]))",
+    "core_rubric": "Returns True exactly when two meetings share time, with exclusive end times so touching meetings do not overlap; [] gives False and meetings is unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_12",
+    "category": "python",
+    "question": "In Python, name is a nonempty file name with no directory part. Return its extension in lowercase without the dot, meaning the part after the last dot, so 'photo.JPG' gives 'jpg' and 'archive.tar.gz' gives 'gz'. Return '' when there is no extension, including for names with no dot, names that end in a dot, and names whose only dots are at the start, such as '.bashrc'.",
+    "answer": "name.rpartition('.')[2].lower() if '.' in name.lstrip('.') else ''",
+    "rubric": "Returns the lowercased text after the last dot, or '': 'photo.JPG' gives 'jpg', 'archive.tar.gz' gives 'gz', 'README' gives '', 'notes.' gives '', '.bashrc' gives '', and '.config.json' gives 'json'. name.split('.')[-1] fails because it returns the whole name when there is no dot and 'bashrc' for '.bashrc'. Splitting at the first dot, which gives 'tar.gz', fails. Forgetting to lowercase, or including the dot, fails. os.path.splitext(name)[1][1:].lower(), with the needed import, is acceptable because splitext also ignores leading dots.",
+    "reference": "name.rpartition('.')[2].lower() if '.' in name.lstrip('.') else ''",
+    "core_rubric": "Returns the lowercased part after the last dot, without the dot, or '' for no dot, a trailing dot, or only leading dots such as '.bashrc'.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_13",
+    "category": "shell_git",
+    "question": "In a Unix shell, print every line of story.txt that contains cat as a whole word, matched case-sensitively. A whole word means cat is not directly preceded or followed by a letter, digit, or underscore, so 'a cat.' and '(cat)' count, but 'concat', 'cats', 'cat_1', and 'Cat' do not. Keep the original order and leave story.txt unchanged.",
+    "answer": "grep -w 'cat' story.txt",
+    "rubric": "Uses grep -w cat story.txt (quoting optional; -F acceptable), which prints, in order, each line where cat appears with no letter, digit, or underscore on either side, including at the start or end of a line or next to punctuation such as 'cat.' or '(cat)'. grep '\\<cat\\>' story.txt is also acceptable. Plain grep cat fails because it also prints lines that contain only concat or cats. grep ' cat ' fails because it misses cat at the start or end of a line or next to punctuation. Adding -i fails because it also matches Cat. Printing a count with -c fails. grep's nonzero exit status when no line matches is acceptable.",
+    "reference": "grep -w 'cat' story.txt",
+    "core_rubric": "Prints, in order, exactly the lines that contain cat as a case-sensitive whole word (not inside concat, cats, or cat_1); story.txt is unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_14",
+    "category": "shell_git",
+    "question": "In a Unix shell, add the line 'backup finished' as a new last line of log.txt, keeping every existing line of the file exactly as it is. log.txt already exists and ends with a newline, and the new line must also end with a newline.",
+    "answer": "echo 'backup finished' >> log.txt",
+    "rubric": "Uses echo 'backup finished' >> log.txt, or an equivalent append such as printf 'backup finished\\n' >> log.txt or echo 'backup finished' | tee -a log.txt (tee also printing the line on the screen is harmless). A single > fails because it replaces the whole file with the new line. tee without -a fails for the same reason. echo -n, or printf without \\n, fails because the new line would not end with a newline.",
+    "reference": "echo 'backup finished' >> log.txt",
+    "core_rubric": "Appends 'backup finished' followed by a newline to the end of log.txt (for example with >>), leaving the existing contents unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_15",
+    "category": "shell_git",
+    "question": "In a Unix shell, numbers.txt contains one integer per line, some possibly negative, and the file may be empty. Print the sum of all the integers as a single number, printing 0 if the file is empty. Leave numbers.txt unchanged.",
+    "answer": "awk '{ total += $1 } END { print total + 0 }' numbers.txt",
+    "rubric": "Uses awk to add the first field of every line and prints the total in a way that gives 0 for an empty file, such as awk '{ s += $1 } END { print s + 0 }' numbers.txt or awk 'BEGIN { s = 0 } { s += $1 } END { print s }' numbers.txt. Negative numbers must be added correctly, so 3 and -5 give -2. awk '{ s += $1 } END { print s }' fails because it prints an empty line for an empty file. paste -sd+ numbers.txt | bc fails because it prints nothing for an empty file. Counting lines with wc -l fails.",
+    "reference": "awk '{ total += $1 } END { print total + 0 }' numbers.txt",
+    "core_rubric": "Prints the sum of the integers in numbers.txt, including negative values, and prints 0 for an empty file; numbers.txt is unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_16",
+    "category": "shell_git",
+    "question": "In a Unix shell, from the directory that contains the folder site, create a gzip-compressed tar archive named site.tar.gz that contains site and everything inside it, including hidden files. Do not change, move, or delete site.",
+    "answer": "tar -czf site.tar.gz site",
+    "rubric": "Uses tar -czf site.tar.gz site; equivalents such as tar czf site.tar.gz site/, tar -zcf site.tar.gz site, or adding v to list the files are acceptable. c creates the archive, z compresses it with gzip, and f must be followed by the archive name. Omitting z fails because the archive is not compressed. Putting the folder name right after f, as in tar -czf site site.tar.gz, fails. Using x (extract) instead of c fails, and so does making a zip file with the .tar.gz name.",
+    "reference": "tar -czf site.tar.gz site",
+    "core_rubric": "Creates site.tar.gz as a gzip-compressed tar archive containing the site directory and all of its contents, leaving site unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_17",
+    "category": "shell_git",
+    "question": "In a Unix shell, print today's date in the system's local time zone in the form YYYY-MM-DD, such as 2027-03-09, with a four-digit year and a two-digit month and day. Print only the date.",
+    "answer": "date +%Y-%m-%d",
+    "rubric": "Uses date +%Y-%m-%d (quoting optional, for example date '+%Y-%m-%d') or date +%F, which prints the local date with a four-digit year, then the two-digit month, then the two-digit day. Plain date fails because it prints the weekday, time, and time zone. Swapping the month and day (+%Y-%d-%m), using a two-digit year (+%y-%m-%d), or using +%D (MM/DD/YY) fails. Adding -u fails because it uses UTC instead of the local time zone.",
+    "reference": "date +%Y-%m-%d",
+    "core_rubric": "Prints only the current local date as YYYY-MM-DD (for example with date +%Y-%m-%d or date +%F).",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_18",
+    "category": "shell_git",
+    "question": "In a Unix shell, run the executable script ./build.sh with the environment variable MODE set to release for that one command only. MODE is not set in the current shell, and it must still be unset there after the command finishes. Give the command.",
+    "answer": "MODE=release ./build.sh",
+    "rubric": "Uses MODE=release ./build.sh, which puts MODE in the environment of that one command only. env MODE=release ./build.sh is equivalent, and so is (export MODE=release; ./build.sh), because the parentheses run the export in a subshell. export MODE=release followed by ./build.sh in the current shell fails because MODE stays set afterward. MODE=release; ./build.sh fails because the separate assignment is not exported, so the script does not see it, and MODE stays set in the shell. Passing MODE=release as an argument, as in ./build.sh MODE=release, fails.",
+    "reference": "MODE=release ./build.sh",
+    "core_rubric": "Runs ./build.sh with MODE=release in that command's environment only (for example MODE=release ./build.sh), so the script sees MODE and the current shell still has MODE unset.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_19",
+    "category": "shell_git",
+    "question": "In a Git repository, you are on a branch named master. Rename it to main, so that afterward master no longer exists, main points to the same commit, and you are on main. Do not create a commit or change any files. Give the command.",
+    "answer": "git branch -m main",
+    "rubric": "Uses git branch -m main or git branch -m master main (--move is the long form, and -M is acceptable here because no branch named main exists). git checkout -b main or git switch -c main fails because it creates a second branch and leaves master in place. git branch main or git branch -c main fails for the same reason. Renaming a branch on a remote is not requested; mentioning git push as an optional later step is harmless.",
+    "reference": "git branch -m main",
+    "core_rubric": "Renames master to main in place (git branch -m), leaving HEAD on main at the same commit and no branch named master.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_20",
+    "category": "shell_git",
+    "question": "In a Git repository, the most recent commit on main has already been pushed and shared with others. Undo the changes it introduced by adding a new commit, without rewriting or removing any existing commit. The working tree is clean, the commit is not a merge, and the default commit message is fine. Give the command.",
+    "answer": "git revert HEAD",
+    "rubric": "Uses git revert HEAD (adding --no-edit to skip the editor is acceptable), which creates a new commit whose changes undo the last commit and keeps the original commit in the history. git reset --hard HEAD~1 or git reset --soft HEAD~1 fails because it removes the pushed commit from the branch, rewriting history. git commit --amend fails because it replaces the last commit. git checkout HEAD~1 fails because it only moves HEAD and makes no commit. Pushing afterward is not requested; mentioning it is harmless.",
+    "reference": "git revert HEAD",
+    "core_rubric": "Uses git revert HEAD to add a new commit that undoes the last commit's changes, keeping the original commit in history.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_21",
+    "category": "shell_git",
+    "question": "In a Git repository that has no remotes yet, add a remote named upstream with the URL https://example.com/team/app.git. Do not fetch, push, or change any other setting. Give the command.",
+    "answer": "git remote add upstream https://example.com/team/app.git",
+    "rubric": "Uses git remote add upstream https://example.com/team/app.git, with the remote name before the URL. git remote set-url upstream ... fails because the remote does not exist yet. Using the name origin instead of upstream fails. Swapping the name and the URL fails. Adding -f fails because it fetches immediately, which the question forbids.",
+    "reference": "git remote add upstream https://example.com/team/app.git",
+    "core_rubric": "Adds a remote named upstream with the URL https://example.com/team/app.git (git remote add upstream <URL>), without fetching.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_22",
+    "category": "shell_git",
+    "question": "In a Git repository, you are on main with a clean working tree. The branch hotfix has several commits that main does not have. Copy only the change made by the latest commit on hotfix onto main as one new commit, without bringing in the other hotfix commits. Give the command.",
+    "answer": "git cherry-pick hotfix",
+    "rubric": "Uses git cherry-pick hotfix, or git cherry-pick with the full or abbreviated hash of the latest hotfix commit, which applies only that commit's change to main as a new commit. git merge hotfix or git rebase hotfix fails because it brings in every hotfix commit. git cherry-pick hotfix~1 fails because it picks an earlier commit. git checkout hotfix or git switch hotfix fails because it moves to the other branch instead of adding a commit to main.",
+    "reference": "git cherry-pick hotfix",
+    "core_rubric": "Applies only the latest hotfix commit's change to main as one new commit (git cherry-pick hotfix), without the other hotfix commits.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_23",
+    "category": "shell_git",
+    "question": "In a Git repository, you ran git merge feature while on main, and the merge stopped with conflicts. Before the merge, there were no uncommitted changes. Cancel the merge so that main, the index, and the working tree are exactly as they were before you ran it. Give the command.",
+    "answer": "git merge --abort",
+    "rubric": "Uses git merge --abort, which ends the merge and restores the pre-merge state. git reset --merge is an acceptable equivalent, and so is git reset --hard HEAD in this case because there were no uncommitted changes before the merge. git commit -a fails because it records the conflicted files, including conflict markers, as a merge commit. git merge --continue fails because the conflicts are unresolved. git checkout --theirs . or git checkout --ours . fails because it only picks file versions and leaves the merge in progress.",
+    "reference": "git merge --abort",
+    "core_rubric": "Cancels the conflicted merge (git merge --abort, or an equivalent reset) so HEAD, the index, and the working tree return to their pre-merge state.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_24",
+    "category": "shell_git",
+    "question": "In a Git repository, list the commits that are reachable from the branch feature but not from the branch main, one commit per line in git log's --oneline format. Commits that the two branches share must not be listed. Do not change the repository.",
+    "answer": "git log --oneline main..feature",
+    "rubric": "Uses git log --oneline main..feature, or an equivalent such as git log --oneline feature ^main or git log --oneline feature --not main. Lines appear in git log's default order. git log --oneline feature fails because it also lists the commits shared with main. The reversed range feature..main fails because it lists main's commits that feature lacks. The three-dot range main...feature fails because it also lists main's own new commits. git diff main feature fails because it prints file changes instead of commits.",
+    "reference": "git log --oneline main..feature",
+    "core_rubric": "Lists, one per line in --oneline format, exactly the commits reachable from feature and not from main (git log --oneline main..feature).",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_25",
+    "category": "arithmetic_time",
+    "question": "A restaurant bill is $80.00 before tax. Sales tax is 8% of the $80.00, and I want to leave a tip of 20% of the pre-tax amount. What is the total I pay, including tax and tip?",
+    "answer": "$102.40: the tax is $6.40, the tip is $16.00, and $80.00 + $6.40 + $16.00 = $102.40.",
+    "rubric": "Gives $102.40. Both percentages are of the $80.00 pre-tax amount: tax $6.40 and tip $16.00. Computing the tip on the after-tax amount ($86.40 × 20% = $17.28, total $103.68) fails, as does leaving out the tax or the tip. If working is shown, it must be consistent with $6.40 and $16.00.",
+    "reference": "$102.40: the tax is $6.40, the tip is $16.00, and $80.00 + $6.40 + $16.00 = $102.40.",
+    "core_rubric": "Gives a total of $102.40.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_26",
+    "category": "arithmetic_time",
+    "question": "My phone is at 35% battery. It charges at 1 percentage point per minute until it reaches 80%, and then at 0.5 percentage points per minute until it is full at 100%. How long will it take to go from 35% to 100%? Give the answer in hours and minutes.",
+    "answer": "1 hour 25 minutes: 45 minutes to go from 35% to 80%, then 40 minutes to go from 80% to 100%.",
+    "rubric": "Gives 1 hour 25 minutes. The first stage takes 45 minutes (45 points at 1 per minute) and the second takes 40 minutes (20 points at 0.5 per minute). Also stating 85 minutes is fine, but 85 minutes alone does not give the requested hours-and-minutes form and fails. Using one rate for the whole charge (65 or 130 minutes), or 10 minutes for the second stage (multiplying 20 by 0.5 instead of dividing), fails.",
+    "reference": "1 hour 25 minutes: 45 minutes to go from 35% to 80%, then 40 minutes to go from 80% to 100%.",
+    "core_rubric": "Gives 1 hour 25 minutes.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_27",
+    "category": "arithmetic_time",
+    "question": "March 1, 2027 is a Monday. How many Fridays are there in March 2027, and what are their dates?",
+    "answer": "Four: March 5, 12, 19, and 26.",
+    "rubric": "Gives 4 Fridays: March 5, 12, 19, and 26, 2027. March has 31 days, so only Monday, Tuesday, and Wednesday occur five times; 5 Fridays fails, as does any list with a wrong date. If working is shown, it must be consistent with the first Friday being March 5.",
+    "reference": "Four: March 5, 12, 19, and 26.",
+    "core_rubric": "Gives four Fridays: March 5, 12, 19, and 26, 2027.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_28",
+    "category": "arithmetic_time",
+    "question": "A train 400 meters long travels at a constant 72 kilometers per hour through a tunnel 2 kilometers long. How long does it take from the moment the front of the train enters the tunnel until the rear of the train leaves it?",
+    "answer": "120 seconds (2 minutes): the train must travel 2,000 + 400 = 2,400 meters, and 72 km/h is 20 meters per second.",
+    "rubric": "Gives 120 seconds, or equivalently 2 minutes. The front must travel the tunnel length plus the train's length, 2,400 meters, and 72 km/h is 20 m/s. 100 seconds (ignoring the train's length) or 80 seconds (subtracting it) fails. If working is shown, it must be consistent with 2,400 meters and 20 m/s.",
+    "reference": "120 seconds (2 minutes): the train must travel 2,000 + 400 = 2,400 meters, and 72 km/h is 20 meters per second.",
+    "core_rubric": "Gives 120 seconds (2 minutes).",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_29",
+    "category": "arithmetic_time",
+    "question": "I have 300 milliliters of a drink that is 40% juice by volume, and the rest is water. I add 100 milliliters of water and mix. What percentage of the new mixture is juice?",
+    "answer": "30%: the 120 milliliters of juice is now in 400 milliliters of drink.",
+    "rubric": "Gives 30%. The juice stays at 0.40 × 300 = 120 mL, and the total becomes 400 mL. Any other percentage fails, including 40% (ignoring the added water) and 25% (the share of added water, 100 / 400). Giving 120 mL without the percentage fails. If working is shown, it must be consistent with 120 mL in 400 mL.",
+    "reference": "30%: the 120 milliliters of juice is now in 400 milliliters of drink.",
+    "core_rubric": "Gives 30% juice.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_30",
+    "category": "arithmetic_time",
+    "question": "If I double the length of every edge of a cube, does its volume also double? Answer yes or no, and say by what factor the volume changes.",
+    "answer": "No. The volume becomes 2 × 2 × 2 = 8 times as large.",
+    "rubric": "Answers no and gives a factor of 8, because volume scales with the cube of the edge length. Answering yes, or giving a factor of 2 or of 4 (the factor for the area of each face), fails.",
+    "reference": "No. The volume becomes 2 × 2 × 2 = 8 times as large.",
+    "core_rubric": "Answers no and says the volume becomes 8 times as large.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_31",
+    "category": "arithmetic_time",
+    "question": "Using 1 mile = 1.609 kilometers, is a speed of 1 mile per minute faster than 100 kilometers per hour? Answer yes or no and give 1 mile per minute in kilometers per hour.",
+    "answer": "No. 1 mile per minute is 60 miles per hour, which is 60 × 1.609 = 96.54 kilometers per hour, slightly slower than 100 km/h.",
+    "rubric": "Answers no and gives about 96.5 km/h (96.54 exactly with the given factor; 96.5 or 97 is acceptable). Answering yes, or comparing 1.609 km/h with 100 km/h without multiplying by 60 minutes per hour, fails.",
+    "reference": "No. 1 mile per minute is 60 miles per hour, which is 60 × 1.609 = 96.54 kilometers per hour, slightly slower than 100 km/h.",
+    "core_rubric": "Answers no, giving 1 mile per minute as about 96.5 km/h.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_32",
+    "category": "arithmetic_time",
+    "question": "I am paid $20 per hour for the first 40 hours I work in a week and 1.5 times that rate for each hour beyond 40. This week I worked 46 hours. What is my pay for the week?",
+    "answer": "$980: 40 × $20 = $800, plus 6 × $30 = $180.",
+    "rubric": "Gives $980. Only the 6 hours beyond 40 are paid at $30. Paying all 46 hours at $20 ($920) or at $30 ($1,380), or adding only $10 for each overtime hour ($860), fails. If working is shown, it must be consistent with $800 + $180.",
+    "reference": "$980: 40 × $20 = $800, plus 6 × $30 = $180.",
+    "core_rubric": "Gives $980.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_33",
+    "category": "arithmetic_time",
+    "question": "A wall clock loses exactly 2 minutes every hour. I set it to the correct time at 12:00 noon. What time will the clock show when the correct time is 18:00 the same day?",
+    "answer": "17:48. In 6 hours it loses 6 × 2 = 12 minutes.",
+    "rubric": "Gives 17:48 (5:48 p.m.). 18:12 (adding the lost minutes) or 17:58 (losing only 2 minutes in total) fails. If working is shown, it must be consistent with 12 minutes lost over 6 hours.",
+    "reference": "17:48. In 6 hours it loses 6 × 2 = 12 minutes.",
+    "core_rubric": "Gives 17:48.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_34",
+    "category": "arithmetic_time",
+    "question": "A bacterial culture doubles in size every 20 minutes. It starts with 100 cells. How many cells are there after exactly 2 hours, assuming none die?",
+    "answer": "6,400: 2 hours is 6 doubling periods, and 100 × 2⁶ = 6,400.",
+    "rubric": "Gives 6,400. There are 6 doubling periods of 20 minutes in 2 hours. 1,200 (100 × 2 × 6, growing by a fixed amount), 3,200 (5 doublings), or 12,800 (7 doublings) fails. If working is shown, it must be consistent with 100 × 2⁶.",
+    "reference": "6,400: 2 hours is 6 doubling periods, and 100 × 2⁶ = 6,400.",
+    "core_rubric": "Gives 6,400 cells.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_35",
+    "category": "arithmetic_time",
+    "question": "I toss a fair coin 5 times and get heads every time. What is the probability that the 6th toss is also heads?",
+    "answer": "1/2. Each toss is independent, so the earlier results do not change the chance of heads on the next toss.",
+    "rubric": "Gives 1/2 (0.5 or 50%) and, if an explanation is given, says that the tosses are independent. 1/64 (the chance of six heads in a row, judged before any toss) fails, and so does claiming that tails is now more likely.",
+    "reference": "1/2. Each toss is independent, so the earlier results do not change the chance of heads on the next toss.",
+    "core_rubric": "Gives a probability of 1/2.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_36",
+    "category": "arithmetic_time",
+    "question": "A raffle sells exactly 500 tickets at $2 each, and there is a single $400 prize. If I buy one ticket, what is my expected net gain or loss, in dollars?",
+    "answer": "An expected net loss of $1.20: the expected winnings are $400 / 500 = $0.80, minus the $2 ticket price.",
+    "rubric": "Gives an expected net loss of $1.20 (−$1.20). The expected prize value per ticket is $0.80. Giving +$0.80 (ignoring the ticket price), −$2, or any gain fails. If working is shown, it must be consistent with $0.80 − $2.00.",
+    "reference": "An expected net loss of $1.20: the expected winnings are $400 / 500 = $0.80, minus the $2 ticket price.",
+    "core_rubric": "Gives an expected net loss of $1.20.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_37",
+    "category": "arithmetic_time",
+    "question": "A bike lock has 3 dials, each showing a digit from 0 to 9. I have forgotten the code, and trying one combination takes 2 seconds. In the worst case, how long would it take to try every possible combination? Give the answer in minutes and seconds.",
+    "answer": "33 minutes 20 seconds: there are 10 × 10 × 10 = 1,000 combinations, and 1,000 × 2 = 2,000 seconds.",
+    "rubric": "Gives 33 minutes 20 seconds. There are 1,000 combinations (000 to 999), taking 2,000 seconds. Using 30 combinations (3 × 10) or 720 (10 × 9 × 8, wrongly forbidding repeated digits) fails. Also stating 2,000 seconds is fine, but 2,000 seconds alone does not give the requested form and fails.",
+    "reference": "33 minutes 20 seconds: there are 10 × 10 × 10 = 1,000 combinations, and 1,000 × 2 = 2,000 seconds.",
+    "core_rubric": "Gives 33 minutes 20 seconds.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_38",
+    "category": "arithmetic_time",
+    "question": "Light from the Sun takes about 8 minutes 20 seconds to reach Earth, and light travels about 300,000 kilometers per second. Using these values, about how far is Earth from the Sun, in kilometers?",
+    "answer": "About 150,000,000 kilometers: 8 minutes 20 seconds is 500 seconds, and 500 × 300,000 = 150,000,000.",
+    "rubric": "Gives about 150,000,000 km (150 million km or 1.5 × 10⁸ km). 8 minutes 20 seconds is 500 seconds. Treating it as 820 or 8.2 seconds (246,000,000 or 2,460,000 km), or multiplying the time in minutes by the speed per second (about 2,500,000 km), fails. If working is shown, it must be consistent with 500 seconds.",
+    "reference": "About 150,000,000 kilometers: 8 minutes 20 seconds is 500 seconds, and 500 × 300,000 = 150,000,000.",
+    "core_rubric": "Gives about 150,000,000 kilometers.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_39",
+    "category": "arithmetic_time",
+    "question": "A rectangular aquarium measures 60 centimeters long, 30 centimeters wide, and 40 centimeters high on the inside. How many liters of water does it hold when completely full? Use 1 liter = 1,000 cubic centimeters.",
+    "answer": "72 liters: 60 × 30 × 40 = 72,000 cubic centimeters.",
+    "rubric": "Gives 72 liters. The volume is 72,000 cm³, and dividing by 1,000 gives liters. 7.2 or 720 liters (a wrong conversion), or 72,000 liters, fails. If working is shown, it must be consistent with 72,000 cm³.",
+    "reference": "72 liters: 60 × 30 × 40 = 72,000 cubic centimeters.",
+    "core_rubric": "Gives 72 liters.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_40",
+    "category": "arithmetic_time",
+    "question": "A room measures 4 meters by 5 meters. Using 1 meter = 3.281 feet, what is its floor area in square feet, rounded to one decimal place?",
+    "answer": "215.3 square feet: the area is 20 square meters, and 1 square meter is 3.281² ≈ 10.765 square feet, so the area is about 20 × 10.765 = 215.3 square feet.",
+    "rubric": "Gives 215.3 square feet; 215.2, from rounding 3.281² to 10.76 before multiplying, is also acceptable. Square meters convert with the square of the factor. Multiplying 20 by 3.281 only once (65.6) fails. Converting each side to feet first (13.124 ft × 16.405 ft) is an acceptable method.",
+    "reference": "215.3 square feet: the area is 20 square meters, and 1 square meter is 3.281² ≈ 10.765 square feet, so the area is about 20 × 10.765 = 215.3 square feet.",
+    "core_rubric": "Gives about 215.3 square feet.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_41",
+    "category": "arithmetic_time",
+    "question": "I walk 3 kilometers due north and then 4 kilometers due east. How far am I, in a straight line, from where I started?",
+    "answer": "5 kilometers: √(3² + 4²) = √25 = 5.",
+    "rubric": "Gives 5 km. The two legs meet at a right angle, so the straight-line distance is √(9 + 16). 7 km (the walking distance) or 1 km fails.",
+    "reference": "5 kilometers: √(3² + 4²) = √25 = 5.",
+    "core_rubric": "Gives 5 kilometers.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_42",
+    "category": "arithmetic_time",
+    "question": "I want to buy 4 identical shirts. Store A and Store B charge the same normal price per shirt. Store A offers 25% off every shirt. Store B offers 'buy 3, get the 4th free.' Which store is cheaper for these 4 shirts, or do they cost the same?",
+    "answer": "They cost the same: both charge 3 times the normal price, because 25% off 4 shirts is 4 × 0.75 = 3 shirts' worth.",
+    "rubric": "Says the two stores cost the same, because 4 × 75% of the price and 3 paid shirts both equal 3 times the normal price. Naming either store as cheaper fails. An answer that uses an example price must show the same total for both stores.",
+    "reference": "They cost the same: both charge 3 times the normal price, because 25% off 4 shirts is 4 × 0.75 = 3 shirts' worth.",
+    "core_rubric": "Says the two stores cost the same for 4 shirts.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_43",
+    "category": "arithmetic_time",
+    "question": "A repair job took 3.2 hours, and labor is billed at $45 per hour. Write the job time in hours and minutes, and give the labor charge.",
+    "answer": "3 hours 12 minutes, and the labor charge is $144.00: 0.2 × 60 = 12 minutes, and 3.2 × $45 = $144.",
+    "rubric": "Gives 3 hours 12 minutes and $144. 3 hours 20 minutes (reading 0.2 hours as 20 minutes) fails, and so does any charge other than $144. Both parts are required.",
+    "reference": "3 hours 12 minutes, and the labor charge is $144.00: 0.2 × 60 = 12 minutes, and 3.2 × $45 = $144.",
+    "core_rubric": "Gives 3 hours 12 minutes and a labor charge of $144.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_44",
+    "category": "arithmetic_time",
+    "question": "Is 30°C hotter than 85°F? Answer yes or no, and give 30°C in degrees Fahrenheit.",
+    "answer": "Yes. 30°C is 30 × 9/5 + 32 = 86°F, which is 1 degree hotter than 85°F.",
+    "rubric": "Answers yes and gives 86°F. Answering no, or converting with a wrong formula such as (30 − 32) × 5/9 or 30 × 5/9 + 32, fails.",
+    "reference": "Yes. 30°C is 30 × 9/5 + 32 = 86°F, which is 1 degree hotter than 85°F.",
+    "core_rubric": "Answers yes, with 30°C equal to 86°F.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_45",
+    "category": "arithmetic_time",
+    "question": "My phone has 128 GB of storage, and 87 GB is already used. Each photo takes 4 MB, and 1 GB = 1,000 MB. How many more photos can I store?",
+    "answer": "10,250 photos: 41 GB is free, which is 41,000 MB, and 41,000 / 4 = 10,250.",
+    "rubric": "Gives 10,250. The free space is 41 GB = 41,000 MB. Using the used space instead of the free space (21,750), using 1,024 MB per GB despite the question (10,496), or forgetting to convert units fails.",
+    "reference": "10,250 photos: 41 GB is free, which is 41,000 MB, and 41,000 / 4 = 10,250.",
+    "core_rubric": "Gives 10,250 photos.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_46",
+    "category": "arithmetic_time",
+    "question": "A boat travels at a steady 15 knots, and 1 knot is 1.852 kilometers per hour. How many kilometers does it travel in 2 hours 30 minutes?",
+    "answer": "69.45 kilometers: 15 knots is 15 × 1.852 = 27.78 km/h, and 27.78 × 2.5 = 69.45 km.",
+    "rubric": "Gives 69.45 km (about 69.5 km is acceptable). 15 knots is 27.78 km/h, and 2 hours 30 minutes is 2.5 hours. Using 2.3 hours (about 63.9 km), or forgetting to convert knots (37.5), fails. If working is shown, it must be consistent with 27.78 km/h and 2.5 hours.",
+    "reference": "69.45 kilometers: 15 knots is 15 × 1.852 = 27.78 km/h, and 27.78 × 2.5 = 69.45 km.",
+    "core_rubric": "Gives about 69.45 kilometers.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_47",
+    "category": "arithmetic_time",
+    "question": "Can I pour the contents of seven full 330-milliliter cans into one empty 2-liter jug without it overflowing? Answer yes or no and give the total volume of the cans.",
+    "answer": "No. Seven cans hold 7 × 330 = 2,310 milliliters, which is 310 milliliters more than the jug's 2,000 milliliters.",
+    "rubric": "Answers no and gives a total of 2,310 mL (2.31 liters), which is more than 2,000 mL. Answering yes, or computing a different total, fails.",
+    "reference": "No. Seven cans hold 7 × 330 = 2,310 milliliters, which is 310 milliliters more than the jug's 2,000 milliliters.",
+    "core_rubric": "Answers no, with a total of 2,310 milliliters, which exceeds 2 liters.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_48",
+    "category": "arithmetic_time",
+    "question": "A box contains tickets numbered 147 through 213, with every number in that range appearing exactly once. How many tickets are in the box?",
+    "answer": "67 tickets: 213 − 147 + 1 = 67.",
+    "rubric": "Gives 67. Both end numbers are included, so 1 must be added to the difference; 66 fails. If working is shown, it must be consistent with 213 − 147 + 1.",
+    "reference": "67 tickets: 213 − 147 + 1 = 67.",
+    "core_rubric": "Gives 67 tickets.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_49",
+    "category": "writing_reading",
+    "question": "An email says, 'I've attached the March and April reports.' The only attachment that arrived is a file named April-report.pdf. Did I receive everything the email says is attached? Explain.",
+    "answer": "No. The email says two reports are attached, March and April, but only the April report arrived, so the March report is missing.",
+    "rubric": "Answers no and explains that the March report mentioned in the email did not arrive; only the April report did. Answering yes, or assuming that the April file also contains the March report, fails. Suggesting that the reader ask the sender for the March report is harmless.",
+    "reference": "No. The email says two reports are attached, March and April, but only the April report arrived, so the March report is missing.",
+    "core_rubric": "Answers no because the March report is missing; only the April report arrived.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_50",
+    "category": "writing_reading",
+    "question": "Read: 'Priya will book the meeting room. Omar will send the agenda. Priya will also order lunch, and Omar will print the name tags.' List every task assigned to Priya.",
+    "answer": "Book the meeting room and order lunch.",
+    "rubric": "Lists exactly two tasks for Priya: booking the meeting room and ordering lunch. Including either of Omar's tasks (sending the agenda or printing the name tags), or leaving out either of Priya's tasks, fails. Any list format is acceptable.",
+    "reference": "Book the meeting room and order lunch.",
+    "core_rubric": "Lists booking the meeting room and ordering lunch, and no other task.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_51",
+    "category": "writing_reading",
+    "question": "Rewrite this sentence with every contraction written out in full, changing nothing else: 'We're sure it's fine, but don't wait if you can't stay.'",
+    "answer": "We are sure it is fine, but do not wait if you cannot stay.",
+    "rubric": "Gives 'We are sure it is fine, but do not wait if you cannot stay.': We're → We are, it's → it is, don't → do not, and can't → cannot ('can not' is also acceptable). Every other word, the comma, and the final period stay the same. Missing any of the four contractions, expanding it's as 'it has', or rewording the sentence fails.",
+    "reference": "We are sure it is fine, but do not wait if you cannot stay.",
+    "core_rubric": "Gives 'We are sure it is fine, but do not wait if you cannot stay.' (or 'can not'), with no other changes.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_52",
+    "category": "writing_reading",
+    "question": "Add the commas this sentence needs to separate the items in its list, and change nothing else: 'I bought eggs milk bread and butter.'",
+    "answer": "I bought eggs, milk, bread, and butter.",
+    "rubric": "Separates the four items with commas: 'I bought eggs, milk, bread, and butter.' The version without a comma before 'and', 'I bought eggs, milk, bread and butter.', is equally acceptable. Changing any word, adding other punctuation, or leaving two adjacent items unseparated fails.",
+    "reference": "I bought eggs, milk, bread, and butter.",
+    "core_rubric": "Gives 'I bought eggs, milk, bread, and butter.' or the same sentence without the comma before 'and', with no other changes.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_53",
+    "category": "writing_reading",
+    "question": "How many sentences are in this passage? 'Dr. Lee arrived at 9 a.m. and left at noon. The meeting was short.'",
+    "answer": "Two. The periods in 'Dr.' and 'a.m.' mark abbreviations, not the ends of sentences.",
+    "rubric": "Gives 2. Counting the periods in 'Dr.' or 'a.m.' as sentence endings, which gives 3 or more, fails.",
+    "reference": "Two. The periods in 'Dr.' and 'a.m.' mark abbreviations, not the ends of sentences.",
+    "core_rubric": "Gives 2 sentences.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_54",
+    "category": "writing_reading",
+    "question": "Write a message to my landlord, Mr. Park, saying that the kitchen faucet has been dripping since Sunday and asking when someone can come to fix it. Do not guess at the cause of the drip, and do not suggest a day or time for the repair.",
+    "answer": "Hi Mr. Park, the kitchen faucet has been dripping since Sunday. When could someone come to fix it?",
+    "rubric": "Addresses Mr. Park, says the kitchen faucet has been dripping since Sunday, and asks when someone can come to fix it. Gives no guess at the cause, such as a worn washer, and proposes no day, date, or time for the repair. Changing the fixture (for example to the bathroom sink) or the day the dripping started fails, and so does demanding the repair by a deadline. Thanks or a polite closing is harmless.",
+    "reference": "Hi Mr. Park, the kitchen faucet has been dripping since Sunday. When could someone come to fix it?",
+    "core_rubric": "A message to Mr. Park reporting that the kitchen faucet has dripped since Sunday and asking when it can be fixed, with no guessed cause and no proposed repair time.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_55",
+    "category": "writing_reading",
+    "question": "Write a one-sentence automatic email reply saying that I am away until Monday, June 14, and that urgent questions should go to Ana at ana@example.com. Do not include a phone number or a reason for my absence.",
+    "answer": "I am away until Monday, June 14; for urgent questions, please contact Ana at ana@example.com.",
+    "rubric": "One sentence stating that I am away until Monday, June 14, and that urgent questions should go to Ana at ana@example.com. Changing the date, the name, or the address fails. Adding a phone number, or giving a reason such as vacation or illness, fails. A greeting is harmless if the reply stays one sentence; two or more sentences fail.",
+    "reference": "I am away until Monday, June 14; for urgent questions, please contact Ana at ana@example.com.",
+    "core_rubric": "One sentence saying I am away until Monday, June 14, and that urgent questions go to Ana at ana@example.com, with no phone number and no reason.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_56",
+    "category": "writing_reading",
+    "question": "Read: 'The team meeting, originally set for Monday, was moved to Wednesday and then cancelled.' According to this sentence, is there a team meeting on Wednesday? Explain.",
+    "answer": "No. The meeting was moved to Wednesday, but it was then cancelled, so there is no meeting on Wednesday.",
+    "rubric": "Answers no and explains that the meeting moved to Wednesday was afterward cancelled. Answering yes because it was moved to Wednesday, or saying that it is back on Monday, fails.",
+    "reference": "No. The meeting was moved to Wednesday, but it was then cancelled, so there is no meeting on Wednesday.",
+    "core_rubric": "Answers no because the meeting, after being moved to Wednesday, was cancelled.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_57",
+    "category": "writing_reading",
+    "question": "A form shows the date 03/04/2027 and states that all dates are written as DD/MM/YYYY. Write this date with the month spelled out, in the form Month Day, Year.",
+    "answer": "April 3, 2027",
+    "rubric": "Gives April 3, 2027. Reading the date as month first, which gives March 4, 2027, fails. Small style variations such as 'April 3rd, 2027' are acceptable.",
+    "reference": "April 3, 2027",
+    "core_rubric": "Gives April 3, 2027.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_58",
+    "category": "writing_reading",
+    "question": "One word in this sentence is used incorrectly for things that can be counted. Correct that word and change nothing else: 'There are less people in the office today than yesterday.'",
+    "answer": "There are fewer people in the office today than yesterday.",
+    "rubric": "Replaces less with fewer, because people can be counted, and leaves every other word and the punctuation unchanged. Leaving 'less', or rewording the sentence, fails.",
+    "reference": "There are fewer people in the office today than yesterday.",
+    "core_rubric": "Gives 'There are fewer people in the office today than yesterday.'",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_59",
+    "category": "writing_reading",
+    "question": "Rewrite this sentence as reported speech: Maya said, \"I am tired and I want to go home.\" Use 'said that', put the quoted present-tense verbs in the past tense, and refer to Maya as she.",
+    "answer": "Maya said that she was tired and she wanted to go home.",
+    "rubric": "Gives 'Maya said that she was tired and she wanted to go home.' Variants with the same content, such as '... and wanted to go home' or '... and that she wanted to go home', are acceptable. Keeping 'am' or 'want', keeping 'I', keeping the quotation marks, or changing the meaning fails.",
+    "reference": "Maya said that she was tired and she wanted to go home.",
+    "core_rubric": "Gives 'Maya said that she was tired and she wanted to go home.' or an equivalent that uses said that, the past-tense verbs was and wanted, and she in place of I.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_60",
+    "category": "writing_reading",
+    "question": "A gym's website says, 'Members can cancel at any time.' The membership contract says, 'Memberships cannot be cancelled during the first 12 months.' Are these two statements consistent with each other? Explain.",
+    "answer": "No. The website says cancelling is allowed at any time, but the contract forbids cancelling during the first 12 months, so they contradict each other for that period.",
+    "rubric": "Answers no and explains that 'at any time' conflicts with the ban on cancelling in the first 12 months. Answering yes, or reconciling them by inventing a distinction that neither statement makes, fails. Suggesting that the reader ask the gym which terms apply is harmless.",
+    "reference": "No. The website says cancelling is allowed at any time, but the contract forbids cancelling during the first 12 months, so they contradict each other for that period.",
+    "core_rubric": "Answers no because the website allows cancelling at any time while the contract forbids it in the first 12 months.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_61",
+    "category": "writing_reading",
+    "question": "Fix the capitalization of this sentence, capitalizing only the letters that must be capitals in standard English and changing nothing else: 'on monday, priya flew from paris to lima.'",
+    "answer": "On Monday, Priya flew from Paris to Lima.",
+    "rubric": "Capitalizes exactly the first word and the proper nouns: On, Monday, Priya, Paris, and Lima. Leaves flew, from, and to in lowercase and keeps all punctuation. Missing any of the five capitals, capitalizing other words as in a title, or changing words or punctuation fails.",
+    "reference": "On Monday, Priya flew from Paris to Lima.",
+    "core_rubric": "Gives 'On Monday, Priya flew from Paris to Lima.'",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_62",
+    "category": "writing_reading",
+    "question": "A plant-care note says, 'Water every other day, starting Monday.' Following this note, should the plant be watered on the Thursday of that week? Explain.",
+    "answer": "No. Every other day starting Monday means Monday, Wednesday, Friday, and so on, so Thursday is skipped.",
+    "rubric": "Answers no and explains that the watering days are Monday, Wednesday, and Friday, so Thursday is not one of them. Answering yes, or reading 'every other day' as every day, fails.",
+    "reference": "No. Every other day starting Monday means Monday, Wednesday, Friday, and so on, so Thursday is skipped.",
+    "core_rubric": "Answers no because the watering days are Monday, Wednesday, and Friday, not Thursday.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_63",
+    "category": "writing_reading",
+    "question": "Rewrite this sentence using 12-hour times with a.m. or p.m., changing nothing else: 'Doors open at 18:30 and close at 00:15.'",
+    "answer": "Doors open at 6:30 p.m. and close at 12:15 a.m.",
+    "rubric": "Gives 'Doors open at 6:30 p.m. and close at 12:15 a.m.' 00:15 is 12:15 a.m.; writing 0:15 a.m. or 12:15 p.m. fails. Style variants such as PM, pm, or P.M. are acceptable. Changing other words fails.",
+    "reference": "Doors open at 6:30 p.m. and close at 12:15 a.m.",
+    "core_rubric": "Gives 6:30 p.m. for 18:30 and 12:15 a.m. for 00:15, with the rest of the sentence unchanged.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_64",
+    "category": "writing_reading",
+    "question": "Read: 'For orders, email sales@example.com. For invoices, email billing@example.org. The old address help@example.net is no longer monitored.' Which email addresses should I still use, and for what?",
+    "answer": "sales@example.com for orders and billing@example.org for invoices. Do not use help@example.net.",
+    "rubric": "Gives sales@example.com for orders and billing@example.org for invoices. Listing help@example.net as an address to use fails, as does swapping the purposes of the two addresses. Mentioning that help@example.net is no longer monitored is harmless.",
+    "reference": "sales@example.com for orders and billing@example.org for invoices. Do not use help@example.net.",
+    "core_rubric": "Gives sales@example.com for orders and billing@example.org for invoices, and does not recommend help@example.net.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_65",
+    "category": "writing_reading",
+    "question": "An invitation says, 'Bring a snack to share, e.g., fruit or crackers.' Does this mean the snack must be fruit or crackers? Explain.",
+    "answer": "No. 'E.g.' means 'for example', so fruit and crackers are only examples; any snack to share fits the request.",
+    "rubric": "Answers no and explains that 'e.g.' introduces examples, not a complete list of allowed snacks. Answering yes, or treating 'e.g.' as if it meant 'i.e.' (that is), fails.",
+    "reference": "No. 'E.g.' means 'for example', so fruit and crackers are only examples; any snack to share fits the request.",
+    "core_rubric": "Answers no because 'e.g.' gives examples rather than a required choice.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_66",
+    "category": "writing_reading",
+    "question": "Read: 'Ana and Ben ordered tea and coffee, respectively.' What did Ben order?",
+    "answer": "Coffee.",
+    "rubric": "Gives coffee. 'Respectively' pairs the people with the drinks in the order listed, so Ana ordered tea and Ben ordered coffee. Tea, or saying that both of them ordered both drinks, fails.",
+    "reference": "Coffee.",
+    "core_rubric": "Gives coffee.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_67",
+    "category": "writing_reading",
+    "question": "Write the number 1,250,000 in words, using standard American English and no digits.",
+    "answer": "One million two hundred fifty thousand",
+    "rubric": "Gives one million two hundred fifty thousand. Capitalization, a comma after million, and 'two hundred and fifty thousand' are acceptable. Twelve million five hundred thousand, one hundred twenty-five thousand, or any answer that uses digits fails.",
+    "reference": "One million two hundred fifty thousand",
+    "core_rubric": "Gives one million two hundred fifty thousand.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_68",
+    "category": "writing_reading",
+    "question": "A drink label says, 'Sugar: 12 g per serving. Servings per container: 2.5.' If I drink the whole container, how many grams of sugar do I consume?",
+    "answer": "30 grams: 12 g × 2.5 servings = 30 g.",
+    "rubric": "Gives 30 g. Reporting 12 g (one serving) or 14.5 g (adding the two numbers instead of multiplying) fails.",
+    "reference": "30 grams: 12 g × 2.5 servings = 30 g.",
+    "core_rubric": "Gives 30 grams.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_69",
+    "category": "writing_reading",
+    "question": "A medicine label says, 'Take 1 tablet every 6 hours as needed. Do not take more than 4 tablets in 24 hours.' I took one tablet at 06:00, one at 12:00, and one at 18:00. Under these instructions, may I take another tablet at 22:00 the same day? Explain.",
+    "answer": "No. 22:00 is only 4 hours after the 18:00 tablet, and the label calls for 6 hours between tablets; the earliest next tablet is at midnight (00:00).",
+    "rubric": "Answers no and explains that 22:00 is only 4 hours after the 18:00 tablet, while the label calls for 6 hours between tablets. Stating that the next tablet would be allowed at midnight (00:00) is optional but must be correct if given. Answering yes because only 3 tablets have been taken, which is under the limit of 4, fails. Advising the reader to ask a pharmacist or doctor is harmless.",
+    "reference": "No. 22:00 is only 4 hours after the 18:00 tablet, and the label calls for 6 hours between tablets; the earliest next tablet is at midnight (00:00).",
+    "core_rubric": "Answers no because 22:00 is only 4 hours after the previous tablet, less than the required 6 hours.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_70",
+    "category": "writing_reading",
+    "question": "An invitation says, 'Join us on Saturday at the Green Room to celebrate Ana's birthday. Please RSVP by Thursday.' According to the invitation, what time does the celebration start?",
+    "answer": "The invitation does not say what time the celebration starts; it gives only the day, Saturday, and the place, the Green Room.",
+    "rubric": "Says that the invitation does not give a start time. Mentioning the day and the place, or suggesting that the reader ask the host, is harmless. Inventing or guessing a time, such as 7 p.m., fails, and so does treating the RSVP deadline as the start time.",
+    "reference": "The invitation does not say what time the celebration starts; it gives only the day, Saturday, and the place, the Green Room.",
+    "core_rubric": "Says the invitation does not state a start time, without inventing one.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_71",
+    "category": "writing_reading",
+    "question": "Read this forecast: 'Monday 12°C, Tuesday 15°C, Wednesday 9°C, Thursday 15°C.' Which day or days have the highest temperature?",
+    "answer": "Tuesday and Thursday, both at 15°C.",
+    "rubric": "Gives both Tuesday and Thursday, which tie at 15°C. Naming only one of them, or any other day, fails.",
+    "reference": "Tuesday and Thursday, both at 15°C.",
+    "core_rubric": "Gives Tuesday and Thursday.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_72",
+    "category": "writing_reading",
+    "question": "Rewrite the phrase 'the toys of the children' using a possessive form with an apostrophe, keeping the same meaning.",
+    "answer": "the children's toys",
+    "rubric": "Gives 'the children's toys' (a capital The is acceptable). Children is already plural, so the apostrophe goes before the s. 'the childrens' toys', 'the childrens toys', or 'the children toys' fails, and so does changing the meaning to one child ('the child's toys').",
+    "reference": "the children's toys",
+    "core_rubric": "Gives 'the children's toys'.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_73",
+    "category": "concept",
+    "question": "Why does a warm bottle of soda fizz up more when it is opened than a cold one?",
+    "answer": "Carbon dioxide dissolves less well in warmer liquid, so warm soda holds its dissolved gas less tightly. When the bottle is opened and the pressure drops, the gas comes out of solution faster in the warm soda, forming more bubbles and foam.",
+    "rubric": "Explains that gases such as carbon dioxide are less soluble in warmer liquid, so warm soda releases its dissolved gas faster when opening the bottle releases the pressure. Mentioning that the warm bottle also has higher gas pressure in the space above the liquid is optional. Saying that warm soda contains more gas, or that heat creates new carbon dioxide, fails.",
+    "reference": "Carbon dioxide dissolves less well in warmer liquid, so warm soda holds its dissolved gas less tightly. When the bottle is opened and the pressure drops, the gas comes out of solution faster in the warm soda, forming more bubbles and foam.",
+    "core_rubric": "Attributes the extra fizz to the lower solubility of carbon dioxide in warmer liquid, so the gas escapes faster when the pressure is released.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_74",
+    "category": "concept",
+    "question": "After a balloon is rubbed on dry hair, it can stick to a wall. Why?",
+    "answer": "Rubbing transfers electrons from the hair to the balloon, giving the balloon a negative charge. Near the wall, that charge pushes the wall's electrons slightly away, leaving the nearby wall surface with a slight positive charge, and the attraction between the opposite charges holds the balloon there.",
+    "rubric": "Explains that rubbing transfers charge, with electrons moving to the balloon, so the balloon becomes charged, and that the charged balloon induces an opposite charge on the nearby wall surface (polarization), so they attract. The wall does not need an overall charge. Attributing the sticking to magnetism, to friction or stickiness, or to the wall being charged beforehand fails. The sign of the balloon's charge is optional, but if stated it should be negative.",
+    "reference": "Rubbing transfers electrons from the hair to the balloon, giving the balloon a negative charge. Near the wall, that charge pushes the wall's electrons slightly away, leaving the nearby wall surface with a slight positive charge, and the attraction between the opposite charges holds the balloon there.",
+    "core_rubric": "Says rubbing charges the balloon by transferring electrons, and that the charged balloon induces an opposite charge in the wall, causing attraction.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_75",
+    "category": "concept",
+    "question": "Does running an electric fan in an empty, closed room lower the room's air temperature? Explain why a fan makes a person feel cooler.",
+    "answer": "No. A fan only moves air, and its motor actually adds a little heat to the room. It makes a person feel cooler because moving air carries heat away from the skin faster and speeds up the evaporation of sweat.",
+    "rubric": "Answers no: a fan does not lower the air temperature, and its motor adds a small amount of heat. Explains that moving air cools a person by increasing heat loss from the skin through convection and faster evaporation of sweat. Claiming that a fan blows cold air or lowers the room's temperature fails.",
+    "reference": "No. A fan only moves air, and its motor actually adds a little heat to the room. It makes a person feel cooler because moving air carries heat away from the skin faster and speeds up the evaporation of sweat.",
+    "core_rubric": "Answers no, and explains that a fan cools people by moving air that speeds heat loss and sweat evaporation from the skin.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_76",
+    "category": "concept",
+    "question": "Is natural gas a renewable energy source? Explain the difference between renewable and nonrenewable energy sources.",
+    "answer": "No. Natural gas is a fossil fuel that formed over millions of years, so it is nonrenewable: we use it much faster than it forms. Renewable sources, such as sunlight, wind, and flowing water, are naturally replenished on a human timescale.",
+    "rubric": "Answers no and explains that renewable sources are replenished naturally on a human timescale (such as solar, wind, or hydropower), while nonrenewable sources, including natural gas, a fossil fuel, form over millions of years and are used up far faster than they form. Calling natural gas renewable because it is 'natural' or cleaner-burning than coal fails. Mentioning biogas from organic waste as a separate, renewable product is harmless.",
+    "reference": "No. Natural gas is a fossil fuel that formed over millions of years, so it is nonrenewable: we use it much faster than it forms. Renewable sources, such as sunlight, wind, and flowing water, are naturally replenished on a human timescale.",
+    "core_rubric": "Answers no, identifying natural gas as a nonrenewable fossil fuel and describing renewable sources as naturally replenished on a human timescale.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_77",
+    "category": "concept",
+    "question": "In a medical trial of a new pill, why are some patients given a placebo, a dummy pill with no active ingredient, instead of giving everyone the real pill and checking whether they improve?",
+    "answer": "Patients can improve for reasons other than the pill, such as natural recovery or the expectation of being treated (the placebo effect). Comparing the real pill with a placebo group treated the same way shows how much of the improvement is caused by the pill itself.",
+    "rubric": "Explains that the placebo group is a comparison (control) group that shows how much improvement happens without the active drug, because of the placebo effect, natural recovery, or other factors, so the drug's real effect is the difference between the groups. Blinding and random assignment are optional extras. Saying that the placebo is given to test the pill's safety, or to save money, fails.",
+    "reference": "Patients can improve for reasons other than the pill, such as natural recovery or the expectation of being treated (the placebo effect). Comparing the real pill with a placebo group treated the same way shows how much of the improvement is caused by the pill itself.",
+    "core_rubric": "Explains that a placebo control group separates the drug's real effect from improvement due to expectation or natural recovery.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_78",
+    "category": "concept",
+    "question": "If a country's annual inflation rate is 3%, does that mean the price of every product rose by exactly 3% over the year? Explain what the inflation rate measures.",
+    "answer": "No. The inflation rate measures the average change in prices across a broad basket of goods and services; individual prices can rise by more or less than 3%, and some may fall.",
+    "rubric": "Answers no and explains that the inflation rate is the average or overall rise in the price level, usually measured with a price index for a basket of goods and services, so individual prices vary. Answering yes, or saying that inflation means wages rise by 3%, fails. Naming a specific index such as the consumer price index is optional.",
+    "reference": "No. The inflation rate measures the average change in prices across a broad basket of goods and services; individual prices can rise by more or less than 3%, and some may fall.",
+    "core_rubric": "Answers no because inflation is the average change in a broad price index, so individual prices can change by different amounts.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_79",
+    "category": "concept",
+    "question": "Does heating food in a microwave oven make the food radioactive? Explain how a microwave oven heats food.",
+    "answer": "No. Microwaves are non-ionizing electromagnetic waves, like radio waves, that stop as soon as the oven turns off, and they do not make food radioactive. They heat food by making water and other polar molecules in it rotate back and forth rapidly, and that motion becomes heat.",
+    "rubric": "Answers no and explains that microwaves are non-ionizing electromagnetic waves that make water and other polar molecules in the food move rapidly, producing heat, and that nothing radioactive remains afterward. Claiming that microwaving makes food radioactive, or that it heats food through nuclear radiation, fails. Mentioning uneven heating is harmless.",
+    "reference": "No. Microwaves are non-ionizing electromagnetic waves, like radio waves, that stop as soon as the oven turns off, and they do not make food radioactive. They heat food by making water and other polar molecules in it rotate back and forth rapidly, and that motion becomes heat.",
+    "core_rubric": "Answers no, and explains that microwaves make water molecules in the food move rapidly, producing heat, without making the food radioactive.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_80",
+    "category": "concept",
+    "question": "What does a circuit breaker in a home's electrical panel do, and why does it switch off when too many high-power appliances run on one circuit?",
+    "answer": "It automatically cuts off the electricity to a circuit when the current is too high. Too many high-power appliances together draw more current than the circuit's wiring is rated for, which could overheat the wires and start a fire, so the breaker trips to stop the current.",
+    "rubric": "Explains that a circuit breaker automatically interrupts a circuit when the current exceeds a safe level, as in an overload or short circuit, protecting the wiring from overheating and fire, and that many high-power appliances together draw too much current. Saying that the breaker reduces the voltage, or that its main purpose is to save electricity, fails. Mentioning ground-fault breakers is optional.",
+    "reference": "It automatically cuts off the electricity to a circuit when the current is too high. Too many high-power appliances together draw more current than the circuit's wiring is rated for, which could overheat the wires and start a fire, so the breaker trips to stop the current.",
+    "core_rubric": "Says a breaker automatically cuts power when the current exceeds a safe limit, and that too many appliances draw too much current, risking overheated wiring.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_81",
+    "category": "concept",
+    "question": "Why does the cut surface of an apple turn brown after a while, and why does a squeeze of lemon juice slow this down?",
+    "answer": "Cutting breaks the apple's cells and exposes their contents to oxygen. An enzyme, polyphenol oxidase, then oxidizes compounds in the fruit into brown pigments. Lemon juice is acidic, which slows the enzyme, and its vitamin C acts as an antioxidant, so browning is slower.",
+    "rubric": "Explains that cutting exposes the apple's cells to oxygen and that an enzyme oxidizes compounds (polyphenols) in the fruit into brown pigments. Explains that lemon juice slows this because its acidity lowers the enzyme's activity and/or its vitamin C (ascorbic acid) acts as an antioxidant. Saying the apple is rusting because of iron, or that the browning is mold or rot, fails. Naming the enzyme is optional.",
+    "reference": "Cutting breaks the apple's cells and exposes their contents to oxygen. An enzyme, polyphenol oxidase, then oxidizes compounds in the fruit into brown pigments. Lemon juice is acidic, which slows the enzyme, and its vitamin C acts as an antioxidant, so browning is slower.",
+    "core_rubric": "Attributes browning to enzyme-driven oxidation once cutting exposes the flesh to oxygen, and says lemon juice slows it through its acidity or vitamin C.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_82",
+    "category": "concept",
+    "question": "When you drink through a straw, what actually pushes the liquid up the straw?",
+    "answer": "The pressure of the surrounding air. Sucking lowers the air pressure inside your mouth and the straw, and the higher atmospheric pressure pressing on the surface of the drink pushes the liquid up into the lower-pressure space.",
+    "rubric": "Explains that sucking lowers the pressure inside the straw and that the higher atmospheric (air) pressure on the drink's surface pushes the liquid up. Saying that suction pulls the liquid up by itself, with no role for the outside air pressure, fails. Noting that air pressure alone could not push water up a straw taller than about 10 meters is optional.",
+    "reference": "The pressure of the surrounding air. Sucking lowers the air pressure inside your mouth and the straw, and the higher atmospheric pressure pressing on the surface of the drink pushes the liquid up into the lower-pressure space.",
+    "core_rubric": "Says the outside atmospheric pressure pushes the liquid up once sucking lowers the pressure inside the straw.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_83",
+    "category": "concept",
+    "question": "What mainly causes the ocean tides, and why do most coasts have two high tides a day rather than one?",
+    "answer": "Mainly the Moon's gravity, which pulls more strongly on the side of Earth facing it than on the far side. This difference raises two bulges of water, one facing the Moon and one on the opposite side of Earth. As Earth rotates, a coast passes through both bulges, giving about two high tides a day. The Sun's gravity adds a smaller effect, producing stronger spring tides and weaker neap tides.",
+    "rubric": "Identifies the Moon's gravity as the main cause, acting through the difference in its pull across Earth, which raises two tidal bulges on opposite sides of Earth; Earth's rotation carries a coast through both, giving about two high tides a day (roughly 12 hours 25 minutes apart). The Sun's smaller contribution is optional but must be correct if given. Attributing tides mainly to wind, to Earth's rotation alone, or to the Sun fails.",
+    "reference": "Mainly the Moon's gravity, which pulls more strongly on the side of Earth facing it than on the far side. This difference raises two bulges of water, one facing the Moon and one on the opposite side of Earth. As Earth rotates, a coast passes through both bulges, giving about two high tides a day. The Sun's gravity adds a smaller effect, producing stronger spring tides and weaker neap tides.",
+    "core_rubric": "Names the Moon's gravity (its uneven pull across Earth) as the main cause and explains the two bulges on opposite sides of Earth that a rotating coast passes through each day.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_84",
+    "category": "concept",
+    "question": "Why is it risky to use the same password for many different websites, even if the password is long and hard to guess?",
+    "answer": "If any one of those sites is breached, or the password is phished, attackers get the password and can try it on other sites, an attack called credential stuffing. A strong password does not help once it has been stolen, so reusing it lets a single leak open many accounts.",
+    "rubric": "Explains that if one site leaks the password or it is stolen another way, attackers can reuse it to log in to other accounts (credential stuffing), so one breach exposes every account that shares it; a password's strength does not protect it once stolen. Suggesting a password manager or two-factor authentication is optional. Saying the main risk is that long passwords are easier to guess, or that websites share passwords with each other, fails.",
+    "reference": "If any one of those sites is breached, or the password is phished, attackers get the password and can try it on other sites, an attack called credential stuffing. A strong password does not help once it has been stolen, so reusing it lets a single leak open many accounts.",
+    "core_rubric": "Explains that one stolen or leaked password can be reused by attackers on every other site that shares it.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_85",
+    "category": "planning",
+    "question": "A game has tokens worth 1, 3, and 4 points, with plenty of each. I need exactly 6 points using as few tokens as possible. Which tokens should I use?",
+    "answer": "Two 3-point tokens. Starting with the 4-point token would need 4 + 1 + 1, which is three tokens.",
+    "rubric": "Gives two 3-point tokens (2 tokens). This is the only way to make exactly 6 points with two tokens, and one token cannot do it. 4 + 1 + 1 (three tokens, from taking the largest token first) fails, as does any combination that does not total exactly 6.",
+    "reference": "Two 3-point tokens. Starting with the 4-point token would need 4 + 1 + 1, which is three tokens.",
+    "core_rubric": "Gives two 3-point tokens.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_86",
+    "category": "planning",
+    "question": "I need to pack five items weighing 7, 6, 5, 4, and 2 kilograms into boxes that each hold at most 12 kilograms. Items cannot be split. What is the fewest number of boxes, and which items go in each box?",
+    "answer": "Two boxes: one with the 7 kg and 5 kg items, and the other with the 6 kg, 4 kg, and 2 kg items. Each box holds exactly 12 kg.",
+    "rubric": "Gives 2 boxes, packed as {7, 5} and {6, 4, 2}. The items weigh 24 kg in total, so two boxes must each hold exactly 12 kg, and this is the only such split. Three or more boxes fails, and so does any packing in which a box holds more than 12 kg.",
+    "reference": "Two boxes: one with the 7 kg and 5 kg items, and the other with the 6 kg, 4 kg, and 2 kg items. Each box holds exactly 12 kg.",
+    "core_rubric": "Gives two boxes containing 7 + 5 kg and 6 + 4 + 2 kg.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_87",
+    "category": "planning",
+    "question": "Starting at 10:00, I have 3 loads of laundry. Each load needs 40 minutes in the washer and then 50 minutes in the dryer. I have one washer and one dryer, each holds one load at a time, and I move a load as soon as it is done and the next machine is free. When will all three loads be dry?",
+    "answer": "13:10. The washer runs the loads 10:00–10:40, 10:40–11:20, and 11:20–12:00. The dryer runs them 10:40–11:30, 11:30–12:20, and 12:20–13:10.",
+    "rubric": "Gives 13:10. The dryer is the slower machine, so after the first wash it runs back to back: 10:40–11:30, 11:30–12:20, and 12:20–13:10. Doing the loads one at a time from start to finish (14:30), or adding one drying time to the end of the last wash (12:50), fails. If a schedule is shown, it must be consistent with these times.",
+    "reference": "13:10. The washer runs the loads 10:00–10:40, 10:40–11:20, and 11:20–12:00. The dryer runs them 10:40–11:30, 11:30–12:20, and 12:20–13:10.",
+    "core_rubric": "Gives 13:10.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_88",
+    "category": "planning",
+    "question": "Pencils are sold only in packs of 5 for $2.00 and packs of 12 for $4.50. I need at least 22 pencils. Which packs should I buy to spend the least, and what will it cost?",
+    "answer": "One pack of 12 and two packs of 5, giving 22 pencils for $8.50.",
+    "rubric": "Gives one 12-pack and two 5-packs, costing $8.50 for exactly 22 pencils. This is the unique cheapest choice: two 12-packs cost $9.00 and five 5-packs cost $10.00, so both fail. Any choice with fewer than 22 pencils fails.",
+    "reference": "One pack of 12 and two packs of 5, giving 22 pencils for $8.50.",
+    "core_rubric": "Gives one 12-pack and two 5-packs for $8.50.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_89",
+    "category": "planning",
+    "question": "Three customers are waiting at a counter with one clerk. Serving them takes 10 minutes, 2 minutes, and 5 minutes. The clerk serves one at a time without breaks, starting now. In what order should they be served so that the sum of their finishing times, measured from now, is as small as possible, and what is that sum?",
+    "answer": "Serve the 2-minute customer first, then the 5-minute customer, then the 10-minute customer. They finish at 2, 7, and 17 minutes, for a sum of 26 minutes.",
+    "rubric": "Gives the order 2, 5, then 10 minutes (shortest first) and a sum of 26 minutes (2 + 7 + 17). This is the only best order; for example, 10, 5, 2 gives 10 + 15 + 17 = 42. Any other order or sum fails.",
+    "reference": "Serve the 2-minute customer first, then the 5-minute customer, then the 10-minute customer. They finish at 2, 7, and 17 minutes, for a sum of 26 minutes.",
+    "core_rubric": "Gives the order 2-minute, 5-minute, then 10-minute customer, and a sum of 26 minutes.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_90",
+    "category": "planning",
+    "question": "I'm hosting a potluck dinner for 12 people. Last time almost everyone brought dessert and there was no main dish. Suggest a simple way to coordinate who brings what so that we get a balanced meal.",
+    "answer": "Share a sign-up sheet, such as a shared document, with a fixed number of slots in each category, for example 3 main dishes, 3 sides, 2 salads, 2 desserts, and 2 drinks. Each guest writes their name and dish in an open slot, so everyone can see what is already covered, and the sheet closes a few days before the dinner.",
+    "rubric": "Proposes a shared list or sign-up that everyone can see, with dishes grouped into categories such as mains, sides, and desserts and a limit on how many of each, so that guests choose what is still needed before the event. Assigning categories directly to guests is also acceptable. Exact numbers per category, reminders, and deadlines are optional. Only asking people to bring 'something different', without a shared list or category limits, is insufficient.",
+    "reference": "Share a sign-up sheet, such as a shared document, with a fixed number of slots in each category, for example 3 main dishes, 3 sides, 2 salads, 2 desserts, and 2 drinks. Each guest writes their name and dish in an open slot, so everyone can see what is already covered, and the sheet closes a few days before the dinner.",
+    "core_rubric": "Proposes a shared sign-up or direct assignment with category limits (such as mains, sides, and desserts) that is settled before the dinner.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_91",
+    "category": "planning",
+    "question": "I have an unmarked 3-liter jug, an unmarked 5-liter jug, and a tap. In one step, I can fill a jug completely, empty a jug completely, or pour from one jug into the other until the first is empty or the second is full. Give a sequence of steps that leaves exactly 4 liters in the 5-liter jug.",
+    "answer": "1. Fill the 5-liter jug (5-liter jug 5, 3-liter jug 0). 2. Pour from the 5-liter jug into the 3-liter jug until it is full (2 and 3). 3. Empty the 3-liter jug (2 and 0). 4. Pour the 2 liters into the 3-liter jug (0 and 2). 5. Fill the 5-liter jug (5 and 2). 6. Pour from the 5-liter jug into the 3-liter jug until it is full, which takes 1 liter (4 and 3).",
+    "rubric": "Gives a sequence of fill, empty, and pour-until-empty-or-full steps that ends with exactly 4 liters in the 5-liter jug. The reference takes 6 steps, the fewest possible, but any other valid sequence is acceptable, such as filling the 3-liter jug and pouring it into the 5-liter jug repeatedly. Estimating amounts by eye, filling a jug partway, or any step whose stated amounts do not follow from the rules fails.",
+    "reference": "1. Fill the 5-liter jug (5-liter jug 5, 3-liter jug 0). 2. Pour from the 5-liter jug into the 3-liter jug until it is full (2 and 3). 3. Empty the 3-liter jug (2 and 0). 4. Pour the 2 liters into the 3-liter jug (0 and 2). 5. Fill the 5-liter jug (5 and 2). 6. Pour from the 5-liter jug into the 3-liter jug until it is full, which takes 1 liter (4 and 3).",
+    "core_rubric": "Gives a valid fill, empty, and pour sequence that ends with exactly 4 liters in the 5-liter jug.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_92",
+    "category": "planning",
+    "question": "My electric car needs 42 kWh of charging, and my home charger delivers a steady 7 kW. Electricity is cheap only from 23:00 to 07:00. I plug in at 21:00. I want to charge only during cheap hours, without stopping once charging starts, and have it finish as early as possible. When should charging start, and when will it finish?",
+    "answer": "Start at 23:00 and finish at 05:00: 42 kWh / 7 kW = 6 hours, which fits inside 23:00–07:00.",
+    "rubric": "Gives a start at 23:00 and a finish at 05:00. Charging takes 42 / 7 = 6 hours, and 23:00 is the earliest cheap start. Starting at 21:00, when the car is plugged in, fails because it uses expensive hours. A charging time other than 6 hours fails.",
+    "reference": "Start at 23:00 and finish at 05:00: 42 kWh / 7 kW = 6 hours, which fits inside 23:00–07:00.",
+    "core_rubric": "Gives a start at 23:00 and a finish at 05:00.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_93",
+    "category": "planning",
+    "question": "Our five-person team gets interrupted by chat questions all day, so nobody gets long stretches of focused work. Suggest a simple arrangement that protects focus time while making sure urgent questions still get a quick answer.",
+    "answer": "Set two shared focus blocks each day, for example 09:00–11:00 and 14:00–16:00, when chat notifications are muted. Each week one person is the on-call contact, keeps notifications on, and answers or passes on urgent questions; everything else waits until the block ends. Write down what counts as urgent.",
+    "rubric": "Proposes protected focus time, such as scheduled blocks or quiet hours with notifications off, plus a clear route for urgent questions, such as a rotating on-call person, a separate urgent channel, or a phone-call rule, so that urgent issues still get a quick response. Defining what counts as urgent and batching non-urgent questions are optional. A plan that only says to mute chat, with no route for urgent questions, or only says to reply faster, is insufficient.",
+    "reference": "Set two shared focus blocks each day, for example 09:00–11:00 and 14:00–16:00, when chat notifications are muted. Each week one person is the on-call contact, keeps notifications on, and answers or passes on urgent questions; everything else waits until the block ends. Write down what counts as urgent.",
+    "core_rubric": "Proposes scheduled focus time with notifications off and a defined route, such as a rotating on-call person, for urgent questions.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_94",
+    "category": "planning",
+    "question": "A help desk must be staffed without any gap from 08:00 to 20:00. Each volunteer can work only the one shift they offered: Ana 08:00–12:00, Ben 10:00–14:00, Cara 13:00–18:00, Dev 17:00–20:00, Eli 12:00–16:00, and Fay 15:00–20:00. One person on duty at a time is enough, shifts may overlap, and a shift that starts exactly when another ends leaves no gap. What is the smallest group of volunteers that covers the whole day?",
+    "answer": "Three volunteers: Ana (08:00–12:00), Eli (12:00–16:00), and Fay (15:00–20:00).",
+    "rubric": "Gives Ana, Eli, and Fay. This is the only group of three with no gap, and no group of two can cover the day. Groups such as Ana, Ben, Cara, and Dev cover the day but use four people and fail. Any group with a gap, for example Ana, Ben, and Fay (nobody from 14:00 to 15:00), fails.",
+    "reference": "Three volunteers: Ana (08:00–12:00), Eli (12:00–16:00), and Fay (15:00–20:00).",
+    "core_rubric": "Gives Ana, Eli, and Fay as the smallest covering group.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_95",
+    "category": "planning",
+    "question": "Six friends shared a weekend trip, and different people paid for different things: one paid for the cabin, another for groceries, and others for gas. We want to split all the costs equally. Describe a simple method to work out who owes whom, using as few payments as practical.",
+    "answer": "List every expense and who paid it, add them up, and divide by six to get each person's equal share. For each person, subtract their share from what they paid: a positive balance means they are owed money, and a negative one means they owe. Then have each person who owes pay those who are owed, matching the largest debts with the largest credits first, until every balance is zero. A shared spreadsheet or a bill-splitting app can do the arithmetic.",
+    "rubric": "Describes recording every expense and who paid it, computing the total and each person's equal share (the total divided by 6), computing each person's net balance (amount paid minus share), and settling with payments from people who owe to people who are owed until all balances are zero. Using a spreadsheet or app is optional. Having everyone repay each payer separately for each expense, without netting balances, is insufficient for 'as few payments as practical', and any plan that splits costs unequally fails.",
+    "reference": "List every expense and who paid it, add them up, and divide by six to get each person's equal share. For each person, subtract their share from what they paid: a positive balance means they are owed money, and a negative one means they owe. Then have each person who owes pay those who are owed, matching the largest debts with the largest credits first, until every balance is zero. A shared spreadsheet or a bill-splitting app can do the arithmetic.",
+    "core_rubric": "Records who paid what, computes each person's equal share and net balance, and settles with payments from those who owe to those who are owed.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  },
+  {
+    "id": "round7_96",
+    "category": "planning",
+    "question": "I'm seating exactly 30 guests at round tables. I can use as many 6-seat tables and 8-seat tables as I need, but every seat at every table I use must be filled. Which combination uses the fewest tables?",
+    "answer": "One 6-seat table and three 8-seat tables: 6 + 24 = 30 guests at 4 tables.",
+    "rubric": "Gives one 6-seat table and three 8-seat tables, 4 tables in total. The only other way to fill every seat, five 6-seat tables, uses 5 tables and fails. Combinations that leave empty seats or do not seat exactly 30 fail.",
+    "reference": "One 6-seat table and three 8-seat tables: 6 + 24 = 30 guests at 4 tables.",
+    "core_rubric": "Gives one 6-seat table and three 8-seat tables.",
+    "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question."
+  }
+]

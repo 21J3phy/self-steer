@@ -1,0 +1,128 @@
+{
+ "eli5": [
+  "How do vaccines work?",
+  "Why do we have seasons?",
+  "How does the internet work?",
+  "What is electricity?",
+  "Why do cats purr?",
+  "How do airplanes stay in the air?",
+  "What causes earthquakes?",
+  "How does a battery work?",
+  "Why do leaves change color in the fall?",
+  "What is DNA?",
+  "How does a computer remember things?",
+  "Why does the moon change shape?",
+  "What is inflation in the economy?",
+  "How do magnets work?",
+  "Why do we need sleep?",
+  "How does GPS know where I am?",
+  "What is a black hole?",
+  "How do bees make honey?",
+  "Why is the ocean salty?",
+  "How does a microwave heat food?"
+ ],
+ "bullets": [
+  "How can I sleep better?",
+  "What should I pack for a weekend camping trip?",
+  "How do I prepare for a job interview?",
+  "What are good ways to save money on groceries?",
+  "How do I start learning to code?",
+  "How can I make my laptop battery last longer?",
+  "What should I check before buying a used car?",
+  "How do I keep houseplants alive?",
+  "What are the benefits of regular exercise?",
+  "How do I write a good cover letter?",
+  "What makes a strong password?",
+  "How do I reduce stress during exams?",
+  "What should I do in my first week at a new job?",
+  "How can I be more productive working from home?",
+  "What are tips for public speaking?",
+  "How do I plan a budget for a trip abroad?",
+  "How do I clean a cast iron pan?",
+  "What should a beginner know about investing?",
+  "How do I make my resume stand out?",
+  "How do I train for a 5K run?"
+ ],
+ "math": [
+  {
+   "prompt": "A jacket costs $338 and is 20% off. What is the sale price?",
+   "answer": 270.4
+  },
+  {
+   "prompt": "A car drives at 87 km/h for 2.5 hours. How far does it go?",
+   "answer": 217.5
+  },
+  {
+   "prompt": "A box holds 95 pencils. How many pencils are in 79 boxes?",
+   "answer": 7505
+  },
+  {
+   "prompt": "A dinner bill of $67 is split equally among 6 friends. How much does each pay?",
+   "answer": 11.17
+  },
+  {
+   "prompt": "A jacket costs $147 and is 40% off. What is the sale price?",
+   "answer": 88.2
+  },
+  {
+   "prompt": "A car drives at 43 km/h for 2 hours. How far does it go?",
+   "answer": 86
+  },
+  {
+   "prompt": "A box holds 26 pencils. How many pencils are in 59 boxes?",
+   "answer": 1534
+  },
+  {
+   "prompt": "A dinner bill of $180 is split equally among 4 friends. How much does each pay?",
+   "answer": 45.0
+  },
+  {
+   "prompt": "A jacket costs $214 and is 30% off. What is the sale price?",
+   "answer": 149.8
+  },
+  {
+   "prompt": "A car drives at 46 km/h for 4 hours. How far does it go?",
+   "answer": 184
+  },
+  {
+   "prompt": "A box holds 43 pencils. How many pencils are in 13 boxes?",
+   "answer": 559
+  },
+  {
+   "prompt": "A dinner bill of $247 is split equally among 4 friends. How much does each pay?",
+   "answer": 61.75
+  },
+  {
+   "prompt": "A jacket costs $228 and is 20% off. What is the sale price?",
+   "answer": 182.4
+  },
+  {
+   "prompt": "A car drives at 51 km/h for 3 hours. How far does it go?",
+   "answer": 153
+  },
+  {
+   "prompt": "A box holds 32 pencils. How many pencils are in 21 boxes?",
+   "answer": 672
+  },
+  {
+   "prompt": "A dinner bill of $95 is split equally among 8 friends. How much does each pay?",
+   "answer": 11.88
+  },
+  {
+   "prompt": "A jacket costs $336 and is 25% off. What is the sale price?",
+   "answer": 252.0
+  },
+  {
+   "prompt": "A car drives at 48 km/h for 2 hours. How far does it go?",
+   "answer": 96
+  },
+  {
+   "prompt": "A box holds 12 pencils. How many pencils are in 12 boxes?",
+   "answer": 144
+  },
+  {
+   "prompt": "A dinner bill of $113 is split equally among 4 friends. How much does each pay?",
+   "answer": 28.25
+  }
+ ]
+}

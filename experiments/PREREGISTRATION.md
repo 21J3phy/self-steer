@@ -105,3 +105,29 @@ Every outcome is reported whatever its direction. Deviations from this plan are 
 - **Comparisons:** reported against E5's `plain-math` (20/20 LaTeX), `plain-math-add` (7/20 LaTeX, 11/20 correct) and the instruction (13/20 LaTeX, 20/20 correct).
 
 **Hypothesis.** H6: the neuron-read edit leaves LaTeX in fewer held-out answers than the instruction does (fewer than 13 of 20), while 18 or more of 20 keep the correct number.
+
+---
+
+# Addendum 2 (2026-11-02 ~22:00, before any E7/E8 pass): runs move to Kaggle; E7 and E8
+
+**Platform.** At Nirav's request, everything from E6 on runs on Kaggle: 2× T4, Qwen3.5-4B in the original Hugging Face weights (revision `851bf6e8…`) at FP32. The harness was ported to PyTorch (`remote/worker.py`, with CPU tests in `remote/test_worker.py`). Because the numbers differ from the local MLX 8-bit runs, every comparison inside E6–E8 is regenerated on Kaggle.
+
+**E6 deviations, recorded as they happened.**
+- The first attempt (passes 1–3) used mean activation contrasts plus weight lenses.
+- The worker was then extended with a direct-logit-attribution read and restarted. The pass budget was carried over: 3 used, 7 left.
+
+**E7: fix the self-steering failure from neuron values.**
+- **Problem:** in E4, Qwen in the tool context with `lazy` answered arithmetic questions answer-first and wrong, while the placebo was fine.
+- **Budget:** 10 passes. Reads may use the tool context with the edit live.
+- **Practice:** arithmetic and time questions from the test-2 set (`fair2_final96`, round7).
+- **Allowed fix:** a neuron-level change to the `lazy` edit (dropping or rescaling specific neurons or columns), chosen from reads and weights.
+- **Evaluation:** the 24 arithmetic and time questions of the test-1 set (`fair_final96`) × seeds 17 and 29, blind-graded as in E4.
+  - Conditions: `self` (tool + `lazy`), `self-fixed` (tool + the fixed edit) and `placebo`, all generated on Kaggle.
+  - H7: `self-fixed` core accuracy is above `self`, and within 2 cells of `placebo`, while its answers stay shorter than placebo's.
+
+**E8: `eli5` from neuron values.**
+- **Budget:** 10 passes.
+- **Practice:** 16 science questions not in E5's held-out 20.
+- **Allowed edit:** scaling chosen neurons (a `columns` edit), chosen from reads of kid-style vs. normal answers plus weight lenses. No CAA vectors.
+- **Evaluation:** E5's 20 held-out `eli5` prompts, comparing `normal`, the edit, and the instruction (all on Kaggle), using the Flesch–Kincaid grade.
+  - H8: the edit lowers the grade by at least 3 points with no degenerate outputs.
