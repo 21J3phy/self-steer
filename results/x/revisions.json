@@ -1,6 +1,6 @@
 {
  "2": "2/ Qwen3.5-4B. Edits sit on down_proj outputs (bias patches, rank-1 projections, W_down column changes), gated by absolute token position.\n\nSwitching costs ~1µs, no measurable slowdown, and recall survives mid-conversation switches (24/24).\n\nThe mechanics aren't the bottleneck.",
  "4": "4/ So the edit composes with the tool context: tuned in a bare chat, it's a different edit after \"Mode 'lazy' is on.\"\n\nCaveat: that was 8-bit MLX. On FP32 PyTorch (other hardware too), Qwen picked it on 11/48 arithmetic Qs (vs 35/48) and lost nothing. I haven't isolated why.",
- "8": "8/ But MLPs' direct writes cover only ~19% of that effect, and oppose it in L8–16. The rest comes via attention and indirect paths (untested causally).\n\nScaling can only amplify what's active. Best edit: 3,584 neurons ×4 → FK 10.7→7.2 on 20 held-out prompts, 1 loop. Prompt: 3.3.",
+ "8": "8/ But MLPs' direct writes cover only ~19% of that effect, and oppose it in L8–16. The rest comes via attention and indirect paths (untested causally).\n\nScaling can only amplify what's active. Best edit: 3584 neurons ×4 → FK 10.7→7.2 on 20 held-out prompts, 1 loop. Prompt: 3.3.",
  "11": "11/ Live edits are cheap. The hard parts are deciding when to switch and building edits that beat a prompt.\n\nPre-registered. All 3 redo hypotheses failed as written. Paper, code, and the full controller trace (every read and edit Claude made):\n\ngithub.com/21J3phy/self-steer"
 }

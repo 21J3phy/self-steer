@@ -36,7 +36,7 @@
  },
  {
   "n": 8,
-  "text": "8/ But MLPs' direct writes cover only ~19% of that effect, and oppose it in L8–16. The rest comes via attention and indirect paths (untested causally).\n\nScaling can only amplify what's active. Best edit: 3,584 neurons ×4 → FK 10.7→7.2 on 20 held-out prompts, 1 loop. Prompt: 3.3.",
+  "text": "8/ But MLPs' direct writes cover only ~19% of that effect, and oppose it in L8–16. The rest comes via attention and indirect paths (untested causally).\n\nScaling can only amplify what's active. Best edit: 3584 neurons ×4 → FK 10.7→7.2 on 20 held-out prompts, 1 loop. Prompt: 3.3.",
   "image": "/Users/nrav/Projects/self-steer/results/x/6_eli5_edit.png"
  },
  {
