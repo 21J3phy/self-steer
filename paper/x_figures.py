@@ -145,8 +145,8 @@ def fig_precision():
     e4 = [json.loads(l) for l in rows]
     e4 = [r for r in e4 if r.get('category') == 'arithmetic_time' and r['condition'] == 'self']
     q8_calls = sum(any((t.get('call') or {}).get('name') == 'set_mode' and str(((t.get('call') or {}).get('arguments') or {}).get('name', '')).lower() == 'lazy' for t in r.get('tool_calls', [])) for r in e4)
-    fig, gs = frame('The self-selection failure moved with precision',
-                    'Same 24 arithmetic & time questions × 2 seeds, same template, tool and prompt',
+    fig, gs = frame('Self-selection differed across the two setups',
+                    '8-bit MLX on M2 Pro vs FP32 PyTorch on 2×T4 · same 24 questions × 2 seeds, template, tool, prompt',
                     ncols=2, widths=[1, 1.4], wspace=0.35)
     a1, a2 = fig.add_subplot(gs[0]), fig.add_subplot(gs[1])
     a1.bar([0, 1], [q8_calls, fp_calls], width=0.55, color=ORANGE)
@@ -222,11 +222,11 @@ def fig_eli5_read():
     a2.axhline(0, color=INK2, lw=0.9)
     a2.plot(L, [100 * v for v in f], '-o', color=BLUE, lw=2, ms=6, mec=SURFACE, mew=1.5)
     a2.text(31, 19 + 6, '19%', ha='center', fontsize=9.5, color=INK)
-    a2.text(5, -26, 'MLPs work against it', fontsize=9, color=RED)
+    a2.text(5, -26, 'direct writes oppose it', fontsize=9, color=RED)
     a2.set_ylim(-30, 100); a2.set_yticks([0, 50, 100], ['0', '50', '100%'])
     a2.set_xticks([0, 8, 16, 24, 31]); a2.set_xlabel('layer')
     a2.set_title('Share written directly by MLPs (layers ≤ ℓ)'); grid(a2)
-    a2.text(16, 70, 'the rest is attention', fontsize=9.5, color=INK2, ha='center')
+    a2.text(16, 70, 'the rest: attention and indirect paths\n(not causally tested)', fontsize=9.5, color=INK2, ha='center')
     save(fig, '5_eli5_read.png')
 
 
