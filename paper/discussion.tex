@@ -5,7 +5,23 @@
 \item \textbf{Claude decided well from the question text alone.} It chose \texttt{lazy} for every shell and Git question but only 4 of 24 planning cells, and kept accuracy at a fifth fewer words.
 \item \textbf{The 4B model, deciding for itself, did not.} It chose \texttt{lazy} on 14 of 24 planning cells despite a description telling it not to. More importantly, choosing an edit through a tool call is not neutral: the edit stacks on top of the tool-use context (\S\ref{sec:e4}).
 \end{itemize}
-An edit calibrated in one context (a bare chat prompt) is not the same edit in another (after a tool call and tool response). Self-steering systems will need either context-aware calibration or a controller that sits outside the model's own context.
+An edit calibrated in one context (a bare chat prompt) is not the same edit in another (after a tool call and tool response). E7's reads show this directly: after the tool call, \texttt{lazy} adds a digit push at the last layer that it does not add in a bare chat.
+
+E7 also shows how fragile the self-selection result is. On FP32 weights, Qwen chose \texttt{lazy} on 11 of 48 arithmetic answers instead of 35, and lost nothing. Self-steering systems will need context-aware calibration, a controller that sits outside the model's own context, or both. Any claim about a small model's self-selection should be checked at more than one precision.
+
+\paragraph{Reading neurons localizes behavior. It does not make it local.} In E6--E8, Claude worked as Weight-Space Programming prescribes: reads, attributions and column edits, under a pass budget. The instruments were accurate:
+\begin{itemize}
+\item the attribution predicted single-neuron logit drops within 5\%;
+\item a matched-context read isolated the eli5 instruction's effect with an unmistakable logit lens;
+\item the digit direction was recovered from the weights to $10^{-4}$.
+\end{itemize}
+The behaviors were not local.
+\begin{itemize}
+\item \textbf{LaTeX.} Silencing the top attributed neuron changed nothing, and silencing 512 cut LaTeX density but never removed it.
+\item \textbf{eli5.} MLP neurons write only a fifth of the instruction's effect directly; attention carries the rest.
+\item \textbf{E7.} The digit push sits in layer 31, after everything a column edit upstream could change.
+\end{itemize}
+The kernel was most useful for saying \emph{in advance} what would not work. It predicted pass 4's null result for eli5, the off-target cost of amplification, and the small effect of the E7 fix. That saved passes, but it did not produce an edit that beats a one-line prompt.
 
 \paragraph{Prompting is not a substitute for small edits, nor always the reverse.} A one-line ``be concise'' system prompt shortened answers far more than any edit, and it cost 29 points of accuracy, mostly by suppressing the working needed for arithmetic and scheduling. For style requests (\S\ref{sec:e5}), prompting was competitive with or better than the CAA edits Claude built. Edits earn their place when a behavior needs to be switched precisely, measured, or reversed, and when the prompt channel is unavailable or untrusted.
 
@@ -13,7 +29,8 @@ An edit calibrated in one context (a bare chat prompt) is not the same edit in a
 
 \section{Limitations}
 \begin{itemize}
-\item \textbf{Scope.} We tested one model (Qwen3.5-4B), at one precision (MLX 8-bit), on one laptop. Test sets are small: 96 questions $\times$ 2 seeds for E4, 24 conversations for E3, and 20 prompts per mode for E5.
+\item \textbf{Scope.} We tested one model (Qwen3.5-4B). E1--E5 ran at MLX 8-bit on one laptop; E6--E8 ran in FP32 on Kaggle (2$\times$T4), and the two setups sample differently: Kaggle's placebo scored 28/48 where E4's scored 37/48 on the same questions. Test sets are small: 96 questions $\times$ 2 seeds for E4, 24 conversations for E3, 20 prompts per mode for E5, E6 and E8, and 24 questions $\times$ 2 seeds for E7.
+\item \textbf{Pass budgets.} E6--E8 used 10 forward passes per task on 9--16 practice prompts, chosen to match Weight-Space Programming's small-budget setting. Larger budgets might find better edits. A cancelled Kaggle session forced E7's four reads to be re-run; they matched exactly.
 \item \textbf{Grading.} Graders are LLMs (Claude Opus 5.5), blind to condition, and calibrated against earlier grades. The controller is also Claude, so we used separate instances that had no access to each other's outputs.
 \item \textbf{Reused generations.} E4's baseline and always-on conditions are generations from an earlier study. E1 shows the engine reproduces them exactly, but they were graded in a separate batch.
 \item \textbf{The planning warning.} The \texttt{lazy} description's warning about planning came from that study's second test, on different questions.
@@ -22,6 +39,6 @@ An edit calibrated in one context (a bare chat prompt) is not the same edit in a
 \end{itemize}
 
 \section{Conclusion}
-Small edits to a language model's MLP layers can be switched live, between any two tokens, at no measurable cost and without disturbing the conversation. A frontier model can build new ones on demand. Whether such a system helps depends on who holds the switch. In our tests a frontier controller held it well. The model holding its own switch over-applied it and lost accuracy. Making small models better judges of their own edits, or calibrating edits to the context they are switched in, is the next step.
+Small edits to a language model's MLP layers can be switched live, between any two tokens, at no measurable cost and without disturbing the conversation. A frontier model can build new ones on demand. Whether such a system helps depends on who holds the switch. In our tests a frontier controller held it well. The model holding its own switch over-applied it and lost accuracy at 8-bit precision; at FP32 it rarely chose the edit and lost nothing. Reading neuron values, as Weight-Space Programming does, located each behavior precisely but did not yield an edit that beat a prompt: the behaviors we targeted are spread across many neurons and carried partly by attention. Making small models better judges of their own edits, or calibrating edits to the context they are switched in, is the next step.
 
 \paragraph{AI assistance.} The harness, experiments and analysis were built with Claude Code (Claude Opus 5.5), which also acted as the controller in E5. Answers were graded by separate blind Claude Opus 5.5 instances.

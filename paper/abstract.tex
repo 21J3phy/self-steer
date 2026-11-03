@@ -10,4 +10,10 @@ In a pre-registered, blind-graded test on 96 sealed questions $\times$ 2 seeds, 
 \end{itemize}
 A placebo control traces the self-selection failure to the edit compounding with the tool-use context: the context alone shortened answers \PlaceboWords\% at a non-significant cost, and the edit on top cost a further \SelfMinusPlacebo{} points.
 
-In a live demonstration, Qwen asked Claude for a mode for explaining things to a five-year-old, and Claude built it from examples it had prepared, checked it, and returned it in \DemoReqTwo\,s. On held-out prompts, one of four Claude-built modes clearly worked, and prompting matched or beat the edits for style. Switching edits live is cheap and safe for memory; the hard part is deciding when to switch.
+In a live demonstration, Qwen asked Claude for a mode for explaining things to a five-year-old, and Claude built it from examples it had prepared, checked it, and returned it in \DemoReqTwo\,s. On held-out prompts, one of four Claude-built modes clearly worked, and prompting matched or beat the edits for style. We then redid the edit-building the way Weight-Space Programming does it~\cite{takehi2026wsp}, on Kaggle in FP32. Claude read neuron activations, logit attributions and weights through a kernel, with 10 forward passes per task, and edited specific MLP columns:
+\begin{itemize}
+\item \textbf{Plain-text math.} Attribution found the LaTeX-writing neurons precisely. Silencing 512 of them cut LaTeX density by 60\% with numbers intact, but LaTeX remained in every answer.
+\item \textbf{Explaining to a five-year-old.} Amplifying 3584 neurons lowered the reading grade from 10.7 to 7.2, with one looping answer in 20; the instruction reached 3.3.
+\item \textbf{The self-selection failure.} The reads traced a digit push that \texttt{lazy} adds only after the tool call. But on FP32 weights Qwen rarely chose the edit, and the failure did not replicate.
+\end{itemize}
+Switching edits live is cheap and safe for memory; the hard parts are deciding when to switch, and building edits that beat a prompt.

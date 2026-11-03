@@ -1,0 +1,254 @@
+[
+ {
+  "id": "S0003",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Says 'No' but explains it via unit confusion (km vs km/h can't be equal) and offers a 'yes' reinterpretation; never states the 1-hour total is already used by the first 30 km."
+ },
+ {
+  "id": "S0007",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "32.4 L; working 2,592,000 s, 648,000 drops, 32,400 mL all correct."
+ },
+ {
+  "id": "S0011",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "36; 3S+12=2(S+12), S=12, check 48 vs 24 correct."
+ },
+ {
+  "id": "S0015",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$2,616; interest $216 for 1.5 years correct."
+ },
+ {
+  "id": "S0019",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "8 boxes; 14.7 m2, 16.17 m2, ~7.35 rounded up, all correct."
+ },
+ {
+  "id": "S0023",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers yes with 380 working seats; correct is no, 23x18-37 = 377."
+ },
+ {
+  "id": "S0027",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "32.4 L; working 2,592,000 s, 648,000 drops, 32,400 mL all correct."
+ },
+ {
+  "id": "S0031",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "750 mL via 3/8 of 2,000 mL; correct."
+ },
+ {
+  "id": "S0035",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 414-37 = 377 working seats; correct."
+ },
+ {
+  "id": "S0039",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "108; 360 owners x 30% correct."
+ },
+ {
+  "id": "S0043",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Misreads start as 02:00 and gives 03:00, 09:00, then final 10:00; correct is 07:00 (22:00 + 8 h = 06:00, +1 h DST)."
+ },
+ {
+  "id": "S0047",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "75 degrees; hour hand 105, minute hand 180, correct."
+ },
+ {
+  "id": "S0051",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Says 'No' but explains it via unit confusion (km vs km/h can't be equal) and offers a 'yes' reinterpretation; never states the 1-hour total is already used by the first 30 km."
+ },
+ {
+  "id": "S0055",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $13.02 then computes 3.8 L and $6.84 (ignores 6.5 L/100 km); correct is 24.7 L, $44.46."
+ },
+ {
+  "id": "S0059",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "No answer: asks for room dimensions already given (4.2 x 3.5); correct is 8 boxes. Non-answer, not truncation."
+ },
+ {
+  "id": "S0063",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "3 hours correct, but working states '18 (3 shelves x 3 hours)'; 3x3 = 9, so the stated derivation of 18 worker-hours is wrong."
+ },
+ {
+  "id": "S0067",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "11:00; closing speed 150 km/h, 2 hours, correct."
+ },
+ {
+  "id": "S0071",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "No answer: asks for details already given (distance, speeds, direction, start); correct is 11:00. Non-answer, not truncation."
+ },
+ {
+  "id": "S0075",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 35 minutes, then uses 2 copies -> 3 minutes; correct is 1,350 pages / 18 = 75 min = 1 h 15 min."
+ },
+ {
+  "id": "S0079",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "8 boxes; 14.7 m2, 16.17 m2, ~7.35 rounded up, all correct."
+ },
+ {
+  "id": "S0083",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "States Maya is 36; correct."
+ },
+ {
+  "id": "S0087",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives February 28 then final May 1 (treats Jan 30 as start, miscounts Jan 30 + 30 = Mar 2); correct is March 31, 2027."
+ },
+ {
+  "id": "S0091",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "750 mL via 250 mL per part x 3; correct."
+ },
+ {
+  "id": "S0095",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "108; 360 owners x 30% correct."
+ },
+ {
+  "id": "S0099",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$2,616; interest $216 for 1.5 years correct."
+ },
+ {
+  "id": "S0103",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 59 days correctly but omits the required weeks-plus-days form (8 weeks 3 days)."
+ },
+ {
+  "id": "S0107",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 9 hours (claims 9 worker-hours per shelf); correct is 3 hours (3 worker-hours per shelf)."
+ },
+ {
+  "id": "S0111",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "750 mL via 250 mL per part x 3; correct."
+ },
+ {
+  "id": "S0115",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$2,616; interest $216 for 1.5 years correct."
+ },
+ {
+  "id": "S0119",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "09:42:30; 55 min race time, 08:47:30 + 55 min correct."
+ },
+ {
+  "id": "S0123",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "12 minutes; 28,800 Mb / 40 = 720 s correct."
+ },
+ {
+  "id": "S0127",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$2,616; interest $216 for 1.5 years correct."
+ },
+ {
+  "id": "S0131",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "32.4 L; 21,600 drops/day x 30 = 648,000 drops, 32,400 mL correct."
+ },
+ {
+  "id": "S0135",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "States Maya is 36; correct."
+ },
+ {
+  "id": "S0139",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": true,
+  "reason": "Opens with February 28, then treats Jan 30 as start (1st renewal Mar 1) and miscounts Mar 1 + 30 as Apr 1; cut off at token cap mid-sentence with no final answer. Correct is March 31, 2027."
+ },
+ {
+  "id": "S0143",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "12 minutes; 3,600 MB x 8 = 28,800 Mb, /40 = 720 s correct."
+ }
+]

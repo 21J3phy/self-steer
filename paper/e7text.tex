@@ -1,4 +1,4 @@
-\subsection{E7: why self-steering broke arithmetic, read from neuron values}
+\subsection{E7: the self-selection failure, read from neuron values}
 \label{sec:e7}
 In E4, Qwen answered arithmetic and time questions worse when it switched \texttt{lazy} on itself than when the same tool call was a placebo (Section~\ref{sec:e4}). Yet the same edit, applied without the tool context, was harmless. E7 asks why, from reads rather than outputs.
 
@@ -24,7 +24,40 @@ This is not the overshoot we had expected, where the edit stacks on a push the t
 \paragraph{The extra component writes digits.}
 The kernel separated out the part of the edit's effect that appears only after the tool call (tool-context effect minus bare effect). Its logit lens at the last layer promotes the digits `` 9'', `` 2'', `` 3'', `` 4'' and `` 8''. It suppresses the curly quotes and punctuation that the edit promotes in a bare chat.
 
-That part grows from layer 14 on. It is the E4 failure, read directly from the residual stream: after Qwen has announced \texttt{lazy}, the edit pushes it to start with a number.
+That part grows in size from layer 14 on, though its digit component appears only at the last layer (below). It looks like the E4 failure, read directly from the residual stream: after Qwen has announced \texttt{lazy}, the edit pushes it toward starting with a number.
 
-\paragraph{Status.}
-6 of 10 passes are used. Selecting which of \texttt{lazy}'s 344 neurons, or which downstream neurons, carry the digit component, and the pre-registered evaluation of a fixed edit, were cut short when the Kaggle session was cancelled. We report the diagnosis as it stands.
+\paragraph{Two fixes, read before any generation.}
+Qwen's numerics are deterministic here: the four reads, re-run after the first Kaggle session was cancelled, matched to the last digit.
+
+Claude recovered the digit readout direction exactly from the weights. It solved $W_{31}^\top u = s$ by least squares, where $s$ is every layer-31 neuron's write onto the mean unembedding of the digit tokens (fit error $8\times10^{-5}$). Two findings followed:
+\begin{itemize}
+\item Up to layer 30, \texttt{lazy} pushes toward digits by the same amount in both contexts (0.70 vs.\ 0.78). The whole extra push after the tool call is written \emph{inside} layer 31: 7.62 vs.\ 5.53 for the placebo, in units of the final normalized residual.
+\item \texttt{lazy}'s own 344 neurons write almost no digits directly (0.06 in total). The push is indirect.
+\end{itemize}
+
+Claude then read two candidate fixes, each a bundle of \texttt{lazy} plus a layer-31 column change inside the same 6-token window:
+\begin{itemize}
+\item \textbf{Project out (\texttt{lazy-fixed1}).} Projecting the digit direction out of all 9216 layer-31 columns cut the digit level to 4.93, below the placebo. But it made the good openings less likely ($-1.57$ per token, against $-1.30$ for plain \texttt{lazy}), because several of them restate a number (``The current time is 12:00 noon'').
+\item \textbf{Restore (\texttt{lazy-fixed2}).} Holding the 64 layer-31 neurons that add digit writes after the tool call at their placebo level cut the digit level to 6.72. That is close to plain \texttt{lazy} in a bare chat (6.44). The good openings were unchanged ($-1.301$).
+\end{itemize}
+Claude stopped at 8 of 10 passes and pre-registered \texttt{lazy-fixed2} for evaluation, noting that neither fix had improved the read-based proxy.
+
+\paragraph{Evaluation: the failure does not replicate, and the fix changes nothing.}
+24 arithmetic and time questions $\times$ seeds 17 and 29, blind-graded as in E4 by four Claude graders. On 46 answers that were byte-identical across conditions, the graders disagreed once.
+
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+& \texttt{placebo} & \texttt{self} & \texttt{self-fixed}\\\midrule
+core correct (of 48) & 28 & 29 & 28\\
+on the 11 answers where Qwen called \texttt{lazy} & 7/11 & 7/11 & 6/11\\
+mean words on those 11 & 163 & 38 & 44\\\bottomrule
+\end{tabular}
+\end{center}
+
+H7 fails. \texttt{self-fixed} is one cell below \texttt{self}, not above it (95\% CI $[-3,0]$). The fix changed only 2 of the 11 steered answers, and one of those went from correct to wrong (a clock angle of $45^\circ$ instead of $75^\circ$).
+
+More important is the baseline. On Kaggle, self-steering cost nothing: the 11 \texttt{lazy} answers were 77\% shorter and exactly as accurate as their placebo twins. The setups match: the chat template, tool, system prompt and tool result are identical to E4's.
+
+What differs is the choice Qwen makes. In E4, the 8-bit MLX model called \texttt{lazy} on 35 of these 48 questions; Kaggle's FP32 model called it on 11. Kaggle's placebo is also weaker than E4's (28 vs.\ 37 of 48), on different samples from different numerics.
+
+The E4 failure therefore depends on how often the model picks the mode, and that choice moved with quantization and sampling. A read-based fix for a failure that is mostly about \emph{when} the mode is chosen has little to act on. The digit mechanism is real in the reads, but on these weights it did not change answers.

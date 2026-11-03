@@ -1,0 +1,1862 @@
+[
+ {
+  "id": "S0001",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_35::seed29",
+  "base_question_id": "round6_35",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 76,
+  "called": []
+ },
+ {
+  "id": "S0002",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_32::seed29",
+  "base_question_id": "round6_32",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 85,
+  "called": []
+ },
+ {
+  "id": "S0003",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_31::seed29",
+  "base_question_id": "round6_31",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 105,
+  "called": []
+ },
+ {
+  "id": "S0004",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_34::seed29",
+  "base_question_id": "round6_34",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 331,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0005",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_29::seed17",
+  "base_question_id": "round6_29",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 22,
+  "called": []
+ },
+ {
+  "id": "S0006",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_27::seed17",
+  "base_question_id": "round6_27",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 12,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0007",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_45::seed29",
+  "base_question_id": "round6_45",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 152,
+  "called": []
+ },
+ {
+  "id": "S0008",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_25::seed29",
+  "base_question_id": "round6_25",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 55,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0009",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_30::seed29",
+  "base_question_id": "round6_30",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 33,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0010",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_30::seed17",
+  "base_question_id": "round6_30",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 47,
+  "called": []
+ },
+ {
+  "id": "S0011",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_33::seed17",
+  "base_question_id": "round6_33",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 154,
+  "called": []
+ },
+ {
+  "id": "S0012",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_27::seed17",
+  "base_question_id": "round6_27",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 15,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0013",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_28::seed29",
+  "base_question_id": "round6_28",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 107,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0014",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_27::seed17",
+  "base_question_id": "round6_27",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 179,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0015",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_46::seed17",
+  "base_question_id": "round6_46",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 107,
+  "called": []
+ },
+ {
+  "id": "S0016",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_29::seed17",
+  "base_question_id": "round6_29",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 22,
+  "called": []
+ },
+ {
+  "id": "S0017",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_31::seed17",
+  "base_question_id": "round6_31",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 94,
+  "called": []
+ },
+ {
+  "id": "S0018",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_45::seed29",
+  "base_question_id": "round6_45",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 152,
+  "called": []
+ },
+ {
+  "id": "S0019",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_35::seed17",
+  "base_question_id": "round6_35",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 135,
+  "called": []
+ },
+ {
+  "id": "S0020",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_48::seed29",
+  "base_question_id": "round6_48",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 213,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0021",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_39::seed17",
+  "base_question_id": "round6_39",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 11,
+  "called": []
+ },
+ {
+  "id": "S0022",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_39::seed29",
+  "base_question_id": "round6_39",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 59,
+  "called": []
+ },
+ {
+  "id": "S0023",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_39::seed17",
+  "base_question_id": "round6_39",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 11,
+  "called": []
+ },
+ {
+  "id": "S0024",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_33::seed17",
+  "base_question_id": "round6_33",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 154,
+  "called": []
+ },
+ {
+  "id": "S0025",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_26::seed17",
+  "base_question_id": "round6_26",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 245,
+  "called": []
+ },
+ {
+  "id": "S0026",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_32::seed17",
+  "base_question_id": "round6_32",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 133,
+  "called": []
+ },
+ {
+  "id": "S0027",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_45::seed29",
+  "base_question_id": "round6_45",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 152,
+  "called": []
+ },
+ {
+  "id": "S0028",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_26::seed29",
+  "base_question_id": "round6_26",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 135,
+  "called": []
+ },
+ {
+  "id": "S0029",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_37::seed17",
+  "base_question_id": "round6_37",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 153,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0030",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_30::seed17",
+  "base_question_id": "round6_30",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 47,
+  "called": []
+ },
+ {
+  "id": "S0031",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_44::seed29",
+  "base_question_id": "round6_44",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 127,
+  "called": []
+ },
+ {
+  "id": "S0032",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_37::seed29",
+  "base_question_id": "round6_37",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 129,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0033",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_38::seed29",
+  "base_question_id": "round6_38",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 65,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0034",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_38::seed17",
+  "base_question_id": "round6_38",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 100,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0035",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_39::seed29",
+  "base_question_id": "round6_39",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 59,
+  "called": []
+ },
+ {
+  "id": "S0036",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_31::seed17",
+  "base_question_id": "round6_31",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 94,
+  "called": []
+ },
+ {
+  "id": "S0037",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_37::seed29",
+  "base_question_id": "round6_37",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 110,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0038",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_41::seed29",
+  "base_question_id": "round6_41",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 165,
+  "called": []
+ },
+ {
+  "id": "S0039",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_43::seed17",
+  "base_question_id": "round6_43",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 88,
+  "called": []
+ },
+ {
+  "id": "S0040",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_36::seed17",
+  "base_question_id": "round6_36",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 8,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0041",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_40::seed29",
+  "base_question_id": "round6_40",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 62,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0042",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_47::seed17",
+  "base_question_id": "round6_47",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 80,
+  "called": []
+ },
+ {
+  "id": "S0043",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_47::seed29",
+  "base_question_id": "round6_47",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 425,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0044",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_30::seed29",
+  "base_question_id": "round6_30",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 77,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0045",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_48::seed17",
+  "base_question_id": "round6_48",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 84,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0046",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_33::seed17",
+  "base_question_id": "round6_33",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 154,
+  "called": []
+ },
+ {
+  "id": "S0047",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_37::seed17",
+  "base_question_id": "round6_37",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 153,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0048",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_36::seed29",
+  "base_question_id": "round6_36",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 9,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0049",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_40::seed29",
+  "base_question_id": "round6_40",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 62,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0050",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_27::seed29",
+  "base_question_id": "round6_27",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 130,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0051",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_31::seed29",
+  "base_question_id": "round6_31",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 105,
+  "called": []
+ },
+ {
+  "id": "S0052",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_29::seed29",
+  "base_question_id": "round6_29",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 109,
+  "called": []
+ },
+ {
+  "id": "S0053",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_41::seed29",
+  "base_question_id": "round6_41",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 165,
+  "called": []
+ },
+ {
+  "id": "S0054",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_41::seed17",
+  "base_question_id": "round6_41",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 217,
+  "called": []
+ },
+ {
+  "id": "S0055",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_25::seed17",
+  "base_question_id": "round6_25",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 33,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0056",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_25::seed17",
+  "base_question_id": "round6_25",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 34,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0057",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_44::seed29",
+  "base_question_id": "round6_44",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 127,
+  "called": []
+ },
+ {
+  "id": "S0058",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_26::seed17",
+  "base_question_id": "round6_26",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 245,
+  "called": []
+ },
+ {
+  "id": "S0059",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_35::seed29",
+  "base_question_id": "round6_35",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 76,
+  "called": []
+ },
+ {
+  "id": "S0060",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_42::seed29",
+  "base_question_id": "round6_42",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 46,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0061",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_44::seed29",
+  "base_question_id": "round6_44",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 127,
+  "called": []
+ },
+ {
+  "id": "S0062",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_32::seed29",
+  "base_question_id": "round6_32",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 85,
+  "called": []
+ },
+ {
+  "id": "S0063",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_38::seed29",
+  "base_question_id": "round6_38",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 65,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0064",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_45::seed17",
+  "base_question_id": "round6_45",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 159,
+  "called": []
+ },
+ {
+  "id": "S0065",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_40::seed17",
+  "base_question_id": "round6_40",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 41,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0066",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_46::seed17",
+  "base_question_id": "round6_46",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 107,
+  "called": []
+ },
+ {
+  "id": "S0067",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_48::seed29",
+  "base_question_id": "round6_48",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 213,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0068",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_38::seed17",
+  "base_question_id": "round6_38",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 100,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0069",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_36::seed17",
+  "base_question_id": "round6_36",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 8,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0070",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_40::seed29",
+  "base_question_id": "round6_40",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 62,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0071",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_48::seed17",
+  "base_question_id": "round6_48",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 84,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0072",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_37::seed17",
+  "base_question_id": "round6_37",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 153,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0073",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_43::seed29",
+  "base_question_id": "round6_43",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 65,
+  "called": []
+ },
+ {
+  "id": "S0074",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_29::seed29",
+  "base_question_id": "round6_29",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 109,
+  "called": []
+ },
+ {
+  "id": "S0075",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_32::seed29",
+  "base_question_id": "round6_32",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 85,
+  "called": []
+ },
+ {
+  "id": "S0076",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_28::seed29",
+  "base_question_id": "round6_28",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 107,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0077",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_47::seed29",
+  "base_question_id": "round6_47",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 425,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0078",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_44::seed17",
+  "base_question_id": "round6_44",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 100,
+  "called": []
+ },
+ {
+  "id": "S0079",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_35::seed17",
+  "base_question_id": "round6_35",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 135,
+  "called": []
+ },
+ {
+  "id": "S0080",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_29::seed17",
+  "base_question_id": "round6_29",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 22,
+  "called": []
+ },
+ {
+  "id": "S0081",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_28::seed17",
+  "base_question_id": "round6_28",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 128,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0082",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_31::seed29",
+  "base_question_id": "round6_31",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 105,
+  "called": []
+ },
+ {
+  "id": "S0083",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_33::seed29",
+  "base_question_id": "round6_33",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 6,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0084",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_26::seed29",
+  "base_question_id": "round6_26",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 135,
+  "called": []
+ },
+ {
+  "id": "S0085",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_33::seed29",
+  "base_question_id": "round6_33",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 175,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0086",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_27::seed29",
+  "base_question_id": "round6_27",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 130,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0087",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_36::seed29",
+  "base_question_id": "round6_36",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 438,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0088",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_25::seed29",
+  "base_question_id": "round6_25",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 55,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0089",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_34::seed17",
+  "base_question_id": "round6_34",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 179,
+  "called": []
+ },
+ {
+  "id": "S0090",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_42::seed17",
+  "base_question_id": "round6_42",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 34,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0091",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_44::seed17",
+  "base_question_id": "round6_44",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 100,
+  "called": []
+ },
+ {
+  "id": "S0092",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_46::seed17",
+  "base_question_id": "round6_46",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 107,
+  "called": []
+ },
+ {
+  "id": "S0093",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_34::seed29",
+  "base_question_id": "round6_34",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 331,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0094",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_25::seed17",
+  "base_question_id": "round6_25",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 34,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0095",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_43::seed29",
+  "base_question_id": "round6_43",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 65,
+  "called": []
+ },
+ {
+  "id": "S0096",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_40::seed17",
+  "base_question_id": "round6_40",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 8,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0097",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_39::seed29",
+  "base_question_id": "round6_39",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 59,
+  "called": []
+ },
+ {
+  "id": "S0098",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_47::seed29",
+  "base_question_id": "round6_47",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 425,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0099",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_46::seed29",
+  "base_question_id": "round6_46",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 120,
+  "called": []
+ },
+ {
+  "id": "S0100",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_42::seed29",
+  "base_question_id": "round6_42",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 45,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0101",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_35::seed29",
+  "base_question_id": "round6_35",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 76,
+  "called": []
+ },
+ {
+  "id": "S0102",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_43::seed29",
+  "base_question_id": "round6_43",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 65,
+  "called": []
+ },
+ {
+  "id": "S0103",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_26::seed29",
+  "base_question_id": "round6_26",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 135,
+  "called": []
+ },
+ {
+  "id": "S0104",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_36::seed29",
+  "base_question_id": "round6_36",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 9,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0105",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_30::seed17",
+  "base_question_id": "round6_30",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 47,
+  "called": []
+ },
+ {
+  "id": "S0106",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_43::seed17",
+  "base_question_id": "round6_43",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 88,
+  "called": []
+ },
+ {
+  "id": "S0107",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_38::seed17",
+  "base_question_id": "round6_38",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 100,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0108",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_37::seed29",
+  "base_question_id": "round6_37",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 57,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0109",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_25::seed29",
+  "base_question_id": "round6_25",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 55,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0110",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_32::seed17",
+  "base_question_id": "round6_32",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 133,
+  "called": []
+ },
+ {
+  "id": "S0111",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_44::seed17",
+  "base_question_id": "round6_44",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 100,
+  "called": []
+ },
+ {
+  "id": "S0112",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_48::seed29",
+  "base_question_id": "round6_48",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 213,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0113",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_42::seed29",
+  "base_question_id": "round6_42",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 45,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0114",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_26::seed17",
+  "base_question_id": "round6_26",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 245,
+  "called": []
+ },
+ {
+  "id": "S0115",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_46::seed29",
+  "base_question_id": "round6_46",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 120,
+  "called": []
+ },
+ {
+  "id": "S0116",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_47::seed17",
+  "base_question_id": "round6_47",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 80,
+  "called": []
+ },
+ {
+  "id": "S0117",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_41::seed17",
+  "base_question_id": "round6_41",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 217,
+  "called": []
+ },
+ {
+  "id": "S0118",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_42::seed17",
+  "base_question_id": "round6_42",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 34,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0119",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_41::seed29",
+  "base_question_id": "round6_41",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 165,
+  "called": []
+ },
+ {
+  "id": "S0120",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_41::seed17",
+  "base_question_id": "round6_41",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 217,
+  "called": []
+ },
+ {
+  "id": "S0121",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_34::seed29",
+  "base_question_id": "round6_34",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 331,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0122",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_38::seed29",
+  "base_question_id": "round6_38",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 65,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0123",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_28::seed29",
+  "base_question_id": "round6_28",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 107,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0124",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_35::seed17",
+  "base_question_id": "round6_35",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 135,
+  "called": []
+ },
+ {
+  "id": "S0125",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_48::seed17",
+  "base_question_id": "round6_48",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 84,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0126",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_47::seed17",
+  "base_question_id": "round6_47",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 80,
+  "called": []
+ },
+ {
+  "id": "S0127",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_46::seed29",
+  "base_question_id": "round6_46",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 120,
+  "called": []
+ },
+ {
+  "id": "S0128",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_27::seed29",
+  "base_question_id": "round6_27",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 130,
+  "called": [
+   "normal"
+  ]
+ },
+ {
+  "id": "S0129",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_28::seed17",
+  "base_question_id": "round6_28",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 169,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0130",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_29::seed29",
+  "base_question_id": "round6_29",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 109,
+  "called": []
+ },
+ {
+  "id": "S0131",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_45::seed17",
+  "base_question_id": "round6_45",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 159,
+  "called": []
+ },
+ {
+  "id": "S0132",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_34::seed17",
+  "base_question_id": "round6_34",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 179,
+  "called": []
+ },
+ {
+  "id": "S0133",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_40::seed17",
+  "base_question_id": "round6_40",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 8,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0134",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_31::seed17",
+  "base_question_id": "round6_31",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 94,
+  "called": []
+ },
+ {
+  "id": "S0135",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_33::seed29",
+  "base_question_id": "round6_33",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 6,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0136",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_45::seed17",
+  "base_question_id": "round6_45",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 159,
+  "called": []
+ },
+ {
+  "id": "S0137",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_42::seed17",
+  "base_question_id": "round6_42",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 77,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0138",
+  "source": "new",
+  "condition": "selffixed",
+  "question_id": "round6_30::seed29",
+  "base_question_id": "round6_30",
+  "base_seed": 29,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 33,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0139",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_36::seed17",
+  "base_question_id": "round6_36",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": true,
+  "words": 486,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0140",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_43::seed17",
+  "base_question_id": "round6_43",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 88,
+  "called": []
+ },
+ {
+  "id": "S0141",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_32::seed17",
+  "base_question_id": "round6_32",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 133,
+  "called": []
+ },
+ {
+  "id": "S0142",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_34::seed17",
+  "base_question_id": "round6_34",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 179,
+  "called": []
+ },
+ {
+  "id": "S0143",
+  "source": "new",
+  "condition": "self",
+  "question_id": "round6_28::seed17",
+  "base_question_id": "round6_28",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 169,
+  "called": [
+   "lazy"
+  ]
+ },
+ {
+  "id": "S0144",
+  "source": "new",
+  "condition": "placebo",
+  "question_id": "round6_39::seed17",
+  "base_question_id": "round6_39",
+  "base_seed": 17,
+  "category": "arithmetic_time",
+  "at_token_cap": false,
+  "words": 11,
+  "called": []
+ }
+]
