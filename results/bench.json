@@ -1,6 +1,6 @@
 {
  "model": {
-  "path": "/Users/nrav/models/Qwen3.5-4B-8bit",
+  "path": "~/models/Qwen3.5-4B-8bit",
   "layers": 32,
   "mlp_neurons_per_layer": 9216,
   "hidden_size": 2560,
