@@ -32,6 +32,16 @@
 - Of the four modes Claude built, `eli5` clearly worked: reading grade went from 10.5 to 3.7.
 - A LaTeX-removal edit also mangled digits, and a rank-1 weight edit had no effect on held-out prompts. For style, prompting was as good or better.
 
+**Redone from neuron values (E6–E8).** The style edits above were tuned by reading outputs. We redid them the way [Weight-Space Programming](https://rikiyat.github.io/blog/weight-space-programming/) does: Claude reads neuron activations, logit attributions and weights through a kernel, gets 10 forward passes per task, and edits specific `W_down` columns. This ran on Kaggle (2×T4, FP32) via [`remote/`](remote/).
+
+| Task | What the reads found | Held-out result |
+|---|---|---|
+| Plain-text math | The neurons that write LaTeX; the top one adds +2.2 logits | Silencing 512 cuts LaTeX density 60%, numbers intact; LaTeX still in 20 of 20 answers (instruction: 14 of 20) |
+| eli5 | The instruction's effect (" yummy", " silly" vs " fundamentally"); MLPs write only 19% of it | Amplifying 3584 neurons: reading grade 10.7 → 7.2 on all 20 prompts; 1 answer looped (instruction: 3.3) |
+| Lazy self-selection | After the tool call, `lazy` adds a digit push written in layer 31 | At FP32, Qwen chose `lazy` on 11 of 48 answers (vs 35 at 8-bit) and lost no accuracy; the fix changed nothing |
+
+The instruments located each behavior precisely. The behaviors themselves are spread across many neurons and partly carried by attention, so no column edit beat a one-line prompt.
+
 The paper reports all of this, failures included.
 
 ## Run it
