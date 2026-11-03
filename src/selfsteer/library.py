@@ -78,6 +78,12 @@ class Library:
         edit = self.get(name)
         if 'neurons' in edit.meta and edit.meta.get('source'):
             raise ValueError('Neuron presets are already files')
+        if edit.kind == 'columns':
+            data = {'name': edit.name, 'kind': 'columns', 'window': edit.window, 'description': edit.description,
+                    'author': edit.author, 'ops': edit.source_ops}
+            path = Path(directory) / f'{name}.json'
+            path.write_text(json.dumps(data))
+            return path
         data = {'name': edit.name, 'kind': edit.kind, 'window': edit.window,
                 'description': edit.description, 'author': edit.author,
                 'meta': {k: v for k, v in edit.meta.items() if _jsonable(v)},

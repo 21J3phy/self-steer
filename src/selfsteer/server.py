@@ -24,8 +24,11 @@ from .model import Engine
 from .probe import build_mode
 from .session import Session
 from .worker import ModelWorker
+from . import weights as W
+from .edits import Edit, columns_from_ops
 
 WEB = Path(__file__).parent / 'web' / 'index.html'
+WORK = Path(__file__).resolve().parents[2] / 'runs' / 'work'
 
 INSTRUCTIONS = """You are the controller for a local Qwen3.5-4B whose neurons can be edited live.
 Qwen can switch its own modes (set_mode) and can ask you for new ones (request_mode).
@@ -36,7 +39,7 @@ You can also set_mode on the live chat yourself, or chat with Qwen."""
 
 
 class Hub:
-    def __init__(self, engine, library, cache_policy='keep', request_timeout=600.0):
+    def __init__(self, engine, library, cache_policy='keep', request_timeout=600.0, budget=10):
         self.engine, self.library = engine, library
         self.worker = ModelWorker()
         self.board = RequestBoard()
@@ -44,6 +47,7 @@ class Hub:
         self.loop: asyncio.AbstractEventLoop | None = None
         self.cache_policy = cache_policy
         self.request_timeout = request_timeout
+        self.budget, self.passes = budget, []
         self.busy = False
         self.history: list[dict] = []
         self.session = self.new_session(cache_policy)
@@ -78,6 +82,12 @@ class Hub:
             return turn.public()
         finally:
             self.busy = False
+
+    def spend(self, kind, detail):
+        if len(self.passes) >= self.budget:
+            raise RuntimeError(f'Forward-pass budget used up ({self.budget}).')
+        self.passes.append({'kind': kind, 't': time.time(), **detail})
+        return self.budget - len(self.passes)
 
     def try_mode(self, name, prompts, gain, max_tokens, seed):
         out = []
@@ -124,6 +134,94 @@ def build_server(hub: Hub) -> MCPServer:
                                    window=window, author='claude')
         hub.broadcast({'type': 'library', 'action': 'created', 'mode': stats, 't': time.time()})
         return stats
+
+    # ------------------------------------------------- weight-space instruments
+    @mcp.tool()
+    async def budget() -> dict:
+        """Forward passes used and left (read_activations and generate_pass each cost one)."""
+        return {'budget': hub.budget, 'used': len(hub.passes), 'passes': hub.passes}
+
+    @mcp.tool()
+    async def read_activations(name: str, items: list[dict], system: str | None = None) -> dict:
+        """Teacher-forced read (costs 1 pass, max 256 items). Each item is {"prompt", "answer"}.
+        Saves runs/work/<name>.npz with neurons (items x 32 x 9216, every MLP neuron's activation =
+        input to down_proj, mean over answer tokens), resid (items x 32 x 2560) and answer_logprob."""
+        if not 0 < len(items) <= 256:
+            raise ValueError('1-256 items per read')
+        left = hub.spend('read', {'name': name, 'items': len(items)})
+        out = await on_worker(W.read_activations, hub.engine, items, system)
+        WORK.mkdir(parents=True, exist_ok=True)
+        path = WORK / f'{name}.npz'
+        import numpy as np
+        np.savez_compressed(path, **out)
+        (WORK / f'{name}.items.json').write_text(json.dumps(items, ensure_ascii=False, indent=1))
+        return {'path': str(path), 'shapes': {k: list(v.shape) for k, v in out.items()}, 'passes_left': left}
+
+    @mcp.tool()
+    async def neuron_info(layer: int, neurons: list[int], k: int = 10) -> list[dict]:
+        """What each neuron writes: its W_down column norm and the tokens the column promotes/suppresses."""
+        return await on_worker(W.neuron_info, hub.engine, layer, neurons, k)
+
+    @mcp.tool()
+    async def token_direction(tokens: list[str], name: str) -> dict:
+        """Mean unembedding direction of single-token strings; saved to runs/work/<name>.npy."""
+        import numpy as np
+        u, ids = await on_worker(W.token_direction, hub.engine, tokens)
+        WORK.mkdir(parents=True, exist_ok=True)
+        np.save(WORK / f'{name}.npy', np.array(u, dtype=np.float32))
+        return {'path': str(WORK / f'{name}.npy'), 'token_ids': ids}
+
+    @mcp.tool()
+    async def top_writers(layer: int, direction_file: str, k: int = 64) -> list[dict]:
+        """Neurons in a layer whose W_down columns write a direction (.npy in runs/work) most."""
+        import numpy as np
+        u = np.load(WORK / direction_file).tolist()
+        return await on_worker(W.top_writers, hub.engine, layer, u, k)
+
+    @mcp.tool()
+    async def export_down(layer: int, neurons: list[int] | None = None) -> str:
+        """Save a layer's dequantized W_down (hidden x neurons, float32) to runs/work for offline analysis."""
+        import numpy as np
+        w = await on_worker(W.export_down, hub.engine, layer, neurons)
+        WORK.mkdir(parents=True, exist_ok=True)
+        path = WORK / f'down_L{layer}.npy'
+        np.save(path, w)
+        return str(path)
+
+    @mcp.tool()
+    async def save_edit(name: str, description: str, ops: list[dict], window: int | None = None) -> dict:
+        """A weight edit on chosen W_down columns (neurons), registered as a mode Qwen can switch on.
+        ops: {"layer", "neurons": [...], "op": "scale", "factor": f} or
+             {"layer", "neurons": [...], "op": "project", "direction_file": "u.npy" | "direction": [...], "alpha": a}."""
+        import numpy as np
+        for op in ops:
+            if 'direction_file' in op:
+                op['direction'] = np.load(WORK / op.pop('direction_file')).tolist()
+
+        def build():
+            cols = columns_from_ops(ops, hub.engine.projections, hub.engine.num_layers, hub.engine.num_neurons)
+            meta_ops = [{k: v for k, v in op.items() if k != 'direction'} for op in ops]
+            edit = Edit(name=name, kind='columns', vectors={}, columns=cols, window=window,
+                        description=description, author='claude', meta={'ops': meta_ops})
+            edit.source_ops = ops
+            hub.library.add(edit)
+            return edit.summary()
+        summary = await on_worker(build)
+        (WORK / f'edit_{name}.json').parent.mkdir(parents=True, exist_ok=True)
+        (WORK / f'edit_{name}.json').write_text(json.dumps({'name': name, 'kind': 'columns', 'window': window,
+                                                            'description': description, 'author': 'claude',
+                                                            'ops': ops}))
+        hub.broadcast({'type': 'library', 'action': 'created', 'mode': summary, 't': time.time()})
+        return summary
+
+    @mcp.tool()
+    async def generate_pass(mode: str, prompts: list[str], max_tokens: int = 400, seed: int = 0,
+                            gain: float = 1.0) -> list[dict]:
+        """Paired generation, original vs. with the mode (costs 1 pass, max 32 prompts)."""
+        if not 0 < len(prompts) <= 32:
+            raise ValueError('1-32 prompts per pass')
+        hub.spend('generate', {'mode': mode, 'prompts': len(prompts), 'gain': gain})
+        return await on_worker(hub.try_mode, mode, prompts, gain, max_tokens, seed)
 
     @mcp.tool()
     async def try_mode(name: str, prompts: list[str], gain: float = 1.0, max_tokens: int = 200,
@@ -240,11 +338,11 @@ def build_server(hub: Hub) -> MCPServer:
     return mcp
 
 
-def serve(host='127.0.0.1', port=8765, model_path=None, cache_policy='keep'):
+def serve(host='127.0.0.1', port=8765, model_path=None, cache_policy='keep', budget=10):
     import uvicorn
     engine = Engine.load(model_path) if model_path else Engine.load()
     library = Library(engine).load_dir()
-    hub = Hub(engine, library, cache_policy)
+    hub = Hub(engine, library, cache_policy, budget=budget)
     app = build_server(hub).streamable_http_app(host=host)
     print(f'self-steer: chat at http://{host}:{port}/  MCP at http://{host}:{port}/mcp', flush=True)
     uvicorn.run(app, host=host, port=port, log_level='warning')

@@ -66,6 +66,7 @@ def main(argv=None):
     s.add_argument('--port', type=int, default=8765)
     s.add_argument('--model', default=None)
     s.add_argument('--cache-policy', default='keep', choices=['keep', 'reprefill'])
+    s.add_argument('--budget', type=int, default=10, help='forward passes for weight-space work')
     c = sub.add_parser('chat', help='terminal chat')
     c.add_argument('--model', default=None)
     c.add_argument('--no-tools', action='store_true')
@@ -73,7 +74,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == 'serve':
         from .server import serve
-        serve(args.host, args.port, args.model, args.cache_policy)
+        serve(args.host, args.port, args.model, args.cache_policy, args.budget)
     else:
         chat(args)
 

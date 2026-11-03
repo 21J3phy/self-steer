@@ -77,3 +77,31 @@ E5 is a case study, not a hypothesis test. Strengths are chosen with `try_mode` 
 
 ## Reporting
 Every outcome is reported whatever its direction. Deviations from this plan are listed in the paper.
+
+---
+
+# Addendum (2026-11-02, before any E6 generation): E6, Claude reads the neurons
+
+**Why.** In E5, Claude built modes by writing contrastive examples. The harness averaged them into a dense residual vector, and Claude tuned the strength by reading outputs. Claude never inspected a neuron or a weight. That is not what Weight-Space Programming did. There, Astra worked from a kernel over the raw weights plus a budget of forward passes that returned MLP activations, and it edited the specific W_down columns that write the problem direction. E6 gives Claude those instruments and retries the E5 task that failed.
+
+**Task.** As in E5's `plain-math`: Qwen should write math in plain text instead of LaTeX, with the numbers intact.
+
+**Controller rules.**
+- **Who:** Claude Opus 5.5 in the Claude Code session, over MCP.
+- **Instruments, all free:**
+  - `neuron_info`: a neuron's W_down column norm and the tokens it promotes or suppresses.
+  - `token_direction` and `top_writers`: which columns write a direction.
+  - `export_down`: raw dequantized W_down, for analysis in Python.
+- **Forward passes, a budget of 10:**
+  - `read_activations`: teacher-forced, returning every MLP neuron's activation and the residual stream.
+  - `generate_pass`: paired original vs. edited.
+- **Prompts:** passes may use only practice prompts (`experiments/practice_math.py`, seed 99) and texts Claude writes, never E5's 20 held-out prompts.
+- **Forbidden:** gradients, any fitting, and CAA dense vectors.
+- **The final edit:** must be a `columns` edit, changing specific W_down columns (`scale` or `project`), registered as a mode Qwen can switch on.
+
+**Evaluation.**
+- **Task set:** E5's 20 held-out arithmetic prompts with the same seeds, `normal` vs. the edit, at 500 max tokens. Metrics are answers containing LaTeX and answers containing the correct number.
+- **Side-effect check:** the same edit on E5's 20 held-out how-to prompts (`bullets` set). Metrics are mean words, and outputs that become degenerate (any 4-gram repeated 5 or more times).
+- **Comparisons:** reported against E5's `plain-math` (20/20 LaTeX), `plain-math-add` (7/20 LaTeX, 11/20 correct) and the instruction (13/20 LaTeX, 20/20 correct).
+
+**Hypothesis.** H6: the neuron-read edit leaves LaTeX in fewer held-out answers than the instruction does (fewer than 13 of 20), while 18 or more of 20 keep the correct number.

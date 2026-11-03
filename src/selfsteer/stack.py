@@ -45,6 +45,7 @@ class EditStack:
         self.span_start = 0
         self.span_len = 0
         self.wrapped_layers = 0
+        self.capture = None  # {layer: neuron activations} while reading activations
 
     # -- span bookkeeping (called by the decode loop) --
     def set_span(self, start, length):
@@ -75,14 +76,16 @@ class EditStack:
         return [a.edit.name for a in self.actives if a.covers(position)]
 
     # -- the hook --
-    def apply(self, layer, out):
+    def apply(self, layer, out, x=None):
+        if self.capture is not None and x is not None:
+            self.capture[layer] = x
         if not self.actives:
             return out
         if out.ndim != 3 or out.shape[0] != 1 or out.shape[1] != self.span_len:
             raise ValueError('Edits support batch size one with a span set by the decode loop')
         start = self.span_start
         end = start + out.shape[1]
-        live = [a for a in self.actives if layer in a.edit.vectors and a.overlap(start, end)]
+        live = [a for a in self.actives if a.edit.touches(layer) and a.overlap(start, end)]
         if not live:
             return out
         positions = mx.arange(start, end)
@@ -91,6 +94,14 @@ class EditStack:
         for a in sorted(live, key=lambda a: a.edit.kind != 'ablate'):
             stop = end if a.stop is None else a.stop
             mask = (positions >= a.start) & (positions < stop)
+            if a.edit.kind == 'columns':
+                # W[:, S] += dW  =>  out += x[S] @ dW^T, from this layer's own neuron activations.
+                idx, dw = a.edit.columns[layer]
+                delta = x[..., idx].astype(mx.float32) @ dw.T
+                result = result + delta * mask[None, :, None]
+                if layer == min(a.edit.columns):
+                    a.steered_positions += a.overlap(start, end)
+                continue
             v = a.edit.vectors[layer].astype(mx.float32)
             if a.edit.kind == 'ablate':
                 proj = (result @ v)[..., None] * v[None, None, :]
@@ -111,7 +122,7 @@ class EditableDownProj(nn.Module):
         self._stack = stack  # underscore: not a child module or parameter
 
     def __call__(self, x):
-        return self._stack.apply(self.layer, self.projection(x))
+        return self._stack.apply(self.layer, self.projection(x), x)
 
 
 def install(layers, stack):

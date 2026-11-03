@@ -8,6 +8,11 @@ straight into the residual stream.
 - `ablate`: removes a unit direction u from the output, out -> out - (out.u)u.
   This equals the rank-1 weight edit W_down <- (I - u u^T) W_down, applied
   next to the frozen 8-bit weights instead of rewriting them.
+- `columns`: changes chosen columns (neurons) of W_down, W[:, S] <- W[:, S] + dW.
+  It is applied as out += dW @ x[S], using the layer's own neuron activations x.
+  Ops: `scale` (dW = (f - 1) W[:, S]; f = 0 silences the neurons) and `project`
+  (dW = -alpha u u^T W[:, S]; removes direction u from just those columns, the
+  edit Weight-Space Programming applied to Qwen3.5-0.8B).
 
 Neuron doses follow the Lazy Genius convention:
 dose x median residual norm at that layer x normalized W_down column.
@@ -19,7 +24,7 @@ import math
 
 import mlx.core as mx
 
-KINDS = ('add', 'ablate')
+KINDS = ('add', 'ablate', 'columns')
 
 
 @dataclass
@@ -34,12 +39,18 @@ class Edit:
     description: str = ''
     author: str = 'builtin'
     meta: dict = field(default_factory=dict)
+    # kind == 'columns': {layer: (neuron indices as int32 array, dW of shape hidden x k)}
+    columns: dict = field(default_factory=dict)
 
     def __post_init__(self):
         if self.kind not in KINDS:
             raise ValueError(f'Unknown edit kind {self.kind!r}')
         if self.window is not None and (type(self.window) is not int or self.window < 1):
             raise ValueError('window must be a positive integer or None')
+        if self.kind == 'columns':
+            if not self.columns or self.vectors:
+                raise ValueError('A columns edit needs columns and no vectors')
+            return
         if not self.vectors:
             raise ValueError('An edit needs at least one layer')
         if self.kind == 'ablate':
@@ -47,21 +58,32 @@ class Edit:
 
     @property
     def layers(self):
-        return sorted(self.vectors)
+        return sorted(self.columns if self.kind == 'columns' else self.vectors)
+
+    def touches(self, layer):
+        return layer in (self.columns if self.kind == 'columns' else self.vectors)
 
     def scaled(self, gain):
-        """A copy with every add-vector multiplied by gain (ablations ignore gain)."""
+        """A copy with its change multiplied by gain (ablations ignore gain)."""
         if self.kind == 'ablate' or gain == 1:
             return self
+        if self.kind == 'columns':
+            cols = {l: (idx, dw * gain) for l, (idx, dw) in self.columns.items()}
+            return Edit(self.name, self.kind, {}, self.window, self.description, self.author,
+                        dict(self.meta, gain=gain), columns=cols)
         return Edit(self.name, self.kind, {l: v * gain for l, v in self.vectors.items()},
                     self.window, self.description, self.author, dict(self.meta, gain=gain))
 
     def summary(self):
-        norms = {l: round(float(mx.linalg.norm(v.astype(mx.float32)).item()), 3)
-                 for l, v in self.vectors.items()}
+        if self.kind == 'columns':
+            detail = {'neurons_by_layer': {l: int(idx.size) for l, (idx, _) in self.columns.items()},
+                      'weights_changed': int(sum(dw.size for _, dw in self.columns.values()))}
+        else:
+            detail = {'norm_by_layer': {l: round(float(mx.linalg.norm(v.astype(mx.float32)).item()), 3)
+                                        for l, v in self.vectors.items()}}
         return {'name': self.name, 'kind': self.kind, 'layers': self.layers,
                 'window': self.window, 'description': self.description,
-                'author': self.author, 'norm_by_layer': norms, **self.meta}
+                'author': self.author, **detail, **self.meta}
 
 
 def unit(v):
@@ -130,6 +152,42 @@ def vectors_from_neurons(rows, medians, projections):
     return additions
 
 
+def dequantized(projection):
+    """The full W_down of a layer as float32 (hidden x neurons)."""
+    if hasattr(projection, 'scales'):
+        return mx.dequantize(projection.weight, projection.scales, projection.biases,
+                             group_size=projection.group_size, bits=projection.bits,
+                             mode=projection.mode).astype(mx.float32)
+    return projection.weight.astype(mx.float32)
+
+
+def columns_from_ops(ops, projections, num_layers, num_neurons):
+    """Turns column ops into {layer: (indices, dW)}; several ops on a layer are merged."""
+    merged = {}
+    for op in ops:
+        layer = int(op['layer'])
+        neurons = sorted(set(int(n) for n in op['neurons']))
+        if not 0 <= layer < num_layers or not neurons or not all(0 <= n < num_neurons for n in neurons):
+            raise ValueError(f'Bad column op: {op}')
+        w = dequantized(projections[layer])[:, mx.array(neurons)]
+        if op['op'] == 'scale':
+            dw = (float(op['factor']) - 1.0) * w
+        elif op['op'] == 'project':
+            u = unit(mx.array(op['direction'], dtype=mx.float32))
+            dw = -float(op.get('alpha', 1.0)) * mx.outer(u, u @ w)
+        else:
+            raise ValueError(f"Unknown column op {op['op']!r}")
+        for n, col in zip(neurons, dw.T):
+            merged.setdefault(layer, {})
+            merged[layer][n] = merged[layer].get(n, 0) + col
+    out = {}
+    for layer, cols in merged.items():
+        idx = sorted(cols)
+        out[layer] = (mx.array(idx, dtype=mx.int32), mx.stack([cols[n] for n in idx], axis=1))
+    mx.eval([v for pair in out.values() for v in pair])
+    return out
+
+
 def edit_from_preset(preset, projections, *, num_layers, num_neurons, sign=1.0):
     """Builds an Edit from a preset JSON dict.
 
@@ -140,6 +198,12 @@ def edit_from_preset(preset, projections, *, num_layers, num_neurons, sign=1.0):
     common = dict(name=preset['name'], window=preset.get('window'),
                   description=preset.get('description', ''), author=preset.get('author', 'builtin'),
                   meta=dict(preset.get('meta', {})))
+    if preset.get('kind') == 'columns':
+        cols = columns_from_ops(preset['ops'], projections, num_layers, num_neurons)
+        common['meta'].update(ops=[{k: v for k, v in op.items() if k != 'direction'} for op in preset['ops']])
+        edit = Edit(kind='columns', vectors={}, columns=cols, **common)
+        edit.source_ops = preset['ops']
+        return edit
     if 'neurons' in preset:
         medians = validate_neuron_preset(preset, num_layers, num_neurons)
         vectors = vectors_from_neurons(preset['neurons'], medians, projections)
