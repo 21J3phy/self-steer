@@ -131,3 +131,23 @@ Every outcome is reported whatever its direction. Deviations from this plan are 
 - **Allowed edit:** scaling chosen neurons (a `columns` edit), chosen from reads of kid-style vs. normal answers plus weight lenses. No CAA vectors.
 - **Evaluation:** E5's 20 held-out `eli5` prompts, comparing `normal`, the edit, and the instruction (all on Kaggle), using the Flesch–Kincaid grade.
   - H8: the edit lowers the grade by at least 3 points with no degenerate outputs.
+
+---
+
+# Addendum 3 (2026-11-03 ~01:45, written while the E8 held-out generations were running, before any were read, and before any E7 pass)
+
+**E6, outcome and an exploratory metric.**
+- H6 fails on its pre-registered metric: the 512-neuron edit left LaTeX in 20/20 held-out answers, against 14/20 for the instruction on Kaggle. All 20 kept the correct number.
+- LaTeX density (markup tokens per 100 words) was added after the result and is reported as exploratory.
+
+**E8, what the 8 passes did.**
+- Pass 5 deviates from the plan. It read the *same* answer texts with and without the eli5 instruction, a matched context, instead of only kid-style vs. normal texts. The reason: pass 3's kid-vs-normal text contrast was dominated by the text itself, and an edit built from it (pass 4) did nothing.
+- The final edit `eli5-cos29` is still a pure scaling edit: in layers 16–29, the 256 neurons per layer whose plain-context writes best align with the instruction effect (by cosine, sign-stable in ≥90% of texts) are scaled ×4. That is 3584 neurons.
+- It was chosen at pass 8 of 10, from 16 practice prompts: FK 10.0 → 6.5, 0/16 degenerate. Pass 7 (the same rule with layers 30–31 included) had 2/16 degenerate.
+- The held-out evaluation is as pre-registered: 20 prompts, seeds 2000–2019, 500 tokens, normal / edit / instruction.
+
+**E7, the planned reads (budget 10).**
+- Passes 1–2: `selfsteer_run` placebo and self on the 12 practice questions, seed 17.
+- Passes 3–6: teacher-forced reads of the placebo answers (first 6 answer tokens, the `lazy` window) in four contexts: bare, bare + `lazy`, tool, tool + `lazy`.
+- From these, the kernel compares the edit's cost to the good answers' log-probability in the bare vs. the tool context, and how the tool context's own shift aligns with each of the 344 `lazy` neuron vectors.
+- The fix is a neuron-level change to `lazy`: dropping or rescaling some of its 344 neurons, or scaling downstream columns while it is on. It is registered under the name `lazy`, so the tool Qwen sees is unchanged.
