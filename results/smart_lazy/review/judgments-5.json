@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0005",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sort -t',' -k2,2n prints lines numerically by field 2 without modifying the file."
+ },
+ {
+  "id": "S0014",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Covers TLS encryption, server authentication, integrity; correctly says HTTPS does not guarantee site honesty/safety."
+ },
+ {
+  "id": "S0023",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 2:55 AM June 10; correct is 17:55 June 10."
+ },
+ {
+  "id": "S0032",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gym A cheaper by $10 with correct totals $320 and $330."
+ },
+ {
+  "id": "S0041",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Correct atom/molecule definitions; O2 identified as a diatomic molecule of two oxygen atoms."
+ },
+ {
+  "id": "S0050",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers 'Yes' although its own correct areas (32pi vs 36pi) show the answer is no."
+ },
+ {
+  "id": "S0059",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; prohibition applies since user is not an officer."
+ },
+ {
+  "id": "S0068",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Attributes to refraction at water-air boundary; brain traces rays back so submerged part appears raised."
+ },
+ {
+  "id": "S0077",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git commit --amend -m with the exact message, no -a."
+ },
+ {
+  "id": "S0086",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 360 (number of owners) instead of 108 daily riders."
+ },
+ {
+  "id": "S0095",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Identifies invoice 4472 for $1,240."
+ },
+ {
+  "id": "S0104",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Cy in middle; gives Ana-Cy-Ben; reasoning correct."
+ },
+ {
+  "id": "S0113",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Cy in middle; gives Ana-Cy-Ben."
+ },
+ {
+  "id": "S0122",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Leaves 'Their' uncorrected (should be They're); only three of four corrections."
+ },
+ {
+  "id": "S0131",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop returns False on any nums[i] > nums[i+1]; True for [], [5], [1,1,2]; False for [2,1]; no mutation."
+ },
+ {
+  "id": "S0140",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Weather short-term, climate ~30-year average; statement classified as weather."
+ },
+ {
+  "id": "S0149",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git config user.email writes to local repo config by default."
+ },
+ {
+  "id": "S0158",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "32.4 liters with consistent working (86,400 s/day, 648,000 drops, 32,400 mL)."
+ },
+ {
+  "id": "S0167",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 60 days and 8 weeks 4 days; correct is 59 days, 8 weeks 3 days (2027 not leap year)."
+ },
+ {
+  "id": "S0176",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Ravi, Mei, Tom, Ines in order, each once."
+ },
+ {
+  "id": "S0185",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "108 with consistent working via 360 owners."
+ },
+ {
+  "id": "S0194",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'Remember to keep the back door locked.' lock instruction with no forbidden words."
+ },
+ {
+  "id": "S0203",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Ravi, Mei, Tom, Ines in order, each once."
+ },
+ {
+  "id": "S0212",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(1 for f in flags if f is True) counts only bool True; excludes 1, 1.0; empty gives 0."
+ },
+ {
+  "id": "S0221",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Chapters 3-6 one evening each, brief review of 1-2, final review; one hour per evening."
+ },
+ {
+  "id": "S0230",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Slides, Budget, Report with matching dates."
+ },
+ {
+  "id": "S0239",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 14/25; correct is 13/25."
+ },
+ {
+  "id": "S0248",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 7 pizzas, 2 drinks, $0 left (over budget); correct is 4 pizzas, 2 drinks, $4 left."
+ },
+ {
+  "id": "S0257",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with 'Yes, the pool is open' then says closed; wrong/contradictory final answer."
+ },
+ {
+  "id": "S0266",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "all(nums[i] <= nums[i+1]) over adjacent pairs; correct for empty/one-element lists."
+ },
+ {
+  "id": "S0275",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; only officers may write below the line."
+ },
+ {
+  "id": "S0284",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Core buoyancy/density explanation correct, but falsely claims balloon stops rising where outside air density equals inside density (equilibrium requires lift equal to total weight)."
+ },
+ {
+  "id": "S0293",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Short-term weather vs long-term average climate; statement is weather."
+ },
+ {
+  "id": "S0302",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; selection bias overrepresents regular exercisers (implies overestimate)."
+ },
+ {
+  "id": "S0311",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum of int digits of str(n); 0 gives 0, 507 gives 12."
+ },
+ {
+  "id": "S0320",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Addresses Lee; $24.50 issued today; up to 5 business days; no refund reason or arrival date (odd policy line is harmless)."
+ },
+ {
+  "id": "S0329",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s == s[::-1], exact comparison, '' gives True."
+ },
+ {
+  "id": "S0338",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Chapters 3-6 each get an evening; 1-2 only one review evening; six one-hour sessions."
+ },
+ {
+  "id": "S0347",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; sampling bias overrepresents regular exercisers; optional representative-sample suggestion."
+ },
+ {
+  "id": "S0356",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "1,350 pages / 18 = 75 min = 1 hour 15 minutes."
+ },
+ {
+  "id": "S0365",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Says years divisible by 100 are not leap years without the divisible-by-400 exception; blanket claim false and core requirement missing."
+ },
+ {
+  "id": "S0374",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Corrects committee, received, agreed; nothing else changed."
+ },
+ {
+  "id": "S0383",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "0.16 + 0.36 = 13/25 (0.52) with correct working."
+ },
+ {
+  "id": "S0392",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "1350/18 = 75 min = 1 hour 15 minutes."
+ },
+ {
+  "id": "S0401",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current, correct argument order."
+ },
+ {
+  "id": "S0410",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gym A cheaper by $10; totals $320 and $330."
+ },
+ {
+  "id": "S0419",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "55 minutes elapsed; finishes 09:42:30 with consistent working."
+ },
+ {
+  "id": "S0428",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Requested explanation contains wrong math: claims every-4-years rule averages 365.5 days (~0.27 day/yr error), counts 98 leap years per 400 (correct 97), and 98 does not give its stated 365.2425."
+ }
+]

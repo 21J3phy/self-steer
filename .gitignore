@@ -7,3 +7,5 @@ runs/
 paper/*.aux
 paper/*.log
 paper/*.out
+paper/main.pdf
+paper/_*

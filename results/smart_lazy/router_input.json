@@ -1,0 +1,386 @@
+[
+ {
+  "id": "round6_01",
+  "question": "In Python, flags is a list that may contain any values, such as True, False, 1, 0, 1.0, 'yes', or None. Count how many elements are the boolean value True itself. The integer 1, the float 1.0, and other truthy values must not be counted. flags may be empty; leave it unchanged."
+ },
+ {
+  "id": "round6_02",
+  "question": "In Python, return True if the string s reads exactly the same forwards and backwards, and False otherwise. Compare characters exactly: uppercase and lowercase letters are different, and spaces and punctuation count as characters. The empty string counts as reading the same both ways."
+ },
+ {
+  "id": "round6_03",
+  "question": "In Python, return a new list containing the strings in names sorted alphabetically without regard to case, so 'apple' comes before 'Banana'. Strings that differ only in case must keep their original relative order. names contains only ASCII letters, may be empty, and must be left unchanged."
+ },
+ {
+  "id": "round6_04",
+  "question": "In Python, return the string s with its first character converted to uppercase and every other character left exactly as it is. s contains only ASCII characters and may be empty; an empty string must return an empty string without raising an error."
+ },
+ {
+  "id": "round6_05",
+  "question": "In Python, given a list of strings named lines, return a new list without the strings that are empty or contain only whitespace characters such as spaces, tabs, or newlines. Keep every other string exactly as it is, including any leading or trailing whitespace, in the original order. lines may be empty; leave it unchanged."
+ },
+ {
+  "id": "round6_06",
+  "question": "In Python, given a nonnegative integer n, return the sum of its decimal digits as an integer. For example, 507 gives 12. For n = 0 the result is 0."
+ },
+ {
+  "id": "round6_07",
+  "question": "In Python, pairs is a list of (name, score) tuples, where scores are integers that may be negative and a name may appear several times. Return a dictionary mapping each name to the highest score recorded for it, with the names in order of their first appearance. pairs may be empty; leave it unchanged."
+ },
+ {
+  "id": "round6_08",
+  "question": "In Python, text contains words separated by one or more spaces and may have leading or trailing spaces. Return a string with the words in reverse order, separated by single spaces, with no leading or trailing spaces. If text is empty or contains only spaces, return an empty string."
+ },
+ {
+  "id": "round6_09",
+  "question": "In Python, return True if the list of numbers nums is in non-decreasing order, meaning each element is less than or equal to the next one, so equal neighbors are allowed. Return True for an empty list or a one-element list. Leave nums unchanged."
+ },
+ {
+  "id": "round6_10",
+  "question": "In Python, counts is a dictionary mapping strings to integers, and word is a string. Return a new dictionary equal to counts except that the value for word is increased by 1. If word is not already a key, it must be added with the value 1, and an existing value of 0 must become 1. Leave counts unchanged."
+ },
+ {
+  "id": "round6_11",
+  "question": "In Python, return the arithmetic mean of the numbers in the list values as a float, or None if values is empty. A mean of zero, such as for [0, 0], must be returned as 0.0, not None. Leave values unchanged."
+ },
+ {
+  "id": "round6_12",
+  "question": "In Python, return the second-largest distinct value in the list of integers nums, meaning the largest value that is strictly smaller than the maximum. Return None if nums has fewer than two distinct values, including when it is empty. Leave nums unchanged."
+ },
+ {
+  "id": "round6_13",
+  "question": "In a Unix shell, print the number of lines in app.log that contain the text ERROR, matched case-sensitively anywhere in the line. A line that contains ERROR more than once counts once. Print only the number, which must be 0 when no line matches, and leave app.log unchanged."
+ },
+ {
+  "id": "round6_14",
+  "question": "In a Unix shell, print every line of app.conf that does not begin with the character #, keeping the original order. A line with spaces before a # does not begin with #, and empty lines must be kept. Leave app.conf unchanged."
+ },
+ {
+  "id": "round6_15",
+  "question": "In a Unix shell, scores.csv has lines of the form name,points with no header. Names contain only letters, points is a nonnegative whole number with one or more digits, and no two lines have the same points. Print the lines sorted by points from smallest to largest, comparing points as numbers so that 9 comes before 10. Leave scores.csv unchanged."
+ },
+ {
+  "id": "round6_16",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents."
+ },
+ {
+  "id": "round6_17",
+  "question": "In a Unix shell, print the number of words in essay.txt, where a word is a run of non-whitespace characters. Print only the number, without the file name. The file contains only ASCII text; leave it unchanged."
+ },
+ {
+  "id": "round6_18",
+  "question": "In a Unix shell, in the current directory, create a symbolic link named current that points to the relative path releases/v2, which is an existing directory. current does not exist yet. Do not copy, move, or change releases/v2."
+ },
+ {
+  "id": "round6_19",
+  "question": "In a Git repository with no uncommitted changes, create a new branch named feature/login that starts at the current commit and switch to it. Do not make a commit. Give the command."
+ },
+ {
+  "id": "round6_20",
+  "question": "In a Git repository, print the full hexadecimal commit ID of the current commit, HEAD, and nothing else. In a default SHA-1 repository this ID is 40 characters long. Do not change the repository."
+ },
+ {
+  "id": "round6_21",
+  "question": "In a Git repository, the most recent commit has not been pushed. Nothing is staged, but some tracked files have unstaged edits. Change that commit's message to 'Fix typo in README' without changing the files it records or its parent, and do not create an additional commit. Give the command."
+ },
+ {
+  "id": "round6_22",
+  "question": "In a Git repository, secrets.env is tracked and has no uncommitted changes. Stop tracking it, so that the next commit removes it from the repository, while keeping the file on disk unchanged. Do not commit, and do not edit .gitignore. Give the command."
+ },
+ {
+  "id": "round6_23",
+  "question": "In a Git repository, from the repository root, print the paths of untracked files only, one per line, relative to the root and without any status prefix. Exclude files ignored through .gitignore, and do not list files that are tracked or newly staged. Do not change anything."
+ },
+ {
+  "id": "round6_24",
+  "question": "In a Git repository, set the email address used for commits to dev@example.com for this repository only, without changing global or system Git settings. Give the command."
+ },
+ {
+  "id": "round6_25",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?"
+ },
+ {
+  "id": "round6_26",
+  "question": "How many days pass from January 15, 2027 to March 15, 2027? Count elapsed days, so January 15 to January 16 is one day. Give the answer in days and also as whole weeks plus remaining days."
+ },
+ {
+  "id": "round6_27",
+  "question": "A flight leaves Tokyo at 22:40 local time on June 10, 2027. Tokyo is at UTC+9. The flight lasts 11 hours and 15 minutes and lands in Los Angeles, which is at UTC−7 on that date. What is the local date and time in Los Angeles when it lands?"
+ },
+ {
+  "id": "round6_28",
+  "question": "A file is 3.6 gigabytes, using 1 gigabyte = 1,000 megabytes. My connection downloads at a steady 40 megabits per second, and 1 byte = 8 bits. Ignoring overhead, how many minutes will the download take?"
+ },
+ {
+  "id": "round6_29",
+  "question": "A jacket is marked 30% off its original price, and then a coupon takes a further 10% off the already reduced price. What is the total discount, as a percentage of the original price?"
+ },
+ {
+  "id": "round6_30",
+  "question": "Pizza sizes are diameters. Do two 8-inch pizzas have more total area than one 12-inch pizza? Answer yes or no and give both areas."
+ },
+ {
+  "id": "round6_31",
+  "question": "On a 60-kilometer trip, I drive the first 30 kilometers at an average speed of 30 kilometers per hour. Is there any speed for the remaining 30 kilometers that would make my average speed for the whole 60-kilometer trip equal to 60 kilometers per hour? Answer yes or no and explain."
+ },
+ {
+  "id": "round6_32",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes."
+ },
+ {
+  "id": "round6_33",
+  "question": "Maya is three times as old as her son. In 12 years, she will be twice as old as he will be. How old is Maya now?"
+ },
+ {
+  "id": "round6_34",
+  "question": "A bag holds 4 green marbles and 6 yellow marbles. I draw one marble at random, put it back, mix, and draw again. What is the probability that both draws are the same color?"
+ },
+ {
+  "id": "round6_35",
+  "question": "A room is 4.2 meters by 3.5 meters. Flooring is sold only in whole boxes, each covering 2.2 square meters. I want to buy 10% more than the floor area to allow for waste. How many boxes must I buy?"
+ },
+ {
+  "id": "round6_36",
+  "question": "A subscription renews every 30 days. Its first renewal is on January 30, 2027. On what date is its third renewal?"
+ },
+ {
+  "id": "round6_37",
+  "question": "On an analog clock, what is the smaller angle between the hour hand and the minute hand at exactly 3:30?"
+ },
+ {
+  "id": "round6_38",
+  "question": "Three workers, all working at the same constant rate, build 3 identical shelves in 3 hours. Work on a shelf can be shared among workers. How many hours will 6 such workers take to build 6 identical shelves?"
+ },
+ {
+  "id": "round6_39",
+  "question": "A theater has 23 rows of 18 seats, and 37 of those seats are broken and cannot be used. Can a group of 380 people all be seated at the same time, one person per working seat? Answer yes or no and give the number of working seats."
+ },
+ {
+  "id": "round6_40",
+  "question": "I exchange $250. The exchange service first deducts a 2% fee from the dollars, then converts the rest at 1 US dollar = 0.92 euros. How many euros do I receive?"
+ },
+ {
+  "id": "round6_41",
+  "question": "A runner keeps a steady pace of 5 minutes 30 seconds per kilometer for a 10-kilometer race that starts at 08:47:30. At what clock time does the runner finish? Give hours, minutes, and seconds."
+ },
+ {
+  "id": "round6_42",
+  "question": "Under the Gregorian calendar rules, is the year 2100 a leap year? Answer yes or no and give the rule that decides it."
+ },
+ {
+  "id": "round6_43",
+  "question": "In a survey of 800 people, 45% own a bicycle. Of the bicycle owners, 30% ride every day. How many of the surveyed people ride a bicycle every day?"
+ },
+ {
+  "id": "round6_44",
+  "question": "A drink is mixed in the ratio 3 parts concentrate to 5 parts water, by volume. How many milliliters of concentrate are needed to make 2 liters of the drink in total?"
+ },
+ {
+  "id": "round6_45",
+  "question": "A tap drips once every 4 seconds without stopping, and 20 drops make 1 milliliter. How many liters does it drip in 30 days?"
+ },
+ {
+  "id": "round6_46",
+  "question": "I borrow $2,400 at 6% simple annual interest and repay everything in one payment after 18 months. How much do I repay in total?"
+ },
+ {
+  "id": "round6_47",
+  "question": "In New York, clocks jump forward from 02:00 to 03:00 early on Sunday, March 14, 2027, when daylight saving time begins. A night shift starts at 22:00 local time on Saturday, March 13, 2027, and lasts exactly 8 hours of elapsed time. What does the local clock show when the shift ends?"
+ },
+ {
+  "id": "round6_48",
+  "question": "Two trains start at 09:00 from stations 300 kilometers apart and travel toward each other on the same line, one at a constant 70 kilometers per hour and the other at a constant 80 kilometers per hour. At what time do they meet?"
+ },
+ {
+  "id": "round6_49",
+  "question": "A pool's posted hours are: weekdays 06:00–10:00 and 16:00–21:00; weekends 08:00–18:00. According to these hours, is the pool open at 12:00 on a Wednesday? Explain."
+ },
+ {
+  "id": "round6_50",
+  "question": "A form says, 'Applications must be received by 17:00 on March 3.' I mailed my application on March 2, and it was delivered on March 4. Under this wording, did my application meet the deadline? Explain."
+ },
+ {
+  "id": "round6_51",
+  "question": "A museum charges $12 per person, and children under 5 are free. Two adults visit with a 5-year-old and a 3-year-old. What is the total admission charge? Explain."
+ },
+ {
+  "id": "round6_52",
+  "question": "Rewrite this instruction as a short, positive instruction with the same meaning: 'Don't forget to not leave the back door unlocked.' Do not use the words not, don't, never, or unlocked."
+ },
+ {
+  "id": "round6_53",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date."
+ },
+ {
+  "id": "round6_54",
+  "question": "Read: 'Invoice 4471 for $860 was paid on 12 May. Invoice 4472 for $1,240 is overdue. Invoice 4473 for $315 is due on 30 May.' Which invoice is overdue, and for what amount?"
+ },
+ {
+  "id": "round6_55",
+  "question": "Correct the word errors in this sentence and change nothing else: 'Their going to bring there own chairs, and its fine if your late.'"
+ },
+ {
+  "id": "round6_56",
+  "question": "Shipping rates are: up to and including 1 kg, $5; over 1 kg and up to and including 3 kg, $9; over 3 kg, $14. A package weighs exactly 3 kg. What is the shipping cost?"
+ },
+ {
+  "id": "round6_57",
+  "question": "Summarize this notice in one sentence: 'The library will close at 15:00 on Friday for staff training. Normal hours resume on Saturday. Books can be returned in the outdoor drop box at any time.' Include the Friday closing time, the reason for closing, when normal hours resume, and the drop box. Do not add anything that is not in the notice."
+ },
+ {
+  "id": "round6_58",
+  "question": "How many times does the letter r appear in the word 'strawberry'? Count every occurrence."
+ },
+ {
+  "id": "round6_59",
+  "question": "Rewrite this text message as one polite, complete sentence with standard spelling and punctuation: 'hey cant make it 2day sry'. Keep the meaning, and do not add a reason."
+ },
+ {
+  "id": "round6_60",
+  "question": "A recipe says, 'Bake for 20–25 minutes.' Does the recipe say that baking for 30 minutes is acceptable? Explain."
+ },
+ {
+  "id": "round6_61",
+  "question": "List every person named in this sentence, in the order they are first mentioned, as a comma-separated list: 'Ravi emailed Mei and Tom, then called his manager, Ines, who later met Mei.'"
+ },
+ {
+  "id": "round6_62",
+  "question": "A policy says a report must be filed within 3 business days after an incident, not counting the day of the incident. Business days are Monday through Friday, and there are no holidays. An incident happens on a Thursday. What is the last day the report can be filed?"
+ },
+ {
+  "id": "round6_63",
+  "question": "Turn the statement 'The package arrived on Monday' into a yes/no question about the same fact, changing only the words needed to form the question."
+ },
+ {
+  "id": "round6_64",
+  "question": "How many different colors are mentioned in this sentence, and what are they? 'A red car passed a blue van, then another red car stopped next to a green truck.'"
+ },
+ {
+  "id": "round6_65",
+  "question": "Correct only the misspelled words in this sentence, leaving everything else, including punctuation and capitalization, exactly as it is: 'The comittee recieved the report on time, and the members agred.'"
+ },
+ {
+  "id": "round6_66",
+  "question": "Order these tasks by due date, earliest first: 'Report — due 14 March; Slides — due 2 March; Budget — due 9 March.' All three dates are in the same year."
+ },
+ {
+  "id": "round6_67",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain."
+ },
+ {
+  "id": "round6_68",
+  "question": "A form says, 'Do not write below this line unless you are an officer.' I am not an officer. Under this instruction, may I write below the line? Explain."
+ },
+ {
+  "id": "round6_69",
+  "question": "A notice says, 'Call the front desk at 555-0142. After 18:00, call security at 555-0199 instead.' Which number should I call at 19:30, and whom will I reach?"
+ },
+ {
+  "id": "round6_70",
+  "question": "A warranty says it covers 'manufacturing defects for 12 months from purchase; accidental damage is not covered.' I accidentally dropped my phone 3 months after buying it, and the screen cracked. Does this warranty cover the repair? Explain."
+ },
+ {
+  "id": "round6_71",
+  "question": "Rewrite 'We will utilize the new room when the meeting commences.' by replacing 'utilize' and 'commences' with simpler everyday words. Keep the meaning and leave the rest of the sentence unchanged."
+ },
+ {
+  "id": "round6_72",
+  "question": "Read: 'Only Alex finished the test early.' According to this sentence, did anyone other than Alex finish the test early? Explain."
+ },
+ {
+  "id": "round6_73",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?"
+ },
+ {
+  "id": "round6_74",
+  "question": "What is the difference between weather and climate? Is the statement 'It will rain this afternoon' about weather or climate?"
+ },
+ {
+  "id": "round6_75",
+  "question": "Why does a hot-air balloon rise when the air inside it is heated?"
+ },
+ {
+  "id": "round6_76",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?"
+ },
+ {
+  "id": "round6_77",
+  "question": "Why is the clear daytime sky blue? Is it mainly because the sky reflects the color of the oceans?"
+ },
+ {
+  "id": "round6_78",
+  "question": "Why does a pressure cooker cook food faster than an ordinary pot of boiling water at normal air pressure?"
+ },
+ {
+  "id": "round6_79",
+  "question": "What does two-factor authentication add to a password login? If an attacker steals only my password, is that enough to log in to an account protected by two-factor authentication?"
+ },
+ {
+  "id": "round6_80",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?"
+ },
+ {
+  "id": "round6_81",
+  "question": "In a vacuum, a heavy hammer and a light feather are dropped at the same moment from the same height. Does the hammer reach the ground first? Explain."
+ },
+ {
+  "id": "round6_82",
+  "question": "What is the difference between an atom and a molecule? Is O₂, the oxygen we breathe, an atom or a molecule?"
+ },
+ {
+  "id": "round6_83",
+  "question": "Why does a straight spoon look bent where it enters a glass of water?"
+ },
+ {
+  "id": "round6_84",
+  "question": "I want to estimate how many hours per week the adults in my town exercise, on average. Would surveying only people at a gym give a fair estimate? Explain."
+ },
+ {
+  "id": "round6_85",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?"
+ },
+ {
+  "id": "round6_86",
+  "question": "I start at home, must visit the pharmacy, the bank, and the post office once each in any order, and then return home. Travel times in minutes, the same in both directions, are: home–pharmacy 5, home–bank 8, home–post office 6, pharmacy–bank 4, pharmacy–post office 9, and bank–post office 3. Which order of stops gives the shortest total travel time, and what is that time?"
+ },
+ {
+  "id": "round6_87",
+  "question": "I want rice, chicken, and a salad all finished at exactly 19:00. The rice takes 20 minutes and the chicken 35 minutes; both cook unattended on separate burners. The salad takes 10 minutes of hands-on preparation. When should I start each one so that each finishes at exactly 19:00?"
+ },
+ {
+  "id": "round6_88",
+  "question": "I have $60 for a party. Pizzas cost $12 each, and I need at least 3; drink packs cost $4 each, and I need at least 2. After buying those minimums, I will spend the remaining money only on as many extra pizzas as I can afford. How many pizzas and drink packs will I buy, and how much money will be left?"
+ },
+ {
+  "id": "round6_89",
+  "question": "Ana, Ben, and Cy will sit in a row of three chairs. Ana and Ben must not sit next to each other. Who must sit in the middle chair? Give one valid seating order from left to right."
+ },
+ {
+  "id": "round6_90",
+  "question": "My team of five meets every Monday, and we keep forgetting whose turn it is to take notes, so the same two people end up doing it. Suggest a simple system that makes each week's note-taker clear in advance and spreads the work evenly."
+ },
+ {
+  "id": "round6_91",
+  "question": "Our office's shared fridge fills up with old food because nobody knows whose it is or how long it has been there. Propose a simple rule that lets old food be cleared out fairly without anyone guessing about ownership."
+ },
+ {
+  "id": "round6_92",
+  "question": "I have an interview at 10:00 and want to arrive at least 10 minutes early. The train ride takes 25 minutes, and the walk from the station to the interview takes 8 minutes. Trains leave my station at :05, :20, :35, and :50 past each hour and run exactly on time. What is the latest train I can take, and when will I arrive at the interview?"
+ },
+ {
+  "id": "round6_93",
+  "question": "Three meetings happen at the same time, with 25, 11, and 18 attendees. Three rooms are available, seating 12, 20, and 30 people. Each meeting needs its own room with a seat for every attendee. Assign a room to each meeting."
+ },
+ {
+  "id": "round6_94",
+  "question": "Gym A costs $40 per month with no joining fee. Gym B costs $30 per month plus a one-time $90 joining fee. I will be a member for exactly 8 months. Which gym is cheaper over those 8 months, and by how much?"
+ },
+ {
+  "id": "round6_95",
+  "question": "My exam covers chapters 1–6. I can study for exactly 1 hour on each of the 6 evenings before it. I already know chapters 1 and 2 well but not chapters 3–6. Give a study plan for the six evenings."
+ },
+ {
+  "id": "round6_96",
+  "question": "Starting at 09:00, with enough helpers to work on several tasks at once, I need to: clear the yard (1 hour); build a shed base (3 hours, which can start only after the yard is cleared); assemble the shed walls in the garage (2 hours, with no prerequisite); and mount the walls on the base (1 hour, which can start only after both the base and the walls are done). What is the earliest time everything can be finished?"
+ }
+]

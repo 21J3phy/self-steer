@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0003",
+  "question": "Turn the statement 'The package arrived on Monday' into a yes/no question about the same fact, changing only the words needed to form the question.",
+  "reference": "Did the package arrive on Monday?",
+  "rubric": "Gives 'Did the package arrive on Monday?' Small variations in capitalization are acceptable. Changing the verb to a different word, such as 'delivered', or asking about a different day or object fails. A question that is not answerable with yes or no fails.",
+  "core_rubric": "Gives 'Did the package arrive on Monday?'",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Did the package arrive on Monday?",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0012",
+  "question": "Why does a hot-air balloon rise when the air inside it is heated?",
+  "reference": "Heating makes the air inside expand, so it becomes less dense than the cooler air outside. The surrounding air then exerts an upward buoyant force greater than the weight of the balloon, so it rises.",
+  "rubric": "Explains that heated air is less dense than the surrounding cooler air, and that the resulting buoyant force exceeds the total weight of the balloon, envelope, and load. Saying only that 'heat rises', or that the hot air pushes the balloon up like a jet, is insufficient.",
+  "core_rubric": "Explains that the heated air inside is less dense than the outside air, so buoyancy exceeds the balloon's weight.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Heating the air inside the balloon causes its molecules to move faster and spread apart, increasing the volume while maintaining constant pressure. This makes the internal air less dense than the cooler air outside, creating buoyancy that lifts the balloon.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0021",
+  "question": "Two trains start at 09:00 from stations 300 kilometers apart and travel toward each other on the same line, one at a constant 70 kilometers per hour and the other at a constant 80 kilometers per hour. At what time do they meet?",
+  "reference": "11:00. They close the gap at 70 + 80 = 150 km/h, so meeting takes 300 / 150 = 2 hours.",
+  "rubric": "Gives 11:00. If working is shown, it must be consistent with a closing speed of 150 km/h and 2 hours. Using the difference in speeds (10 km/h) fails.",
+  "core_rubric": "Gives a meeting time of 11:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "12:00",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0030",
+  "question": "I have an interview at 10:00 and want to arrive at least 10 minutes early. The train ride takes 25 minutes, and the walk from the station to the interview takes 8 minutes. Trains leave my station at :05, :20, :35, and :50 past each hour and run exactly on time. What is the latest train I can take, and when will I arrive at the interview?",
+  "reference": "The 09:05 train. It arrives at 09:30, and I reach the interview at 09:38, 22 minutes early. The 09:20 train would get me there at 09:53, less than 10 minutes early.",
+  "rubric": "Gives the 09:05 train and an arrival at the interview at 09:38. The 09:20 train fails because it arrives at 09:53. If working is shown, it must be consistent with a latest departure of 09:17.",
+  "core_rubric": "Gives the 09:05 train and an interview arrival of 09:38.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Latest train: 10:50. Arrival time: 11:23.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0039",
+  "question": "Shipping rates are: up to and including 1 kg, $5; over 1 kg and up to and including 3 kg, $9; over 3 kg, $14. A package weighs exactly 3 kg. What is the shipping cost?",
+  "reference": "$9. Exactly 3 kg is in the 'over 1 kg and up to and including 3 kg' band.",
+  "rubric": "Gives $9. $14 (treating 3 kg as over 3 kg) fails.",
+  "core_rubric": "Gives $9.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The shipping cost for a package weighing exactly 3 kg is **$9**.\n\nHere's why:\n*   The rate for \"up to and including 1 kg\" is $5.\n*   The rate for \"over 1 kg and up to and including 3 kg\" is $9.\n*   Since the package weighs exactly 3 kg, it falls into the second category.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0048",
+  "question": "In Python, given a list of strings named lines, return a new list without the strings that are empty or contain only whitespace characters such as spaces, tabs, or newlines. Keep every other string exactly as it is, including any leading or trailing whitespace, in the original order. lines may be empty; leave it unchanged.",
+  "reference": "[line for line in lines if line.strip()]",
+  "rubric": "Returns a new list that drops '' and whitespace-only strings such as ' ', '\\t', and '\\n', and keeps every other string unmodified (for example ' a ' stays ' a ') in the original order. An empty list gives []. Stripping the kept strings, keeping whitespace-only strings, or modifying lines in place fails. Equivalent correct code, such as `if line and not line.isspace()`, is acceptable.",
+  "core_rubric": "Drops empty and whitespace-only strings, keeps all other strings unmodified and in order, returns a new list, and leaves lines unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef filter_lines(lines):\n    return [line for line in lines if line.strip()]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0057",
+  "question": "I want rice, chicken, and a salad all finished at exactly 19:00. The rice takes 20 minutes and the chicken 35 minutes; both cook unattended on separate burners. The salad takes 10 minutes of hands-on preparation. When should I start each one so that each finishes at exactly 19:00?",
+  "reference": "Start the chicken at 18:25, the rice at 18:40, and the salad at 18:50.",
+  "rubric": "Gives chicken 18:25, rice 18:40, and salad 18:50. Each start time must be its duration before 19:00; any other time for any item fails.",
+  "core_rubric": "Gives start times of 18:25 for the chicken, 18:40 for the rice, and 18:50 for the salad.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To finish everything at exactly 19:00, you should start the **chicken** and the **rice** together at **18:25**, and start the **salad** at **18:50**.\n\nHere is the breakdown:\n*   **Chicken (35 mins):** Starts at 18:25, finishes at 19:00.\n*   **Rice (20 mins):** Starts at 18:25, finishes at 18:45.\n*   **Salad (10 mins):** Since it requires hands-on preparation, you can do this after finishing the rice (which is done by 18:45). Starting the salad at 18:50 allows it to finish exactly at 19:00.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0066",
+  "question": "How many times does the letter r appear in the word 'strawberry'? Count every occurrence.",
+  "reference": "3 times: once in 'str' and twice in 'rry'.",
+  "rubric": "Gives 3. 2 fails. If the positions are shown, they must be consistent with one r after 'st' and two r's before the final y.",
+  "core_rubric": "Gives 3.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The letter \"r\" appears 3 times in the word \"strawberry\".",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0075",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, Earth's shadow does not cause the Moon's phases. The phases are caused by the changing angles between the Sun, Earth, and Moon, which alter the portion of the Moon's sunlit side visible from Earth.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0084",
+  "question": "In a vacuum, a heavy hammer and a light feather are dropped at the same moment from the same height. Does the hammer reach the ground first? Explain.",
+  "reference": "No. Without air resistance, all objects fall with the same gravitational acceleration regardless of their mass, so the hammer and the feather land at the same time.",
+  "rubric": "Answers no and explains that, without air resistance, both fall with the same acceleration due to gravity, independent of mass, so they land together. Mentioning the Apollo 15 demonstration is optional. Saying heavier objects fall faster in a vacuum fails.",
+  "core_rubric": "Answers no because both fall with the same acceleration in a vacuum and land together.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "In a vacuum, the **hammer and the feather will reach the ground at exactly the same time**.\n\nHere is the explanation:\n\n1.  **No Air Resistance:** In a vacuum, there is no air to create drag or resistance against the falling objects. This means the only force acting on them is gravity.\n2.  **Gravity Acts Equally:** According to Newton's law of universal gravitation, the force of gravity ($F$) pulling an object down is proportional to its mass ($m$), expressed as $F = mg$, where $g$ is the acceleration due to gravity.\n3.  **Newton's Second Law:** Newton's second law states that acceleration ($a$) is equal to force divided by mass ($a = F/m$).\n4.  **The Cancellation:** When you combine these two equations for a falling object:\n    $$a = \\frac{mg}{m}$$\n    The mass ($m$) in the numerator and the mass ($m$) in the denominator cancel each other out, leaving:\n    $$a = g$$\n    \n    This means that regardless of an object's mass, it accelerates downward at the same rate ($g$, which is approximately $9.8\\text{ m/s}^2$ on Earth). Since they start from the same height with the same initial velocity (zero), they will hit the ground simultaneously.\n\n*Note: On Earth in our atmosphere, the feather falls slower because air resistance significantly affects its large surface area relative to its low mass, but this effect is absent in a vacuum.*",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0093",
+  "question": "I want rice, chicken, and a salad all finished at exactly 19:00. The rice takes 20 minutes and the chicken 35 minutes; both cook unattended on separate burners. The salad takes 10 minutes of hands-on preparation. When should I start each one so that each finishes at exactly 19:00?",
+  "reference": "Start the chicken at 18:25, the rice at 18:40, and the salad at 18:50.",
+  "rubric": "Gives chicken 18:25, rice 18:40, and salad 18:50. Each start time must be its duration before 19:00; any other time for any item fails.",
+  "core_rubric": "Gives start times of 18:25 for the chicken, 18:40 for the rice, and 18:50 for the salad.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Start the rice at 18:40.\nStart the chicken at 18:25.\nStart the salad at 18:50.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0102",
+  "question": "A theater has 23 rows of 18 seats, and 37 of those seats are broken and cannot be used. Can a group of 380 people all be seated at the same time, one person per working seat? Answer yes or no and give the number of working seats.",
+  "reference": "No. There are 23 × 18 − 37 = 377 working seats, which is 3 fewer than 380.",
+  "rubric": "Answers no and gives 377 working seats. Answering yes, or ignoring the broken seats (414), fails.",
+  "core_rubric": "Answers no and gives 377 working seats.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, 427.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0111",
+  "question": "A drink is mixed in the ratio 3 parts concentrate to 5 parts water, by volume. How many milliliters of concentrate are needed to make 2 liters of the drink in total?",
+  "reference": "750 milliliters: concentrate is 3/8 of the total, and 3/8 × 2,000 mL = 750 mL.",
+  "rubric": "Gives 750 mL (0.75 liters is equivalent). 1,200 mL (using 3/5) fails. Stating that 1,250 mL of water is needed is optional but must be correct if given.",
+  "core_rubric": "Gives 750 milliliters of concentrate.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "600",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0120",
+  "question": "Why does a hot-air balloon rise when the air inside it is heated?",
+  "reference": "Heating makes the air inside expand, so it becomes less dense than the cooler air outside. The surrounding air then exerts an upward buoyant force greater than the weight of the balloon, so it rises.",
+  "rubric": "Explains that heated air is less dense than the surrounding cooler air, and that the resulting buoyant force exceeds the total weight of the balloon, envelope, and load. Saying only that 'heat rises', or that the hot air pushes the balloon up like a jet, is insufficient.",
+  "core_rubric": "Explains that the heated air inside is less dense than the outside air, so buoyancy exceeds the balloon's weight.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A hot-air balloon rises because of **Archimedes' Principle** and the behavior of gases.\n\nHere is the step-by-step process:\n\n1.  **Heating the Air:** When the burner heats the air inside the balloon, the air molecules gain kinetic energy and move faster. This causes them to spread out, making the air less dense than the cooler air outside.\n2.  **Buoyancy:** Because the air inside the balloon is less dense than the surrounding atmosphere, the weight of the air displaced by the balloon is greater than the weight of the heated air inside it.\n3.  **Net Upward Force:** This difference in density creates a buoyant force that pushes the balloon upward. As long as the total weight of the balloon (envelope, basket, passengers, and the heated air) is less than the weight of the displaced cool air, the balloon will continue to rise.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0129",
+  "question": "In Python, given a list of strings named lines, return a new list without the strings that are empty or contain only whitespace characters such as spaces, tabs, or newlines. Keep every other string exactly as it is, including any leading or trailing whitespace, in the original order. lines may be empty; leave it unchanged.",
+  "reference": "[line for line in lines if line.strip()]",
+  "rubric": "Returns a new list that drops '' and whitespace-only strings such as ' ', '\\t', and '\\n', and keeps every other string unmodified (for example ' a ' stays ' a ') in the original order. An empty list gives []. Stripping the kept strings, keeping whitespace-only strings, or modifying lines in place fails. Equivalent correct code, such as `if line and not line.isspace()`, is acceptable.",
+  "core_rubric": "Drops empty and whitespace-only strings, keeps all other strings unmodified and in order, returns a new list, and leaves lines unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "return [line for line in lines if line.strip()]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0138",
+  "question": "In Python, return the arithmetic mean of the numbers in the list values as a float, or None if values is empty. A mean of zero, such as for [0, 0], must be returned as 0.0, not None. Leave values unchanged.",
+  "reference": "sum(values) / len(values) if values else None",
+  "rubric": "Returns sum divided by count with true division for a nonempty list ([1, 2] gives 1.5, [0, 0] and [-1, 1] give 0.0) and None for []. Floor division, returning 0 for an empty list, or an `or None` pattern that turns a 0.0 mean into None fails. statistics.fmean(values) guarded for the empty case is acceptable. Does not modify values.",
+  "core_rubric": "Returns the true-division mean as a float for nonempty input, including 0.0 for a zero mean, and None for an empty list.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef mean(values):\n    if not values:\n        return None\n    return sum(values) / len(values)\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0147",
+  "question": "I have an interview at 10:00 and want to arrive at least 10 minutes early. The train ride takes 25 minutes, and the walk from the station to the interview takes 8 minutes. Trains leave my station at :05, :20, :35, and :50 past each hour and run exactly on time. What is the latest train I can take, and when will I arrive at the interview?",
+  "reference": "The 09:05 train. It arrives at 09:30, and I reach the interview at 09:38, 22 minutes early. The 09:20 train would get me there at 09:53, less than 10 minutes early.",
+  "rubric": "Gives the 09:05 train and an arrival at the interview at 09:38. The 09:20 train fails because it arrives at 09:53. If working is shown, it must be consistent with a latest departure of 09:17.",
+  "core_rubric": "Gives the 09:05 train and an interview arrival of 09:38.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You need to arrive by 9:50. Working backward from your train departure times:\n\n*   **Latest Train:** The **10:05** train is too late (you'd arrive at 10:38). The next best option is the **9:50** train.\n    *   Departure: 9:50\n    *   Travel time: 25 mins + 8 mins = 33 mins\n    *   Arrival: 9:50 + 33 mins = **10:23**\n\nWait, that's past the 10:00 interview start. Let me recalculate based on arriving *at least* 10 minutes early (by 9:50).\n\n*   You must leave the station by 9:17 (9:50 - 33 mins).\n*   The latest train leaving before or at 9:17 is the **9:05** train.\n\n**Answer:**\n*   **Latest Train:** 9:05\n*   **Arrival Time:** 9:38",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0156",
+  "question": "A museum charges $12 per person, and children under 5 are free. Two adults visit with a 5-year-old and a 3-year-old. What is the total admission charge? Explain.",
+  "reference": "$36. The two adults and the 5-year-old pay $12 each; only the 3-year-old is under 5 and free.",
+  "rubric": "Gives $36 and explains that the 5-year-old is not under 5 and pays, while the 3-year-old is free. $24 (treating the 5-year-old as free) or $48 fails.",
+  "core_rubric": "Gives $36, with the 5-year-old paying and only the 3-year-old free.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The total admission charge is **$24**.\n\n**Explanation:**\n*   **Adults:** 2 adults × $12 = $24.\n*   **Children:** The 5-year-old and 3-year-old are both under or equal to the age limit for free entry (under 5). Therefore, their cost is $0.\n*   **Total:** $24 + $0 = $24.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0165",
+  "question": "I want rice, chicken, and a salad all finished at exactly 19:00. The rice takes 20 minutes and the chicken 35 minutes; both cook unattended on separate burners. The salad takes 10 minutes of hands-on preparation. When should I start each one so that each finishes at exactly 19:00?",
+  "reference": "Start the chicken at 18:25, the rice at 18:40, and the salad at 18:50.",
+  "rubric": "Gives chicken 18:25, rice 18:40, and salad 18:50. Each start time must be its duration before 19:00; any other time for any item fails.",
+  "core_rubric": "Gives start times of 18:25 for the chicken, 18:40 for the rice, and 18:50 for the salad.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Start rice at 18:40.\nStart chicken at 18:25.\nStart salad at 18:50.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0174",
+  "question": "A room is 4.2 meters by 3.5 meters. Flooring is sold only in whole boxes, each covering 2.2 square meters. I want to buy 10% more than the floor area to allow for waste. How many boxes must I buy?",
+  "reference": "8 boxes: 4.2 × 3.5 = 14.7 m², plus 10% is 16.17 m², and 16.17 / 2.2 ≈ 7.35, which rounds up to 8.",
+  "rubric": "Gives 8 boxes. Rounds up because only whole boxes are sold; 7 boxes (rounding down) or 7 boxes from ignoring the 10% extra fails. If working is shown, it must be consistent with 14.7 m², 16.17 m², and about 7.35 boxes.",
+  "core_rubric": "Gives 8 boxes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "1. Calculate the room area: 4.2 × 3.5 = 14.7 m².\n2. Add 10% for waste: 14.7 × 1.1 = 16.17 m².\n3. Divide by box size (2.2 m²): 16.17 ÷ 2.2 ≈ 7.35 boxes.\n4. Round up to whole boxes: **8 boxes**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0183",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?",
+  "reference": "HTTPS encrypts the connection between the browser and the website and uses a certificate to verify that you are connected to the server for that domain, so data cannot easily be read or changed in transit. It does not guarantee that the site is honest; scam sites can use HTTPS too.",
+  "rubric": "States that HTTPS encrypts traffic in transit (with TLS) and authenticates the server's domain, protecting against eavesdropping and tampering. Answers no: HTTPS does not make the site's owner or content trustworthy. Claiming that HTTPS guarantees a safe or legitimate site, or that it encrypts data stored on the server, fails.",
+  "core_rubric": "Says HTTPS encrypts and authenticates the connection, and that it does not guarantee the site is honest or safe.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**HTTPS (Hypertext Transfer Protocol Secure)** adds a layer of security on top of plain HTTP. Here are the key differences:\n\n1.  **Encryption:** HTTPS encrypts the data transferred between your browser and the website. This means that even if someone intercepts the connection, they cannot read the content (like passwords, messages, or credit card numbers). Plain HTTP sends data in clear text, making it vulnerable to eavesdropping.\n2.  **Authentication:** HTTPS uses digital certificates (usually issued by trusted Certificate Authorities) to verify the identity of the server. It proves that you are connecting to the legitimate website you intended to visit, rather than an imposter.\n\n**Does HTTPS guarantee that the site is honest or safe?**\n\n**No.** HTTPS only guarantees **confidentiality** (your data is private) and **integrity** (the data hasn't been tampered with during transit). It does **not** guarantee the truthfulness or safety of the content itself.\n\n*   **Malicious Content:** A hacker can set up a fraudulent website using HTTPS. They will have a valid SSL certificate from a trusted authority, so your browser will show the padlock icon. However, the *content* of that site could be phishing material designed to steal your credentials or display malware.\n*   **Unethical Content:** A legitimate company could use HTTPS to host illegal or harmful content (e.g., hate speech, pirated material, or dangerous instructions), provided they own the domain and have their own certificate.\n\nIn short, **HTTPS secures the pipe**, but it doesn't necessarily mean the **contents** of the pipe are trustworthy. You still need to judge the source and content of the website yourself.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0192",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the fuel cost, first determine how many liters are needed for 380 km:\n\n$$\n\\text{Liters} = \\frac{6.5\\ \\text{L}}{100\\ \\text{km}} \\times 380\\ \\text{km} = 24.7\\ \\text{L}\n$$\n\nThen multiply by the cost per liter:\n\n$$\n\\text{Cost} = 24.7\\ \\text{L} \\times \\$1.80/\\text{L} = \\$44.46\n$$\n\n**Fuel cost for the trip:** **$44.46**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0201",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes.",
+  "reference": "1 hour 15 minutes: 50 × 27 = 1,350 pages, and 1,350 / 18 = 75 minutes.",
+  "rubric": "Gives 1 hour 15 minutes. Also stating 75 minutes is fine, but 75 minutes alone does not give the requested hours-and-minutes form and fails. If working is shown, it must be consistent with 1,350 pages and 75 minutes.",
+  "core_rubric": "Gives 1 hour 15 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "5 hours and 10 minutes",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0210",
+  "question": "A recipe says, 'Bake for 20–25 minutes.' Does the recipe say that baking for 30 minutes is acceptable? Explain.",
+  "reference": "No. The recipe gives a range of 20 to 25 minutes, and 30 minutes is outside that range.",
+  "rubric": "Answers no and explains that 30 minutes is outside the stated 20–25 minute range. Claiming that the recipe allows 30 minutes, or answering yes, fails. A true remark that ovens vary is harmless if the answer does not say the recipe permits 30 minutes.",
+  "core_rubric": "Answers no because 30 minutes is outside the stated 20–25 minute range.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. The recipe specifies a range of 20 to 25 minutes; baking for 30 minutes exceeds the recommended time and may result in overcooked food.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0219",
+  "question": "Maya is three times as old as her son. In 12 years, she will be twice as old as he will be. How old is Maya now?",
+  "reference": "36. If her son is s, then 3s + 12 = 2(s + 12), so s = 12 and Maya is 36.",
+  "rubric": "Gives 36. The son's age of 12 alone, without stating Maya's age, fails. If working is shown, it must be consistent with 3s + 12 = 2(s + 12) and s = 12; in 12 years they will be 48 and 24.",
+  "core_rubric": "Gives Maya's current age as 36.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Maya is 18.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0228",
+  "question": "I have an interview at 10:00 and want to arrive at least 10 minutes early. The train ride takes 25 minutes, and the walk from the station to the interview takes 8 minutes. Trains leave my station at :05, :20, :35, and :50 past each hour and run exactly on time. What is the latest train I can take, and when will I arrive at the interview?",
+  "reference": "The 09:05 train. It arrives at 09:30, and I reach the interview at 09:38, 22 minutes early. The 09:20 train would get me there at 09:53, less than 10 minutes early.",
+  "rubric": "Gives the 09:05 train and an arrival at the interview at 09:38. The 09:20 train fails because it arrives at 09:53. If working is shown, it must be consistent with a latest departure of 09:17.",
+  "core_rubric": "Gives the 09:05 train and an interview arrival of 09:38.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the latest train you can take, we need to work backward from your required arrival time.\n\n### Step 1: Calculate the total travel time\nFirst, determine how long the entire journey takes from the moment you board the train until you reach the interview.\n*   **Train ride:** 25 minutes\n*   **Walk:** 8 minutes\n*   **Total travel time:** $25 + 8 = 33$ minutes\n\n### Step 2: Determine the latest possible departure time\nYou must arrive at least 10 minutes early for a 10:00 AM interview.\n*   **Required arrival time:** 9:50 AM (10:00 minus 10 minutes)\n*   **Latest departure time:** To be ready by 9:50 AM after a 33-minute trip, you must leave no later than:\n    $$9:50 \\text{ AM} - 33 \\text{ minutes} = 9:17 \\text{ AM}$$\n\n### Step 3: Identify the valid train schedule\nThe trains leave on the :05, :20, :35, and :50 past the hour. We need to find the latest time in this sequence that is less than or equal to 9:17 AM.\n\nLet's look at the options for the hour ending at 10:00 AM:\n1.  **09:50**: Too late (arrives after 10:23).\n2.  **09:35**: Too late (arrives after 10:08).\n3.  **09:20**: Too late (arrives after 10:03).\n4.  **09:05**: This is before 9:17 AM.\n\nTherefore, the latest valid train is the one leaving at **9:05**.\n\n*(Note: If you took the 8:50 train, you would arrive at 9:23, which is 23 minutes late.)*\n\n### Step 4: Calculate the final arrival time\nNow, calculate when you arrive if you take the 9:05 train:\n*   Departure: 9:05 AM\n*   Add 25 minutes (train): 9:30 AM\n*   Add 8 minutes (walk): **9:38 AM**\n\n### Conclusion\n*   The latest train you can take is the one leaving at **9:05**.\n*   You will arrive at the interview at **9:38**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0237",
+  "question": "Maya is three times as old as her son. In 12 years, she will be twice as old as he will be. How old is Maya now?",
+  "reference": "36. If her son is s, then 3s + 12 = 2(s + 12), so s = 12 and Maya is 36.",
+  "rubric": "Gives 36. The son's age of 12 alone, without stating Maya's age, fails. If working is shown, it must be consistent with 3s + 12 = 2(s + 12) and s = 12; in 12 years they will be 48 and 24.",
+  "core_rubric": "Gives Maya's current age as 36.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "36",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0246",
+  "question": "A room is 4.2 meters by 3.5 meters. Flooring is sold only in whole boxes, each covering 2.2 square meters. I want to buy 10% more than the floor area to allow for waste. How many boxes must I buy?",
+  "reference": "8 boxes: 4.2 × 3.5 = 14.7 m², plus 10% is 16.17 m², and 16.17 / 2.2 ≈ 7.35, which rounds up to 8.",
+  "rubric": "Gives 8 boxes. Rounds up because only whole boxes are sold; 7 boxes (rounding down) or 7 boxes from ignoring the 10% extra fails. If working is shown, it must be consistent with 14.7 m², 16.17 m², and about 7.35 boxes.",
+  "core_rubric": "Gives 8 boxes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here’s the calculation:\n\n1. **Floor area**  \n   \\(4.2 \\text{ m} \\times 3.5 \\text{ m} = 14.7 \\text{ m}^2\\)\n\n2. **Add 10% extra for waste**  \n   \\(10\\% \\text{ of } 14.7 = 1.47\\)  \n   Required area = \\(14.7 + 1.47 = 16.17 \\text{ m}^2\\)\n\n3. **Boxes needed (each covers 2.2 m²)**  \n   \\(\\frac{16.17}{2.2} \\approx 7.35\\)\n\nSince you can only buy whole boxes, round up to the next integer:\n\n\\[\n\\boxed{8 \\text{ boxes}}\n\\]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0255",
+  "question": "A museum charges $12 per person, and children under 5 are free. Two adults visit with a 5-year-old and a 3-year-old. What is the total admission charge? Explain.",
+  "reference": "$36. The two adults and the 5-year-old pay $12 each; only the 3-year-old is under 5 and free.",
+  "rubric": "Gives $36 and explains that the 5-year-old is not under 5 and pays, while the 3-year-old is free. $24 (treating the 5-year-old as free) or $48 fails.",
+  "core_rubric": "Gives $36, with the 5-year-old paying and only the 3-year-old free.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The total charge is $24.\n\n**Explanation:**\n*   **Adults:** 2 adults × $12 = $24\n*   **Children:** The 5-year-old and 3-year-old are both over the age of 4, so they pay the full price. (Wait, re-reading the prompt: \"children under 5 are free\").\n    *   Correction: A 5-year-old is **not** under 5, so they pay. A 3-year-old **is** under 5, so they are free.\n    *   **Revised Calculation:**\n        *   Adults: 2 × $12 = $24\n        *   5-year-old: $12\n        *   3-year-old: $0\n        *   Total: $24 + $12 + $0 = $36.\n\nLet me double-check the logic. \"Under 5\" means < 5.\n*   5-year-old: 5 is not less than 5. They pay.\n*   3-year-old: 3 is less than 5. They are free.\n\nSo, 2 adults ($24) + 1 child ($12) + 1 free child ($0) = $36.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0264",
+  "question": "A warranty says it covers 'manufacturing defects for 12 months from purchase; accidental damage is not covered.' I accidentally dropped my phone 3 months after buying it, and the screen cracked. Does this warranty cover the repair? Explain.",
+  "reference": "No. A screen cracked by an accidental drop is accidental damage, which the warranty excludes; being within 12 months does not change that.",
+  "rubric": "Answers no and explains that the crack is accidental damage, which is not covered, so the 12-month period does not help. Answering yes because the damage happened within 12 months, or calling the crack a manufacturing defect, fails. Suggesting a separate insurance or paid repair option is harmless.",
+  "core_rubric": "Answers no because the cracked screen is accidental damage, which the warranty excludes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the warranty does not cover the repair. While the 12-month timeframe has passed, the policy explicitly excludes accidental damage, and a cracked screen resulting from dropping the phone falls under this exclusion.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0273",
+  "question": "In a vacuum, a heavy hammer and a light feather are dropped at the same moment from the same height. Does the hammer reach the ground first? Explain.",
+  "reference": "No. Without air resistance, all objects fall with the same gravitational acceleration regardless of their mass, so the hammer and the feather land at the same time.",
+  "rubric": "Answers no and explains that, without air resistance, both fall with the same acceleration due to gravity, independent of mass, so they land together. Mentioning the Apollo 15 demonstration is optional. Saying heavier objects fall faster in a vacuum fails.",
+  "core_rubric": "Answers no because both fall with the same acceleration in a vacuum and land together.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "In a true vacuum, **both the hammer and the feather will reach the ground at exactly the same time.**\n\nHere is the explanation:\n\n1.  **No Air Resistance:** In our everyday experience, a feather falls slower than a hammer because of air resistance (drag). The air pushes against the large surface area of the feather more significantly relative to its weight than it does for the dense hammer. However, in a vacuum, there is no air, so this opposing force is completely absent.\n2.  **Gravity Acts Equally:** According to Newton's law of universal gravitation and Galileo's principle of equivalence, the acceleration due to gravity ($g$) depends only on the mass of the Earth and the distance from its center. It does not depend on the mass of the falling object. Therefore, both objects accelerate downward at the same rate (approximately $9.8 \\, m/s^2$ on Earth).\n3.  **Result:** Since they start from the same height with the same initial velocity (zero) and experience the same constant acceleration without any external interference like air drag, they will cover the distance in the exact same amount of time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0282",
+  "question": "I have $60 for a party. Pizzas cost $12 each, and I need at least 3; drink packs cost $4 each, and I need at least 2. After buying those minimums, I will spend the remaining money only on as many extra pizzas as I can afford. How many pizzas and drink packs will I buy, and how much money will be left?",
+  "reference": "4 pizzas and 2 drink packs, costing $56, with $4 left. The minimums cost $44, and the remaining $16 buys one extra pizza.",
+  "rubric": "Gives 4 pizzas, 2 drink packs, and $4 left over. Buying extra drink packs fails because the leftover money is only for pizzas. 5 pizzas (over budget) fails. If working is shown, it must be consistent with $44 for the minimums.",
+  "core_rubric": "Gives 4 pizzas, 2 drink packs, and $4 remaining.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You will buy 3 pizzas, 2 drink packs, and 1 extra pizza (4 total). You will have $0 left.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0291",
+  "question": "What is the difference between an atom and a molecule? Is O₂, the oxygen we breathe, an atom or a molecule?",
+  "reference": "An atom is the smallest unit of a chemical element; a molecule is two or more atoms chemically bonded together. O₂ is a molecule made of two oxygen atoms.",
+  "rubric": "Defines an atom as the basic unit of an element and a molecule as two or more bonded atoms, and identifies O₂ as a molecule of two oxygen atoms. Calling O₂ an atom, or saying a molecule must contain different elements, fails.",
+  "core_rubric": "Distinguishes atoms from bonded groups of atoms and identifies O₂ as a molecule of two oxygen atoms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "An atom is the smallest unit of an element, while a molecule is two or more atoms bonded together. O₂ is a molecule because it consists of two oxygen atoms chemically bonded.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0300",
+  "question": "In a Git repository, the most recent commit has not been pushed. Nothing is staged, but some tracked files have unstaged edits. Change that commit's message to 'Fix typo in README' without changing the files it records or its parent, and do not create an additional commit. Give the command.",
+  "reference": "git commit --amend -m 'Fix typo in README'",
+  "rubric": "Uses git commit --amend -m 'Fix typo in README' (or --message=). Using -a or --all with --amend fails because it would add the unstaged edits to the commit. A new commit, for example with --allow-empty, fails. Interactive editing with git commit --amend and then typing the message is acceptable if the answer makes clear that the message must be set to exactly Fix typo in README.",
+  "core_rubric": "Amends the latest commit to have the message Fix typo in README, keeping its tree and parent and adding no commit or unstaged edits.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git commit --amend -m \"Fix typo in README\"`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0309",
+  "question": "Rewrite this text message as one polite, complete sentence with standard spelling and punctuation: 'hey cant make it 2day sry'. Keep the meaning, and do not add a reason.",
+  "reference": "Sorry, I can't make it today.",
+  "rubric": "One sentence with standard spelling and punctuation that apologizes and says the writer cannot make it today, for example 'Sorry, I can't make it today.' or 'Hi, I'm sorry, but I can't make it today.' A greeting is optional. Adding a reason, changing the day, or giving several sentences fails.",
+  "core_rubric": "One standard, polite sentence that apologizes and says the writer can't make it today, with no reason added.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "I'm sorry, but I can't make it today.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0318",
+  "question": "A bag holds 4 green marbles and 6 yellow marbles. I draw one marble at random, put it back, mix, and draw again. What is the probability that both draws are the same color?",
+  "reference": "13/25, or 52%: (4/10)² + (6/10)² = 0.16 + 0.36 = 0.52.",
+  "rubric": "Gives 13/25, 0.52, or 52%. The draws are with replacement; the without-replacement value 7/15 (about 46.7%) fails. If working is shown, it must be consistent with 0.16 + 0.36.",
+  "core_rubric": "Gives the probability as 13/25 (0.52 or 52%).",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "0.58",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0327",
+  "question": "Correct only the misspelled words in this sentence, leaving everything else, including punctuation and capitalization, exactly as it is: 'The comittee recieved the report on time, and the members agred.'",
+  "reference": "The committee received the report on time, and the members agreed.",
+  "rubric": "Corrects exactly comittee → committee, recieved → received, and agred → agreed, and leaves every other word, comma, capital letter, and the final period unchanged. Missing a correction, rewording, or changing punctuation fails.",
+  "core_rubric": "Gives the sentence with committee, received, and agreed corrected and nothing else changed.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The committee received the report on time, and the members agreed.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0336",
+  "question": "A theater has 23 rows of 18 seats, and 37 of those seats are broken and cannot be used. Can a group of 380 people all be seated at the same time, one person per working seat? Answer yes or no and give the number of working seats.",
+  "reference": "No. There are 23 × 18 − 37 = 377 working seats, which is 3 fewer than 380.",
+  "rubric": "Answers no and gives 377 working seats. Answering yes, or ignoring the broken seats (414), fails.",
+  "core_rubric": "Answers no and gives 377 working seats.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. There are 414 working seats (23 × 18 = 414 total, minus 37 broken), which is enough for 380 people.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0345",
+  "question": "Order these tasks by due date, earliest first: 'Report — due 14 March; Slides — due 2 March; Budget — due 9 March.' All three dates are in the same year.",
+  "reference": "Slides (2 March), Budget (9 March), Report (14 March).",
+  "rubric": "Gives the order Slides, Budget, Report. Including the dates is optional, but if given they must match. Any other order, or ordering by name, fails.",
+  "core_rubric": "Gives Slides, Budget, Report.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Slides — due 2 March; Budget — due 9 March; Report — due 14 March.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0354",
+  "question": "Our office's shared fridge fills up with old food because nobody knows whose it is or how long it has been there. Propose a simple rule that lets old food be cleared out fairly without anyone guessing about ownership.",
+  "reference": "Everyone labels their food with their name and the date it went in. On a set day each week, such as Friday afternoon, anything unlabeled or older than a stated limit, for example one week, is thrown out, with a reminder sent the day before.",
+  "rubric": "Requires labels with at least the owner's name and the date, and a regular clean-out on a known schedule that removes unlabeled food and food older than a stated limit. A reminder before the clean-out is optional. Removing food based on someone's judgment of whether it looks old, or without a set rule, is insufficient.",
+  "core_rubric": "Requires name-and-date labels and a scheduled clean-out that removes unlabeled food and food past a stated age limit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Rotate ownership: assign a specific name tag to each shelf and rotate the assigned person weekly.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0363",
+  "question": "A room is 4.2 meters by 3.5 meters. Flooring is sold only in whole boxes, each covering 2.2 square meters. I want to buy 10% more than the floor area to allow for waste. How many boxes must I buy?",
+  "reference": "8 boxes: 4.2 × 3.5 = 14.7 m², plus 10% is 16.17 m², and 16.17 / 2.2 ≈ 7.35, which rounds up to 8.",
+  "rubric": "Gives 8 boxes. Rounds up because only whole boxes are sold; 7 boxes (rounding down) or 7 boxes from ignoring the 10% extra fails. If working is shown, it must be consistent with 14.7 m², 16.17 m², and about 7.35 boxes.",
+  "core_rubric": "Gives 8 boxes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "15",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0372",
+  "question": "In Python, given a list of strings named lines, return a new list without the strings that are empty or contain only whitespace characters such as spaces, tabs, or newlines. Keep every other string exactly as it is, including any leading or trailing whitespace, in the original order. lines may be empty; leave it unchanged.",
+  "reference": "[line for line in lines if line.strip()]",
+  "rubric": "Returns a new list that drops '' and whitespace-only strings such as ' ', '\\t', and '\\n', and keeps every other string unmodified (for example ' a ' stays ' a ') in the original order. An empty list gives []. Stripping the kept strings, keeping whitespace-only strings, or modifying lines in place fails. Equivalent correct code, such as `if line and not line.isspace()`, is acceptable.",
+  "core_rubric": "Drops empty and whitespace-only strings, keeps all other strings unmodified and in order, returns a new list, and leaves lines unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\nreturn [line for line in lines if line.strip()]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0381",
+  "question": "A flight leaves Tokyo at 22:40 local time on June 10, 2027. Tokyo is at UTC+9. The flight lasts 11 hours and 15 minutes and lands in Los Angeles, which is at UTC−7 on that date. What is the local date and time in Los Angeles when it lands?",
+  "reference": "17:55 on June 10, 2027, Los Angeles time. Departure is 13:40 UTC on June 10; landing is 00:55 UTC on June 11, which is 17:55 on June 10 at UTC−7.",
+  "rubric": "Gives 17:55 (5:55 p.m.) on June 10, 2027, local Los Angeles time; the landing is on the same calendar date as the departure. June 11, or any other time, fails. If working is shown, intermediate UTC times must be consistent with 13:40 UTC departure and 00:55 UTC on June 11 arrival.",
+  "core_rubric": "Gives a landing time of 17:55 on June 10, 2027, Los Angeles time.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The flight lands in Los Angeles on **June 10 at 2:55 AM**.\n\nHere's the quick breakdown:\n*   **Departure:** Tokyo, June 10, 2027, 22:40 (UTC+9).\n*   **Flight Duration:** 11 hours and 15 minutes.\n*   **Landing Time (Tokyo Time):** 22:40 + 11h 15m = 33:55, which is **09:55 on June 11** in Tokyo.\n*   **Time Difference:** Tokyo (UTC+9) to Los Angeles (UTC-7) is a difference of **16 hours**.\n*   **Landing Time (Los Angeles Time):** 09:55 - 16 hours = **-6:05**, which means it is **17:55 on June 10** (or 5:55 PM) if we subtracted from the same day. However, since the flight departs late at night and crosses the International Date Line westward, we must account for the date change carefully.\n\nLet's re-calculate using UTC to be precise:\n*   **Departure (UTC):** 22:40 + 9 hours = 07:40 UTC on June 10.\n*   **Arrival (UTC):** 07:40 UTC + 11h 15m = 18:55 UTC on June 11.\n*   **Arrival (Los Angeles Time):** 18:55 UTC - 7 hours = **11:55 PM on June 10**.\n\nWait, let me double-check the calculation.\n*   Departure: June 10, 22:40 JST (UTC+9).\n*   In UTC: 22:40 - 9 = 13:40 UTC on June 10.\n*   Arrival (UTC): 13:40 UTC + 11h 15m = 24:55 UTC on June 10, which is **00:55 UTC on June 11**.\n*   Arrival (Los Angeles Time): 00:55 UTC - 7 hours = **17:55 on June 10**.\n\nSo, the correct answer is **June 10 at 5:55 PM**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0390",
+  "question": "A notice says, 'Call the front desk at 555-0142. After 18:00, call security at 555-0199 instead.' Which number should I call at 19:30, and whom will I reach?",
+  "reference": "555-0199, which reaches security.",
+  "rubric": "Gives 555-0199 and says it reaches security. 555-0142 or the front desk fails.",
+  "core_rubric": "Gives 555-0199 and identifies security.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You should call **555-0199**, and you will reach **security**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0399",
+  "question": "A flight leaves Tokyo at 22:40 local time on June 10, 2027. Tokyo is at UTC+9. The flight lasts 11 hours and 15 minutes and lands in Los Angeles, which is at UTC−7 on that date. What is the local date and time in Los Angeles when it lands?",
+  "reference": "17:55 on June 10, 2027, Los Angeles time. Departure is 13:40 UTC on June 10; landing is 00:55 UTC on June 11, which is 17:55 on June 10 at UTC−7.",
+  "rubric": "Gives 17:55 (5:55 p.m.) on June 10, 2027, local Los Angeles time; the landing is on the same calendar date as the departure. June 11, or any other time, fails. If working is shown, intermediate UTC times must be consistent with 13:40 UTC departure and 00:55 UTC on June 11 arrival.",
+  "core_rubric": "Gives a landing time of 17:55 on June 10, 2027, Los Angeles time.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "June 10, 2027, 03:45",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0408",
+  "question": "My exam covers chapters 1–6. I can study for exactly 1 hour on each of the 6 evenings before it. I already know chapters 1 and 2 well but not chapters 3–6. Give a study plan for the six evenings.",
+  "reference": "Evenings 1–4: study chapters 3, 4, 5, and 6, one per evening, ending each session with a few practice questions. Evening 5: a quick review of chapters 1 and 2, then a mixed practice set. Evening 6: go over mistakes and weak spots from the week.",
+  "rubric": "Gives a plan for six one-hour evenings with no more than one hour per evening. Gives each of chapters 3–6 dedicated study time. Gives chapters 1 and 2 less time than chapters 3–6, or only a brief review. Practice questions and a final review are optional. A plan that exceeds the available time, skips any of chapters 3–6, or spends most of the time on chapters 1 and 2 fails.",
+  "core_rubric": "A six-evening, one-hour-per-evening plan that gives dedicated time to each of chapters 3–6 and less time to chapters 1–2.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is a study plan designed to build your confidence and ensure you cover the unknown material efficiently:\n\n**Evening 1: Review & Solidify (Chapters 1 & 2)**\n*   **Focus:** Re-read key concepts from Chapters 1 and 2. Since you already know them well, use this time to create flashcards or write a summary for each chapter to lock in the details before moving on.\n\n**Evening 2: Tackle the Hardest Unknown Chapter (Chapter 6)**\n*   **Focus:** Start with Chapter 6. It’s likely the most advanced or complex since it comes last. By attacking the hardest material first, you can tackle the easier chapters later without getting stuck.\n\n**Evening 3: Move to the Next Hardest (Chapter 5)**\n*   **Focus:** Study Chapter 5. Continue working backward through the difficult sections to build momentum.\n\n**Evening 4: Mid-Range Challenge (Chapter 4)**\n*   **Focus:** Dedicate this evening to Chapter 4.\n\n**Evening 5: The \"Bridge\" Chapters (Chapter 3)**\n*   **Focus:** Study Chapter 3. Now that you have reviewed the more complex chapters, these might feel more manageable.\n\n**Evening 6: Final Review & Integration**\n*   **Focus:** Do not start new material here. Instead, review all six chapters together. Focus on connecting the concepts between chapters (e.g., how Chapter 4 builds on Chapter 3) and doing any practice problems you haven't completed yet.\n\nThis strategy ensures you don't get overwhelmed by the easiest material early on and leaves the final night for integration rather than cramming. Good luck with your exam!",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0417",
+  "question": "Why does a straight spoon look bent where it enters a glass of water?",
+  "reference": "Light from the underwater part of the spoon bends, or refracts, as it passes from water into air, because light travels at different speeds in the two materials. Our eyes trace the light back in straight lines, so the underwater part appears shifted, making the spoon look bent at the surface.",
+  "rubric": "Explains that light refracts at the water–air boundary because its speed changes, and that our brain interprets the bent rays as coming from a shifted position. Attributing the effect to reflection, or saying the water actually bends the spoon, fails.",
+  "core_rubric": "Attributes the appearance to refraction of light at the water–air boundary, making the underwater part appear shifted.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Refraction",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0426",
+  "question": "A policy says a report must be filed within 3 business days after an incident, not counting the day of the incident. Business days are Monday through Friday, and there are no holidays. An incident happens on a Thursday. What is the last day the report can be filed?",
+  "reference": "The following Tuesday: Friday is business day 1, Monday is day 2, and Tuesday is day 3.",
+  "rubric": "Gives Tuesday (the Tuesday after the incident). Sunday (counting calendar days), Monday, or Wednesday fails. If working is shown, it must skip Saturday and Sunday and start counting on Friday.",
+  "core_rubric": "Gives the following Tuesday.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Monday",
+  "at_token_cap": false
+ }
+]

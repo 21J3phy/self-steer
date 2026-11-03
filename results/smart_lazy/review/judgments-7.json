@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0007",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no: received March 4, after the March 3 receipt deadline."
+ },
+ {
+  "id": "S0016",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives 14:00 with a schedule that respects every prerequisite; mounting 13:00-14:00."
+ },
+ {
+  "id": "S0025",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer 09:05 train, arrive 09:38 is correct, but the working has false statements: ':05 arrives too late' and 'no train leaves before 9:17'."
+ },
+ {
+  "id": "S0034",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "The key (x.lower(), names.index(x)) breaks the case-tie order when exact duplicates exist: ['B','b','B'] gives ['B','B','b'] instead of ['B','b','B']."
+ },
+ {
+  "id": "S0043",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "750 mL with correct 3/8 working (250 mL per part)."
+ },
+ {
+  "id": "S0052",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "git checkout -b feature/login is correct, but the 'alternative' repeats the same command and wrongly says Git 2.23 added -c to checkout (that was git switch)."
+ },
+ {
+  "id": "S0061",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline count is 4 (counts red twice), which competes with the 'unique' list of red, blue, green; the rubric says 4 fails."
+ },
+ {
+  "id": "S0070",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 234; correct is EUR 225.40."
+ },
+ {
+  "id": "S0079",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(int(d) for d in str(n)) is correct and gives 0 for n=0."
+ },
+ {
+  "id": "S0088",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 27%; correct is 37%."
+ },
+ {
+  "id": "S0097",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop is correct: [3,5,5]->3, [-1,-5,-1]->-5, None for [], [7], [5,5]; nums is unchanged."
+ },
+ {
+  "id": "S0106",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 09:54:30; correct is 09:42:30."
+ },
+ {
+  "id": "S0115",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Picks Gym B, which is wrong; Gym B's total is also miscalculated as $300 (90+30*7) instead of $330."
+ },
+ {
+  "id": "S0124",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "chmod u+x deploy.sh with a correct explanation; the hedged backup note is not false."
+ },
+ {
+  "id": "S0133",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s == s[::-1] compares exactly, and '' gives True."
+ },
+ {
+  "id": "S0142",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives March 30, 2027; correct is March 31, 2027."
+ },
+ {
+  "id": "S0151",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Attributes it to refraction at the water-air boundary shifting the apparent position. It leaves out the speed change, but the core does not require that."
+ },
+ {
+  "id": "S0160",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git config --local user.email \"dev@example.com\" is correct."
+ },
+ {
+  "id": "S0169",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 6.48 L; correct is 32.4 L."
+ },
+ {
+  "id": "S0178",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "States 09:35 as the answer while its own working gives 11:00, so the answer contradicts itself."
+ },
+ {
+  "id": "S0187",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "chmod u+x deploy.sh."
+ },
+ {
+  "id": "S0196",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One polite sentence that apologizes and says they can't attend today, with no reason added."
+ },
+ {
+  "id": "S0205",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Correct definitions; classifies the statement as weather."
+ },
+ {
+  "id": "S0214",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One sentence with all four items and nothing added."
+ },
+ {
+  "id": "S0223",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 234; correct is EUR 225.40."
+ },
+ {
+  "id": "S0232",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Encryption plus server authentication via certificates; says HTTPS does not guarantee the site is honest."
+ },
+ {
+  "id": "S0241",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": true,
+  "reason": "Truncated at the token cap during enumeration and never states the chosen items or the total; computes 17 for tent+stove+camera but reaches no conclusion."
+ },
+ {
+  "id": "S0250",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'I am sorry, but I cannot make it today.' meets every requirement."
+ },
+ {
+  "id": "S0259",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $14; exactly 3 kg falls in the $9 band."
+ },
+ {
+  "id": "S0268",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 60 days / 8w4d; correct is 59 days / 8w3d (Feb 2027 has 28 days)."
+ },
+ {
+  "id": "S0277",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$2,616 with correct working ($216 interest)."
+ },
+ {
+  "id": "S0286",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Says there are 4 different colors while listing only 3, so the count is wrong."
+ },
+ {
+  "id": "S0295",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Guarded s[0].upper()+s[1:] returns '' for ''; the examples are correct."
+ },
+ {
+  "id": "S0304",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "37%."
+ },
+ {
+  "id": "S0313",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Slides, Budget, Report, with the correct dates."
+ },
+ {
+  "id": "S0322",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Output is just '0' (with a stray </think> tag), not code that counts True; no usable deliverable."
+ },
+ {
+  "id": "S0331",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $24 even though its own explanation says the 5-year-old pays; correct is $36."
+ },
+ {
+  "id": "S0340",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Encryption plus server authentication; says HTTPS does not guarantee the site is honest."
+ },
+ {
+  "id": "S0349",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sorted(set(nums))[-2] with a distinct-count guard is correct, and nums is unchanged."
+ },
+ {
+  "id": "S0358",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 09:52:30; correct is 09:42:30."
+ },
+ {
+  "id": "S0367",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no: 08:15 is not before 07:00 or after 09:30."
+ },
+ {
+  "id": "S0376",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives a menu of 5 systems, including alternatives that do not spread the work evenly (random picker, ad-hoc 'next person' choice) and a false claim that the spreadsheet updates itself; no single compliant rotation is the clear deliverable."
+ },
+ {
+  "id": "S0385",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with a wrong '09:42', then explicitly retracts it and ends clearly on 11:00 with correct working. The core passes on the final answer, but the false 09:42 statement fails the whole answer (judgment call)."
+ },
+ {
+  "id": "S0394",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives March 1, 2027 (the second renewal); correct is March 31."
+ },
+ {
+  "id": "S0403",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Explains that the 4-year rule overcorrects and that centuries are skipped unless divisible by 400. It gives the orbit as 'approximately 365.2425' (the true figure is ~365.2422), which is a minor imprecision that does not change the logic."
+ },
+ {
+  "id": "S0412",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rm --cached secrets.env."
+ },
+ {
+  "id": "S0421",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correct route, but the stated total is 24 min; its own path sums to 18, so the number is wrong."
+ },
+ {
+  "id": "S0430",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3 hours, with consistent worker-hour working."
+ }
+]

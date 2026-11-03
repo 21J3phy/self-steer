@@ -22,7 +22,11 @@ def prepare(a):
     old = json.loads(a.old.read_text())
     pool = [r for r in old if str(r['base_seed']) in ('17', '29')]
     pool.sort(key=lambda r: (r['condition'], r['question_id']))
-    calibration = random.Random(0).sample(pool, CAL_N)
+    calibration = random.Random(0).sample(pool, a.calibration)
+    for r in new:
+        r['called_lazy'] = any((t.get('call') or {}).get('name') == 'set_mode' and
+                               str(((t.get('call') or {}).get('arguments') or {}).get('name', '')).lower() == 'lazy'
+                               for t in r.get('tool_calls', []))
     rows = [dict(r, source='new') for r in new] + [
         {'condition': f"old-{r['condition']}", 'question_id': r['question_id'], 'base_question_id': r['base_question_id'],
          'base_seed': int(r['base_seed']), 'question': r['question'], 'output': r['output'],
@@ -87,6 +91,7 @@ p.add_argument('--old', type=Path, required=True)
 p.add_argument('--out', type=Path, required=True)
 p.add_argument('--chunks', type=int, default=9)
 p.add_argument('--seed', type=int, default=90217)
+p.add_argument('--calibration', type=int, default=CAL_N)
 m = sub.add_parser('merge')
 m.add_argument('--review', type=Path, required=True)
 a = ap.parse_args()

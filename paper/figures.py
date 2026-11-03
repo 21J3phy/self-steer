@@ -16,7 +16,7 @@ plt.rcParams.update({'font.size': 9, 'font.family': 'serif', 'axes.spines.top': 
 
 COLORS = {'lazy': '#2b6cb0', 'self': '#d97706', 'placebo': '#a16207', 'prompt': '#b91c1c', 'routed': '#15803d',
           'oracle': '#6b7280'}
-LABELS = {'lazy': 'Lazy Genius, always on', 'self': 'Qwen decides (self)', 'placebo': 'self-placebo (no edit)',
+LABELS = {'lazy': 'always lazy', 'self': 'Qwen decides (self)', 'placebo': 'self-placebo (no edit)',
           'prompt': '"Be concise" prompt', 'routed': 'Claude routes', 'oracle': 'hindsight oracle'}
 
 
@@ -25,9 +25,9 @@ def tradeoff():
     fig, ax = plt.subplots(figsize=(4.6, 3.1))
     ax.axhline(0, color='#999', lw=0.8)
     ax.axhline(-5, color='#999', lw=0.8, ls=':')
-    ax.text(1, -5.6, 'noninferiority margin (-5 pts)', fontsize=7, color='#666', va='top')
+    ax.text(1, -6.0, 'noninferiority margin (-5 pts)', fontsize=7, color='#666', va='top')
     ax.scatter([0], [0], color='black', zorder=3)
-    ax.annotate('normal Qwen', (0, 0), xytext=(-2, -10), textcoords='offset points', fontsize=7.5)
+    ax.annotate('normal', (0, 0), xytext=(-4, 5), textcoords='offset points', fontsize=7.5)
     for c in ['lazy', 'self', 'placebo', 'prompt', 'routed', 'oracle']:
         if c not in a['conditions']:
             continue
@@ -36,7 +36,8 @@ def tradeoff():
         y, (lo, hi) = s['core_diff_pts']['mean'], s['core_diff_pts']['ci95']
         ax.errorbar([x], [y], yerr=[[y - lo], [hi - y]], fmt='o', color=COLORS[c], capsize=2.5, ms=5,
                     mfc='white' if c == 'oracle' else COLORS[c], zorder=3)
-        offsets = {'routed': (-38, 9), 'oracle': (-8, 12), 'lazy': (6, -10)}
+        offsets = {'routed': (-36, 6), 'oracle': (6, 3), 'lazy': (5, -11), 'placebo': (6, 2), 'self': (6, -3),
+                   'prompt': (-20, -14)}
         ax.annotate(LABELS[c], (x, y), xytext=offsets.get(c, (6, -3)), textcoords='offset points',
                     fontsize=7.5, color=COLORS[c])
     ax.set_xlabel('fewer words than normal Qwen (%)')

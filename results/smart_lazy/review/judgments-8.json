@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0008",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Command wc -w essay.txt | awk '{print $1}' is correct; but followed by stray '</think>' and an unsupported fabricated count '24' (ambiguous whether a competing answer; treated as false extra)."
+ },
+ {
+  "id": "S0017",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with '14.4 minutes.' then working and final line give 12 minutes; the wrong headline answer is never explicitly retracted, so two competing answers (self-correction ambiguity noted)."
+ },
+ {
+  "id": "S0026",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(int(d) for d in str(n)) returns digit sum; 0 gives 0."
+ },
+ {
+  "id": "S0035",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "wc -w essay.txt | cut -d' ' -f1 prints an empty line on BSD/macOS wc (leading-space padding); only works with GNU wc formatting. Not a reliable Unix answer."
+ },
+ {
+  "id": "S0044",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 12 boxes; correct answer is 8."
+ },
+ {
+  "id": "S0053",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 2 hours 30 minutes; correct is 1 hour 15 minutes."
+ },
+ {
+  "id": "S0062",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $43.98; correct is $44.46."
+ },
+ {
+  "id": "S0071",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git ls-files --others --exclude-standard is exactly correct."
+ },
+ {
+  "id": "S0080",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Uses chmod +x (can add group/others execute) and falsely claims it only affects the owner."
+ },
+ {
+  "id": "S0089",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop returns False on any nums[i] > nums[i+1]; True for [], [5], [1,1,2]; nums unchanged."
+ },
+ {
+  "id": "S0098",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "108 with correct working (360 owners, 30% = 108)."
+ },
+ {
+  "id": "S0107",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "chmod u+x deploy.sh."
+ },
+ {
+  "id": "S0116",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rm --cached secrets.env."
+ },
+ {
+  "id": "S0125",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; prohibition applies because only officers may write below the line."
+ },
+ {
+  "id": "S0134",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "59 days and 8 weeks 3 days; 2027 non-leap, 16+28+15 working correct."
+ },
+ {
+  "id": "S0143",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -c \"ERROR\" app.log."
+ },
+ {
+  "id": "S0152",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Chooses tent, food bag, stove (12 kg, over limit) and gives '20 kg' total; correct is tent, stove, camera with 17."
+ },
+ {
+  "id": "S0161",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Did the package arrive on Monday?"
+ },
+ {
+  "id": "S0170",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Says no to Earth's shadow, attributes phases to seeing changing portions of sunlit side as Moon orbits; eclipse distinction correct."
+ },
+ {
+  "id": "S0179",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer 3 hours correct, but alternative approach falsely says doubling shelves needs '6 worker-hours per shelf instead of 3' (per-shelf work stays 3)."
+ },
+ {
+  "id": "S0188",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Says no to oceans; Rayleigh scattering of shorter wavelengths by atmosphere."
+ },
+ {
+  "id": "S0197",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 600; correct is 750 mL."
+ },
+ {
+  "id": "S0206",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s == s[::-1] with no normalization."
+ },
+ {
+  "id": "S0215",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with bold 'total charge is $24' and false claim both children pay, then self-corrects to $36; requested explanation contains contradictory/false reasoning and competing answers (self-correction ambiguity noted)."
+ },
+ {
+  "id": "S0224",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "25->30, 18->20, 11->12; the only valid assignment."
+ },
+ {
+  "id": "S0233",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Returns a list of 'name:score' strings instead of a dict, and returns pairs (a list) for empty input."
+ },
+ {
+  "id": "S0242",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One sentence with 15:00 Friday, staff training, Saturday normal hours, anytime drop box; nothing added."
+ },
+ {
+  "id": "S0251",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 08:15 is between 07:00 and 09:30 so not off-peak, Tuesday is valid."
+ },
+ {
+  "id": "S0260",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sorted with key (s.lower(), names.index(s)) returns new case-insensitive sorted list, preserves original order for case ties, [] gives []; verified on fixtures."
+ },
+ {
+  "id": "S0269",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "25->30, 18->20, 11->12."
+ },
+ {
+  "id": "S0278",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 6; correct is 3 hours."
+ },
+ {
+  "id": "S0287",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One sentence with all four items and no added details."
+ },
+ {
+  "id": "S0296",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Exactly the three corrections, all else unchanged."
+ },
+ {
+  "id": "S0305",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "36 with correct algebra (S=12)."
+ },
+ {
+  "id": "S0314",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $2,808 with wrong interest $208 (and wrong sum); correct is $2,616."
+ },
+ {
+  "id": "S0323",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Returns first non-max element, not the second largest ([1,3,5] gives 1); also stray 'nums[:]' line."
+ },
+ {
+  "id": "S0332",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rm --cached secrets.env."
+ },
+ {
+  "id": "S0341",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 03:45 on June 10; correct is 17:55 on June 10."
+ },
+ {
+  "id": "S0350",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline answer 259.2 liters contradicts its own working of 32.4 liters; wrong/contradictory final answer."
+ },
+ {
+  "id": "S0359",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s[0].upper() + s[1:] if s else \"\" handles empty string and leaves rest unchanged."
+ },
+ {
+  "id": "S0368",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Says no to oceans; Rayleigh scattering of shorter blue wavelengths by air molecules."
+ },
+ {
+  "id": "S0377",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; selection bias, gym-goers overestimate, suggests random sample."
+ },
+ {
+  "id": "S0386",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3."
+ },
+ {
+  "id": "S0395",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "11:00 via 150 km/h closing speed and 2 hours."
+ },
+ {
+  "id": "S0404",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Addresses Lee, $24.50 issued today, up to 5 business days; no reason or date."
+ },
+ {
+  "id": "S0413",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Same correct sorted key (lower, original index); new list, stable for case ties, [] gives []."
+ },
+ {
+  "id": "S0422",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "chmod +x can also add group/others execute; requires u+x."
+ },
+ {
+  "id": "S0431",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "We will use the new room when the meeting starts."
+ }
+]

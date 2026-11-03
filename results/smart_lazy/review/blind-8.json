@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0008",
+  "question": "In a Unix shell, print the number of words in essay.txt, where a word is a run of non-whitespace characters. Print only the number, without the file name. The file contains only ASCII text; leave it unchanged.",
+  "reference": "wc -w < essay.txt",
+  "rubric": "Uses wc -w < essay.txt, or an equivalent such as cat essay.txt | wc -w or wc -w essay.txt | awk '{print $1}'. Leading spaces that some wc versions print before the number are acceptable. wc -w essay.txt alone fails because it also prints the file name; wc -l or wc -c counts lines or bytes and fails.",
+  "core_rubric": "Prints only the whitespace-separated word count of essay.txt, without the file name; essay.txt is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "wc -w essay.txt | awk '{print $1}'\n</think>\n\n24",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0017",
+  "question": "A file is 3.6 gigabytes, using 1 gigabyte = 1,000 megabytes. My connection downloads at a steady 40 megabits per second, and 1 byte = 8 bits. Ignoring overhead, how many minutes will the download take?",
+  "reference": "12 minutes: 3,600 megabytes × 8 = 28,800 megabits, and 28,800 / 40 = 720 seconds.",
+  "rubric": "Gives 12 minutes. Also stating 720 seconds is fine, but 720 seconds alone does not give the requested unit and fails. Converts bytes to bits; 1.5 minutes (treating megabits as megabytes) fails. If working is shown, it must be consistent with 28,800 megabits and 720 seconds.",
+  "core_rubric": "Gives the download time as 12 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "14.4 minutes.\n\nHere's the breakdown:\n*   **File size:** 3.6 GB = 3,600 MB = 28,800 Megabits (since 1 byte = 8 bits).\n*   **Download speed:** 40 Mbps.\n*   **Time in seconds:** 28,800 / 40 = 720 seconds.\n*   **Time in minutes:** 720 / 60 = 12 minutes.\n\nWait, let me re-calculate.\n*   File size: 3.6 GB = 3,600 MB.\n*   Convert to bits: 3,600 MB * 8 bits/byte = 28,800 Megabits.\n*   Download speed: 40 Mbps.\n*   Time in seconds: 28,800 / 40 = 720 seconds.\n*   Time in minutes: 720 / 60 = 12 minutes.\n\nThe correct answer is 12 minutes.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0026",
+  "question": "In Python, given a nonnegative integer n, return the sum of its decimal digits as an integer. For example, 507 gives 12. For n = 0 the result is 0.",
+  "reference": "sum(int(digit) for digit in str(n))",
+  "rubric": "Returns the integer sum of the decimal digits of n: 0 gives 0, 9 gives 9, 507 gives 12, and 10**30 gives 1. Arithmetic digit extraction with % 10 and // 10 is acceptable if it returns 0 for n = 0. n % 9 (a digital-root shortcut) or returning the number of digits fails. Equivalent correct code, such as sum(map(int, str(n))), is acceptable.",
+  "core_rubric": "Returns the sum of n's decimal digits as an integer, including 0 for n = 0.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\nsum(int(d) for d in str(n))\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0035",
+  "question": "In a Unix shell, print the number of words in essay.txt, where a word is a run of non-whitespace characters. Print only the number, without the file name. The file contains only ASCII text; leave it unchanged.",
+  "reference": "wc -w < essay.txt",
+  "rubric": "Uses wc -w < essay.txt, or an equivalent such as cat essay.txt | wc -w or wc -w essay.txt | awk '{print $1}'. Leading spaces that some wc versions print before the number are acceptable. wc -w essay.txt alone fails because it also prints the file name; wc -l or wc -c counts lines or bytes and fails.",
+  "core_rubric": "Prints only the whitespace-separated word count of essay.txt, without the file name; essay.txt is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`wc -w essay.txt | cut -d' ' -f1`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0044",
+  "question": "A room is 4.2 meters by 3.5 meters. Flooring is sold only in whole boxes, each covering 2.2 square meters. I want to buy 10% more than the floor area to allow for waste. How many boxes must I buy?",
+  "reference": "8 boxes: 4.2 × 3.5 = 14.7 m², plus 10% is 16.17 m², and 16.17 / 2.2 ≈ 7.35, which rounds up to 8.",
+  "rubric": "Gives 8 boxes. Rounds up because only whole boxes are sold; 7 boxes (rounding down) or 7 boxes from ignoring the 10% extra fails. If working is shown, it must be consistent with 14.7 m², 16.17 m², and about 7.35 boxes.",
+  "core_rubric": "Gives 8 boxes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "12",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0053",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes.",
+  "reference": "1 hour 15 minutes: 50 × 27 = 1,350 pages, and 1,350 / 18 = 75 minutes.",
+  "rubric": "Gives 1 hour 15 minutes. Also stating 75 minutes is fine, but 75 minutes alone does not give the requested hours-and-minutes form and fails. If working is shown, it must be consistent with 1,350 pages and 75 minutes.",
+  "core_rubric": "Gives 1 hour 15 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "2 hours and 30 minutes",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0062",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$43.98",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0071",
+  "question": "In a Git repository, from the repository root, print the paths of untracked files only, one per line, relative to the root and without any status prefix. Exclude files ignored through .gitignore, and do not list files that are tracked or newly staged. Do not change anything.",
+  "reference": "git ls-files --others --exclude-standard",
+  "rubric": "Uses git ls-files --others --exclude-standard (or -o --exclude-standard). It lists each untracked file, including files inside untracked directories, and omits ignored files. git ls-files --others without --exclude-standard fails because it includes ignored files. git status --porcelain or git status --short fails because it adds status prefixes, also lists modified and staged files, and collapses untracked directories.",
+  "core_rubric": "Prints only the untracked, non-ignored file paths relative to the root, one per line, with no status prefixes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git ls-files --others --exclude-standard",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0080",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To add execute permission for the owner of `deploy.sh` without altering any other permissions or file contents, use the `chmod` command with symbolic notation:\n\n```bash\nchmod +x deploy.sh\n```\n\nThis adds the execute bit specifically for the file's owner (user), leaving group and others permissions unchanged.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0089",
+  "question": "In Python, return True if the list of numbers nums is in non-decreasing order, meaning each element is less than or equal to the next one, so equal neighbors are allowed. Return True for an empty list or a one-element list. Leave nums unchanged.",
+  "reference": "all(a <= b for a, b in zip(nums, nums[1:]))",
+  "rubric": "Returns True exactly when every adjacent pair satisfies a <= b, so [1, 1, 2] gives True, [2, 1] gives False, and [] and [5] give True. A strict comparison (<), checking for descending order, or sorting nums in place fails. nums == sorted(nums) is an acceptable equivalent.",
+  "core_rubric": "Returns True exactly when each element is <= the next, including True for [] and one-element lists; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def is_sorted(nums):\n    for i in range(len(nums) - 1):\n        if nums[i] > nums[i + 1]:\n            return False\n    return True",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0098",
+  "question": "In a survey of 800 people, 45% own a bicycle. Of the bicycle owners, 30% ride every day. How many of the surveyed people ride a bicycle every day?",
+  "reference": "108: 45% of 800 is 360, and 30% of 360 is 108.",
+  "rubric": "Gives 108. 600 (adding the percentages) or 240 (30% of 800) fails. If working is shown, it must be consistent with 360 owners.",
+  "core_rubric": "Gives 108 people.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the number of people who ride a bicycle every day, we can follow these steps:\n\n1.  **Calculate the number of bicycle owners:**\n    *   Total surveyed people = 800\n    *   Percentage owning a bicycle = 45%\n    *   Calculation: $800 \\times 0.45 = 360$ people own a bicycle.\n\n2.  **Calculate the number of daily riders among those owners:**\n    *   Bicycle owners = 360\n    *   Percentage riding every day = 30%\n    *   Calculation: $360 \\times 0.30 = 108$ people.\n\n**Answer:** 108 people ride a bicycle every day.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0107",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To add execute permission for the owner of `deploy.sh` without changing other permissions, use:\n\n```bash\nchmod u+x deploy.sh\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0116",
+  "question": "In a Git repository, secrets.env is tracked and has no uncommitted changes. Stop tracking it, so that the next commit removes it from the repository, while keeping the file on disk unchanged. Do not commit, and do not edit .gitignore. Give the command.",
+  "reference": "git rm --cached secrets.env",
+  "rubric": "Uses git rm --cached secrets.env. git rm secrets.env without --cached fails because it deletes the working file. git restore --staged secrets.env and git update-index --assume-unchanged secrets.env fail because neither stops tracking the file. Mentioning that adding the file to .gitignore is a common later step is harmless, provided the answer does not edit .gitignore as part of the command.",
+  "core_rubric": "Gives git rm --cached secrets.env, which stages the file's removal from the index while leaving the working file in place.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git rm --cached secrets.env`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0125",
+  "question": "A form says, 'Do not write below this line unless you are an officer.' I am not an officer. Under this instruction, may I write below the line? Explain.",
+  "reference": "No. The instruction permits writing below the line only for officers, and you are not an officer.",
+  "rubric": "Answers no and explains that writing below the line is allowed only for officers. Answering yes, or saying the instruction does not apply to non-officers, fails.",
+  "core_rubric": "Answers no because only officers may write below the line.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you may not write below the line. The instruction explicitly prohibits writing unless one is an officer, and since you are not an officer, the prohibition applies to you.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0134",
+  "question": "How many days pass from January 15, 2027 to March 15, 2027? Count elapsed days, so January 15 to January 16 is one day. Give the answer in days and also as whole weeks plus remaining days.",
+  "reference": "59 days, which is 8 weeks and 3 days: 16 days left in January, 28 in February 2027, and 15 in March.",
+  "rubric": "Gives 59 days and 8 weeks plus 3 days. 2027 is not a leap year, so February has 28 days; 60 days (treating February as 29 days) or a count of 58 or 60 from an off-by-one error fails. Both forms are required.",
+  "core_rubric": "Gives 59 days and 8 weeks plus 3 days.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To calculate the number of days from **January 15, 2027** to **March 15, 2027**, we break down the timeline month by month.\n\n### Step 1: Analyze the Year\nFirst, we determine if 2027 is a leap year. A year is a leap year if it is divisible by 4 (except for end-of-century years, which must be divisible by 400).\n*   $2027 \\div 4 = 506.75$\n*   Since 2027 is not divisible by 4, it is a **common year**.\n*   Therefore, February has **28 days**.\n\n### Step 2: Calculate Days in Each Segment\n\n**Segment 1: January 15 to January 31**\n*   We count the elapsed days starting from Jan 15.\n*   Days remaining in January after the 15th: $31 - 15 = 16$ days.\n    *(Verification: Jan 15 $\\to$ Jan 16 is 1 day... up to Jan 31 is indeed 16 days).*\n\n**Segment 2: The Entire Month of February**\n*   As determined above, February 2027 has **28 days**.\n\n**Segment 3: March 1 to March 15**\n*   From March 1 to March 15 is exactly **15 days**.\n\n### Step 3: Sum the Total Days\n$$ \\text{Total Days} = (\\text{Days in Jan}) + (\\text{Days in Feb}) + (\\text{Days in Mar}) $$\n$$ \\text{Total Days} = 16 + 28 + 15 $$\n$$ \\text{Total Days} = 59 $$\n\nSo, there are **59 days** elapsed.\n\n### Step 4: Convert to Weeks and Remaining Days\nNow we convert 59 days into whole weeks plus remaining days.\n*   One week = 7 days.\n*   $59 \\div 7 = 8$ with a remainder.\n*   Calculation: $8 \\times 7 = 56$.\n*   Remainder: $59 - 56 = 3$.\n\nThis means there are **8 full weeks** and **3 remaining days**.\n\n***\n\n### Final Answer\n\n*   **Total Elapsed Days:** 59 days\n*   **Weeks and Days:** 8 weeks and 3 days",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0143",
+  "question": "In a Unix shell, print the number of lines in app.log that contain the text ERROR, matched case-sensitively anywhere in the line. A line that contains ERROR more than once counts once. Print only the number, which must be 0 when no line matches, and leave app.log unchanged.",
+  "reference": "grep -c 'ERROR' app.log",
+  "rubric": "Uses grep -c ERROR app.log (quoting optional, -F acceptable) or an equivalent that prints the count of matching lines, such as grep ERROR app.log | wc -l; leading spaces that some wc versions print are acceptable. Prints 0 when nothing matches; grep's nonzero exit status in that case is acceptable. Counting occurrences with grep -o ... | wc -l, matching case-insensitively with -i, or printing the matching lines instead of a number fails.",
+  "core_rubric": "Prints only the count of lines containing case-sensitive ERROR, counting each line once and printing 0 when none match; app.log is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "grep -c \"ERROR\" app.log",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0152",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?",
+  "reference": "The tent, stove, and camera: exactly 10 kg, with a total usefulness of 17.",
+  "rubric": "Chooses the tent, stove, and camera, weighing 10 kg, with total usefulness 17. This is the unique best choice. Stove, food bag, and camera (16), tent and food bag (15), or any set over 10 kg fails.",
+  "core_rubric": "Chooses the tent, stove, and camera with a total usefulness of 17.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Take the tent, food bag, and stove. Total usefulness: 20 kg.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0161",
+  "question": "Turn the statement 'The package arrived on Monday' into a yes/no question about the same fact, changing only the words needed to form the question.",
+  "reference": "Did the package arrive on Monday?",
+  "rubric": "Gives 'Did the package arrive on Monday?' Small variations in capitalization are acceptable. Changing the verb to a different word, such as 'delivered', or asking about a different day or object fails. A question that is not answerable with yes or no fails.",
+  "core_rubric": "Gives 'Did the package arrive on Monday?'",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Did the package arrive on Monday?",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0170",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**No, the Moon's phases are not caused by Earth's shadow falling on the Moon.**\n\nThis is a very common misconception. If Earth's shadow were responsible for the phases, we would only ever see \"new moon\" (when the shadow covers the Moon) and \"full moon\" (when the shadow isn't there). However, we observe a full cycle of shapes—from crescent to gibbous to quarter moons—long before or after the new and full phases occur.\n\n### The Real Cause: Illumination by the Sun\nThe primary cause of the Moon's phases is simply **the changing angle between the Sun, the Earth, and the Moon**.\n\n1.  **The Source of Light**: The Moon does not emit its own light; it reflects sunlight.\n2.  **Orbiting the Earth**: As the Moon orbits Earth (taking about 29.5 days), it moves around in space relative to the Sun.\n3.  **Changing Viewpoint**: Because our viewpoint on Earth changes as the Moon travels, we see different portions of the sunlit side of the Moon.\n    *   **New Moon**: The Moon is between the Earth and the Sun. We see the dark side facing us.\n    *   **First Quarter**: We see half of the illuminated side.\n    *   **Full Moon**: The Earth is between the Sun and the Moon. We see the entire sunlit face.\n    *   **Last Quarter**: Again, we see half of the illuminated side.\n\n### What About Earth's Shadow?\nEarth's shadow *does* affect the Moon, but it causes a specific type of event called a **Lunar Eclipse**, which happens only during a Full Moon.\n\n*   **Phases**: These happen every month due to the geometry of orbits described above. They involve how much of the Moon's surface is lit by the Sun from our perspective.\n*   **Eclipses**: These happen occasionally when the alignment is perfect enough for Earth to actually block the Sun's light from reaching the Moon. During an eclipse, the Moon turns reddish (often called a \"blood moon\") because Earth's atmosphere bends some sunlight onto the Moon. This is distinct from the regular monthly phases.\n\n### Conclusion\nThe Moon's phases are caused by **how much of the Sun-lit portion of the Moon is visible from Earth** as the Moon orbits our planet. Earth's shadow plays no role in creating these monthly cycles; it only creates rare eclipses.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0179",
+  "question": "Three workers, all working at the same constant rate, build 3 identical shelves in 3 hours. Work on a shelf can be shared among workers. How many hours will 6 such workers take to build 6 identical shelves?",
+  "reference": "3 hours. Each worker builds one shelf per 3 hours, so 6 workers build 6 shelves in 3 hours.",
+  "rubric": "Gives 3 hours. 6 hours or 1.5 hours fails. If working is shown, it must be consistent with one shelf per worker per 3 hours.",
+  "core_rubric": "Gives 3 hours.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "### Step-by-Step Logic\n\n1.  **Analyze the initial scenario:**\n    *   Workers: $3$\n    *   Shelves built: $3$\n    *   Time taken: $3$ hours\n    *   Rate per worker: Constant and identical for all.\n\n2.  **Calculate the total work required:**\n    Since the work is shared and rates are constant, we can calculate the total \"worker-hours\" needed to build one shelf or simply look at the proportionality of the variables.\n    \n    Let $W$ be the amount of work required to build one shelf.\n    Total Work = (Number of Workers) $\\times$ (Time)\n    \n    From the first scenario:\n    $$3 \\text{ workers} \\times 3 \\text{ hours} = 9 \\text{ worker-hours}$$\n    \n    This $9$ worker-hours builds $3$ shelves.\n    Therefore, the work required for **1 shelf** is:\n    $$\\frac{9 \\text{ worker-hours}}{3 \\text{ shelves}} = 3 \\text{ worker-hours per shelf}$$\n\n3.  **Analyze the target scenario:**\n    *   Target Shelves: $6$\n    *   Target Workers: $6$\n    \n    Calculate the total work required for the target number of shelves:\n    $$6 \\text{ shelves} \\times 3 \\text{ worker-hours/shelf} = 18 \\text{ worker-hours}$$\n\n4.  **Calculate the time required for the new team:**\n    We have $18$ total worker-hours of work to complete using $6$ workers.\n    $$\\text{Time} = \\frac{\\text{Total Worker-Hours}}{\\text{Number of Workers}}$$\n    $$\\text{Time} = \\frac{18}{6} = 3 \\text{ hours}$$\n\n### Alternative Intuitive Approach (Proportionality)\n*   **Doubling the shelves**: If you double the number of shelves from $3$ to $6$, you need twice as much work ($6$ worker-hours per shelf instead of $3$). So, $3$ workers would take $6$ hours to build $6$ shelves.\n*   **Doubling the workers**: Now, you double the workforce from $3$ to $6$. Doubling the workers halves the time required.\n*   **Result**: $6$ hours / $2$ = $3$ hours.\n\n### Final Conclusion\nIt will take **3** hours.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0188",
+  "question": "Why is the clear daytime sky blue? Is it mainly because the sky reflects the color of the oceans?",
+  "reference": "Air molecules scatter shorter, bluer wavelengths of sunlight much more strongly than longer, redder wavelengths (Rayleigh scattering), so blue light reaches our eyes from all directions in the sky. It is not mainly a reflection of the oceans.",
+  "rubric": "Explains that air molecules scatter short-wavelength blue light more than longer wavelengths, so scattered blue light comes from the whole sky, and says no to ocean reflection. Noting that violet scatters even more but our eyes are less sensitive to it is optional. Attributing the color to ocean reflection, dust, or water vapor absorbing red light fails.",
+  "core_rubric": "Attributes the blue sky to stronger scattering of short blue wavelengths by air molecules, and says it is not mainly ocean reflection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the sky is blue because Earth's atmosphere scatters shorter wavelengths of sunlight (blue and violet) more effectively than longer wavelengths due to Rayleigh scattering.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0197",
+  "question": "A drink is mixed in the ratio 3 parts concentrate to 5 parts water, by volume. How many milliliters of concentrate are needed to make 2 liters of the drink in total?",
+  "reference": "750 milliliters: concentrate is 3/8 of the total, and 3/8 × 2,000 mL = 750 mL.",
+  "rubric": "Gives 750 mL (0.75 liters is equivalent). 1,200 mL (using 3/5) fails. Stating that 1,250 mL of water is needed is optional but must be correct if given.",
+  "core_rubric": "Gives 750 milliliters of concentrate.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "600",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0206",
+  "question": "In Python, return True if the string s reads exactly the same forwards and backwards, and False otherwise. Compare characters exactly: uppercase and lowercase letters are different, and spaces and punctuation count as characters. The empty string counts as reading the same both ways.",
+  "reference": "s == s[::-1]",
+  "rubric": "Returns True exactly when s equals its reverse, compared character by character, so 'Aa' and 'ab a' give False and '' gives True. Lowercasing, removing spaces or punctuation, or otherwise normalizing s first fails. Equivalent correct code, such as comparing with ''.join(reversed(s)), is acceptable.",
+  "core_rubric": "Returns True exactly when s equals its exact character reverse, with no case or space normalization; '' gives True.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef is_palindrome(s):\n    return s == s[::-1]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0215",
+  "question": "A museum charges $12 per person, and children under 5 are free. Two adults visit with a 5-year-old and a 3-year-old. What is the total admission charge? Explain.",
+  "reference": "$36. The two adults and the 5-year-old pay $12 each; only the 3-year-old is under 5 and free.",
+  "rubric": "Gives $36 and explains that the 5-year-old is not under 5 and pays, while the 3-year-old is free. $24 (treating the 5-year-old as free) or $48 fails.",
+  "core_rubric": "Gives $36, with the 5-year-old paying and only the 3-year-old free.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The total charge is **$24**.\n\nHere's the breakdown:\n*   **Adults:** 2 adults × $12 = $24\n*   **Children:** The 5-year-old and 3-year-old are both over the \"under 5\" threshold, so they must pay. However, the prompt says children *under* 5 are free. A 5-year-old is not under 5. Therefore, both children pay $12 each. Wait, let me re-read carefully. \"children under 5 are free.\"\n    *   Adult 1: $12\n    *   Adult 2: $12\n    *   5-year-old: Not under 5, so pays $12.\n    *   3-year-old: Under 5, so is free ($0).\n\nTotal: $12 + $12 + $12 + $0 = **$36**.\n\nLet me double check the logic.\n\"Two adults visit with a 5-year-old and a 3-year-old.\"\n\"charges $12 per person\" - implies adults and older kids.\n\"children under 5 are free\" - implies anyone 5 or older (assuming integer ages) pays full price.\n\nSo:\n*   Adult 1: $12\n*   Adult 2: $12\n*   5-year-old: $12 (not under 5)\n*   3-year-old: $0 (under 5)\n\nTotal: $12 + $12 + $12 + $0 = $36.\n\nMy initial quick thought was wrong because I assumed the 5-year-old might be free or paid differently without explicit instruction. The rule is strictly \"under 5\".\n\nFinal Answer: **$36**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0224",
+  "question": "Three meetings happen at the same time, with 25, 11, and 18 attendees. Three rooms are available, seating 12, 20, and 30 people. Each meeting needs its own room with a seat for every attendee. Assign a room to each meeting.",
+  "reference": "The 25-person meeting uses the 30-seat room, the 18-person meeting uses the 20-seat room, and the 11-person meeting uses the 12-seat room.",
+  "rubric": "Gives 25 → 30 seats, 18 → 20 seats, and 11 → 12 seats. This is the only assignment that fits; any assignment that leaves a meeting with too few seats fails.",
+  "core_rubric": "Assigns the 25-, 18-, and 11-person meetings to the 30-, 20-, and 12-seat rooms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is one possible assignment:\n* Meeting with 25 attendees → Room with 30 seats.\n* Meeting with 18 attendees → Room with 20 seats.\n* Meeting with 11 attendees → Room with 12 seats.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0233",
+  "question": "In Python, pairs is a list of (name, score) tuples, where scores are integers that may be negative and a name may appear several times. Return a dictionary mapping each name to the highest score recorded for it, with the names in order of their first appearance. pairs may be empty; leave it unchanged.",
+  "reference": "{name: max(score for other, score in pairs if other == name) for name, _ in pairs}",
+  "rubric": "Returns a dictionary whose keys are the distinct names in first-appearance order and whose values are each name's maximum score, so negative-only scores keep their true maximum (for example [('a', -5), ('a', -2)] gives {'a': -2}). An empty list gives {}. dict(pairs) (the last score wins), starting a running maximum at 0, or sorting the names alphabetically fails. A loop that builds the dictionary is acceptable. Does not modify pairs.",
+  "core_rubric": "Maps each distinct name, in first-appearance order, to its highest score, including all-negative cases; [] gives {} and pairs is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef solve(pairs):\n    if not pairs:\n        return pairs\n    \n    result = {}\n    order = []\n    \n    for name, score in pairs:\n        if name not in result:\n            result[name] = score\n            order.append(name)\n        else:\n            result[name] = max(result[name], score)\n    \n    return [f\"{name}:{result[name]}\" for name in order]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0242",
+  "question": "Summarize this notice in one sentence: 'The library will close at 15:00 on Friday for staff training. Normal hours resume on Saturday. Books can be returned in the outdoor drop box at any time.' Include the Friday closing time, the reason for closing, when normal hours resume, and the drop box. Do not add anything that is not in the notice.",
+  "reference": "The library closes at 15:00 on Friday for staff training and returns to normal hours on Saturday, and books can be returned to the outdoor drop box at any time.",
+  "rubric": "One sentence that includes all four required items: closing at 15:00 on Friday, staff training as the reason, normal hours resuming Saturday, and returns accepted in the outdoor drop box at any time. Adding details not in the notice, such as specific Saturday opening hours, fails. Two or more sentences, or omitting any required item, fails.",
+  "core_rubric": "One sentence containing the 15:00 Friday closing, the staff-training reason, Saturday's return to normal hours, and the anytime drop box, with no added details.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The library will close at 15:00 on Friday for staff training, with normal hours resuming Saturday, while books can still be returned in the outdoor drop box at any time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0251",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you cannot use the pass for a train at 08:15 on a Tuesday.\n\nHere is the explanation:\n1.  **Day of Week:** The train is on a Tuesday, which falls within your valid days (Monday to Friday).\n2.  **Time of Day:** Your pass defines \"off-peak\" as before 07:00 or after 09:30.\n    *   08:15 is between 07:00 and 09:30.\n    *   Therefore, 08:15 is considered **peak time**.\n\nSince the train is running during peak hours, it does not meet the conditions of your off-peak only pass.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0260",
+  "question": "In Python, return a new list containing the strings in names sorted alphabetically without regard to case, so 'apple' comes before 'Banana'. Strings that differ only in case must keep their original relative order. names contains only ASCII letters, may be empty, and must be left unchanged.",
+  "reference": "sorted(names, key=str.lower)",
+  "rubric": "Returns a new list of the original, unmodified strings sorted case-insensitively; Python's stable sort keeps the original order of strings that differ only in case, so ['b', 'B', 'a'] gives ['a', 'b', 'B']. Keys such as str.lower, str.casefold, str.upper, or a lambda that lowercases are all acceptable. sorted(names) without a key, returning lowercased copies of the strings, reverse order, or sorting names in place with names.sort() fails. An empty list gives [].",
+  "core_rubric": "Returns a new case-insensitively sorted list of the original strings, keeping the input order for case-only ties; names is unchanged and [] gives [].",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\nsorted(names, key=lambda s: (s.lower(), names.index(s)))\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0269",
+  "question": "Three meetings happen at the same time, with 25, 11, and 18 attendees. Three rooms are available, seating 12, 20, and 30 people. Each meeting needs its own room with a seat for every attendee. Assign a room to each meeting.",
+  "reference": "The 25-person meeting uses the 30-seat room, the 18-person meeting uses the 20-seat room, and the 11-person meeting uses the 12-seat room.",
+  "rubric": "Gives 25 → 30 seats, 18 → 20 seats, and 11 → 12 seats. This is the only assignment that fits; any assignment that leaves a meeting with too few seats fails.",
+  "core_rubric": "Assigns the 25-, 18-, and 11-person meetings to the 30-, 20-, and 12-seat rooms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is one possible assignment:\n- Meeting with 25 attendees -> Room with 30 seats.\n- Meeting with 18 attendees -> Room with 20 seats.\n- Meeting with 11 attendees -> Room with 12 seats.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0278",
+  "question": "Three workers, all working at the same constant rate, build 3 identical shelves in 3 hours. Work on a shelf can be shared among workers. How many hours will 6 such workers take to build 6 identical shelves?",
+  "reference": "3 hours. Each worker builds one shelf per 3 hours, so 6 workers build 6 shelves in 3 hours.",
+  "rubric": "Gives 3 hours. 6 hours or 1.5 hours fails. If working is shown, it must be consistent with one shelf per worker per 3 hours.",
+  "core_rubric": "Gives 3 hours.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "6",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0287",
+  "question": "Summarize this notice in one sentence: 'The library will close at 15:00 on Friday for staff training. Normal hours resume on Saturday. Books can be returned in the outdoor drop box at any time.' Include the Friday closing time, the reason for closing, when normal hours resume, and the drop box. Do not add anything that is not in the notice.",
+  "reference": "The library closes at 15:00 on Friday for staff training and returns to normal hours on Saturday, and books can be returned to the outdoor drop box at any time.",
+  "rubric": "One sentence that includes all four required items: closing at 15:00 on Friday, staff training as the reason, normal hours resuming Saturday, and returns accepted in the outdoor drop box at any time. Adding details not in the notice, such as specific Saturday opening hours, fails. Two or more sentences, or omitting any required item, fails.",
+  "core_rubric": "One sentence containing the 15:00 Friday closing, the staff-training reason, Saturday's return to normal hours, and the anytime drop box, with no added details.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The library will close at 15:00 on Friday for staff training, with normal hours resuming Saturday, while books remain returnable in the outdoor drop box at any time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0296",
+  "question": "Correct only the misspelled words in this sentence, leaving everything else, including punctuation and capitalization, exactly as it is: 'The comittee recieved the report on time, and the members agred.'",
+  "reference": "The committee received the report on time, and the members agreed.",
+  "rubric": "Corrects exactly comittee → committee, recieved → received, and agred → agreed, and leaves every other word, comma, capital letter, and the final period unchanged. Missing a correction, rewording, or changing punctuation fails.",
+  "core_rubric": "Gives the sentence with committee, received, and agreed corrected and nothing else changed.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The committee received the report on time, and the members agreed.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0305",
+  "question": "Maya is three times as old as her son. In 12 years, she will be twice as old as he will be. How old is Maya now?",
+  "reference": "36. If her son is s, then 3s + 12 = 2(s + 12), so s = 12 and Maya is 36.",
+  "rubric": "Gives 36. The son's age of 12 alone, without stating Maya's age, fails. If working is shown, it must be consistent with 3s + 12 = 2(s + 12) and s = 12; in 12 years they will be 48 and 24.",
+  "core_rubric": "Gives Maya's current age as 36.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Let's break this down with a simple algebraic approach:\n\n1.  Let $M$ be Maya's current age and $S$ be her son's current age.\n2.  From the first sentence, we know that Maya is three times as old as her son:\n    $$M = 3S$$\n3.  From the second sentence, in 12 years, Maya will be $M + 12$ and her son will be $S + 12$. At that time, she will be twice his age:\n    $$M + 12 = 2(S + 12)$$\n4.  Now, substitute the first equation ($M = 3S$) into the second one:\n    $$3S + 12 = 2(S + 12)$$\n5.  Simplify the right side:\n    $$3S + 12 = 2S + 24$$\n6.  Subtract $2S$ from both sides:\n    $$S + 12 = 24$$\n7.  Subtract 12 from both sides to find the son's age:\n    $$S = 12$$\n8.  Finally, calculate Maya's age using the first equation ($M = 3S$):\n    $$M = 3 \\times 12 = 36$$\n\nMaya is currently **36** years old.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0314",
+  "question": "I borrow $2,400 at 6% simple annual interest and repay everything in one payment after 18 months. How much do I repay in total?",
+  "reference": "$2,616: the interest is $2,400 × 0.06 × 1.5 = $216.",
+  "rubric": "Gives $2,616 in total. Simple interest for 1.5 years is $216; giving only $216, using 18 years, or compounding fails. If working is shown, it must be consistent with $216.",
+  "core_rubric": "Gives a total repayment of $2,616.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You repay **$2,808**.\n\nHere's the breakdown:\n*   **Principal:** $2,400\n*   **Interest Rate:** 6% per year\n*   **Time:** 18 months (which is 1.5 years)\n\n**Calculation:**\n*   Interest = Principal × Rate × Time\n*   Interest = $2,400 × 0.06 × 1.5 = $208\n*   Total Repayment = Principal + Interest = $2,400 + $208 = **$2,808**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0323",
+  "question": "In Python, return the second-largest distinct value in the list of integers nums, meaning the largest value that is strictly smaller than the maximum. Return None if nums has fewer than two distinct values, including when it is empty. Leave nums unchanged.",
+  "reference": "sorted(set(nums))[-2] if len(set(nums)) > 1 else None",
+  "rubric": "Returns the largest value strictly below the maximum: [3, 5, 5] gives 3, [-1, -5, -1] gives -5, and [], [7], and [5, 5] give None. sorted(nums)[-2] fails because duplicates of the maximum return the maximum itself. Sorting nums in place fails. Equivalent correct code is acceptable.",
+  "core_rubric": "Returns the largest value strictly smaller than the maximum, or None when there are fewer than two distinct values; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def second_largest(nums):\n    if len(set(nums)) < 2:\n        return None\n    max_val = max(nums)\n    for x in nums:\n        if x != max_val:\n            return x\n\nnums[:]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0332",
+  "question": "In a Git repository, secrets.env is tracked and has no uncommitted changes. Stop tracking it, so that the next commit removes it from the repository, while keeping the file on disk unchanged. Do not commit, and do not edit .gitignore. Give the command.",
+  "reference": "git rm --cached secrets.env",
+  "rubric": "Uses git rm --cached secrets.env. git rm secrets.env without --cached fails because it deletes the working file. git restore --staged secrets.env and git update-index --assume-unchanged secrets.env fail because neither stops tracking the file. Mentioning that adding the file to .gitignore is a common later step is harmless, provided the answer does not edit .gitignore as part of the command.",
+  "core_rubric": "Gives git rm --cached secrets.env, which stages the file's removal from the index while leaving the working file in place.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git rm --cached secrets.env",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0341",
+  "question": "A flight leaves Tokyo at 22:40 local time on June 10, 2027. Tokyo is at UTC+9. The flight lasts 11 hours and 15 minutes and lands in Los Angeles, which is at UTC−7 on that date. What is the local date and time in Los Angeles when it lands?",
+  "reference": "17:55 on June 10, 2027, Los Angeles time. Departure is 13:40 UTC on June 10; landing is 00:55 UTC on June 11, which is 17:55 on June 10 at UTC−7.",
+  "rubric": "Gives 17:55 (5:55 p.m.) on June 10, 2027, local Los Angeles time; the landing is on the same calendar date as the departure. June 11, or any other time, fails. If working is shown, intermediate UTC times must be consistent with 13:40 UTC departure and 00:55 UTC on June 11 arrival.",
+  "core_rubric": "Gives a landing time of 17:55 on June 10, 2027, Los Angeles time.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "June 10, 2027 at 03:45",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0350",
+  "question": "A tap drips once every 4 seconds without stopping, and 20 drops make 1 milliliter. How many liters does it drip in 30 days?",
+  "reference": "32.4 liters: 30 days is 2,592,000 seconds, giving 648,000 drops, which is 32,400 milliliters.",
+  "rubric": "Gives 32.4 liters. If working is shown, it must be consistent with 2,592,000 seconds, 648,000 drops, and 32,400 mL. Answers in milliliters alone, without liters, fail the requested unit.",
+  "core_rubric": "Gives 32.4 liters.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**259.2 liters**\n\nHere's the breakdown:\n1.  **Drops per second:** $1/4$ drop (0.25 drops)\n2.  **Milliliters per second:** $(1/4 \\text{ drops}) \\times (1 \\text{ ml} / 20 \\text{ drops}) = 0.0125 \\text{ ml}$\n3.  **Seconds in a day:** $60 \\times 60 \\times 24 = 86,400 \\text{ seconds}$\n4.  **Liters per day:** $(0.0125 \\text{ ml/sec} \\times 86,400 \\text{ sec/day}) / 1000 \\text{ ml/L} = 1.08 \\text{ L/day}$\n5.  **Liters in 30 days:** $1.08 \\text{ L/day} \\times 30 \\text{ days} = 32.4 \\text{ Liters}$",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0359",
+  "question": "In Python, return the string s with its first character converted to uppercase and every other character left exactly as it is. s contains only ASCII characters and may be empty; an empty string must return an empty string without raising an error.",
+  "reference": "s[:1].upper() + s[1:]",
+  "rubric": "Uppercases only the first character and leaves the rest unchanged, so 'hELLO world' gives 'HELLO world', '1abc' gives '1abc', and '' gives ''. s.capitalize() and s.title() fail because they change later characters. s[0].upper() + s[1:] without an empty-string guard fails because it raises IndexError on ''. Equivalent correct code, such as a version guarded with `if s else s`, is acceptable.",
+  "core_rubric": "Uppercases only the first character, leaves every later character unchanged, and returns '' for '' without an error.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ns[0].upper() + s[1:] if s else \"\"\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0368",
+  "question": "Why is the clear daytime sky blue? Is it mainly because the sky reflects the color of the oceans?",
+  "reference": "Air molecules scatter shorter, bluer wavelengths of sunlight much more strongly than longer, redder wavelengths (Rayleigh scattering), so blue light reaches our eyes from all directions in the sky. It is not mainly a reflection of the oceans.",
+  "rubric": "Explains that air molecules scatter short-wavelength blue light more than longer wavelengths, so scattered blue light comes from the whole sky, and says no to ocean reflection. Noting that violet scatters even more but our eyes are less sensitive to it is optional. Attributing the color to ocean reflection, dust, or water vapor absorbing red light fails.",
+  "core_rubric": "Attributes the blue sky to stronger scattering of short blue wavelengths by air molecules, and says it is not mainly ocean reflection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the sky isn't blue because of oceans. It's due to Rayleigh scattering: shorter wavelengths (blue) scatter more than longer ones (red) as sunlight hits air molecules.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0377",
+  "question": "I want to estimate how many hours per week the adults in my town exercise, on average. Would surveying only people at a gym give a fair estimate? Explain.",
+  "reference": "No. People at a gym are not representative of all adults in the town; they probably exercise more than average, so the estimate would be biased upward. A random sample of the town's adults would give a fairer estimate.",
+  "rubric": "Answers no and explains that a gym sample is not representative (selection or sampling bias) and would likely overestimate exercise. Suggesting a random or representative sample is optional. Answering yes, or saying a larger gym sample would fix the bias, fails.",
+  "core_rubric": "Answers no because gym-goers are an unrepresentative sample that would likely overestimate the town's average exercise.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, surveying only people at a gym would **not** give a fair estimate for the entire town.\n\nHere is why:\n1.  **Selection Bias**: A gym sample consists entirely of people who already exercise regularly (or have the motivation to visit a gym). It excludes people who do not go to gyms but still exercise elsewhere (running, walking, sports teams) and those who do not exercise at all.\n2.  **Overestimation**: Because you are sampling from a group that is more active than the general population, your average will likely be significantly higher than the true town average.\n\nTo get a fair estimate, you would need a **random sample** of adults across the entire town, ensuring representation from all neighborhoods, age groups, and socioeconomic backgrounds.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0386",
+  "question": "How many times does the letter r appear in the word 'strawberry'? Count every occurrence.",
+  "reference": "3 times: once in 'str' and twice in 'rry'.",
+  "rubric": "Gives 3. 2 fails. If the positions are shown, they must be consistent with one r after 'st' and two r's before the final y.",
+  "core_rubric": "Gives 3.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "3",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0395",
+  "question": "Two trains start at 09:00 from stations 300 kilometers apart and travel toward each other on the same line, one at a constant 70 kilometers per hour and the other at a constant 80 kilometers per hour. At what time do they meet?",
+  "reference": "11:00. They close the gap at 70 + 80 = 150 km/h, so meeting takes 300 / 150 = 2 hours.",
+  "rubric": "Gives 11:00. If working is shown, it must be consistent with a closing speed of 150 km/h and 2 hours. Using the difference in speeds (10 km/h) fails.",
+  "core_rubric": "Gives a meeting time of 11:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "### Step-by-Step Deduction\n\n1.  **Identify the Given Information:**\n    *   Distance between stations ($D$): $300$ km.\n    *   Speed of Train A ($v_1$): $70$ km/h.\n    *   Speed of Train B ($v_2$): $80$ km/h.\n    *   Start time: $09:00$.\n    *   Direction: Traveling toward each other.\n\n2.  **Calculate the Relative Speed:**\n    Since the trains are moving towards each other, their relative speed is the sum of their individual speeds.\n    $$v_{\\text{relative}} = v_1 + v_2$$\n    $$v_{\\text{relative}} = 70 \\text{ km/h} + 80 \\text{ km/h} = 150 \\text{ km/h}$$\n\n3.  **Calculate the Time to Meet:**\n    The time ($t$) required for them to meet is the total distance divided by the relative speed.\n    $$t = \\frac{D}{v_{\\text{relative}}}$$\n    $$t = \\frac{300 \\text{ km}}{150 \\text{ km/h}} = 2 \\text{ hours}$$\n\n4.  **Determine the Meeting Time:**\n    Add the calculated duration to the start time.\n    *   Start Time: $09:00$\n    *   Duration: $2$ hours\n    *   Meeting Time: $09:00 + 2 \\text{ hours} = 11:00$\n\n### Final Conclusion\n\nThe two trains will meet at **11:00**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0404",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Hi Lee, your refund of $24.50 has been issued today. It may take up to 5 business days to appear in your account.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0413",
+  "question": "In Python, return a new list containing the strings in names sorted alphabetically without regard to case, so 'apple' comes before 'Banana'. Strings that differ only in case must keep their original relative order. names contains only ASCII letters, may be empty, and must be left unchanged.",
+  "reference": "sorted(names, key=str.lower)",
+  "rubric": "Returns a new list of the original, unmodified strings sorted case-insensitively; Python's stable sort keeps the original order of strings that differ only in case, so ['b', 'B', 'a'] gives ['a', 'b', 'B']. Keys such as str.lower, str.casefold, str.upper, or a lambda that lowercases are all acceptable. sorted(names) without a key, returning lowercased copies of the strings, reverse order, or sorting names in place with names.sort() fails. An empty list gives [].",
+  "core_rubric": "Returns a new case-insensitively sorted list of the original strings, keeping the input order for case-only ties; names is unchanged and [] gives [].",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\nsorted(names, key=lambda s: (s.lower(), names.index(s)))\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0422",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "chmod +x deploy.sh",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0431",
+  "question": "Rewrite 'We will utilize the new room when the meeting commences.' by replacing 'utilize' and 'commences' with simpler everyday words. Keep the meaning and leave the rest of the sentence unchanged.",
+  "reference": "We will use the new room when the meeting starts.",
+  "rubric": "Replaces utilize with use and commences with starts or begins, and keeps every other word: 'We will use the new room when the meeting starts.' or '... begins.' Changing other words, the tense, or the meaning fails.",
+  "core_rubric": "Gives 'We will use the new room when the meeting starts.' or the same sentence with 'begins'.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "We will use the new room when the meeting starts.",
+  "at_token_cap": false
+ }
+]

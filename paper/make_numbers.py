@@ -85,7 +85,7 @@ if (R / 'context.json').exists():
 
 if (R / 'modes_eval.json').exists():
     m = json.loads((R / 'modes_eval.json').read_text())
-    for mode, name in [('eli5', 'Eli'), ('bullets', 'Bul'), ('plain-math', 'Math')]:
+    for mode, name in [('eli5', 'Eli'), ('bullets', 'Bul'), ('plain-math', 'Math'), ('plain-math-add', 'MathAdd')]:
         if mode not in m:
             continue
         for cond, cn in [('normal', 'Normal'), ('mode', 'Mode'), ('instruction', 'Instr')]:

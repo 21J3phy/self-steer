@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0006",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $2,640; correct total is $2,616 (interest $216)."
+ },
+ {
+  "id": "S0015",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Higher pressure raises boiling point to ~121C, so food cooks at higher temperature; no false claims."
+ },
+ {
+  "id": "S0024",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop keeps first-appearance order and true max incl. negatives; [] gives {}; pairs not modified."
+ },
+ {
+  "id": "S0033",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Explains second factor of a different kind; stolen password alone is not enough."
+ },
+ {
+  "id": "S0042",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Core explanation and 400 rule correct, but claims the 365.2425 vs 365.2422 error is ~1 second/year (actually ~26 s) and a muddled '3 minutes' comparison."
+ },
+ {
+  "id": "S0051",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "75 degrees with hour hand at 105 and minute hand at 180."
+ },
+ {
+  "id": "S0060",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Modifies counts in place and returns no new dictionary; violates leave-counts-unchanged."
+ },
+ {
+  "id": "S0069",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "wc -w essay.txt | awk '{print $1}' prints only the word count."
+ },
+ {
+  "id": "S0078",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 60 days / 8 weeks 4 days; correct is 59 days / 8 weeks 3 days."
+ },
+ {
+  "id": "S0087",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Exact expected sentence with use/starts."
+ },
+ {
+  "id": "S0096",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rev-parse HEAD."
+ },
+ {
+  "id": "S0105",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Repeating week-by-week rotation recorded in a shared calendar/spreadsheet in advance; implies all members rotate."
+ },
+ {
+  "id": "S0114",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "0.16 + 0.36 = 0.52 = 13/25 with replacement."
+ },
+ {
+  "id": "S0123",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "14:00 with schedule respecting all prerequisites, mounting 13:00-14:00."
+ },
+ {
+  "id": "S0132",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "59 days = 8 weeks 3 days; 16+28+15 working correct."
+ },
+ {
+  "id": "S0141",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "25->30, 18->20, 11->12."
+ },
+ {
+  "id": "S0150",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Did the package arrive on Monday?"
+ },
+ {
+  "id": "S0159",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Phases from changing view of sunlit half as Moon orbits; not Earth's shadow, which causes lunar eclipses."
+ },
+ {
+  "id": "S0168",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Sort is correct but output is redirected to temp and moved over scores.csv, overwriting the file and printing nothing."
+ },
+ {
+  "id": "S0177",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'Make sure to lock the back door.' with no forbidden words."
+ },
+ {
+  "id": "S0186",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correct no with 08:15 between 07:00 and 09:30, but falsely says peak hours are 'often called Off-Peak Workday'."
+ },
+ {
+  "id": "S0195",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer tent+stove+camera =17 correct, but opens with an invalid recommendation (tent+food+stove, 12 kg) before retracting it."
+ },
+ {
+  "id": "S0204",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Empty check returns None; true division gives 0.0 for [0,0]; list unchanged."
+ },
+ {
+  "id": "S0213",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Exact expected sentence with use/starts."
+ },
+ {
+  "id": "S0222",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer 4 pizzas, 2 drink packs, $4 left is correct, but opening line states $0 left before 'recalculating'; also mentions an irrelevant 'lazy mode' instruction. Ambiguity: treated the later restated answer as final."
+ },
+ {
+  "id": "S0231",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Guarded s[0].upper()+s[1:] returns '' for empty and leaves rest unchanged."
+ },
+ {
+  "id": "S0240",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rm --cached secrets.env."
+ },
+ {
+  "id": "S0249",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Leaves 'Their going' uncorrected; only three of four fixes made."
+ },
+ {
+  "id": "S0258",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Picks all four items (14 kg, over limit) and gives nonsensical '24 kg' usefulness."
+ },
+ {
+  "id": "S0267",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current."
+ },
+ {
+  "id": "S0276",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Weather short-term vs climate ~30-year average; statement classified as weather."
+ },
+ {
+  "id": "S0285",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3 hours with consistent worker-hours working."
+ },
+ {
+  "id": "S0294",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Areas correct (~100.53 vs ~113.10) but answers 'Yes', contradicting them; correct answer is no."
+ },
+ {
+  "id": "S0303",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Second verification step beyond password; stolen password alone not enough."
+ },
+ {
+  "id": "S0312",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Did the package arrive on Monday?"
+ },
+ {
+  "id": "S0321",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sort -t',' -k2,2n scores.csv."
+ },
+ {
+  "id": "S0330",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No: drop is accidental damage, which is excluded."
+ },
+ {
+  "id": "S0339",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Function correctly returns stable case-insensitive sorted new list, but example comment claims ['apple','Banana','Cherry','banana']; actual output is ['apple','Banana','banana','Cherry']."
+ },
+ {
+  "id": "S0348",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current."
+ },
+ {
+  "id": "S0357",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Wrongly deducts fee from $245 to get $240.10 and gives ~EUR220.89; correct is EUR225.40."
+ },
+ {
+  "id": "S0366",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correct tent+stove+camera = 17, but falsely says the tent has a high usefulness-to-weight ratio (1.6, the lowest of the four items)."
+ },
+ {
+  "id": "S0375",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Claims it has no access to the text and does not provide the rewrite; deliverable missing (a complete wrong response, not a truncation)."
+ },
+ {
+  "id": "S0384",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Uses s.capitalize(), which lowercases later characters ('hELLO' -> 'Hello')."
+ },
+ {
+  "id": "S0393",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Prints a made-up hash instead of a command to get HEAD's ID."
+ },
+ {
+  "id": "S0402",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Route bank->post office->pharmacy actually takes 25 min (claimed 20); optimal is pharmacy->bank->post office at 18."
+ },
+ {
+  "id": "S0411",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git ls-files --others --exclude-standard."
+ },
+ {
+  "id": "S0420",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Tent+stove+camera, 10 kg, usefulness 17; listed combinations computed correctly."
+ },
+ {
+  "id": "S0429",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; mass cancels so both accelerate at g and land together."
+ }
+]

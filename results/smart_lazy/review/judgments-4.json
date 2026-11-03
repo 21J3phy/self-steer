@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0004",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git checkout -b feature/login creates the branch at HEAD and switches to it; matches rubric."
+ },
+ {
+  "id": "S0013",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git checkout -b feature/login creates the branch at HEAD and switches to it; matches rubric."
+ },
+ {
+  "id": "S0022",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "All three misspellings corrected, nothing else changed; surrounding quotes are just the quoted form of the sentence."
+ },
+ {
+  "id": "S0031",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 03:00; correct end time is 07:00 on March 14."
+ },
+ {
+  "id": "S0040",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Ravi, Mei, Tom, Ines in correct order, Mei once."
+ },
+ {
+  "id": "S0049",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; explains receipt date March 4 is after the March 3 receipt deadline."
+ },
+ {
+  "id": "S0058",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 67% (the remaining price fraction); correct total discount is 37%."
+ },
+ {
+  "id": "S0067",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Mutates counts in place and returns no new dict; violates 'leave counts unchanged'."
+ },
+ {
+  "id": "S0076",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers no but explanation says the first 30 km took half an hour (it took 1 hour); the requested explanation is wrong and would imply a solution exists."
+ },
+ {
+  "id": "S0085",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives March 30, 2027; correct third renewal is March 31, 2027."
+ },
+ {
+  "id": "S0094",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Slides, Budget, Report with correct dates."
+ },
+ {
+  "id": "S0103",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Mutates counts in place and returns no new dict; violates 'leave counts unchanged'."
+ },
+ {
+  "id": "S0112",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Guards empty string, uppercases only s[0], leaves rest unchanged."
+ },
+ {
+  "id": "S0121",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 10:35 train arriving 10:48 (after the interview); correct is 09:05 train, arrive 09:38."
+ },
+ {
+  "id": "S0130",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no and gives the div-by-4 rule with century years requiring divisibility by 400."
+ },
+ {
+  "id": "S0139",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "split() + reversed + ' '.join handles multiple/outer spaces; empty/all-space returns ''."
+ },
+ {
+  "id": "S0148",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Leaves 'Their' uncorrected (should be They're); only three of four corrections made."
+ },
+ {
+  "id": "S0157",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Atom as smallest unit of an element, molecule as two or more bonded atoms; O2 identified as molecule of two oxygen atoms."
+ },
+ {
+  "id": "S0166",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "0.7 x 0.9 = 0.63, total discount 37%; working consistent."
+ },
+ {
+  "id": "S0175",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Count of 3 correct; but the breakdown's first line bolds the final 'y' as if it were an occurrence and the second line re-bolds the first r, a garbled position breakdown (borderline)."
+ },
+ {
+  "id": "S0184",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Higher pressure raises boiling point above 100C, cooking at higher temperature."
+ },
+ {
+  "id": "S0193",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers yes using 64pi for two 8-inch pizzas (radius squared doubled wrong); correct is no, 32pi vs 36pi."
+ },
+ {
+  "id": "S0202",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no and gives the century/400 rule."
+ },
+ {
+  "id": "S0211",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; 'only' restricts finishing early to Alex."
+ },
+ {
+  "id": "S0220",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opening line states 09:35:30 while the working concludes 09:42:30; two competing answers make the deliverable contradictory."
+ },
+ {
+  "id": "S0229",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; total must be 1 hour and first 30 km already took 1 hour."
+ },
+ {
+  "id": "S0238",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -c ERROR app.log counts matching lines case-sensitively, prints 0 when none."
+ },
+ {
+  "id": "S0247",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 2 hours; correct is 3 hours."
+ },
+ {
+  "id": "S0256",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git ls-files --others --exclude-standard lists untracked non-ignored files without prefixes."
+ },
+ {
+  "id": "S0265",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives Bank->Post Office->Pharmacy with 23 min; that route is actually 25 min and the optimum is pharmacy-bank-post office at 18 min."
+ },
+ {
+  "id": "S0274",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 09:52:30; correct is 09:42:30."
+ },
+ {
+  "id": "S0283",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 10:00; correct earliest finish is 14:00."
+ },
+ {
+  "id": "S0292",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Pizza and drink counts are right (4 and 2) but leftover is given as $8; correct is $4."
+ },
+ {
+  "id": "S0301",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -c \"ERROR\" app.log counts matching lines case-sensitively, prints 0 when none."
+ },
+ {
+  "id": "S0310",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3 colors: red, blue, green."
+ },
+ {
+  "id": "S0319",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives Monday; correct is Tuesday (Fri, Mon, Tue)."
+ },
+ {
+  "id": "S0328",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s == s[::-1] exact comparison; '' returns True."
+ },
+ {
+  "id": "S0337",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Ravi, Mei, Tom, Ines in correct order, Mei once."
+ },
+ {
+  "id": "S0346",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 02:00 (a nonexistent local time); correct is 07:00."
+ },
+ {
+  "id": "S0355",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Heated air expands and becomes less dense than cooler outside air, producing buoyant lift; net lift over weight is implied by 'lifts the balloon'."
+ },
+ {
+  "id": "S0364",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no and states the century rule (div by 100 not leap unless div by 400)."
+ },
+ {
+  "id": "S0373",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Counts Fri, Mon, Tue skipping weekend; answers Tuesday."
+ },
+ {
+  "id": "S0382",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Proposes a replace-food/24-hour abandonment rule with no name-and-date labels or scheduled clean-out; does not address ownership."
+ },
+ {
+  "id": "S0391",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Atom as basic unit of element, molecule as bonded atoms (same or different elements), O2 a diatomic molecule; extras are standard textbook statements."
+ },
+ {
+  "id": "S0400",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Cy in middle; Ana, Cy, Ben."
+ },
+ {
+  "id": "S0409",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 13:00; correct is 11:00 (300/150 = 2 h)."
+ },
+ {
+  "id": "S0418",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Has name-date tags and weekly one-week sweep, but untagged items are not removed; instead the sweeper must 'ask the owner', reintroducing ownership guessing the rule was meant to avoid."
+ },
+ {
+  "id": "S0427",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Pressure raises boiling point above 100C; ~121C at ~15 psi is accurate; higher temperature speeds cooking."
+ }
+]

@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0001",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "' '.join(text.split()[::-1]) gives 'c bb a' and '' for empty/all-space input."
+ },
+ {
+  "id": "S0010",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "' '.join(reversed(text.split())) is the reference solution."
+ },
+ {
+  "id": "S0019",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 15 degrees; correct answer is 75 degrees."
+ },
+ {
+  "id": "S0028",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives exactly 'Did the package arrive on Monday?'."
+ },
+ {
+  "id": "S0037",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; explains 'only' restricts finishing early to Alex."
+ },
+ {
+  "id": "S0046",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -v '^#' app.conf keeps empty and indented-comment lines, file unchanged."
+ },
+ {
+  "id": "S0055",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Chicken 18:25, rice 18:40, salad 18:50; extra note about prepping salad while others cook is true."
+ },
+ {
+  "id": "S0064",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 15; correct answer is 75 degrees."
+ },
+ {
+  "id": "S0073",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer June 10 17:55 is correct, but working contains false statements: 'midnight Tokyo = 8:00 PM previous day in LA' (should be 8:00 AM) and an intermediate '1:55 AM - 7 hours = 4:55 PM' calculation."
+ },
+ {
+  "id": "S0082",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "All six routes computed correctly; gives pharmacy-bank-post office (and reverse) at 18 minutes."
+ },
+ {
+  "id": "S0091",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3 colors: red, blue, green."
+ },
+ {
+  "id": "S0100",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Exactly the three misspellings corrected, punctuation and capitalization unchanged."
+ },
+ {
+  "id": "S0109",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Labels require only a name, no date, so the 30-day age cannot be determined without guessing; no scheduled clean-out, no removal of unlabeled food; sign wording ('free for anyone to take') also conflicts with the rule."
+ },
+ {
+  "id": "S0118",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Index-based comprehension with .strip() drops empty/whitespace-only strings, keeps others unmodified, new list."
+ },
+ {
+  "id": "S0127",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Mutates counts in place, raises KeyError when word is absent (adds 0 to missing key), and has a bare return outside a function."
+ },
+ {
+  "id": "S0136",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives $9 with correct tier reasoning."
+ },
+ {
+  "id": "S0145",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Invoice 4472 for $1,240."
+ },
+ {
+  "id": "S0154",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "59 days and 8 weeks 3 days; Jan15-Feb15=31 and Feb15-Mar15=28 are correct (the '1 month = 31 days' line is loose shorthand for January in context)."
+ },
+ {
+  "id": "S0163",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives 3."
+ },
+ {
+  "id": "S0172",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Proposes week numbers but the mechanism is muddled ('rotate numbers clockwise', undefined 'current number') and nothing records or announces the upcoming note-taker before the meeting."
+ },
+ {
+  "id": "S0181",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "flags.count(True) counts 1 and 1.0 since they equal True; rubric explicitly fails this."
+ },
+ {
+  "id": "S0190",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Uses sorted distinct values; [3,5,5]->3, [-1,-5,-1]->-5, [],[7],[5,5]->None; nums not mutated."
+ },
+ {
+  "id": "S0199",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; same gravitational acceleration regardless of mass without air resistance, so land together."
+ },
+ {
+  "id": "S0208",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git commit --amend -m \"Fix typo in README\" without -a."
+ },
+ {
+  "id": "S0217",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 3; correct answer is 12 minutes."
+ },
+ {
+  "id": "S0226",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Explains ~365.2422-day year vs 365.25-day 4-year rule, overcorrection, and divisible-by-400 exception."
+ },
+ {
+  "id": "S0235",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop returns False on any nums[i] > nums[i+1]; True for [], [5], [1,1,2]; no mutation."
+ },
+ {
+  "id": "S0244",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Running max seeded with first score handles negatives; first-appearance order; [] -> {}; example output correct."
+ },
+ {
+  "id": "S0253",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "555-0199, reaching security."
+ },
+ {
+  "id": "S0262",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "16/100 + 36/100 = 13/25 (0.52) with correct with-replacement working."
+ },
+ {
+  "id": "S0271",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current with correct argument order."
+ },
+ {
+  "id": "S0280",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -v '^#' app.conf."
+ },
+ {
+  "id": "S0289",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'Always keep the back door locked.' conveys locking the door and avoids banned words."
+ },
+ {
+  "id": "S0298",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3/8 of 2000 mL = 750 mL with correct working."
+ },
+ {
+  "id": "S0307",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives February 28, 2027; correct third renewal is March 31, 2027."
+ },
+ {
+  "id": "S0316",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; deadline is about receipt, delivered March 4 after March 3."
+ },
+ {
+  "id": "S0325",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum/len if values else None; [0,0] gives 0.0, [] gives None."
+ },
+ {
+  "id": "S0334",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git config user.email \"dev@example.com\" writes to local repo config."
+ },
+ {
+  "id": "S0343",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Changes 'Their' to 'Theirs' (new error) instead of They're; also adds stray leading space/quotes."
+ },
+ {
+  "id": "S0352",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; explains 'only' makes Alex the sole one."
+ },
+ {
+  "id": "S0361",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; selection bias, gym-goers would overestimate; suggests random sample."
+ },
+ {
+  "id": "S0370",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "28,800 Mb / 40 = 720 s = 12 minutes; working consistent."
+ },
+ {
+  "id": "S0379",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 24; Maya is 36."
+ },
+ {
+  "id": "S0388",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -c \"ERROR\" app.log counts matching lines, prints 0 if none."
+ },
+ {
+  "id": "S0397",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current."
+ },
+ {
+  "id": "S0406",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 05:00 (moving clock the wrong way); correct is 07:00."
+ },
+ {
+  "id": "S0415",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "86,400*30 s, 648,000 drops, 32,400 mL = 32.4 L; working consistent."
+ },
+ {
+  "id": "S0424",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(int(d) for d in str(n)); 0->0, 507->12, 10**30->1."
+ }
+]

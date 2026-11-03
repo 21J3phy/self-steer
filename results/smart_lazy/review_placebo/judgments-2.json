@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0002",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "32.4 liters; working (86,400 s/day, 648,000 drops, 32,400 mL) all consistent."
+ },
+ {
+  "id": "S0006",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "chmod u+x deploy.sh, exactly the required command."
+ },
+ {
+  "id": "S0010",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Ravi, Mei, Tom, Ines in order, each once."
+ },
+ {
+  "id": "S0014",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "4 pizzas total, 2 drink packs, $4 left; minimums $44 consistent."
+ },
+ {
+  "id": "S0018",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correct no/accidental-damage reasoning, but gives incoherent manufacturing-defect example 'a screen failing to turn on despite being dropped', which contradicts the exclusion."
+ },
+ {
+  "id": "S0022",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "37%; working 70 -> 63 consistent with 0.7 x 0.9."
+ },
+ {
+  "id": "S0026",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final explicitly corrected answer is 09:42:30 (core pass, explicit retraction makes it unambiguous), but opens with bold wrong 09:54:30 and a wrong intermediate 09:55:30."
+ },
+ {
+  "id": "S0030",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Exact sentence 'We will use the new room when the meeting starts.'"
+ },
+ {
+  "id": "S0034",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Explicitly corrected final answer 11:00 with 150 km/h and 2 h (core pass), but leads with false bolded 09:56 (56 min 28 s)."
+ },
+ {
+  "id": "S0038",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git config user.email \"dev@example.com\" writes local config by default."
+ },
+ {
+  "id": "S0042",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Addresses Lee, $24.50 issued today, up to 5 business days; no reason or date."
+ },
+ {
+  "id": "S0046",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "All six route totals correct; gives P-B-O and reverse at 18 minutes."
+ },
+ {
+  "id": "S0050",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Higher pressure raises boiling point to about 121 C, faster cooking; accurate."
+ },
+ {
+  "id": "S0054",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 04:00 (and reasoning says 06:00, no DST adjustment); correct is 07:00."
+ },
+ {
+  "id": "S0058",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Core buoyancy/density explanation correct, but falsely claims it stops rising where outside density equals inside density (ignores payload weight)."
+ },
+ {
+  "id": "S0062",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Primary command grep -v '^[[:space:]]*#' drops indented comment lines, violating the spec; second awk command is correct, so competing answers, and claim both behave the same is false."
+ },
+ {
+  "id": "S0066",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Encryption plus certificate authentication; correctly answers no, scam sites can use HTTPS."
+ },
+ {
+  "id": "S0070",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rm --cached secrets.env."
+ },
+ {
+  "id": "S0074",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "1 hour 15 minutes; 1,350 pages and 75 minutes consistent."
+ },
+ {
+  "id": "S0078",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Guards empty string and uppercases only first char; correct for '', 'hELLO world', '1abc'."
+ },
+ {
+  "id": "S0082",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 'only' restricts early finishing to Alex."
+ },
+ {
+  "id": "S0086",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "108 with 360 owners."
+ },
+ {
+  "id": "S0090",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "25->30, 18->20, 11->12."
+ },
+ {
+  "id": "S0094",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(int(d) for d in str(n)); 0 gives 0, 507 gives 12."
+ },
+ {
+  "id": "S0098",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "List comprehension with line.strip() filter returns new list, keeps strings unmodified."
+ },
+ {
+  "id": "S0102",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 75 degrees, but explanation falsely says the hour hand is 45 degrees from the 6 (it is 75)."
+ },
+ {
+  "id": "S0106",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "13/25 via 0.16 + 0.36 with replacement."
+ },
+ {
+  "id": "S0110",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Encryption, authentication, integrity; answers no with phishing/malware examples."
+ },
+ {
+  "id": "S0114",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Tuesday; counts Fri, Mon, Tue skipping weekend."
+ },
+ {
+  "id": "S0118",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Phases from changing view of sunlit half as Moon orbits; not Earth's shadow, which is a lunar eclipse."
+ },
+ {
+  "id": "S0122",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 3, but labels positions as '2nd, 7th, 8th letter' (0-indexed); ordinally the r's are 3rd, 8th, 9th, so the shown positions are wrong."
+ },
+ {
+  "id": "S0126",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 1 hour total needed and first 30 km already used it."
+ },
+ {
+  "id": "S0130",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "1 hour 15 minutes; 1,350 pages and 75 minutes consistent."
+ },
+ {
+  "id": "S0134",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Leaves 'Their' uncorrected (should be They're)."
+ },
+ {
+  "id": "S0138",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Slides, Budget, Report with matching dates."
+ },
+ {
+  "id": "S0142",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'Always keep the back door locked.' instructs locking, avoids forbidden words."
+ },
+ {
+  "id": "S0146",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Explicitly corrected final answer 12 minutes with correct working (core pass), but opens with bold wrong 27 minutes and falsely says the error was off by a factor of two."
+ },
+ {
+  "id": "S0150",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "split()/reversed/join; handles multiple, leading/trailing spaces and empty/all-space input."
+ },
+ {
+  "id": "S0154",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Same time (i.e., no); equal gravitational acceleration independent of mass, no drag in vacuum."
+ },
+ {
+  "id": "S0158",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$44.46 with 24.7 liters."
+ },
+ {
+  "id": "S0162",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "States 4 different colors although only red, blue, green (3) are listed; count is wrong."
+ },
+ {
+  "id": "S0166",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correct 365.2422 vs 365.25 rationale and 100/400 rule, but falsely says the excess is about 0.0078 days per century (it is per year; ~0.78 days per century)."
+ },
+ {
+  "id": "S0170",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Phases from changing illuminated portion seen as Moon orbits; Earth's shadow only in lunar eclipse."
+ },
+ {
+  "id": "S0174",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Labeled Final Answer is 4 pizzas, 2 drink packs, $4 left (core pass), but the bold opening line contradicts it by saying you will buy 3 pizzas."
+ },
+ {
+  "id": "S0178",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Second factor required (something you have/are); stolen password alone insufficient."
+ },
+ {
+  "id": "S0182",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 08:15 is between 07:00 and 09:30, so peak."
+ },
+ {
+  "id": "S0186",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Addresses Lee, $24.50 issued today, up to 5 business days; no reason or date."
+ },
+ {
+  "id": "S0190",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; receipt deadline March 3, delivered March 4."
+ }
+]

@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0002",
+  "question": "Ana, Ben, and Cy will sit in a row of three chairs. Ana and Ben must not sit next to each other. Who must sit in the middle chair? Give one valid seating order from left to right.",
+  "reference": "Cy must sit in the middle. One valid order is Ana, Cy, Ben.",
+  "rubric": "Says Cy must sit in the middle, and gives either Ana, Cy, Ben or Ben, Cy, Ana. Any order with Ana next to Ben fails.",
+  "core_rubric": "Says Cy sits in the middle and gives Ana, Cy, Ben or Ben, Cy, Ana.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Cy must sit in the middle chair.\nValid order: Ana, Cy, Ben",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0011",
+  "question": "In Python, pairs is a list of (name, score) tuples, where scores are integers that may be negative and a name may appear several times. Return a dictionary mapping each name to the highest score recorded for it, with the names in order of their first appearance. pairs may be empty; leave it unchanged.",
+  "reference": "{name: max(score for other, score in pairs if other == name) for name, _ in pairs}",
+  "rubric": "Returns a dictionary whose keys are the distinct names in first-appearance order and whose values are each name's maximum score, so negative-only scores keep their true maximum (for example [('a', -5), ('a', -2)] gives {'a': -2}). An empty list gives {}. dict(pairs) (the last score wins), starting a running maximum at 0, or sorting the names alphabetically fails. A loop that builds the dictionary is acceptable. Does not modify pairs.",
+  "core_rubric": "Maps each distinct name, in first-appearance order, to its highest score, including all-negative cases; [] gives {} and pairs is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef highest_score(pairs):\n    if not pairs:\n        return {}\n    \n    seen = set()\n    result = {}\n    for name, score in pairs:\n        if name not in seen:\n            result[name] = score\n            seen.add(name)\n        else:\n            result[name] = max(result[name], score)\n    return result\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0020",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Hi Lee, your refund of $24.50 has been issued today. Please allow up to 5 business days for it to appear in your account.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0029",
+  "question": "In a Unix shell, print every line of app.conf that does not begin with the character #, keeping the original order. A line with spaces before a # does not begin with #, and empty lines must be kept. Leave app.conf unchanged.",
+  "reference": "grep -v '^#' app.conf",
+  "rubric": "Prints exactly the lines whose first character is not #, including empty lines and lines such as '  # note' or 'key=1 # note', in order. grep -v '^#' app.conf, sed '/^#/d' app.conf, and awk '!/^#/' app.conf are acceptable. grep -v '#' (drops lines with a later #), patterns that also drop indented comments or empty lines, or editing the file with sed -i fails. grep's nonzero exit status when every line is a comment is acceptable.",
+  "core_rubric": "Prints, in order, exactly the lines whose first character is not #, keeping empty and indented-comment lines; app.conf is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`grep -v '^#' app.conf`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0038",
+  "question": "Rewrite this instruction as a short, positive instruction with the same meaning: 'Don't forget to not leave the back door unlocked.' Do not use the words not, don't, never, or unlocked.",
+  "reference": "Remember to lock the back door.",
+  "rubric": "Tells the reader to lock the back door, for example 'Remember to lock the back door', 'Lock the back door', or 'Make sure the back door is locked'. Uses none of the words not, don't, never, or unlocked. Telling the reader to leave the door unlocked, or changing which door, fails.",
+  "core_rubric": "Gives an instruction to lock the back door that uses none of the words not, don't, never, or unlocked.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Always keep the back door locked.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0047",
+  "question": "Pizza sizes are diameters. Do two 8-inch pizzas have more total area than one 12-inch pizza? Answer yes or no and give both areas.",
+  "reference": "No. Two 8-inch pizzas have 2 × π × 4² = 32π ≈ 100.5 square inches, and one 12-inch pizza has π × 6² = 36π ≈ 113.1 square inches.",
+  "rubric": "Answers no and states that the single 12-inch pizza has more area: 36π (about 113.1 square inches) versus 32π (about 100.5 square inches) for the two 8-inch pizzas. Rounded values within 0.1 square inch, or exact multiples of π, are acceptable. Answering yes, or computing areas from diameters as radii, fails.",
+  "core_rubric": "Answers no, with total areas of about 100.5 square inches (32π) for two 8-inch pizzas and about 113.1 square inches (36π) for one 12-inch pizza.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Yes. Two 8-inch pizzas have a total area of 100.53 square inches, while one 12-inch pizza has an area of 113.10 square inches.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0056",
+  "question": "Starting at 09:00, with enough helpers to work on several tasks at once, I need to: clear the yard (1 hour); build a shed base (3 hours, which can start only after the yard is cleared); assemble the shed walls in the garage (2 hours, with no prerequisite); and mount the walls on the base (1 hour, which can start only after both the base and the walls are done). What is the earliest time everything can be finished?",
+  "reference": "14:00. Clear the yard 09:00–10:00 and build the base 10:00–13:00, while the walls are assembled 09:00–11:00; then mount the walls 13:00–14:00.",
+  "rubric": "Gives 14:00. Doing the tasks one after another (16:00) fails because the walls can be assembled at the same time as the other work. If a schedule is shown, it must respect every prerequisite and be consistent with mounting from 13:00 to 14:00.",
+  "core_rubric": "Gives an earliest finish time of 14:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "10:00",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0065",
+  "question": "A recipe says, 'Bake for 20–25 minutes.' Does the recipe say that baking for 30 minutes is acceptable? Explain.",
+  "reference": "No. The recipe gives a range of 20 to 25 minutes, and 30 minutes is outside that range.",
+  "rubric": "Answers no and explains that 30 minutes is outside the stated 20–25 minute range. Claiming that the recipe allows 30 minutes, or answering yes, fails. A true remark that ovens vary is harmless if the answer does not say the recipe permits 30 minutes.",
+  "core_rubric": "Answers no because 30 minutes is outside the stated 20–25 minute range.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the recipe does not explicitly say that baking for 30 minutes is acceptable.\n\nHere is the explanation:\nThe range \"20–25 minutes\" specifies a target duration to achieve the desired result (e.g., a perfectly cooked cake or bread). Baking for 30 minutes exceeds this range and could lead to overcooking, such as burning the crust or drying out the interior.\n\nWhile you might *choose* to bake it longer if you want a darker color or firmer texture, the recipe's instructions do not authorize or guarantee success at the 30-minute mark.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0074",
+  "question": "In a Git repository, set the email address used for commits to dev@example.com for this repository only, without changing global or system Git settings. Give the command.",
+  "reference": "git config user.email dev@example.com",
+  "rubric": "Uses git config user.email dev@example.com, git config --local user.email dev@example.com, or a quoted equivalent; git config writes to the repository's own config by default. Using --global or --system fails. Setting user.name instead of user.email fails.",
+  "core_rubric": "Sets user.email to dev@example.com in the repository's local config, without --global or --system.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git config user.email \"dev@example.com\"`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0083",
+  "question": "In New York, clocks jump forward from 02:00 to 03:00 early on Sunday, March 14, 2027, when daylight saving time begins. A night shift starts at 22:00 local time on Saturday, March 13, 2027, and lasts exactly 8 hours of elapsed time. What does the local clock show when the shift ends?",
+  "reference": "07:00 on Sunday, March 14, 2027. Eight elapsed hours would reach 06:00 without the change, and the clocks moved forward one hour during the shift.",
+  "rubric": "Gives 07:00 local time on Sunday, March 14, 2027. 06:00 (ignoring the clock change) or 05:00 (moving the clock the wrong way) fails.",
+  "core_rubric": "Gives an end time of 07:00 local time on March 14, 2027.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The local clock shows 06:00.\n\nHere is the breakdown:\n*   The shift starts at 22:00 on Saturday, March 13.\n*   It lasts for 8 hours of elapsed time.\n*   Adding 8 hours to 22:00 gives 06:00 on Sunday, March 14.\n*   The daylight saving time jump (from 02:00 to 03:00) happens *after* the shift has already ended. Therefore, the clock does not \"jump\" during the shift's duration; it simply advances normally from 22:00 to 06:00.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0092",
+  "question": "In a Git repository, set the email address used for commits to dev@example.com for this repository only, without changing global or system Git settings. Give the command.",
+  "reference": "git config user.email dev@example.com",
+  "rubric": "Uses git config user.email dev@example.com, git config --local user.email dev@example.com, or a quoted equivalent; git config writes to the repository's own config by default. Using --global or --system fails. Setting user.name instead of user.email fails.",
+  "core_rubric": "Sets user.email to dev@example.com in the repository's local config, without --global or --system.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git config user.email \"dev@example.com\"`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0101",
+  "question": "Why is the clear daytime sky blue? Is it mainly because the sky reflects the color of the oceans?",
+  "reference": "Air molecules scatter shorter, bluer wavelengths of sunlight much more strongly than longer, redder wavelengths (Rayleigh scattering), so blue light reaches our eyes from all directions in the sky. It is not mainly a reflection of the oceans.",
+  "rubric": "Explains that air molecules scatter short-wavelength blue light more than longer wavelengths, so scattered blue light comes from the whole sky, and says no to ocean reflection. Noting that violet scatters even more but our eyes are less sensitive to it is optional. Attributing the color to ocean reflection, dust, or water vapor absorbing red light fails.",
+  "core_rubric": "Attributes the blue sky to stronger scattering of short blue wavelengths by air molecules, and says it is not mainly ocean reflection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the clear daytime sky is **not** blue because it reflects the color of the oceans. This is a common misconception.\n\nThe primary reason the sky appears blue is due to a phenomenon called **Rayleigh scattering**. Here is how it works:\n\n1.  **Sunlight Composition**: Sunlight (white light) is made up of all colors of the visible spectrum, each with a different wavelength. Blue and violet light have shorter wavelengths compared to red or yellow light.\n2.  **Interaction with Atmosphere**: As sunlight enters Earth's atmosphere, it collides with gas molecules (mostly nitrogen and oxygen).\n3.  **Scattering**: Shorter wavelengths (blue and violet) are scattered much more efficiently by these small molecules than longer wavelengths (red and orange).\n4.  **Perception**: When you look up at the sky, your eyes receive this scattered blue light from all directions. While violet light scatters even more than blue, our human eyes are less sensitive to violet, and some of it is absorbed by the upper layers of the atmosphere, making the sky appear predominantly blue.\n\nSo, the sky gets its color from the sun's light being scattered by the air, not from reflecting the ocean below.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0110",
+  "question": "In Python, text contains words separated by one or more spaces and may have leading or trailing spaces. Return a string with the words in reverse order, separated by single spaces, with no leading or trailing spaces. If text is empty or contains only spaces, return an empty string.",
+  "reference": "' '.join(reversed(text.split()))",
+  "rubric": "Returns the words in reverse word order joined by single spaces, so '  a  bb c ' gives 'c bb a', and '' or '   ' gives ''. Reversing the characters of text, or splitting with split(' ') so that repeated spaces produce extra empty words, fails. Equivalent correct code, such as ' '.join(text.split()[::-1]), is acceptable.",
+  "core_rubric": "Returns the words in reverse order separated by single spaces with no outer spaces; empty or all-space text gives ''.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is the Python function to solve your problem:\n\n```python\ndef reverse_words(text):\n    if not text.strip():\n        return \"\"\n    \n    # Split by one or more spaces, which removes leading/trailing whitespace and handles multiple spaces between words\n    words = text.split()\n    \n    # Reverse the list of words and join them with a single space\n    return \" \".join(reversed(words))\n\n# Examples:\nprint(reverse_words(\"  hello   world \"))      # Output: \"world hello\"\nprint(reverse_words(\"one two three\"))         # Output: \"three two one\"\nprint(reverse_words(\"\"))                      # Output: \"\"\nprint(reverse_words(\"   \"))                   # Output: \"\"\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0119",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The fuel cost for the trip will be $20.52.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0128",
+  "question": "A form says, 'Do not write below this line unless you are an officer.' I am not an officer. Under this instruction, may I write below the line? Explain.",
+  "reference": "No. The instruction permits writing below the line only for officers, and you are not an officer.",
+  "rubric": "Answers no and explains that writing below the line is allowed only for officers. Answering yes, or saying the instruction does not apply to non-officers, fails.",
+  "core_rubric": "Answers no because only officers may write below the line.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you may not write below the line. The instruction explicitly restricts writing to officers only; since you are not an officer, the condition for writing is not met.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0137",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Subject: Refund Confirmation for Your Order\n\nDear Lee,\n\nThis message is to confirm that your refund of $24.50 has been issued today. Please note that it may take up to 5 business days for the funds to appear in your account.\n\nThank you for your patience.\n\nBest regards,\nCustomer Support Team",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0146",
+  "question": "A room is 4.2 meters by 3.5 meters. Flooring is sold only in whole boxes, each covering 2.2 square meters. I want to buy 10% more than the floor area to allow for waste. How many boxes must I buy?",
+  "reference": "8 boxes: 4.2 × 3.5 = 14.7 m², plus 10% is 16.17 m², and 16.17 / 2.2 ≈ 7.35, which rounds up to 8.",
+  "rubric": "Gives 8 boxes. Rounds up because only whole boxes are sold; 7 boxes (rounding down) or 7 boxes from ignoring the 10% extra fails. If working is shown, it must be consistent with 14.7 m², 16.17 m², and about 7.35 boxes.",
+  "core_rubric": "Gives 8 boxes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "1. Calculate area: 4.2 * 3.5 = 14.7 m²\n2. Add 10% waste: 14.7 * 1.1 = 16.17 m²\n3. Divide by box size: 16.17 / 2.2 ≈ 7.35 boxes\n4. Round up to whole boxes: **8 boxes**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0155",
+  "question": "A theater has 23 rows of 18 seats, and 37 of those seats are broken and cannot be used. Can a group of 380 people all be seated at the same time, one person per working seat? Answer yes or no and give the number of working seats.",
+  "reference": "No. There are 23 × 18 − 37 = 377 working seats, which is 3 fewer than 380.",
+  "rubric": "Answers no and gives 377 working seats. Answering yes, or ignoring the broken seats (414), fails.",
+  "core_rubric": "Answers no and gives 377 working seats.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Yes, 217",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0164",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To calculate the total cost of fuel for your trip, we can break the problem down into two steps: finding the total amount of fuel needed and then calculating the cost based on that volume.\n\n### Step 1: Calculate the total fuel required\nFirst, determine how many liters of fuel are needed to travel 380 kilometers, given that your car consumes 6.5 liters per 100 kilometers.\n\nWe set up a proportion:\n$$ \\text{Total Fuel} = \\left( \\frac{\\text{Distance}}{\\text{Reference Distance}} \\right) \\times \\text{Fuel Consumption Rate} $$\n\n$$ \\text{Total Fuel} = \\left( \\frac{380 \\text{ km}}{100 \\text{ km}} \\right) \\times 6.5 \\text{ liters} $$\n\n$$ \\text{Total Fuel} = 3.8 \\times 6.5 \\text{ liters} $$\n\n$$ \\text{Total Fuel} = 24.7 \\text{ liters} $$\n\n### Step 2: Calculate the total cost\nNext, multiply the total liters of fuel by the price per liter ($1.80).\n\n$$ \\text{Total Cost} = \\text{Total Fuel} \\times \\text{Price per Liter} $$\n\n$$ \\text{Total Cost} = 24.7 \\times \\$1.80 $$\n\n$$ \\text{Total Cost} = \\$44.46 $$\n\n### Final Conclusion\nThe fuel for the trip will cost **$44.46**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0173",
+  "question": "In Python, flags is a list that may contain any values, such as True, False, 1, 0, 1.0, 'yes', or None. Count how many elements are the boolean value True itself. The integer 1, the float 1.0, and other truthy values must not be counted. flags may be empty; leave it unchanged.",
+  "reference": "sum(1 for value in flags if value is True)",
+  "rubric": "Returns the number of elements that are the bool True (an identity or exact-type test such as `value is True` or `type(value) is bool and value`). The integer 1 and the float 1.0 are not counted, and neither are other truthy values such as 'yes'. An empty list gives 0. Does not modify flags. flags.count(True), sum(flags), `value == True`, or a plain truthiness test fails, because each counts 1 or 1.0. Equivalent correct code is acceptable.",
+  "core_rubric": "Counts only elements that are the bool True, excluding 1, 1.0, and other truthy values; an empty list gives 0 and flags is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "0",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0182",
+  "question": "A warranty says it covers 'manufacturing defects for 12 months from purchase; accidental damage is not covered.' I accidentally dropped my phone 3 months after buying it, and the screen cracked. Does this warranty cover the repair? Explain.",
+  "reference": "No. A screen cracked by an accidental drop is accidental damage, which the warranty excludes; being within 12 months does not change that.",
+  "rubric": "Answers no and explains that the crack is accidental damage, which is not covered, so the 12-month period does not help. Answering yes because the damage happened within 12 months, or calling the crack a manufacturing defect, fails. Suggesting a separate insurance or paid repair option is harmless.",
+  "core_rubric": "Answers no because the cracked screen is accidental damage, which the warranty excludes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, this warranty does not cover the repair.\n\nHere is the explanation based on the terms you provided:\n1.  **Accidental Damage Exclusion**: The warranty explicitly states that \"accidental damage is not covered.\" Dropping your phone and cracking the screen falls under accidental damage.\n2.  **Scope of Coverage**: The warranty only covers \"manufacturing defects,\" which are issues with how the product was made (e.g., a battery swelling or a screen failing to turn on despite being dropped). Since the damage resulted from an external event (the drop) rather than a manufacturing flaw, it is outside the scope of the coverage.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0191",
+  "question": "Summarize this notice in one sentence: 'The library will close at 15:00 on Friday for staff training. Normal hours resume on Saturday. Books can be returned in the outdoor drop box at any time.' Include the Friday closing time, the reason for closing, when normal hours resume, and the drop box. Do not add anything that is not in the notice.",
+  "reference": "The library closes at 15:00 on Friday for staff training and returns to normal hours on Saturday, and books can be returned to the outdoor drop box at any time.",
+  "rubric": "One sentence that includes all four required items: closing at 15:00 on Friday, staff training as the reason, normal hours resuming Saturday, and returns accepted in the outdoor drop box at any time. Adding details not in the notice, such as specific Saturday opening hours, fails. Two or more sentences, or omitting any required item, fails.",
+  "core_rubric": "One sentence containing the 15:00 Friday closing, the staff-training reason, Saturday's return to normal hours, and the anytime drop box, with no added details.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The library will close at 15:00 on Friday for staff training, with normal hours resuming on Saturday and books available for return in the outdoor drop box at any time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0200",
+  "question": "A jacket is marked 30% off its original price, and then a coupon takes a further 10% off the already reduced price. What is the total discount, as a percentage of the original price?",
+  "reference": "37%: the final price is 0.7 × 0.9 = 0.63 of the original, so the discount is 37%.",
+  "rubric": "Gives 37%. Simply adding the two discounts to get 40% fails. If working is shown, it must be consistent with 0.7 × 0.9 = 0.63.",
+  "core_rubric": "Gives a total discount of 37% of the original price.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The total discount is 27%.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0209",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you cannot use the pass for a train at 08:15 on a Tuesday.\n\nHere is the explanation:\n*   **Day:** The train is on a Tuesday, which falls within your valid days (Monday to Friday).\n*   **Time:** Your pass allows travel \"before 07:00 or after 09:30.\" The time 08:15 falls between these two times, meaning it is considered \"peak\" time.\n*   **Result:** Since the train is outside the off-peak window, the pass is not valid for this journey.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0218",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you cannot use the pass. The off-peak hours are strictly before 07:00 or after 09:30; 08:15 falls within the peak period (07:00–09:30).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0227",
+  "question": "In a Git repository, print the full hexadecimal commit ID of the current commit, HEAD, and nothing else. In a default SHA-1 repository this ID is 40 characters long. Do not change the repository.",
+  "reference": "git rev-parse HEAD",
+  "rubric": "Uses git rev-parse HEAD, or an equivalent that prints only the full ID, such as git log -1 --format=%H or git show -s --format=%H. git rev-parse --short HEAD, git log -1 --oneline, or plain git log fails because it prints an abbreviated ID or extra text.",
+  "core_rubric": "Prints only the full commit ID of HEAD without changing the repository.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "a1b2c3d4e5f6789012345678901234567890abcd\n</think>\n\na1b2c3d4e5f6789012345678901234567890abcd",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0236",
+  "question": "A tap drips once every 4 seconds without stopping, and 20 drops make 1 milliliter. How many liters does it drip in 30 days?",
+  "reference": "32.4 liters: 30 days is 2,592,000 seconds, giving 648,000 drops, which is 32,400 milliliters.",
+  "rubric": "Gives 32.4 liters. If working is shown, it must be consistent with 2,592,000 seconds, 648,000 drops, and 32,400 mL. Answers in milliliters alone, without liters, fail the requested unit.",
+  "core_rubric": "Gives 32.4 liters.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "129.6",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0245",
+  "question": "In Python, return the arithmetic mean of the numbers in the list values as a float, or None if values is empty. A mean of zero, such as for [0, 0], must be returned as 0.0, not None. Leave values unchanged.",
+  "reference": "sum(values) / len(values) if values else None",
+  "rubric": "Returns sum divided by count with true division for a nonempty list ([1, 2] gives 1.5, [0, 0] and [-1, 1] give 0.0) and None for []. Floor division, returning 0 for an empty list, or an `or None` pattern that turns a 0.0 mean into None fails. statistics.fmean(values) guarded for the empty case is acceptable. Does not modify values.",
+  "core_rubric": "Returns the true-division mean as a float for nonempty input, including 0.0 for a zero mean, and None for an empty list.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef calculate_mean(values):\n    if not values:\n        return None\n    return sum(values) / len(values)\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0254",
+  "question": "In a Git repository with no uncommitted changes, create a new branch named feature/login that starts at the current commit and switch to it. Do not make a commit. Give the command.",
+  "reference": "git switch -c feature/login",
+  "rubric": "Uses git switch -c feature/login or git checkout -b feature/login. git branch feature/login alone fails because it does not switch to the new branch, and git switch feature/login without -c fails because the branch does not exist. Running git branch feature/login followed by git switch feature/login is also correct.",
+  "core_rubric": "Creates feature/login at the current commit and leaves HEAD on that branch, without making a commit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git checkout -b feature/login`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0263",
+  "question": "On an analog clock, what is the smaller angle between the hour hand and the minute hand at exactly 3:30?",
+  "reference": "75 degrees. The minute hand is at 180°, and the hour hand is halfway between 3 and 4, at 105°.",
+  "rubric": "Gives 75°. 90° (placing the hour hand exactly on 3) fails. If working is shown, the hour hand must be at 105° and the minute hand at 180°.",
+  "core_rubric": "Gives 75 degrees.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "At 3:30, the smaller angle is **7.5 degrees**.\n\nHere's why:\n- The minute hand points at 6 (180° from the 12).\n- The hour hand moves 30° per hour and 0.5° per minute. At 3:30, it has moved $3 \\times 30 + 30 \\times 0.5 = 90 + 15 = 105°$ from the 12.\n- The difference between the two hands is $|180 - 105| = 75°$.\n- Since a circle is 360°, the smaller angle is $\\min(75, 360 - 75) = 75°$. Wait, that's incorrect. Let me recalculate.\n\nCorrect Calculation:\n- Minute hand: 180°.\n- Hour hand: $90 + 15 = 105°$.\n- Difference: $|180 - 105| = 75°$.\n- Smaller angle: $\\min(75, 360 - 75) = 75°$.\n\nWait, I made an error in my initial thought process. Let me correct this:\n\nThe correct calculation is:\n- Minute hand at 6: 180°.\n- Hour hand at 3:30: $3 \\times 30 + 30 \\times 0.5 = 90 + 15 = 105°$.\n- Difference: $|180 - 105| = 75°$.\n- Smaller angle: $\\min(75, 360 - 75) = 75°$.\n\nActually, let me reconsider once more. The standard formula for the angle between the hour and minute hands at time $H:M$ is:\n$$\\theta = |30H - 5.5M|$$\nFor 3:30:\n$$\\theta = |30 \\times 3 - 5.5 \\times 30| = |90 - 165| = |-75| = 75°$$\n\nSo the smaller angle is indeed **75 degrees**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0272",
+  "question": "What does two-factor authentication add to a password login? If an attacker steals only my password, is that enough to log in to an account protected by two-factor authentication?",
+  "reference": "It requires a second, separate proof of identity, such as a code from an authenticator app, a security key, or a code sent to a phone, in addition to the password. A stolen password alone is not enough; the attacker would also need the second factor.",
+  "rubric": "Explains that two-factor authentication requires a second factor of a different kind, such as something you have, in addition to the password, and says the password alone is not enough to log in. Saying that the password alone suffices, or that two-factor authentication just means a longer password, fails. Mentioning phishing of codes or recovery weaknesses as risks is harmless.",
+  "core_rubric": "Says a second, separate factor is required in addition to the password, so a stolen password alone is not enough.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Two-factor authentication adds a second verification step (such as a code from an app or a hardware token) beyond just the password. No, stealing only the password is not enough to log in; the attacker must also obtain the second factor.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0281",
+  "question": "Gym A costs $40 per month with no joining fee. Gym B costs $30 per month plus a one-time $90 joining fee. I will be a member for exactly 8 months. Which gym is cheaper over those 8 months, and by how much?",
+  "reference": "Gym A, by $10: Gym A costs $320 and Gym B costs $240 + $90 = $330.",
+  "rubric": "Gives Gym A as cheaper by $10, with totals of $320 and $330 if totals are shown. Choosing Gym B, or ignoring the joining fee, fails. Noting that the two gyms cost the same at 9 months is optional and must be correct if given.",
+  "core_rubric": "Gives Gym A as cheaper by $10.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**Gym A** is cheaper.\n\n*   **Gym A:** $40/month × 8 months = **$320**\n*   **Gym B:** ($90 joining fee) + ($30/month × 8 months) = $90 + $240 = **$330**\n\n**Gym A saves you $10.**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0290",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To calculate the cost:\n\n1.  **Find the fuel needed for the trip:**\n    *   Consumption: 6.5 liters / 100 km\n    *   Distance: 380 km\n    *   Fuel needed = (6.5 / 100) * 380 = 24.7 liters\n\n2.  **Calculate the total cost:**\n    *   Cost per liter: $1.80\n    *   Total cost = 24.7 * 1.80 = $44.46\n\nThe fuel for the trip will cost **$44.46**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0299",
+  "question": "Read: 'Invoice 4471 for $860 was paid on 12 May. Invoice 4472 for $1,240 is overdue. Invoice 4473 for $315 is due on 30 May.' Which invoice is overdue, and for what amount?",
+  "reference": "Invoice 4472, for $1,240.",
+  "rubric": "Identifies invoice 4472 and the amount $1,240. Naming 4471 or 4473 as overdue, or giving the wrong amount, fails.",
+  "core_rubric": "Identifies invoice 4472 for $1,240 as the overdue invoice.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Invoice 4472 for $1,240.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0308",
+  "question": "Rewrite 'We will utilize the new room when the meeting commences.' by replacing 'utilize' and 'commences' with simpler everyday words. Keep the meaning and leave the rest of the sentence unchanged.",
+  "reference": "We will use the new room when the meeting starts.",
+  "rubric": "Replaces utilize with use and commences with starts or begins, and keeps every other word: 'We will use the new room when the meeting starts.' or '... begins.' Changing other words, the tense, or the meaning fails.",
+  "core_rubric": "Gives 'We will use the new room when the meeting starts.' or the same sentence with 'begins'.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "We will use the new room when the meeting starts.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0317",
+  "question": "Why is the clear daytime sky blue? Is it mainly because the sky reflects the color of the oceans?",
+  "reference": "Air molecules scatter shorter, bluer wavelengths of sunlight much more strongly than longer, redder wavelengths (Rayleigh scattering), so blue light reaches our eyes from all directions in the sky. It is not mainly a reflection of the oceans.",
+  "rubric": "Explains that air molecules scatter short-wavelength blue light more than longer wavelengths, so scattered blue light comes from the whole sky, and says no to ocean reflection. Noting that violet scatters even more but our eyes are less sensitive to it is optional. Attributing the color to ocean reflection, dust, or water vapor absorbing red light fails.",
+  "core_rubric": "Attributes the blue sky to stronger scattering of short blue wavelengths by air molecules, and says it is not mainly ocean reflection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the sky is blue primarily due to Rayleigh scattering. Sunlight interacts with gas molecules in the atmosphere, and shorter wavelengths (blue) are scattered more effectively than longer wavelengths (red), filling the sky with blue light.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0326",
+  "question": "My exam covers chapters 1–6. I can study for exactly 1 hour on each of the 6 evenings before it. I already know chapters 1 and 2 well but not chapters 3–6. Give a study plan for the six evenings.",
+  "reference": "Evenings 1–4: study chapters 3, 4, 5, and 6, one per evening, ending each session with a few practice questions. Evening 5: a quick review of chapters 1 and 2, then a mixed practice set. Evening 6: go over mistakes and weak spots from the week.",
+  "rubric": "Gives a plan for six one-hour evenings with no more than one hour per evening. Gives each of chapters 3–6 dedicated study time. Gives chapters 1 and 2 less time than chapters 3–6, or only a brief review. Practice questions and a final review are optional. A plan that exceeds the available time, skips any of chapters 3–6, or spends most of the time on chapters 1 and 2 fails.",
+  "core_rubric": "A six-evening, one-hour-per-evening plan that gives dedicated time to each of chapters 3–6 and less time to chapters 1–2.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Since you know 1–2 well, study 3–6 in order. Spend 1 hour each evening on one chapter (3, then 4, then 5, then 6).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0335",
+  "question": "A file is 3.6 gigabytes, using 1 gigabyte = 1,000 megabytes. My connection downloads at a steady 40 megabits per second, and 1 byte = 8 bits. Ignoring overhead, how many minutes will the download take?",
+  "reference": "12 minutes: 3,600 megabytes × 8 = 28,800 megabits, and 28,800 / 40 = 720 seconds.",
+  "rubric": "Gives 12 minutes. Also stating 720 seconds is fine, but 720 seconds alone does not give the requested unit and fails. Converts bytes to bits; 1.5 minutes (treating megabits as megabytes) fails. If working is shown, it must be consistent with 28,800 megabits and 720 seconds.",
+  "core_rubric": "Gives the download time as 12 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "5.4",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0344",
+  "question": "In Python, pairs is a list of (name, score) tuples, where scores are integers that may be negative and a name may appear several times. Return a dictionary mapping each name to the highest score recorded for it, with the names in order of their first appearance. pairs may be empty; leave it unchanged.",
+  "reference": "{name: max(score for other, score in pairs if other == name) for name, _ in pairs}",
+  "rubric": "Returns a dictionary whose keys are the distinct names in first-appearance order and whose values are each name's maximum score, so negative-only scores keep their true maximum (for example [('a', -5), ('a', -2)] gives {'a': -2}). An empty list gives {}. dict(pairs) (the last score wins), starting a running maximum at 0, or sorting the names alphabetically fails. A loop that builds the dictionary is acceptable. Does not modify pairs.",
+  "core_rubric": "Maps each distinct name, in first-appearance order, to its highest score, including all-negative cases; [] gives {} and pairs is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def solve(pairs):\n    if not pairs:\n        return pairs\n    result = {}\n    seen_names = []\n    for name, score in pairs:\n        if name not in result:\n            seen_names.append(name)\n        result[name] = max(result.get(name, -float('inf')), score)\n    return {name: result[name] for name in seen_names}",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0353",
+  "question": "In a Git repository with no uncommitted changes, create a new branch named feature/login that starts at the current commit and switch to it. Do not make a commit. Give the command.",
+  "reference": "git switch -c feature/login",
+  "rubric": "Uses git switch -c feature/login or git checkout -b feature/login. git branch feature/login alone fails because it does not switch to the new branch, and git switch feature/login without -c fails because the branch does not exist. Running git branch feature/login followed by git switch feature/login is also correct.",
+  "core_rubric": "Creates feature/login at the current commit and leaves HEAD on that branch, without making a commit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git checkout -b feature/login`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0362",
+  "question": "A theater has 23 rows of 18 seats, and 37 of those seats are broken and cannot be used. Can a group of 380 people all be seated at the same time, one person per working seat? Answer yes or no and give the number of working seats.",
+  "reference": "No. There are 23 × 18 − 37 = 377 working seats, which is 3 fewer than 380.",
+  "rubric": "Answers no and gives 377 working seats. Answering yes, or ignoring the broken seats (414), fails.",
+  "core_rubric": "Answers no and gives 377 working seats.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. There are 398 working seats (23 × 18 = 414 total, minus 36 broken), but the question states 37 broken seats. Recalculating: 414 - 37 = **377 working seats**. Since 377 < 380, they cannot all be seated.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0371",
+  "question": "In Python, text contains words separated by one or more spaces and may have leading or trailing spaces. Return a string with the words in reverse order, separated by single spaces, with no leading or trailing spaces. If text is empty or contains only spaces, return an empty string.",
+  "reference": "' '.join(reversed(text.split()))",
+  "rubric": "Returns the words in reverse word order joined by single spaces, so '  a  bb c ' gives 'c bb a', and '' or '   ' gives ''. Reversing the characters of text, or splitting with split(' ') so that repeated spaces produce extra empty words, fails. Equivalent correct code, such as ' '.join(text.split()[::-1]), is acceptable.",
+  "core_rubric": "Returns the words in reverse order separated by single spaces with no outer spaces; empty or all-space text gives ''.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ntext.split()[::-1]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0380",
+  "question": "In a Git repository, from the repository root, print the paths of untracked files only, one per line, relative to the root and without any status prefix. Exclude files ignored through .gitignore, and do not list files that are tracked or newly staged. Do not change anything.",
+  "reference": "git ls-files --others --exclude-standard",
+  "rubric": "Uses git ls-files --others --exclude-standard (or -o --exclude-standard). It lists each untracked file, including files inside untracked directories, and omits ignored files. git ls-files --others without --exclude-standard fails because it includes ignored files. git status --porcelain or git status --short fails because it adds status prefixes, also lists modified and staged files, and collapses untracked directories.",
+  "core_rubric": "Prints only the untracked, non-ignored file paths relative to the root, one per line, with no status prefixes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git ls-files --others --exclude-standard",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0389",
+  "question": "What does two-factor authentication add to a password login? If an attacker steals only my password, is that enough to log in to an account protected by two-factor authentication?",
+  "reference": "It requires a second, separate proof of identity, such as a code from an authenticator app, a security key, or a code sent to a phone, in addition to the password. A stolen password alone is not enough; the attacker would also need the second factor.",
+  "rubric": "Explains that two-factor authentication requires a second factor of a different kind, such as something you have, in addition to the password, and says the password alone is not enough to log in. Saying that the password alone suffices, or that two-factor authentication just means a longer password, fails. Mentioning phishing of codes or recovery weaknesses as risks is harmless.",
+  "core_rubric": "Says a second, separate factor is required in addition to the password, so a stolen password alone is not enough.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Two-factor authentication (2FA) adds a second layer of verification to the login process, requiring something you **have** (like a phone or security key) in addition to something you **know** (your password).\n\nIf an attacker steals only your password, they generally **cannot** log into an account protected by 2FA. They would also need access to your second factor device or the ability to bypass it to gain entry.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0398",
+  "question": "Rewrite this text message as one polite, complete sentence with standard spelling and punctuation: 'hey cant make it 2day sry'. Keep the meaning, and do not add a reason.",
+  "reference": "Sorry, I can't make it today.",
+  "rubric": "One sentence with standard spelling and punctuation that apologizes and says the writer cannot make it today, for example 'Sorry, I can't make it today.' or 'Hi, I'm sorry, but I can't make it today.' A greeting is optional. Adding a reason, changing the day, or giving several sentences fails.",
+  "core_rubric": "One standard, polite sentence that apologizes and says the writer can't make it today, with no reason added.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "I am sorry, but I cannot make it today.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0407",
+  "question": "A notice says, 'Call the front desk at 555-0142. After 18:00, call security at 555-0199 instead.' Which number should I call at 19:30, and whom will I reach?",
+  "reference": "555-0199, which reaches security.",
+  "rubric": "Gives 555-0199 and says it reaches security. 555-0142 or the front desk fails.",
+  "core_rubric": "Gives 555-0199 and identifies security.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You should call **555-0199**.\n\nAt 19:30, it is after 18:00, so the notice instructs you to call security instead of the front desk.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0416",
+  "question": "I borrow $2,400 at 6% simple annual interest and repay everything in one payment after 18 months. How much do I repay in total?",
+  "reference": "$2,616: the interest is $2,400 × 0.06 × 1.5 = $216.",
+  "rubric": "Gives $2,616 in total. Simple interest for 1.5 years is $216; giving only $216, using 18 years, or compounding fails. If working is shown, it must be consistent with $216.",
+  "core_rubric": "Gives a total repayment of $2,616.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$2,736",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0425",
+  "question": "A form says, 'Applications must be received by 17:00 on March 3.' I mailed my application on March 2, and it was delivered on March 4. Under this wording, did my application meet the deadline? Explain.",
+  "reference": "No. The deadline is about when the application is received, not when it is sent, and it was received on March 4, after the deadline.",
+  "rubric": "Answers no and explains that the rule depends on the receipt date, March 4, which is after March 3. Treating the mailing date as what counts, or answering yes, fails.",
+  "core_rubric": "Answers no because the application was received on March 4, after the March 3 receipt deadline.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. \"Received by 17:00 on March 3\" means the delivery must happen by that time on that specific date. Since it arrived on March 4, you missed the deadline.",
+  "at_token_cap": false
+ }
+]

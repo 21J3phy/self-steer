@@ -1,0 +1,13 @@
+Small edits to a language model's MLP layers can switch behaviors on and off, but they are usually applied statically, to every input. We build \textbf{self-steer}, a harness in which Qwen3.5-4B switches such edits on itself, mid-conversation, through an ordinary tool call. Every edit is a bias patch or a rank-1 weight patch on a layer's MLP output, kept next to the frozen 8-bit weights. When the model lacks an edit it needs, it can ask an outside controller (Claude, over the Model Context Protocol) to build one from a few contrastive examples.
+
+The runtime reproduces a published steering result token for token (\FidelityIdentical/\FidelityCells{} generations). Switching costs microseconds and does not slow decoding. Conversations survive mid-stream switches: recall was \RecallLazyKeep/\CtxN, and the steered cache differs from a clean one by a mean KL of \KLLazyKeep{} nats.
+
+In a pre-registered, blind-graded test on 96 sealed questions $\times$ 2 seeds, we compared deciders for when to apply a length-reducing edit:
+\begin{itemize}
+\item \textbf{Claude, routing on question text alone:} answers were \RoutedWords\% shorter with unchanged core accuracy (\RoutedCore{} pts, 95\% CI \RoutedCoreCI).
+\item \textbf{The 4B model, deciding for itself:} answers were \SelfWords\% shorter but lost \SelfCoreAbs{} points (CI \SelfCoreCI).
+\item \textbf{A ``be concise'' prompt:} lost \PromptCoreAbs{} points.
+\end{itemize}
+A placebo control traces the self-selection failure to the edit compounding with the tool-use context: the context alone shortened answers \PlaceboWords\% at a non-significant cost, and the edit on top cost a further \SelfMinusPlacebo{} points.
+
+In a live demonstration, Qwen asked Claude for a mode for explaining things to a five-year-old, and Claude built and returned it in \DemoReqTwo\,s. On held-out prompts, one of four Claude-built modes clearly worked, and prompting matched or beat the edits for style. Switching edits live is cheap and safe for memory; the hard part is deciding when to switch.

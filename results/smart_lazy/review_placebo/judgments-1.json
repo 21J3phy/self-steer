@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0001",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rev-parse HEAD prints only the full HEAD ID."
+ },
+ {
+  "id": "S0005",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; 30 min exceeds the stated 20-25 min range; extras are hedged and harmless."
+ },
+ {
+  "id": "S0009",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives git rm --cached secrets.env."
+ },
+ {
+  "id": "S0013",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Atom = basic unit of element, molecule = bonded atoms (identical or different); O2 identified as diatomic molecule."
+ },
+ {
+  "id": "S0017",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; dropped phone is accidental damage, which is excluded regardless of the 12-month window."
+ },
+ {
+  "id": "S0021",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; Wednesday is weekday and 12:00 falls in the 10:00-16:00 gap."
+ },
+ {
+  "id": "S0025",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "' '.join(reversed(text.split())) with empty/space-only guard returns '' correctly."
+ },
+ {
+  "id": "S0029",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; selection bias, gym-goers would overestimate; suggests random sample."
+ },
+ {
+  "id": "S0033",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline states $24, then self-corrects to $36 mid-answer; contradictory competing answers (and calls the 5-year-old an 'adult child')."
+ },
+ {
+  "id": "S0037",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Wrongly claims the text was not provided and gives no rewrite; no deliverable (refusal/misread, not truncation)."
+ },
+ {
+  "id": "S0041",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; writing below the line is allowed only for officers."
+ },
+ {
+  "id": "S0045",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives 555-0199 and says it reaches security."
+ },
+ {
+  "id": "S0049",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers yes and computes two 8-inch pizzas as 64pi (~201); correct is no, 32pi vs 36pi."
+ },
+ {
+  "id": "S0053",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": true,
+  "reason": "Headline says June 10 2:55 AM, working wanders through 07:55 and 17:55, then truncates at cap mid-recheck; contradictory and unfinished."
+ },
+ {
+  "id": "S0057",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop returns False on any nums[i] > nums[i+1]; True for [] and one-element; nums unchanged."
+ },
+ {
+  "id": "S0061",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $24, wrongly treating the 5-year-old as under 5."
+ },
+ {
+  "id": "S0065",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Correct algebra 3S+12=2(S+12), S=12, Maya 36."
+ },
+ {
+  "id": "S0069",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Heated air less dense; buoyant force from displaced cool air exceeds total weight of balloon, basket, load and hot air."
+ },
+ {
+  "id": "S0073",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; Wednesday uses weekday hours and 12:00 is between 10:00 and 16:00."
+ },
+ {
+  "id": "S0077",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Rotation board/spreadsheet options give a repeating five-person schedule, but extras undercut the even-spread goal: random picker is not even, the 'Next Person' rule does not guarantee fairness, and the claim that the spreadsheet 'automatically updates' is false/unsupported."
+ },
+ {
+  "id": "S0081",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sorted(names, key=lambda s: s.lower()) is stable, returns new list; example output correct."
+ },
+ {
+  "id": "S0085",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "[line for line in lines if line.strip()] drops empty/whitespace-only strings and keeps others unmodified."
+ },
+ {
+  "id": "S0089",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 60 days and 8 weeks 4 days; correct is 59 days, 8 weeks 3 days."
+ },
+ {
+  "id": "S0093",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "25->30, 18->20, 11->12."
+ },
+ {
+  "id": "S0097",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "14.7, 16.17, ~7.35, rounds up to 8 boxes."
+ },
+ {
+  "id": "S0101",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no with 377 working seats."
+ },
+ {
+  "id": "S0105",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Parallel schedule respecting prerequisites; mount 13:00-14:00; finish 14:00."
+ },
+ {
+  "id": "S0109",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Builds dict in first-appearance order with running max starting from first score; handles negatives and empty; pairs unchanged."
+ },
+ {
+  "id": "S0113",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git checkout -b feature/login."
+ },
+ {
+  "id": "S0117",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current."
+ },
+ {
+  "id": "S0121",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git commit --amend -m \"Fix typo in README\" without -a."
+ },
+ {
+  "id": "S0125",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "360 owners, 30% = 108."
+ },
+ {
+  "id": "S0129",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Tent+stove+camera, 10 kg, usefulness 17; listed combination values correct."
+ },
+ {
+  "id": "S0133",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline gives February 28, 2027, list gives March 30; second renewal wrongly Feb 28; correct is March 31."
+ },
+ {
+  "id": "S0137",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git ls-files --others --exclude-standard."
+ },
+ {
+  "id": "S0141",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "0.16 + 0.36 = 0.52 = 13/25 with replacement."
+ },
+ {
+  "id": "S0145",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer 03:55 AM June 10 contradicts its own 17:55 working; correct is 17:55 June 10."
+ },
+ {
+  "id": "S0149",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; rule is receipt by March 3 and it arrived March 4."
+ },
+ {
+  "id": "S0153",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline Feb 28, then Feb 29/Mar 30/Apr 29, finally April 1 (3rd renewal = Mar 1 + 30 miscounted); correct is March 31; contradictory and wrong."
+ },
+ {
+  "id": "S0157",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "ln -s releases/v2 current."
+ },
+ {
+  "id": "S0161",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "14.7, 16.17, ~7.35, rounds up to 8 boxes."
+ },
+ {
+  "id": "S0165",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'I apologize, but I am unable to attend today.' is one polite standard sentence with apology, today, no reason."
+ },
+ {
+  "id": "S0169",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correct route but total stated as 24 minutes; 5+4+3+6 = 18."
+ },
+ {
+  "id": "S0173",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Board/shared calendar listing all five with marker advanced to next person each week; repeating cycle, next person known in advance."
+ },
+ {
+  "id": "S0177",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gym A $320 vs Gym B $330; A cheaper by $10."
+ },
+ {
+  "id": "S0181",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no with 377 working seats."
+ },
+ {
+  "id": "S0185",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Chicken 18:25, rice 18:40, salad 18:50."
+ },
+ {
+  "id": "S0189",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Rayleigh scattering by N2/O2 favors shorter blue wavelengths; explicitly says not ocean reflection."
+ }
+]

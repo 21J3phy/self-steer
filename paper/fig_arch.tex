@@ -11,10 +11,10 @@
 \node[box, fill=gray!8, below=0.55cm of claude, minimum width=3.0cm] (lib) {mode library\\lazy, detailed, \ldots};
 \draw[arr] (user) -- node[above, lbl]{message} (qwen);
 \draw[arr] (qwen.south) -- node[left, lbl]{\texttt{set\_mode}} (stack.north);
-\draw[arr] (stack.east) to[bend right=10] node[below, lbl]{} (qwen.south east);
+\draw[arr] ([yshift=4pt]stack.north east) to[bend right=25] (qwen.south east);
 \draw[arr] (qwen.east) -- node[above, lbl]{\texttt{request\_mode}} (claude.west);
 \draw[arr] (claude.south) -- node[right, lbl]{\texttt{create\_mode}\\(CAA, seconds)} (lib.north);
-\draw[arr] (lib.west) -- node[below, lbl]{hot-loaded} (stack.east);
+\draw[arr] (lib.west) -- node[above, lbl, yshift=1pt]{hot-loaded} (stack.east);
 \end{tikzpicture}
 \caption{Self-steering. Qwen switches edits on its own MLP layers through a tool call. Each edit is a bias or rank-1 patch next to the frozen weights, live from the next token. When no mode fits, Qwen asks the controller (Claude, over MCP), which builds one from a few contrastive examples and hands it back.}
 \label{fig:arch}

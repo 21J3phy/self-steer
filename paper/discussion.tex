@@ -1,0 +1,27 @@
+\section{Discussion}
+
+\paragraph{The mechanics are easy. The judgment is hard.} Live edits cost nothing measurable. They leave the model's memory intact, and a frontier model can mint a usable new edit from eight examples in seconds. The open problem is the policy.
+\begin{itemize}
+\item \textbf{Claude decided well from the question text alone.} It chose \texttt{lazy} for every shell and Git question but only 4 of 24 planning cells, and kept accuracy at a fifth fewer words.
+\item \textbf{The 4B model, deciding for itself, did not.} It chose \texttt{lazy} on 14 of 24 planning cells despite a description telling it not to. More importantly, choosing an edit through a tool call is not neutral: the edit stacks on top of the tool-use context (\S\ref{sec:e4}).
+\end{itemize}
+An edit calibrated in one context (a bare chat prompt) is not the same edit in another (after a tool call and tool response). Self-steering systems will need either context-aware calibration or a controller that sits outside the model's own context.
+
+\paragraph{Prompting is not a substitute for small edits, nor always the reverse.} A one-line ``be concise'' system prompt shortened answers far more than any edit, and it cost 29 points of accuracy, mostly by suppressing the working needed for arithmetic and scheduling. For style requests (\S\ref{sec:e5}), prompting was competitive with or better than the CAA edits Claude built. Edits earn their place when a behavior needs to be switched precisely, measured, or reversed, and when the prompt channel is unavailable or untrusted.
+
+\paragraph{Safety.} A model that can change its own weights raises obvious concerns. Activation steering itself can degrade safety behavior~\cite{roguescalpel2025}. In self-steer the model can only switch edits from a library, the harness enforces their scope, and new edits come from an outside controller that can refuse. All edits are logged with token positions and can be reverted. We did not test adversarial use.
+
+\section{Limitations}
+\begin{itemize}
+\item \textbf{Scope.} We tested one model (Qwen3.5-4B), at one precision (MLX 8-bit), on one laptop. Test sets are small: 96 questions $\times$ 2 seeds for E4, 24 conversations for E3, and 20 prompts per mode for E5.
+\item \textbf{Grading.} Graders are LLMs (Claude Opus 5.5), blind to condition, and calibrated against earlier grades. The controller is also Claude, so we used separate instances that had no access to each other's outputs.
+\item \textbf{Reused generations.} E4's baseline and always-on conditions are generations from an earlier study. E1 shows the engine reproduces them exactly, but they were graded in a separate batch.
+\item \textbf{The planning warning.} The \texttt{lazy} description's warning about planning came from that study's second test, on different questions.
+\item \textbf{The demo.} The E5 request loop is a demonstration. The user's message asked for a new mode explicitly, and the controller was a human-supervised Claude Code session, not an autonomous service.
+\item \textbf{CAA modes are coarse.} Strengths that are too high break the model, and the useful range is narrow (roughly 0.06--0.1 per layer here).
+\end{itemize}
+
+\section{Conclusion}
+Small edits to a language model's MLP layers can be switched live, between any two tokens, at no measurable cost and without disturbing the conversation. A frontier model can build new ones on demand. Whether such a system helps depends on who holds the switch. In our tests a frontier controller held it well. The model holding its own switch over-applied it and lost accuracy. Making small models better judges of their own edits, or calibrating edits to the context they are switched in, is the next step.
+
+\paragraph{AI assistance.} The harness, experiments and analysis were built with Claude Code (Claude Opus 5.5), which also acted as the controller in E5. Answers were graded by separate blind Claude Opus 5.5 instances.

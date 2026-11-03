@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0005",
+  "question": "In a Unix shell, scores.csv has lines of the form name,points with no header. Names contain only letters, points is a nonnegative whole number with one or more digits, and no two lines have the same points. Print the lines sorted by points from smallest to largest, comparing points as numbers so that 9 comes before 10. Leave scores.csv unchanged.",
+  "reference": "sort -t, -k2,2n scores.csv",
+  "rubric": "Uses sort with a comma field separator and a numeric key on field 2, such as sort -t, -k2,2n scores.csv, sort -t ',' -k2 -n scores.csv, or sort -t, -n -k2 scores.csv. Because points are plain ASCII digits and all distinct, the result is the same in the C locale and in UTF-8 locales. Sorting field 2 as text (so 10 comes before 9), numeric sorting of whole lines, or omitting -t, so that field 2 is not the points, fails. sort -o scores.csv, which overwrites the file, fails.",
+  "core_rubric": "Prints all lines ordered by the numeric value of the second comma-separated field, smallest first; scores.csv is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```bash\nsort -t',' -k2,2n scores.csv\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0014",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?",
+  "reference": "HTTPS encrypts the connection between the browser and the website and uses a certificate to verify that you are connected to the server for that domain, so data cannot easily be read or changed in transit. It does not guarantee that the site is honest; scam sites can use HTTPS too.",
+  "rubric": "States that HTTPS encrypts traffic in transit (with TLS) and authenticates the server's domain, protecting against eavesdropping and tampering. Answers no: HTTPS does not make the site's owner or content trustworthy. Claiming that HTTPS guarantees a safe or legitimate site, or that it encrypts data stored on the server, fails.",
+  "core_rubric": "Says HTTPS encrypts and authenticates the connection, and that it does not guarantee the site is honest or safe.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**HTTPS (Hypertext Transfer Protocol Secure)** adds **encryption** and **data integrity verification** to the plain HTTP protocol.\n\nHere is a breakdown of what HTTPS adds:\n\n1.  **Encryption:** It uses SSL/TLS to encrypt the data transmitted between your browser and the server. This means that anyone intercepting the traffic (e.g., on public Wi-Fi) can see the content as scrambled gibberish rather than readable text or sensitive information like passwords.\n2.  **Authentication:** The website sends you a digital certificate issued by a trusted third-party authority (like DigiCert, Let's Encrypt, etc.). This allows your browser to verify that you are actually connecting to the legitimate domain name you intended to visit, not an imposter trying to look like it.\n3.  **Data Integrity:** It ensures that the data sent from the server hasn't been altered in transit. If someone tries to change a piece of data while it's being transferred, the connection will be broken.\n\n**Does HTTPS guarantee the site is honest or safe?**\n\n**No.** HTTPS does **not** guarantee that the website is trustworthy, legal, or free of malicious content.\n\n*   **Phishing:** A hacker can set up a fake version of your favorite bank or social media site. If they buy a certificate from a trusted Certificate Authority (CA), their fake site will show the \"padlock\" icon and have an HTTPS connection. You would be sending your credentials over a secure line, but to the wrong person.\n*   **Malware:** A website can use HTTPS to serve malware, phishing pages, or other harmful scripts without violating security protocols.\n*   **Legitimacy vs. Security:** HTTPS secures the *connection*, not the *content*. It prevents eavesdropping and tampering, but it cannot judge the intent or legality of the website owner.\n\nTo determine if a site is safe, you must evaluate its reputation, read reviews, check for official contact information, and exercise caution regardless of whether the URL starts with `https://`.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0023",
+  "question": "A flight leaves Tokyo at 22:40 local time on June 10, 2027. Tokyo is at UTC+9. The flight lasts 11 hours and 15 minutes and lands in Los Angeles, which is at UTC−7 on that date. What is the local date and time in Los Angeles when it lands?",
+  "reference": "17:55 on June 10, 2027, Los Angeles time. Departure is 13:40 UTC on June 10; landing is 00:55 UTC on June 11, which is 17:55 on June 10 at UTC−7.",
+  "rubric": "Gives 17:55 (5:55 p.m.) on June 10, 2027, local Los Angeles time; the landing is on the same calendar date as the departure. June 11, or any other time, fails. If working is shown, intermediate UTC times must be consistent with 13:40 UTC departure and 00:55 UTC on June 11 arrival.",
+  "core_rubric": "Gives a landing time of 17:55 on June 10, 2027, Los Angeles time.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The flight lands in Los Angeles on June 10 at 2:55 AM local time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0032",
+  "question": "Gym A costs $40 per month with no joining fee. Gym B costs $30 per month plus a one-time $90 joining fee. I will be a member for exactly 8 months. Which gym is cheaper over those 8 months, and by how much?",
+  "reference": "Gym A, by $10: Gym A costs $320 and Gym B costs $240 + $90 = $330.",
+  "rubric": "Gives Gym A as cheaper by $10, with totals of $320 and $330 if totals are shown. Choosing Gym B, or ignoring the joining fee, fails. Noting that the two gyms cost the same at 9 months is optional and must be correct if given.",
+  "core_rubric": "Gives Gym A as cheaper by $10.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Gym A is cheaper by $10.\n\n*   **Gym A Total:** $40 × 8 = $320\n*   **Gym B Total:** ($30 × 8) + $90 = $330",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0041",
+  "question": "What is the difference between an atom and a molecule? Is O₂, the oxygen we breathe, an atom or a molecule?",
+  "reference": "An atom is the smallest unit of a chemical element; a molecule is two or more atoms chemically bonded together. O₂ is a molecule made of two oxygen atoms.",
+  "rubric": "Defines an atom as the basic unit of an element and a molecule as two or more bonded atoms, and identifies O₂ as a molecule of two oxygen atoms. Calling O₂ an atom, or saying a molecule must contain different elements, fails.",
+  "core_rubric": "Distinguishes atoms from bonded groups of atoms and identifies O₂ as a molecule of two oxygen atoms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "An **atom** is the smallest unit of ordinary matter that forms a chemical element. It consists of a nucleus containing protons and neutrons, surrounded by electrons. Atoms are the building blocks of elements like oxygen, hydrogen, or carbon.\n\nA **molecule** is a group of two or more atoms held together by chemical bonds. Molecules can be made of atoms of the same element (like O₂) or different elements (like H₂O).\n\nRegarding your specific question:\n**O₂ (oxygen gas) is a molecule.**\n\nWhile it is composed of only one type of atom (oxygen), it consists of **two** oxygen atoms bonded together. Therefore, it is a diatomic molecule, not a single atom.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0050",
+  "question": "Pizza sizes are diameters. Do two 8-inch pizzas have more total area than one 12-inch pizza? Answer yes or no and give both areas.",
+  "reference": "No. Two 8-inch pizzas have 2 × π × 4² = 32π ≈ 100.5 square inches, and one 12-inch pizza has π × 6² = 36π ≈ 113.1 square inches.",
+  "rubric": "Answers no and states that the single 12-inch pizza has more area: 36π (about 113.1 square inches) versus 32π (about 100.5 square inches) for the two 8-inch pizzas. Rounded values within 0.1 square inch, or exact multiples of π, are acceptable. Answering yes, or computing areas from diameters as radii, fails.",
+  "core_rubric": "Answers no, with total areas of about 100.5 square inches (32π) for two 8-inch pizzas and about 113.1 square inches (36π) for one 12-inch pizza.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Yes.\n\n*   **Two 8-inch pizzas:** $2 \\times (\\pi \\times 4^2) = 32\\pi \\approx 100.5$ square inches.\n*   **One 12-inch pizza:** $\\pi \\times 6^2 = 36\\pi \\approx 113.1$ square inches.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0059",
+  "question": "A form says, 'Do not write below this line unless you are an officer.' I am not an officer. Under this instruction, may I write below the line? Explain.",
+  "reference": "No. The instruction permits writing below the line only for officers, and you are not an officer.",
+  "rubric": "Answers no and explains that writing below the line is allowed only for officers. Answering yes, or saying the instruction does not apply to non-officers, fails.",
+  "core_rubric": "Answers no because only officers may write below the line.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**No, you may not write below the line.**\n\nHere is the explanation:\nThe instruction explicitly states that writing below the line is prohibited **\"unless\"** you are an officer. Since you have confirmed that you are **not** an officer, the condition required to make the action permissible is not met. Therefore, the prohibition stands.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0068",
+  "question": "Why does a straight spoon look bent where it enters a glass of water?",
+  "reference": "Light from the underwater part of the spoon bends, or refracts, as it passes from water into air, because light travels at different speeds in the two materials. Our eyes trace the light back in straight lines, so the underwater part appears shifted, making the spoon look bent at the surface.",
+  "rubric": "Explains that light refracts at the water–air boundary because its speed changes, and that our brain interprets the bent rays as coming from a shifted position. Attributing the effect to reflection, or saying the water actually bends the spoon, fails.",
+  "core_rubric": "Attributes the appearance to refraction of light at the water–air boundary, making the underwater part appear shifted.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "That happens because of a phenomenon called **refraction**.\n\nWhen light travels through air and enters water, it slows down. Because the speed of light changes as it moves between different mediums (air and water), the light rays bend at the surface where they enter the water.\n\nHere is what your eye actually sees:\n1.  Light reflects off the bottom part of the spoon and travels through the water to your eye.\n2.  When this light hits the surface of the water/air boundary, it bends away from the normal line (an imaginary line perpendicular to the surface).\n3.  Your brain assumes that light travels in straight lines. It traces the bent light ray back in a straight line to find the source of the image.\n4.  This creates a \"virtual image\" of the submerged part of the spoon that appears higher than it actually is.\n5.  Since the top part of the spoon is in the air (and thus not refracted) and the bottom part appears higher due to refraction, there is a visible mismatch or \"bend\" at the water's surface.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0077",
+  "question": "In a Git repository, the most recent commit has not been pushed. Nothing is staged, but some tracked files have unstaged edits. Change that commit's message to 'Fix typo in README' without changing the files it records or its parent, and do not create an additional commit. Give the command.",
+  "reference": "git commit --amend -m 'Fix typo in README'",
+  "rubric": "Uses git commit --amend -m 'Fix typo in README' (or --message=). Using -a or --all with --amend fails because it would add the unstaged edits to the commit. A new commit, for example with --allow-empty, fails. Interactive editing with git commit --amend and then typing the message is acceptable if the answer makes clear that the message must be set to exactly Fix typo in README.",
+  "core_rubric": "Amends the latest commit to have the message Fix typo in README, keeping its tree and parent and adding no commit or unstaged edits.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git commit --amend -m \"Fix typo in README\"",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0086",
+  "question": "In a survey of 800 people, 45% own a bicycle. Of the bicycle owners, 30% ride every day. How many of the surveyed people ride a bicycle every day?",
+  "reference": "108: 45% of 800 is 360, and 30% of 360 is 108.",
+  "rubric": "Gives 108. 600 (adding the percentages) or 240 (30% of 800) fails. If working is shown, it must be consistent with 360 owners.",
+  "core_rubric": "Gives 108 people.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "360",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0095",
+  "question": "Read: 'Invoice 4471 for $860 was paid on 12 May. Invoice 4472 for $1,240 is overdue. Invoice 4473 for $315 is due on 30 May.' Which invoice is overdue, and for what amount?",
+  "reference": "Invoice 4472, for $1,240.",
+  "rubric": "Identifies invoice 4472 and the amount $1,240. Naming 4471 or 4473 as overdue, or giving the wrong amount, fails.",
+  "core_rubric": "Identifies invoice 4472 for $1,240 as the overdue invoice.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Based on the text provided:\n\n*   **Invoice 4471** ($860) was paid.\n*   **Invoice 4472** ($1,240) is stated to be **overdue**.\n*   **Invoice 4473** ($315) is due on a future date (30 May).\n\nThe overdue invoice is **Invoice 4472**, and the amount is **$1,240**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0104",
+  "question": "Ana, Ben, and Cy will sit in a row of three chairs. Ana and Ben must not sit next to each other. Who must sit in the middle chair? Give one valid seating order from left to right.",
+  "reference": "Cy must sit in the middle. One valid order is Ana, Cy, Ben.",
+  "rubric": "Says Cy must sit in the middle, and gives either Ana, Cy, Ben or Ben, Cy, Ana. Any order with Ana next to Ben fails.",
+  "core_rubric": "Says Cy sits in the middle and gives Ana, Cy, Ben or Ben, Cy, Ana.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To solve this, note that the only way to avoid Ana and Ben sitting next to each other in three chairs is to place Cy in the middle (A–C–B or B–C–A). Any arrangement with Cy at an end forces Ana and Ben to be adjacent.\n\n**Middle chair must be: Cy**\n\n**One valid seating order (left to right):**  \nAna – Cy – Ben",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0113",
+  "question": "Ana, Ben, and Cy will sit in a row of three chairs. Ana and Ben must not sit next to each other. Who must sit in the middle chair? Give one valid seating order from left to right.",
+  "reference": "Cy must sit in the middle. One valid order is Ana, Cy, Ben.",
+  "rubric": "Says Cy must sit in the middle, and gives either Ana, Cy, Ben or Ben, Cy, Ana. Any order with Ana next to Ben fails.",
+  "core_rubric": "Says Cy sits in the middle and gives Ana, Cy, Ben or Ben, Cy, Ana.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**Cy** must sit in the middle chair.\n\nIf Ana and Ben are on the ends, Cy is forced into the middle to separate them.\n\nOne valid seating order from left to right: **Ana - Cy - Ben**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0122",
+  "question": "Correct the word errors in this sentence and change nothing else: 'Their going to bring there own chairs, and its fine if your late.'",
+  "reference": "They're going to bring their own chairs, and it's fine if you're late.",
+  "rubric": "Makes exactly four corrections, Their → They're, there → their, its → it's, and your → you're, and leaves every other word and punctuation mark unchanged. The full forms They are, it is, and you are are also acceptable. Missing any of the four corrections, introducing a new error, or rewording the sentence fails.",
+  "core_rubric": "Gives the sentence with They're, their, it's, and you're (or their full forms) and no other changes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Their going to bring their own chairs, and it's fine if you're late.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0131",
+  "question": "In Python, return True if the list of numbers nums is in non-decreasing order, meaning each element is less than or equal to the next one, so equal neighbors are allowed. Return True for an empty list or a one-element list. Leave nums unchanged.",
+  "reference": "all(a <= b for a, b in zip(nums, nums[1:]))",
+  "rubric": "Returns True exactly when every adjacent pair satisfies a <= b, so [1, 1, 2] gives True, [2, 1] gives False, and [] and [5] give True. A strict comparison (<), checking for descending order, or sorting nums in place fails. nums == sorted(nums) is an acceptable equivalent.",
+  "core_rubric": "Returns True exactly when each element is <= the next, including True for [] and one-element lists; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def is_sorted(nums):\n    for i in range(len(nums) - 1):\n        if nums[i] > nums[i + 1]:\n            return False\n    return True",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0140",
+  "question": "What is the difference between weather and climate? Is the statement 'It will rain this afternoon' about weather or climate?",
+  "reference": "Weather is the short-term state of the atmosphere at a particular place and time; climate is the long-term pattern of weather in a region, usually averaged over decades. 'It will rain this afternoon' is about weather.",
+  "rubric": "Defines weather as short-term atmospheric conditions and climate as long-term average patterns, often over about 30 years, and classifies the statement as weather. Calling it climate, or reversing the definitions, fails.",
+  "core_rubric": "Distinguishes short-term weather from long-term climate and classifies the statement as weather.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**Weather** refers to the short-term atmospheric conditions in a specific place at a specific time. It includes things like temperature, humidity, precipitation, wind, and cloudiness that change from minute to minute or day to day.\n\n**Climate**, on the other hand, is the average of weather patterns over a long period of time, typically 30 years or more. It describes the general conditions of an area, such as whether it is tropical, arid, temperate, or polar.\n\nRegarding your statement: **\"It will rain this afternoon\"** is about **weather**.\n\nIt is a prediction for a very short duration (a few hours) in a specific location, which fits the definition of weather rather than the long-term statistical averages found in climate.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0149",
+  "question": "In a Git repository, set the email address used for commits to dev@example.com for this repository only, without changing global or system Git settings. Give the command.",
+  "reference": "git config user.email dev@example.com",
+  "rubric": "Uses git config user.email dev@example.com, git config --local user.email dev@example.com, or a quoted equivalent; git config writes to the repository's own config by default. Using --global or --system fails. Setting user.name instead of user.email fails.",
+  "core_rubric": "Sets user.email to dev@example.com in the repository's local config, without --global or --system.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git config user.email \"dev@example.com\"",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0158",
+  "question": "A tap drips once every 4 seconds without stopping, and 20 drops make 1 milliliter. How many liters does it drip in 30 days?",
+  "reference": "32.4 liters: 30 days is 2,592,000 seconds, giving 648,000 drops, which is 32,400 milliliters.",
+  "rubric": "Gives 32.4 liters. If working is shown, it must be consistent with 2,592,000 seconds, 648,000 drops, and 32,400 mL. Answers in milliliters alone, without liters, fail the requested unit.",
+  "core_rubric": "Gives 32.4 liters.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the total amount of liquid dripping in 30 days, let's break it down step-by-step:\n\n1.  **Calculate the number of drops per day:**\n    *   There are 4 seconds per drop.\n    *   There are 60 seconds in a minute and 24 hours in a day.\n    *   Total seconds in a day = $60 \\times 60 \\times 24 = 86,400$ seconds.\n    *   Drops per day = $\\frac{86,400}{4} = 21,600$ drops.\n\n2.  **Calculate the total drops in 30 days:**\n    *   Total drops = $21,600 \\text{ drops/day} \\times 30 \\text{ days} = 648,000$ drops.\n\n3.  **Convert drops to milliliters:**\n    *   20 drops make 1 milliliter.\n    *   Milliliters = $\\frac{648,000}{20} = 32,400$ ml.\n\n4.  **Convert milliliters to liters:**\n    *   There are 1,000 milliliters in 1 liter.\n    *   Liters = $\\frac{32,400}{1,000} = 32.4$ liters.\n\nThe tap drips **32.4 liters** in 30 days.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0167",
+  "question": "How many days pass from January 15, 2027 to March 15, 2027? Count elapsed days, so January 15 to January 16 is one day. Give the answer in days and also as whole weeks plus remaining days.",
+  "reference": "59 days, which is 8 weeks and 3 days: 16 days left in January, 28 in February 2027, and 15 in March.",
+  "rubric": "Gives 59 days and 8 weeks plus 3 days. 2027 is not a leap year, so February has 28 days; 60 days (treating February as 29 days) or a count of 58 or 60 from an off-by-one error fails. Both forms are required.",
+  "core_rubric": "Gives 59 days and 8 weeks plus 3 days.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "From January 15 to March 15, 2027, exactly **60 days** pass.\n\n*   **Weeks:** 8 weeks\n*   **Remaining days:** 4 days",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0176",
+  "question": "List every person named in this sentence, in the order they are first mentioned, as a comma-separated list: 'Ravi emailed Mei and Tom, then called his manager, Ines, who later met Mei.'",
+  "reference": "Ravi, Mei, Tom, Ines",
+  "rubric": "Gives exactly the four names Ravi, Mei, Tom, Ines, in that order, separated by commas, with Mei listed only once. Adding 'manager' as a separate person, repeating Mei, or using a different order fails. Using 'and' before the last name is acceptable.",
+  "core_rubric": "Lists Ravi, Mei, Tom, Ines in that order, comma-separated, each once.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Ravi, Mei, Tom, Ines",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0185",
+  "question": "In a survey of 800 people, 45% own a bicycle. Of the bicycle owners, 30% ride every day. How many of the surveyed people ride a bicycle every day?",
+  "reference": "108: 45% of 800 is 360, and 30% of 360 is 108.",
+  "rubric": "Gives 108. 600 (adding the percentages) or 240 (30% of 800) fails. If working is shown, it must be consistent with 360 owners.",
+  "core_rubric": "Gives 108 people.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the number of people who ride a bicycle every day, we can follow these steps:\n\n1.  **Find the number of bicycle owners:**\n    $800 \\times 0.45 = 360$ people own a bicycle.\n\n2.  **Find the number of daily riders among the bicycle owners:**\n    $360 \\times 0.30 = 108$ people.\n\n**Answer:** 108 people ride a bicycle every day.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0194",
+  "question": "Rewrite this instruction as a short, positive instruction with the same meaning: 'Don't forget to not leave the back door unlocked.' Do not use the words not, don't, never, or unlocked.",
+  "reference": "Remember to lock the back door.",
+  "rubric": "Tells the reader to lock the back door, for example 'Remember to lock the back door', 'Lock the back door', or 'Make sure the back door is locked'. Uses none of the words not, don't, never, or unlocked. Telling the reader to leave the door unlocked, or changing which door, fails.",
+  "core_rubric": "Gives an instruction to lock the back door that uses none of the words not, don't, never, or unlocked.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Remember to keep the back door locked.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0203",
+  "question": "List every person named in this sentence, in the order they are first mentioned, as a comma-separated list: 'Ravi emailed Mei and Tom, then called his manager, Ines, who later met Mei.'",
+  "reference": "Ravi, Mei, Tom, Ines",
+  "rubric": "Gives exactly the four names Ravi, Mei, Tom, Ines, in that order, separated by commas, with Mei listed only once. Adding 'manager' as a separate person, repeating Mei, or using a different order fails. Using 'and' before the last name is acceptable.",
+  "core_rubric": "Lists Ravi, Mei, Tom, Ines in that order, comma-separated, each once.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Ravi, Mei, Tom, Ines",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0212",
+  "question": "In Python, flags is a list that may contain any values, such as True, False, 1, 0, 1.0, 'yes', or None. Count how many elements are the boolean value True itself. The integer 1, the float 1.0, and other truthy values must not be counted. flags may be empty; leave it unchanged.",
+  "reference": "sum(1 for value in flags if value is True)",
+  "rubric": "Returns the number of elements that are the bool True (an identity or exact-type test such as `value is True` or `type(value) is bool and value`). The integer 1 and the float 1.0 are not counted, and neither are other truthy values such as 'yes'. An empty list gives 0. Does not modify flags. flags.count(True), sum(flags), `value == True`, or a plain truthiness test fails, because each counts 1 or 1.0. Equivalent correct code is acceptable.",
+  "core_rubric": "Counts only elements that are the bool True, excluding 1, 1.0, and other truthy values; an empty list gives 0 and flags is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\nsum(1 for f in flags if f is True)\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0221",
+  "question": "My exam covers chapters 1–6. I can study for exactly 1 hour on each of the 6 evenings before it. I already know chapters 1 and 2 well but not chapters 3–6. Give a study plan for the six evenings.",
+  "reference": "Evenings 1–4: study chapters 3, 4, 5, and 6, one per evening, ending each session with a few practice questions. Evening 5: a quick review of chapters 1 and 2, then a mixed practice set. Evening 6: go over mistakes and weak spots from the week.",
+  "rubric": "Gives a plan for six one-hour evenings with no more than one hour per evening. Gives each of chapters 3–6 dedicated study time. Gives chapters 1 and 2 less time than chapters 3–6, or only a brief review. Practice questions and a final review are optional. A plan that exceeds the available time, skips any of chapters 3–6, or spends most of the time on chapters 1 and 2 fails.",
+  "core_rubric": "A six-evening, one-hour-per-evening plan that gives dedicated time to each of chapters 3–6 and less time to chapters 1–2.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Evening 1: Chapter 3\nEvening 2: Chapter 4\nEvening 3: Chapter 5\nEvening 4: Chapter 6\nEvening 5: Review Chapters 1–2\nEvening 6: Full exam review (Chapters 1–6)",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0230",
+  "question": "Order these tasks by due date, earliest first: 'Report — due 14 March; Slides — due 2 March; Budget — due 9 March.' All three dates are in the same year.",
+  "reference": "Slides (2 March), Budget (9 March), Report (14 March).",
+  "rubric": "Gives the order Slides, Budget, Report. Including the dates is optional, but if given they must match. Any other order, or ordering by name, fails.",
+  "core_rubric": "Gives Slides, Budget, Report.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "1. Slides (2 March)\n2. Budget (9 March)\n3. Report (14 March)",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0239",
+  "question": "A bag holds 4 green marbles and 6 yellow marbles. I draw one marble at random, put it back, mix, and draw again. What is the probability that both draws are the same color?",
+  "reference": "13/25, or 52%: (4/10)² + (6/10)² = 0.16 + 0.36 = 0.52.",
+  "rubric": "Gives 13/25, 0.52, or 52%. The draws are with replacement; the without-replacement value 7/15 (about 46.7%) fails. If working is shown, it must be consistent with 0.16 + 0.36.",
+  "core_rubric": "Gives the probability as 13/25 (0.52 or 52%).",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "14/25",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0248",
+  "question": "I have $60 for a party. Pizzas cost $12 each, and I need at least 3; drink packs cost $4 each, and I need at least 2. After buying those minimums, I will spend the remaining money only on as many extra pizzas as I can afford. How many pizzas and drink packs will I buy, and how much money will be left?",
+  "reference": "4 pizzas and 2 drink packs, costing $56, with $4 left. The minimums cost $44, and the remaining $16 buys one extra pizza.",
+  "rubric": "Gives 4 pizzas, 2 drink packs, and $4 left over. Buying extra drink packs fails because the leftover money is only for pizzas. 5 pizzas (over budget) fails. If working is shown, it must be consistent with $44 for the minimums.",
+  "core_rubric": "Gives 4 pizzas, 2 drink packs, and $4 remaining.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You'll buy 3 pizzas, 2 drink packs, and 4 extra pizzas. That's a total of **7 pizzas** and **2 drink packs**. You will have **$0 left**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0257",
+  "question": "A pool's posted hours are: weekdays 06:00–10:00 and 16:00–21:00; weekends 08:00–18:00. According to these hours, is the pool open at 12:00 on a Wednesday? Explain.",
+  "reference": "No. Wednesday is a weekday, and 12:00 falls between the weekday sessions, after 10:00 and before 16:00.",
+  "rubric": "Answers no and explains that Wednesday uses the weekday hours and 12:00 is outside both weekday sessions. Applying the weekend hours to Wednesday, or answering yes, fails.",
+  "core_rubric": "Answers no because 12:00 is between the 10:00 close and the 16:00 reopening on weekdays.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Yes, the pool is open. On a Wednesday (a weekday), the hours are 06:00–10:00 and 16:00–21:00. Since 12:00 falls between 10:00 and 16:00, the pool is closed at that time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0266",
+  "question": "In Python, return True if the list of numbers nums is in non-decreasing order, meaning each element is less than or equal to the next one, so equal neighbors are allowed. Return True for an empty list or a one-element list. Leave nums unchanged.",
+  "reference": "all(a <= b for a, b in zip(nums, nums[1:]))",
+  "rubric": "Returns True exactly when every adjacent pair satisfies a <= b, so [1, 1, 2] gives True, [2, 1] gives False, and [] and [5] give True. A strict comparison (<), checking for descending order, or sorting nums in place fails. nums == sorted(nums) is an acceptable equivalent.",
+  "core_rubric": "Returns True exactly when each element is <= the next, including True for [] and one-element lists; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef is_sorted(nums):\n    return all(nums[i] <= nums[i+1] for i in range(len(nums)-1))\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0275",
+  "question": "A form says, 'Do not write below this line unless you are an officer.' I am not an officer. Under this instruction, may I write below the line? Explain.",
+  "reference": "No. The instruction permits writing below the line only for officers, and you are not an officer.",
+  "rubric": "Answers no and explains that writing below the line is allowed only for officers. Answering yes, or saying the instruction does not apply to non-officers, fails.",
+  "core_rubric": "Answers no because only officers may write below the line.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you may not write below the line.\n\nThe instruction explicitly states that writing is prohibited for anyone who is **not** an officer. Since you have identified yourself as not being an officer, the condition required to bypass the prohibition is not met. Therefore, the rule remains in effect and prevents you from writing.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0284",
+  "question": "Why does a hot-air balloon rise when the air inside it is heated?",
+  "reference": "Heating makes the air inside expand, so it becomes less dense than the cooler air outside. The surrounding air then exerts an upward buoyant force greater than the weight of the balloon, so it rises.",
+  "rubric": "Explains that heated air is less dense than the surrounding cooler air, and that the resulting buoyant force exceeds the total weight of the balloon, envelope, and load. Saying only that 'heat rises', or that the hot air pushes the balloon up like a jet, is insufficient.",
+  "core_rubric": "Explains that the heated air inside is less dense than the outside air, so buoyancy exceeds the balloon's weight.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A hot-air balloon rises due to the principle of **buoyancy**, which is governed by **Archimedes' Principle**. Here's how it works:\n\n1.  **Heating the Air:** When you heat the air inside the balloon's envelope (the large fabric bag), the air molecules gain kinetic energy and move faster. This causes them to spread out, making the air less dense than the cooler air outside the balloon.\n\n2.  **Displacement:** The balloon displaces a volume of the cooler, denser air outside. According to Archimedes' Principle, the buoyant force acting on the balloon is equal to the weight of the displaced air.\n\n3.  **Net Force:** Because the air inside the balloon is lighter (less dense) than the air it displaces, the upward buoyant force becomes greater than the downward pull of gravity (which includes the weight of the balloon, basket, and passengers).\n\n4.  **Rising:** As long as this net upward force exists, the balloon accelerates upward. Once the balloon reaches an altitude where the surrounding air density matches the density of the heated air inside, it will stop rising and float at that height. To descend, the pilot allows the air inside to cool down or vents some hot air, increasing the density inside until gravity pulls it back down.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0293",
+  "question": "What is the difference between weather and climate? Is the statement 'It will rain this afternoon' about weather or climate?",
+  "reference": "Weather is the short-term state of the atmosphere at a particular place and time; climate is the long-term pattern of weather in a region, usually averaged over decades. 'It will rain this afternoon' is about weather.",
+  "rubric": "Defines weather as short-term atmospheric conditions and climate as long-term average patterns, often over about 30 years, and classifies the statement as weather. Calling it climate, or reversing the definitions, fails.",
+  "core_rubric": "Distinguishes short-term weather from long-term climate and classifies the statement as weather.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Weather refers to short-term atmospheric conditions in a specific place, while climate describes the long-term average of these conditions. The statement \"It will rain this afternoon\" is about **weather**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0302",
+  "question": "I want to estimate how many hours per week the adults in my town exercise, on average. Would surveying only people at a gym give a fair estimate? Explain.",
+  "reference": "No. People at a gym are not representative of all adults in the town; they probably exercise more than average, so the estimate would be biased upward. A random sample of the town's adults would give a fairer estimate.",
+  "rubric": "Answers no and explains that a gym sample is not representative (selection or sampling bias) and would likely overestimate exercise. Suggesting a random or representative sample is optional. Answering yes, or saying a larger gym sample would fix the bias, fails.",
+  "core_rubric": "Answers no because gym-goers are an unrepresentative sample that would likely overestimate the town's average exercise.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, it would not give a fair estimate. Surveying only people at a gym creates selection bias because it overrepresents individuals who already exercise regularly and excludes those who do not go to the gym or have limited access to one.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0311",
+  "question": "In Python, given a nonnegative integer n, return the sum of its decimal digits as an integer. For example, 507 gives 12. For n = 0 the result is 0.",
+  "reference": "sum(int(digit) for digit in str(n))",
+  "rubric": "Returns the integer sum of the decimal digits of n: 0 gives 0, 9 gives 9, 507 gives 12, and 10**30 gives 1. Arithmetic digit extraction with % 10 and // 10 is acceptable if it returns 0 for n = 0. n % 9 (a digital-root shortcut) or returning the number of digits fails. Equivalent correct code, such as sum(map(int, str(n))), is acceptable.",
+  "core_rubric": "Returns the sum of n's decimal digits as an integer, including 0 for n = 0.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef sum_digits(n: int) -> int:\n    return sum(int(digit) for digit in str(n))\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0320",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Subject: Refund Confirmation for Your Order\n\nHi Lee,\n\nThis message is to confirm that your refund of $24.50 has been issued today.\n\nPlease note that it may take up to 5 business days for the funds to appear in your account. We do not provide specific arrival dates or reasons for this processing time.\n\nIf you have any further questions, feel free to reach out.\n\nBest regards,\nCustomer Support Team",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0329",
+  "question": "In Python, return True if the string s reads exactly the same forwards and backwards, and False otherwise. Compare characters exactly: uppercase and lowercase letters are different, and spaces and punctuation count as characters. The empty string counts as reading the same both ways.",
+  "reference": "s == s[::-1]",
+  "rubric": "Returns True exactly when s equals its reverse, compared character by character, so 'Aa' and 'ab a' give False and '' gives True. Lowercasing, removing spaces or punctuation, or otherwise normalizing s first fails. Equivalent correct code, such as comparing with ''.join(reversed(s)), is acceptable.",
+  "core_rubric": "Returns True exactly when s equals its exact character reverse, with no case or space normalization; '' gives True.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def is_palindrome(s):\n    return s == s[::-1]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0338",
+  "question": "My exam covers chapters 1–6. I can study for exactly 1 hour on each of the 6 evenings before it. I already know chapters 1 and 2 well but not chapters 3–6. Give a study plan for the six evenings.",
+  "reference": "Evenings 1–4: study chapters 3, 4, 5, and 6, one per evening, ending each session with a few practice questions. Evening 5: a quick review of chapters 1 and 2, then a mixed practice set. Evening 6: go over mistakes and weak spots from the week.",
+  "rubric": "Gives a plan for six one-hour evenings with no more than one hour per evening. Gives each of chapters 3–6 dedicated study time. Gives chapters 1 and 2 less time than chapters 3–6, or only a brief review. Practice questions and a final review are optional. A plan that exceeds the available time, skips any of chapters 3–6, or spends most of the time on chapters 1 and 2 fails.",
+  "core_rubric": "A six-evening, one-hour-per-evening plan that gives dedicated time to each of chapters 3–6 and less time to chapters 1–2.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Evening 1: Review Chapters 1 & 2.\nEvening 2: Study Chapter 3.\nEvening 3: Study Chapter 4.\nEvening 4: Study Chapter 5.\nEvening 5: Study Chapter 6.\nEvening 6: Full review of all chapters (1–6).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0347",
+  "question": "I want to estimate how many hours per week the adults in my town exercise, on average. Would surveying only people at a gym give a fair estimate? Explain.",
+  "reference": "No. People at a gym are not representative of all adults in the town; they probably exercise more than average, so the estimate would be biased upward. A random sample of the town's adults would give a fairer estimate.",
+  "rubric": "Answers no and explains that a gym sample is not representative (selection or sampling bias) and would likely overestimate exercise. Suggesting a random or representative sample is optional. Answering yes, or saying a larger gym sample would fix the bias, fails.",
+  "core_rubric": "Answers no because gym-goers are an unrepresentative sample that would likely overestimate the town's average exercise.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, surveying only people at a gym would not give a fair estimate. This method introduces significant sampling bias because it overrepresents individuals who already exercise regularly and underrepresents those who do not go to the gym or have different exercise habits. A representative sample must include people from various populations (e.g., parks, schools, online surveys) to accurately reflect the average for the entire town.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0356",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes.",
+  "reference": "1 hour 15 minutes: 50 × 27 = 1,350 pages, and 1,350 / 18 = 75 minutes.",
+  "rubric": "Gives 1 hour 15 minutes. Also stating 75 minutes is fine, but 75 minutes alone does not give the requested hours-and-minutes form and fails. If working is shown, it must be consistent with 1,350 pages and 75 minutes.",
+  "core_rubric": "Gives 1 hour 15 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To print 50 copies of a 27-page document at 18 pages per minute:\n\nTotal pages = 50 × 27 = 1,350 pages.\n\nTime in minutes = 1,350 ÷ 18 = 75 minutes.\n\n75 minutes is 1 hour and 15 minutes.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0365",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?",
+  "reference": "A solar year is about 365.2422 days, so adding a day every 4 years keeps the calendar in step with the seasons. That rule, which averages 365.25 days, slightly overcorrects, so century years are skipped unless they are divisible by 400, giving an average of 365.2425 days.",
+  "rubric": "Explains that Earth's orbit, the tropical year, takes about 365.24 days, so leap days keep the calendar aligned with the seasons; and that a leap day every 4 years overcorrects slightly, so century years are leap years only when divisible by 400. Stating the year as exactly 365.25 days, or saying century years are never leap years, fails.",
+  "core_rubric": "Explains leap days as correcting for a year of about 365.24 days, and that skipping most century years (except those divisible by 400) fixes the slight overcorrection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The Gregorian calendar adds a leap day to keep the average year length (365.2425 days) aligned with Earth's actual orbit around the Sun (approximately 365.2422 days), preventing seasonal drift. Years divisible by 100 are not leap years because they occur too frequently; excluding them reduces the average year length slightly further, bringing it closer to the solar year and correcting the overcounting that would otherwise happen if all century years were treated as leap years.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0374",
+  "question": "Correct only the misspelled words in this sentence, leaving everything else, including punctuation and capitalization, exactly as it is: 'The comittee recieved the report on time, and the members agred.'",
+  "reference": "The committee received the report on time, and the members agreed.",
+  "rubric": "Corrects exactly comittee → committee, recieved → received, and agred → agreed, and leaves every other word, comma, capital letter, and the final period unchanged. Missing a correction, rewording, or changing punctuation fails.",
+  "core_rubric": "Gives the sentence with committee, received, and agreed corrected and nothing else changed.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The committee received the report on time, and the members agreed.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0383",
+  "question": "A bag holds 4 green marbles and 6 yellow marbles. I draw one marble at random, put it back, mix, and draw again. What is the probability that both draws are the same color?",
+  "reference": "13/25, or 52%: (4/10)² + (6/10)² = 0.16 + 0.36 = 0.52.",
+  "rubric": "Gives 13/25, 0.52, or 52%. The draws are with replacement; the without-replacement value 7/15 (about 46.7%) fails. If working is shown, it must be consistent with 0.16 + 0.36.",
+  "core_rubric": "Gives the probability as 13/25 (0.52 or 52%).",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the probability that both draws are the same color, we can calculate the probabilities of drawing two green marbles or two yellow marbles and then add them together.\n\n### Step 1: Determine the total number of marbles\nThere are 4 green marbles and 6 yellow marbles.\n$$ \\text{Total marbles} = 4 + 6 = 10 $$\n\nSince the marble is put back after the first draw (sampling with replacement), the total number of marbles remains 10 for the second draw. The probability of drawing a specific color on any single draw depends only on the count of that color.\n\n### Step 2: Calculate the probability of drawing two Green marbles ($P(GG)$)\nThe probability of drawing a green marble in one draw is:\n$$ P(G) = \\frac{4}{10} = \\frac{2}{5} $$\n\nSince the draws are independent:\n$$ P(GG) = P(G) \\times P(G) = \\left(\\frac{4}{10}\\right) \\times \\left(\\frac{4}{10}\\right) = \\frac{16}{100} $$\n\n### Step 3: Calculate the probability of drawing two Yellow marbles ($P(YY)$)\nThe probability of drawing a yellow marble in one draw is:\n$$ P(Y) = \\frac{6}{10} = \\frac{3}{5} $$\n\nSince the draws are independent:\n$$ P(YY) = P(Y) \\times P(Y) = \\left(\\frac{6}{10}\\right) \\times \\left(\\frac{6}{10}\\right) = \\frac{36}{100} $$\n\n### Step 4: Calculate the total probability of matching colors\nThe event \"both draws are the same color\" consists of two mutually exclusive scenarios: both green or both yellow. We sum their probabilities:\n$$ P(\\text{Same Color}) = P(GG) + P(YY) $$\n$$ P(\\text{Same Color}) = \\frac{16}{100} + \\frac{36}{100} = \\frac{52}{100} $$\n\n### Step 5: Simplify the fraction\nDivide the numerator and denominator by their greatest common divisor, which is 4:\n$$ \\frac{52}{100} = \\frac{13}{25} $$\n\n(Alternatively, as a decimal: $0.52$)\n\n### Conclusion\nThe probability that both draws are the same color is **$\\frac{13}{25}$** (or **0.52**).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0392",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes.",
+  "reference": "1 hour 15 minutes: 50 × 27 = 1,350 pages, and 1,350 / 18 = 75 minutes.",
+  "rubric": "Gives 1 hour 15 minutes. Also stating 75 minutes is fine, but 75 minutes alone does not give the requested hours-and-minutes form and fails. If working is shown, it must be consistent with 1,350 pages and 75 minutes.",
+  "core_rubric": "Gives 1 hour 15 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To print 50 copies of a 27-page document at 18 pages per minute:\n\nTotal pages = 50 * 27 = 1350 pages.\n\nTime in minutes = 1350 / 18 = 75 minutes.\n\n75 minutes is **1 hour and 15 minutes**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0401",
+  "question": "In a Unix shell, in the current directory, create a symbolic link named current that points to the relative path releases/v2, which is an existing directory. current does not exist yet. Do not copy, move, or change releases/v2.",
+  "reference": "ln -s releases/v2 current",
+  "rubric": "Uses ln -s releases/v2 current: the target comes first and the link name second. ln -s ./releases/v2 current is acceptable. Reversing the arguments (which makes a link inside releases/v2), omitting -s (a hard link, which fails for a directory), or copying the directory fails.",
+  "core_rubric": "Creates a symbolic link named current whose relative target is releases/v2, with the argument order target then link name.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "ln -s releases/v2 current",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0410",
+  "question": "Gym A costs $40 per month with no joining fee. Gym B costs $30 per month plus a one-time $90 joining fee. I will be a member for exactly 8 months. Which gym is cheaper over those 8 months, and by how much?",
+  "reference": "Gym A, by $10: Gym A costs $320 and Gym B costs $240 + $90 = $330.",
+  "rubric": "Gives Gym A as cheaper by $10, with totals of $320 and $330 if totals are shown. Choosing Gym B, or ignoring the joining fee, fails. Noting that the two gyms cost the same at 9 months is optional and must be correct if given.",
+  "core_rubric": "Gives Gym A as cheaper by $10.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Gym A is cheaper by $10.\n\n**Calculation:**\n*   **Gym A:** $40/month × 8 months = $320\n*   **Gym B:** ($30/month × 8 months) + $90 joining fee = $240 + $90 = $330\n*   **Difference:** $330 - $320 = $10",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0419",
+  "question": "A runner keeps a steady pace of 5 minutes 30 seconds per kilometer for a 10-kilometer race that starts at 08:47:30. At what clock time does the runner finish? Give hours, minutes, and seconds.",
+  "reference": "09:42:30. The race takes 10 × 5 min 30 s = 55 minutes.",
+  "rubric": "Gives 09:42:30 (9:42:30 a.m.). The race time is 55 minutes; 09:37:30 or 09:47:30 fails. If working is shown, it must be consistent with 55 minutes.",
+  "core_rubric": "Gives a finish time of 09:42:30.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is the step-by-step calculation:\n\n### Step 1: Convert the pace to seconds\nThe runner's pace is $5$ minutes and $30$ seconds per kilometer.\n$$5 \\text{ minutes} = 5 \\times 60 = 300 \\text{ seconds}$$\n$$300 \\text{ seconds} + 30 \\text{ seconds} = 330 \\text{ seconds/km}$$\n\n### Step 2: Calculate total time for the race\nThe race distance is $10$ kilometers.\n$$\\text{Total Time} = 330 \\text{ seconds/km} \\times 10 \\text{ km} = 3300 \\text{ seconds}$$\n\n### Step 3: Convert total time back to hours, minutes, and seconds\nFirst, convert seconds to minutes:\n$$3300 \\div 60 = 55 \\text{ minutes (exactly)}$$\nThere are $0$ remaining seconds.\nSo, the total time elapsed is **55 minutes**.\n\n### Step 4: Add the elapsed time to the start time\nStart Time: $08:47:30$\nElapsed Time: $00:55:00$\n\nAdd the minutes:\n$$47 \\text{ minutes} + 55 \\text{ minutes} = 102 \\text{ minutes}$$\n\nConvert the excess minutes into hours:\n$$102 \\text{ minutes} = 1 \\text{ hour} + 42 \\text{ minutes}$$\n\nAdd this to the starting hour ($08:00$):\n$$8 + 1 = 9 \\text{ hours}$$\n\nThe seconds remain unchanged at $30$.\n\n**Final Calculation:**\n*   Hours: $08 + 1 = 9$\n*   Minutes: $47 + 55 - 60 = 42$\n*   Seconds: $30$\n\n### Final Answer\nThe runner finishes at **09:42:30**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0428",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?",
+  "reference": "A solar year is about 365.2422 days, so adding a day every 4 years keeps the calendar in step with the seasons. That rule, which averages 365.25 days, slightly overcorrects, so century years are skipped unless they are divisible by 400, giving an average of 365.2425 days.",
+  "rubric": "Explains that Earth's orbit, the tropical year, takes about 365.24 days, so leap days keep the calendar aligned with the seasons; and that a leap day every 4 years overcorrects slightly, so century years are leap years only when divisible by 400. Stating the year as exactly 365.25 days, or saying century years are never leap years, fails.",
+  "core_rubric": "Explains leap days as correcting for a year of about 365.24 days, and that skipping most century years (except those divisible by 400) fixes the slight overcorrection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The rules for adding a leap day to the Gregorian calendar are designed to keep our calendar year synchronized with the **astronomical year** (the time it takes Earth to orbit the Sun).\n\n### 1. Why do we add a leap day?\nThe fundamental reason is that Earth's orbit around the Sun does not take exactly 365 days. The precise length of a tropical year (one solar cycle) is approximately **365.2422 days**.\n\nIf we simply used a 365-day calendar every year, we would be short by about **0.2422 days** each year. Over the course of four years, this accumulates to roughly:\n$$0.2422 \\times 4 \\approx 0.9688 \\text{ days}$$\n\nThis is almost one full day. To compensate for this drift and prevent seasons from shifting over centuries (e.g., summer eventually occurring in December), we add an extra day—February 29th—to these specific years. This creates a 366-day year, bringing the average length of the calendar year closer to the actual solar year.\n\n### 2. Why aren't all multiples of 4 leap years?\nIf we added a leap day to *every* year divisible by 4, the average length of the calendar year would become:\n$$\\frac{365 + 366}{2} = 365.5 \\text{ days}$$\n\nHowever, the actual solar year is only **365.2422 days**. By averaging 365.5 days, we would actually be adding too many days (about 0.27 days too many per year). Over 400 years, this error would accumulate to nearly 11 days.\n\nTo correct this slight over-compensation, the Gregorian calendar introduced a \"filter\" for years divisible by 100.\n\n### 3. Why are most years divisible by 100 NOT leap years?\nYears that are divisible by 100 are treated as **common years** (non-leap years) because they contain 365 days instead of 366.\n\nHere is the logic behind the exception:\n1.  We add a leap day every 4 years ($+1$ day every 4 years $\\approx +0.25$ days/year).\n2.  But since $0.25 > 0.2422$, we must subtract a tiny bit more.\n3.  Every 100 years, if we followed the \"divisible by 4\" rule blindly, we would have added 25 leap days.\n    $$100 \\div 4 = 25 \\text{ leap years}$$\n4.  However, in those 100 years, there should only be 24 leap days to match the solar drift more closely. Therefore, we skip the leap day for the century year itself.\n\nBy skipping the leap day for years divisible by 100, we reduce the average length of the 400-year cycle. Let's look at the math for a full **400-year cycle**:\n*   Total years: 400\n*   Years divisible by 4: 100\n*   Minus years divisible by 100 (which are also divisible by 4): 3 (i.e., 100, 200, 300)\n*   Plus the special case of year 400 (which *is* a leap year): +1\n\nTotal leap days in 400 years = $100 - 3 + 1 = 98$.\nAverage year length = $\\frac{(400 \\times 365) + 98}{400} = 365.2425 \\text{ days}$.\n\nThis value (**365.2425**) is incredibly close to the astronomical year (**365.2422**), differing by only about 26 seconds per year. This small discrepancy means it will take roughly 3,300 years for the calendar to drift by just one day.\n\n### Summary Conclusion\nWe add a leap day to approximate the 365.2422-day solar year. We exclude years divisible by 100 (except for the year 400) to prevent the calendar from gaining too many days over time. This results in a 400-year cycle containing exactly **98 leap years**, providing a highly accurate approximation of Earth's orbital period.",
+  "at_token_cap": false
+ }
+]

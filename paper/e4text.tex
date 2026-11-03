@@ -1,0 +1,18 @@
+\paragraph{Results (Table~\ref{tab:e4}, Figure~\ref{fig:e4}).}
+\begin{itemize}
+\item \textbf{Lazy Genius, always on,} reproduced its published profile: \LazyWords\% fewer words, core accuracy unchanged (\LazyCore{} pts, CI \LazyCoreCI), and more fully correct answers (\LazyWhole{} pts).
+\item \textbf{Claude routing} kept accuracy, \RoutedCore{} pts core (CI \RoutedCoreCI) and \RoutedWhole{} pts whole, with \RoutedWords\% fewer words. It chose \texttt{lazy} for every shell and Git question but for only \PlanRoutedChosen{} of 24 planning cells.
+\item \textbf{The hindsight oracle} shows the headroom of a perfect lazy/normal switch: \OracleCore{} pts core and \OracleWhole{} pts whole at \OracleWords\% fewer words.
+\item \textbf{Qwen deciding for itself} failed pre-registered H4b and H4c. It produced the shortest edited answers (\SelfWords\% fewer words, so H4a passed), but lost \SelfCoreAbs{} points of core accuracy (CI \SelfCoreCI). It chose \texttt{lazy} in \SelfChosen{} of \Cells{} cells, including \PlanSelfChosen{} of 24 planning cells, although the mode description warned against planning. Arithmetic and time questions fell from \ArithBase{} to \ArithSelf{} of 48 correct. The typical failure was an answer stated first with no working, and the answer was wrong: ``The total discount is 27\%'' instead of 37\%, or ``March 30'' instead of March 31.
+\item \textbf{The ``be concise'' prompt} was worst: \PromptWords\% fewer words and \PromptCore{} pts core (CI \PromptCoreCI).
+\end{itemize}
+
+\paragraph{Why self-selection fails: a placebo control (exploratory).} The \texttt{self} condition differs from \texttt{baseline} in two ways: a tool-use context (system prompt, tool call, tool response) and the edit. The placebo condition keeps the first and removes the second. Qwen sees the same tools and prompt, makes the same calls (it chose \texttt{lazy} in the same \PlaceboChosen{} cells, since the context is identical up to that point), and gets the same tool response, but no edit is armed. The tool-use context alone cut \PlaceboWords\% of words at a small, non-significant accuracy cost (\PlaceboCore{} pts, CI \PlaceboCoreCI). Adding the edit on top cost a further \SelfMinusPlacebo{} points of core accuracy, \texttt{self} vs.\ placebo paired per question (CI \SelfMinusPlaceboCI). In the \ChosenN{} cells where Qwen chose \texttt{lazy}:
+\begin{itemize}
+\item \textbf{placebo:} answers averaged \ChosenPlaceboWords{} words, with \ChosenPlaceboCore{} correct;
+\item \textbf{with the edit:} \ChosenSelfWords{} words and \ChosenSelfCore{} correct;
+\item \textbf{the same edit without the tool context} (the \texttt{lazy} condition): 110 words and 102 correct, against 104 for normal Qwen.
+\end{itemize}
+The edit and the context compound. Lazy Genius was calibrated on a bare chat prompt, and after a tool call that already pushes toward brevity, the same edit pushes past the point where the model still shows its working. Self-steering needs edits calibrated in the context where they are switched on, or a decider that sits outside that context.
+
+\paragraph{Grader consistency.} Of the \DupN{} cells where \texttt{self} and placebo produced byte-identical answers, graded in separate blind batches, the grades disagreed on \DupMismatch.

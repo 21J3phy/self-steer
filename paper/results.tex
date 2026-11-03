@@ -45,6 +45,7 @@ Snapshot the cache (2048 tokens) & \SnapshotMs\,ms\\\bottomrule
 \paragraph{Grading.} The \texttt{self} and \texttt{prompt} answers were shuffled with \CalN{} previously graded answers as calibration. Nine blind Claude Opus 5.5 graders then each graded 48 answers, with Lazy Genius's per-item rubrics and grading guide. On the calibration items the new graders matched the original grades on \CalCore/\CalN{} core and \CalWhole/\CalN{} whole-answer judgments.
 
 \begin{table}[t]\centering\small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrrr}\toprule
 Condition & Words & Fewer words & Core & $\Delta$ core (pts, 95\% CI) & $\Delta$ whole (pts, 95\% CI) & Chose lazy\\\midrule
 Normal Qwen & \BaseWordsMean & -- & \BaseCoreN/\Cells & -- & -- & --\\
@@ -54,7 +55,7 @@ Qwen decides (\texttt{self}) & \SelfWordsMean & \SelfWords\% & \SelfCoreN/\Cells
 ``Be concise'' prompt & \PromptWordsMean & \PromptWords\% & \PromptCoreN/\Cells & \PromptCore{} \PromptCoreCI & \PromptWhole{} \PromptWholeCI & --\\
 Claude routes (\texttt{routed}) & \RoutedWordsMean & \RoutedWords\% & \RoutedCoreN/\Cells & \RoutedCore{} \RoutedCoreCI & \RoutedWhole{} \RoutedWholeCI & \RoutedChosen\\
 Hindsight oracle & \OracleWordsMean & \OracleWords\% & \OracleCoreN/\Cells & \OracleCore{} \OracleCoreCI & \OracleWhole{} \OracleWholeCI & \OracleChosen\\\bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{E4 on 96 sealed questions $\times$ 2 seeds. ``Words'' is the mean words per answer, and ``fewer words'' is the total-word reduction vs.\ normal Qwen. $\Delta$ columns are paired bootstrap estimates over questions. $^\dagger$Exploratory, not pre-registered. Its ``chose lazy'' count is how often Qwen called \texttt{set\_mode(lazy)}, which did nothing.}
 \label{tab:e4}
 \end{table}

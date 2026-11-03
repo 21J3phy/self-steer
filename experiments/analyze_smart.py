@@ -13,7 +13,7 @@ import numpy as np
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--old', type=Path, required=True)
-ap.add_argument('--new', type=Path, required=True)
+ap.add_argument('--new', type=Path, nargs='+', required=True)
 ap.add_argument('--routed', type=Path, required=True)
 ap.add_argument('--questions', type=Path, required=True)
 ap.add_argument('--seeds', type=int, nargs='+', default=[17, 29])
@@ -37,9 +37,14 @@ def put(cond, row, extra=None):
 
 for r in json.loads(a.old.read_text()):
     put({'baseline': 'baseline', 'selected': 'lazy'}[r['condition']], r)
-for r in json.loads(a.new.read_text()):
+new_scored = [r for path in a.new for r in json.loads(path.read_text())]
+cal = [r for r in new_scored if r['source'] == 'calibration']
+calibration = {'n': len(cal), 'core_correct': sum(r['core_correct'] == r['old_core'] for r in cal),
+               'correct': sum(r['correct'] == r['old_whole'] for r in cal)}
+for r in new_scored:
     if r['source'] == 'new':
-        put(r['condition'], r, {'lazy_chosen': 'lazy' in (r.get('modes_used') or [])})
+        chosen = r.get('called_lazy') if r['condition'] == 'placebo' else 'lazy' in (r.get('modes_used') or [])
+        put(r['condition'], r, {'lazy_chosen': bool(chosen)})
 routed = json.loads(a.routed.read_text())['decisions']
 for q in qids:
     for s in a.seeds:
@@ -49,6 +54,8 @@ for q in qids:
         pick = l if (l['core'], l['whole']) >= (b['core'], b['whole']) else b
         cells[('oracle', q, s)] = dict(pick, lazy_chosen=pick is l)
 conditions = ['baseline', 'lazy', 'self', 'prompt', 'routed', 'oracle']
+if any(k[0] == 'placebo' for k in cells):
+    conditions.insert(3, 'placebo')
 for c in conditions:
     missing = [(q, s) for q in qids for s in a.seeds if (c, q, s) not in cells]
     if missing:
@@ -85,7 +92,7 @@ def summarize(cond, subset=None):
 
 
 cats = sorted({q['category'] for q in questions.values()})
-report = {'seeds': a.seeds, 'questions': len(qids), 'conditions': {}, 'by_category': {}}
+report = {'seeds': a.seeds, 'questions': len(qids), 'conditions': {}, 'by_category': {}, 'calibration': calibration}
 for c in conditions:
     report['conditions'][c] = summarize(c)
 for cat in cats:

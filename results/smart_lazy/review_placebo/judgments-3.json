@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0003",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One sentence with 15:00 Friday closing, staff training, Saturday normal hours, anytime drop box; nothing added."
+ },
+ {
+  "id": "S0007",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer 09:05 train, arrive 09:38 is correct; working contains false statements (':05 arrives too late', 'no train leaves before 9:17') before self-correction."
+ },
+ {
+  "id": "S0011",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Mutates counts in place (counts[word] = ...) and returns the same dict; counts must be left unchanged."
+ },
+ {
+  "id": "S0015",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Correct short-term vs long-term (30-year) definitions; classifies statement as weather."
+ },
+ {
+  "id": "S0019",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; explains 'only' excludes everyone besides Alex."
+ },
+ {
+  "id": "S0023",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git config user.email \"dev@example.com\" writes to local repo config."
+ },
+ {
+  "id": "S0027",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Higher pressure raises boiling point to ~121 C at ~15 psig; cooking at higher temperature; details accurate."
+ },
+ {
+  "id": "S0031",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -c 'ERROR' app.log counts matching lines, prints 0 when none."
+ },
+ {
+  "id": "S0035",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; selection bias, gym-goers would overestimate; suggests random sample."
+ },
+ {
+  "id": "S0039",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Builds a new list, stable sort on lowercased key, returns original strings; names unchanged; empty gives []. Example output correct."
+ },
+ {
+  "id": "S0043",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers 'Yes' although its own correct areas (32pi vs 36pi) show the answer is no."
+ },
+ {
+  "id": "S0047",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Returns first element not equal to max, not the second largest (e.g. [1,3,5] gives 1)."
+ },
+ {
+  "id": "S0051",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Interest 216, total $2,616; working consistent."
+ },
+ {
+  "id": "S0055",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'Make sure to lock the back door.' avoids banned words and keeps meaning."
+ },
+ {
+  "id": "S0059",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s == s[::-1], exact comparison; example outputs correct."
+ },
+ {
+  "id": "S0063",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Corrects exactly committee, received, agreed; rest unchanged."
+ },
+ {
+  "id": "S0067",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final 09:05 train and 09:38 arrival correct; working lists a nonexistent 9:25 train as an option (schedule is :05/:20/:35/:50)."
+ },
+ {
+  "id": "S0071",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "'We will use the new room when the meeting starts.' (surrounding quotes only)."
+ },
+ {
+  "id": "S0075",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Refraction at water-air boundary, bends away from normal, brain traces straight line, virtual image appears higher; accurate."
+ },
+ {
+  "id": "S0079",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Six 1-hour evenings; chapters 3-6 each get a dedicated evening; chapters 1-2 only a light review on evening 6."
+ },
+ {
+  "id": "S0083",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Guards empty list with None; true division gives 0.0 for zero mean."
+ },
+ {
+  "id": "S0087",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with bold wrong figure EUR 229.60, then computes and explicitly settles on EUR 225.40 (says 229.60 was wrong); final answer correct but false headline. Self-correction judged not to leave the deliverable ambiguous."
+ },
+ {
+  "id": "S0091",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Explains leap day for ~365.24-day year (gives ~365.2425, an approximation), every-4 overcorrects, century rule with 400 exception; examples correct."
+ },
+ {
+  "id": "S0095",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Uses 'flag is True'; excludes 1, 1.0, 'yes'; example output 2 correct."
+ },
+ {
+  "id": "S0099",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 3, but the position breakdown is garbled: first line highlights the final 'y' as part of an occurrence and second line marks three r's as '2nd and 3rd'."
+ },
+ {
+  "id": "S0103",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -c \"ERROR\" app.log."
+ },
+ {
+  "id": "S0107",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with bold wrong answer 7.5 degrees, then computes and explicitly concludes 75 degrees; final correct but false headline statement."
+ },
+ {
+  "id": "S0111",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Says both land at the same time; a = mg/m = g, mass cancels; correct."
+ },
+ {
+  "id": "S0115",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Overwrites scores.csv via mv and prints nothing; question requires printing and leaving the file unchanged."
+ },
+ {
+  "id": "S0119",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3/8 of 2000 mL = 750 mL."
+ },
+ {
+  "id": "S0123",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "555-0199, security."
+ },
+ {
+  "id": "S0127",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "chmod u+x deploy.sh."
+ },
+ {
+  "id": "S0131",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline states 'Total Days: 60 days' but working and labeled Final Answer give 59 days and 8 weeks 3 days; final is correct, the unretracted 60 is a false statement (some ambiguity, resolved by the explicit Final Answer)."
+ },
+ {
+  "id": "S0135",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "grep -v '^#' app.conf keeps empty and indented lines."
+ },
+ {
+  "id": "S0139",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "wc -w essay.txt | cut -d' ' -f1 prints an empty line on BSD/macOS wc (leading padding); verified in temp fixture. Only works on GNU wc."
+ },
+ {
+  "id": "S0143",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Correct guarded mean; example outputs 2.0, None, 0.0 correct."
+ },
+ {
+  "id": "S0147",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3600 MB x 8 = 28,800 Mb / 40 = 720 s = 12 minutes."
+ },
+ {
+  "id": "S0151",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "3 worker-hours per shelf, 18/6 = 3 hours; scaling argument also correct."
+ },
+ {
+  "id": "S0155",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Says no to ocean reflection; Rayleigh scattering of short wavelengths by N2/O2; violet note acceptable."
+ },
+ {
+  "id": "S0159",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with bold wrong answer 09:42, then calculates and concludes 11:00; final correct but false headline."
+ },
+ {
+  "id": "S0163",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Ravi, Mei, Tom, Ines."
+ },
+ {
+  "id": "S0167",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Refraction due to speed change, brain traces rays back, virtual image appears higher/shifted; accurate."
+ },
+ {
+  "id": "S0171",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Has name/date labels but no scheduled clean-out on a known day and no rule removing unlabeled food; relies on owner 48h duty and ad hoc removal by anyone after 7 days (inconsistent limits)."
+ },
+ {
+  "id": "S0175",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git commit --amend -m \"Fix typo in README\" without -a."
+ },
+ {
+  "id": "S0179",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 08:15 is between 07:00 and 09:30 so not off-peak; Tuesday noted valid."
+ },
+ {
+  "id": "S0183",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens with 'Gym B is cheaper' (false), then totals $320 vs $330 and corrects to Gym A cheaper by $10; final correct but contradictory headline."
+ },
+ {
+  "id": "S0187",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Did the package arrive on Monday?"
+ },
+ {
+  "id": "S0191",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git ls-files --others --exclude-standard."
+ }
+]

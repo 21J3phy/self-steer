@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0007",
+  "question": "A form says, 'Applications must be received by 17:00 on March 3.' I mailed my application on March 2, and it was delivered on March 4. Under this wording, did my application meet the deadline? Explain.",
+  "reference": "No. The deadline is about when the application is received, not when it is sent, and it was received on March 4, after the deadline.",
+  "rubric": "Answers no and explains that the rule depends on the receipt date, March 4, which is after March 3. Treating the mailing date as what counts, or answering yes, fails.",
+  "core_rubric": "Answers no because the application was received on March 4, after the March 3 receipt deadline.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, it did not meet the deadline. The form requires receipt by March 3 at 17:00. Since it arrived on March 4, it was late.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0016",
+  "question": "Starting at 09:00, with enough helpers to work on several tasks at once, I need to: clear the yard (1 hour); build a shed base (3 hours, which can start only after the yard is cleared); assemble the shed walls in the garage (2 hours, with no prerequisite); and mount the walls on the base (1 hour, which can start only after both the base and the walls are done). What is the earliest time everything can be finished?",
+  "reference": "14:00. Clear the yard 09:00–10:00 and build the base 10:00–13:00, while the walls are assembled 09:00–11:00; then mount the walls 13:00–14:00.",
+  "rubric": "Gives 14:00. Doing the tasks one after another (16:00) fails because the walls can be assembled at the same time as the other work. If a schedule is shown, it must respect every prerequisite and be consistent with mounting from 13:00 to 14:00.",
+  "core_rubric": "Gives an earliest finish time of 14:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the earliest completion time, let's break down the tasks and their dependencies:\n\n1.  **Clear the yard**: 1 hour (Starts at 09:00).\n    *   Ends at **10:00**.\n2.  **Assemble the shed walls in the garage**: 2 hours (No prerequisites).\n    *   Starts at 09:00.\n    *   Ends at **11:00**.\n3.  **Build the shed base**: 3 hours (Can start only after the yard is cleared).\n    *   Can start at 10:00 (when yard clearing finishes).\n    *   Ends at **13:00** (10:00 + 3 hours).\n4.  **Mount the walls on the base**: 1 hour (Can start only after both the base and walls are done).\n    *   Base finishes at 13:00.\n    *   Walls finish at 11:00.\n    *   The latest of these is 13:00.\n    *   Therefore, this task can start at 13:00.\n    *   Ends at **14:00** (13:00 + 1 hour).\n\nThe earliest time everything can be finished is **14:00**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0025",
+  "question": "I have an interview at 10:00 and want to arrive at least 10 minutes early. The train ride takes 25 minutes, and the walk from the station to the interview takes 8 minutes. Trains leave my station at :05, :20, :35, and :50 past each hour and run exactly on time. What is the latest train I can take, and when will I arrive at the interview?",
+  "reference": "The 09:05 train. It arrives at 09:30, and I reach the interview at 09:38, 22 minutes early. The 09:20 train would get me there at 09:53, less than 10 minutes early.",
+  "rubric": "Gives the 09:05 train and an arrival at the interview at 09:38. The 09:20 train fails because it arrives at 09:53. If working is shown, it must be consistent with a latest departure of 09:17.",
+  "core_rubric": "Gives the 09:05 train and an interview arrival of 09:38.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To arrive at least 10 minutes early for the 10:00 interview, you need to be there by **9:50**.\n\nLet's work backward from your arrival time:\n*   **Arrival Time:** 9:50\n*   **Walk to Interview (8 mins):** You must leave the station by 9:42.\n*   **Train Ride (25 mins):** The train must leave no later than 9:17.\n\nNow, let's look at the available train schedules (:05, :20, :35, :50):\n*   Train at :05 arrives too late.\n*   Train at :20 arrives too late.\n*   Train at :35 leaves at 9:35. This is after your deadline of 9:17.\n*   Train at :50 leaves at 9:50. This is way too late.\n\nWait, let me re-evaluate the math. I made a mistake in the backward calculation. Let's try again carefully.\n\n**Goal:** Arrive by 9:50.\n**Last possible departure from station:** $9:50 - 8 \\text{ (walk)} = 9:42$.\n**Last possible train departure:** $9:42 - 25 \\text{ (ride)} = 9:17$.\n\nLooking at the schedule again:\n*   **9:05**: Leaves at 9:05. Arrives at 9:30. Walk takes 8 mins. Total arrival: **9:38**. (This works).\n*   **9:20**: Leaves at 9:20. Arrives at 9:45. Walk takes 8 mins. Total arrival: **9:53**. (Too late).\n\nIt seems there is no train that leaves before 9:17 among the options (:05, :20, :35, :50). The only option that gets you there on time is the one leaving at 9:05.\n\nLet's double check if \"latest\" implies finding the specific train number or just the time. Since the next train is at 9:20 and you would arrive at 9:53 (which is 3 minutes late), you cannot take the 9:20 train.\n\nTherefore, the latest train you can take is the one leaving at **9:05**.\n\n**Calculation for the 9:05 train:**\n1.  Leave station: 9:05\n2.  Train ride: +25 minutes $\\rightarrow$ 9:30\n3.  Walk to interview: +8 minutes $\\rightarrow$ **9:38**\n\nYou will arrive at the interview at **9:38**, which is 22 minutes early.\n\n**Answer:**\nThe latest train you can take is the one leaving at **9:05**. You will arrive at the interview at **9:38**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0034",
+  "question": "In Python, return a new list containing the strings in names sorted alphabetically without regard to case, so 'apple' comes before 'Banana'. Strings that differ only in case must keep their original relative order. names contains only ASCII letters, may be empty, and must be left unchanged.",
+  "reference": "sorted(names, key=str.lower)",
+  "rubric": "Returns a new list of the original, unmodified strings sorted case-insensitively; Python's stable sort keeps the original order of strings that differ only in case, so ['b', 'B', 'a'] gives ['a', 'b', 'B']. Keys such as str.lower, str.casefold, str.upper, or a lambda that lowercases are all acceptable. sorted(names) without a key, returning lowercased copies of the strings, reverse order, or sorting names in place with names.sort() fails. An empty list gives [].",
+  "core_rubric": "Returns a new case-insensitively sorted list of the original strings, keeping the input order for case-only ties; names is unchanged and [] gives [].",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "sorted(names, key=lambda x: (x.lower(), names.index(x)))",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0043",
+  "question": "A drink is mixed in the ratio 3 parts concentrate to 5 parts water, by volume. How many milliliters of concentrate are needed to make 2 liters of the drink in total?",
+  "reference": "750 milliliters: concentrate is 3/8 of the total, and 3/8 × 2,000 mL = 750 mL.",
+  "rubric": "Gives 750 mL (0.75 liters is equivalent). 1,200 mL (using 3/5) fails. Stating that 1,250 mL of water is needed is optional but must be correct if given.",
+  "core_rubric": "Gives 750 milliliters of concentrate.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To make 2 liters (2000 ml) of the drink, you need **750 ml** of concentrate.\n\nHere's why: The ratio is 3 parts concentrate to 5 parts water, meaning the total mixture is 8 parts. Each part is $2000 \\div 8 = 250$ ml. Therefore, the concentrate amount is $3 \\times 250 = 750$ ml.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0052",
+  "question": "In a Git repository with no uncommitted changes, create a new branch named feature/login that starts at the current commit and switch to it. Do not make a commit. Give the command.",
+  "reference": "git switch -c feature/login",
+  "rubric": "Uses git switch -c feature/login or git checkout -b feature/login. git branch feature/login alone fails because it does not switch to the new branch, and git switch feature/login without -c fails because the branch does not exist. Running git branch feature/login followed by git switch feature/login is also correct.",
+  "core_rubric": "Creates feature/login at the current commit and leaves HEAD on that branch, without making a commit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To create a new branch named `feature/login` starting from the current commit and switch to it without making any changes or commits, use the following command:\n\n```bash\ngit checkout -b feature/login\n```\n\nAlternatively, if you are using Git 2.23 or newer (which includes native support for `-c` in `checkout`), you can also use:\n\n```bash\ngit checkout -b feature/login\n```\n\nBoth commands achieve the same result: they create the branch at the current HEAD position and immediately switch your working directory to that new branch. Since there are no uncommitted changes, no additional cleanup is required before switching.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0061",
+  "question": "How many different colors are mentioned in this sentence, and what are they? 'A red car passed a blue van, then another red car stopped next to a green truck.'",
+  "reference": "Three: red, blue, and green.",
+  "rubric": "Gives 3 and names red, blue, and green. 4 (counting red twice) fails, and so does adding any color not in the sentence.",
+  "core_rubric": "Gives three colors: red, blue, and green.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "There are **4** colors mentioned: red, blue, red (again), and green. The unique colors are **red**, **blue**, and **green**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0070",
+  "question": "I exchange $250. The exchange service first deducts a 2% fee from the dollars, then converts the rest at 1 US dollar = 0.92 euros. How many euros do I receive?",
+  "reference": "€225.40: $250 − 2% = $245, and $245 × 0.92 = €225.40.",
+  "rubric": "Gives €225.40 (225.4 euros is equivalent). Applies the fee before conversion as stated; ignoring the fee (€230) or subtracting $2 instead of 2% fails. If working is shown, it must be consistent with $245.",
+  "core_rubric": "Gives €225.40.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "234",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0079",
+  "question": "In Python, given a nonnegative integer n, return the sum of its decimal digits as an integer. For example, 507 gives 12. For n = 0 the result is 0.",
+  "reference": "sum(int(digit) for digit in str(n))",
+  "rubric": "Returns the integer sum of the decimal digits of n: 0 gives 0, 9 gives 9, 507 gives 12, and 10**30 gives 1. Arithmetic digit extraction with % 10 and // 10 is acceptable if it returns 0 for n = 0. n % 9 (a digital-root shortcut) or returning the number of digits fails. Equivalent correct code, such as sum(map(int, str(n))), is acceptable.",
+  "core_rubric": "Returns the sum of n's decimal digits as an integer, including 0 for n = 0.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef sum_of_digits(n: int) -> int:\n    return sum(int(digit) for digit in str(n))\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0088",
+  "question": "A jacket is marked 30% off its original price, and then a coupon takes a further 10% off the already reduced price. What is the total discount, as a percentage of the original price?",
+  "reference": "37%: the final price is 0.7 × 0.9 = 0.63 of the original, so the discount is 37%.",
+  "rubric": "Gives 37%. Simply adding the two discounts to get 40% fails. If working is shown, it must be consistent with 0.7 × 0.9 = 0.63.",
+  "core_rubric": "Gives a total discount of 37% of the original price.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The total discount is 27%.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0097",
+  "question": "In Python, return the second-largest distinct value in the list of integers nums, meaning the largest value that is strictly smaller than the maximum. Return None if nums has fewer than two distinct values, including when it is empty. Leave nums unchanged.",
+  "reference": "sorted(set(nums))[-2] if len(set(nums)) > 1 else None",
+  "rubric": "Returns the largest value strictly below the maximum: [3, 5, 5] gives 3, [-1, -5, -1] gives -5, and [], [7], and [5, 5] give None. sorted(nums)[-2] fails because duplicates of the maximum return the maximum itself. Sorting nums in place fails. Equivalent correct code is acceptable.",
+  "core_rubric": "Returns the largest value strictly smaller than the maximum, or None when there are fewer than two distinct values; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef second_largest(nums):\n    if len(set(nums)) < 2:\n        return None\n    \n    max_val = float('-inf')\n    second_max = float('-inf')\n    \n    for x in nums:\n        if x > max_val:\n            second_max = max_val\n            max_val = x\n        elif max_val > x > second_max:\n            second_max = x\n    \n    return second_max\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0106",
+  "question": "A runner keeps a steady pace of 5 minutes 30 seconds per kilometer for a 10-kilometer race that starts at 08:47:30. At what clock time does the runner finish? Give hours, minutes, and seconds.",
+  "reference": "09:42:30. The race takes 10 × 5 min 30 s = 55 minutes.",
+  "rubric": "Gives 09:42:30 (9:42:30 a.m.). The race time is 55 minutes; 09:37:30 or 09:47:30 fails. If working is shown, it must be consistent with 55 minutes.",
+  "core_rubric": "Gives a finish time of 09:42:30.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The runner finishes at 09:54:30.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0115",
+  "question": "Gym A costs $40 per month with no joining fee. Gym B costs $30 per month plus a one-time $90 joining fee. I will be a member for exactly 8 months. Which gym is cheaper over those 8 months, and by how much?",
+  "reference": "Gym A, by $10: Gym A costs $320 and Gym B costs $240 + $90 = $330.",
+  "rubric": "Gives Gym A as cheaper by $10, with totals of $320 and $330 if totals are shown. Choosing Gym B, or ignoring the joining fee, fails. Noting that the two gyms cost the same at 9 months is optional and must be correct if given.",
+  "core_rubric": "Gives Gym A as cheaper by $10.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Gym B is cheaper by $10.\n\n*   **Gym A:** $40 x 8 = $320\n*   **Gym B:** ($90 + $30 x 7) = $300",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0124",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To add execute permission only for the owner of `deploy.sh` while preserving all other permissions, you should use the `chmod` command with the **user-only** operator (`u`).\n\nThe specific syntax is:\n```bash\nchmod u+x deploy.sh\n```\n\n### Explanation:\n- **`u`**: Targets the file's **owner** (user).\n- **`+x`**: Adds the **execute** bit.\n- The command does not modify any bits related to the group (`g`) or others (`o`), nor does it alter the file's contents.\n\nIf you need to be absolutely certain that no other permissions change (e.g., in case of symbolic link quirks or specific shell behaviors), you can also combine this with a backup and restore strategy, but typically `chmod u+x` is the standard and safe solution for this requirement.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0133",
+  "question": "In Python, return True if the string s reads exactly the same forwards and backwards, and False otherwise. Compare characters exactly: uppercase and lowercase letters are different, and spaces and punctuation count as characters. The empty string counts as reading the same both ways.",
+  "reference": "s == s[::-1]",
+  "rubric": "Returns True exactly when s equals its reverse, compared character by character, so 'Aa' and 'ab a' give False and '' gives True. Lowercasing, removing spaces or punctuation, or otherwise normalizing s first fails. Equivalent correct code, such as comparing with ''.join(reversed(s)), is acceptable.",
+  "core_rubric": "Returns True exactly when s equals its exact character reverse, with no case or space normalization; '' gives True.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def is_palindrome(s):\n    return s == s[::-1]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0142",
+  "question": "A subscription renews every 30 days. Its first renewal is on January 30, 2027. On what date is its third renewal?",
+  "reference": "March 31, 2027. The second renewal is 30 days after January 30, on March 1, 2027 (February 2027 has 28 days), and the third is 30 days later, on March 31.",
+  "rubric": "Gives March 31, 2027. The second renewal is March 1, 2027; treating renewals as monthly on the 30th, or counting February 2027 as 29 or 30 days, fails. Counting the first renewal as the third, giving April 30, also fails.",
+  "core_rubric": "Gives March 31, 2027 as the third renewal date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "March 30, 2027.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0151",
+  "question": "Why does a straight spoon look bent where it enters a glass of water?",
+  "reference": "Light from the underwater part of the spoon bends, or refracts, as it passes from water into air, because light travels at different speeds in the two materials. Our eyes trace the light back in straight lines, so the underwater part appears shifted, making the spoon look bent at the surface.",
+  "rubric": "Explains that light refracts at the water–air boundary because its speed changes, and that our brain interprets the bent rays as coming from a shifted position. Attributing the effect to reflection, or saying the water actually bends the spoon, fails.",
+  "core_rubric": "Attributes the appearance to refraction of light at the water–air boundary, making the underwater part appear shifted.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Light bends (refracts) as it passes from water into air, changing the apparent position of the submerged part of the spoon.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0160",
+  "question": "In a Git repository, set the email address used for commits to dev@example.com for this repository only, without changing global or system Git settings. Give the command.",
+  "reference": "git config user.email dev@example.com",
+  "rubric": "Uses git config user.email dev@example.com, git config --local user.email dev@example.com, or a quoted equivalent; git config writes to the repository's own config by default. Using --global or --system fails. Setting user.name instead of user.email fails.",
+  "core_rubric": "Sets user.email to dev@example.com in the repository's local config, without --global or --system.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To set the email address only for the current repository without affecting your global or system settings, use the `git config` command with the `--local` flag. This ensures the setting is stored in the repository's `.git/config` file rather than your user configuration.\n\nRun the following command:\n\n```bash\ngit config --local user.email \"dev@example.com\"\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0169",
+  "question": "A tap drips once every 4 seconds without stopping, and 20 drops make 1 milliliter. How many liters does it drip in 30 days?",
+  "reference": "32.4 liters: 30 days is 2,592,000 seconds, giving 648,000 drops, which is 32,400 milliliters.",
+  "rubric": "Gives 32.4 liters. If working is shown, it must be consistent with 2,592,000 seconds, 648,000 drops, and 32,400 mL. Answers in milliliters alone, without liters, fail the requested unit.",
+  "core_rubric": "Gives 32.4 liters.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "6.48 liters",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0178",
+  "question": "Two trains start at 09:00 from stations 300 kilometers apart and travel toward each other on the same line, one at a constant 70 kilometers per hour and the other at a constant 80 kilometers per hour. At what time do they meet?",
+  "reference": "11:00. They close the gap at 70 + 80 = 150 km/h, so meeting takes 300 / 150 = 2 hours.",
+  "rubric": "Gives 11:00. If working is shown, it must be consistent with a closing speed of 150 km/h and 2 hours. Using the difference in speeds (10 km/h) fails.",
+  "core_rubric": "Gives a meeting time of 11:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The trains meet at 09:35.\n\nHere is the calculation:\n1.  **Combined Speed**: $70 + 80 = 150$ km/h.\n2.  **Time to Meet**: Distance / Combined Speed = $300 / 150 = 2$ hours.\n3.  **Meeting Time**: 09:00 + 2 hours = 11:00.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0187",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`chmod u+x deploy.sh`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0196",
+  "question": "Rewrite this text message as one polite, complete sentence with standard spelling and punctuation: 'hey cant make it 2day sry'. Keep the meaning, and do not add a reason.",
+  "reference": "Sorry, I can't make it today.",
+  "rubric": "One sentence with standard spelling and punctuation that apologizes and says the writer cannot make it today, for example 'Sorry, I can't make it today.' or 'Hi, I'm sorry, but I can't make it today.' A greeting is optional. Adding a reason, changing the day, or giving several sentences fails.",
+  "core_rubric": "One standard, polite sentence that apologizes and says the writer can't make it today, with no reason added.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "I apologize, but I am unable to attend today.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0205",
+  "question": "What is the difference between weather and climate? Is the statement 'It will rain this afternoon' about weather or climate?",
+  "reference": "Weather is the short-term state of the atmosphere at a particular place and time; climate is the long-term pattern of weather in a region, usually averaged over decades. 'It will rain this afternoon' is about weather.",
+  "rubric": "Defines weather as short-term atmospheric conditions and climate as long-term average patterns, often over about 30 years, and classifies the statement as weather. Calling it climate, or reversing the definitions, fails.",
+  "core_rubric": "Distinguishes short-term weather from long-term climate and classifies the statement as weather.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Weather refers to short-term atmospheric conditions (e.g., temperature, precipitation) at a specific time and place. Climate is the long-term average of these conditions over decades or centuries. The statement \"It will rain this afternoon\" is about **weather**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0214",
+  "question": "Summarize this notice in one sentence: 'The library will close at 15:00 on Friday for staff training. Normal hours resume on Saturday. Books can be returned in the outdoor drop box at any time.' Include the Friday closing time, the reason for closing, when normal hours resume, and the drop box. Do not add anything that is not in the notice.",
+  "reference": "The library closes at 15:00 on Friday for staff training and returns to normal hours on Saturday, and books can be returned to the outdoor drop box at any time.",
+  "rubric": "One sentence that includes all four required items: closing at 15:00 on Friday, staff training as the reason, normal hours resuming Saturday, and returns accepted in the outdoor drop box at any time. Adding details not in the notice, such as specific Saturday opening hours, fails. Two or more sentences, or omitting any required item, fails.",
+  "core_rubric": "One sentence containing the 15:00 Friday closing, the staff-training reason, Saturday's return to normal hours, and the anytime drop box, with no added details.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The library closes at 15:00 on Friday for staff training, resumes normal hours on Saturday, and accepts returns in the outdoor drop box at any time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0223",
+  "question": "I exchange $250. The exchange service first deducts a 2% fee from the dollars, then converts the rest at 1 US dollar = 0.92 euros. How many euros do I receive?",
+  "reference": "€225.40: $250 − 2% = $245, and $245 × 0.92 = €225.40.",
+  "rubric": "Gives €225.40 (225.4 euros is equivalent). Applies the fee before conversion as stated; ignoring the fee (€230) or subtracting $2 instead of 2% fails. If working is shown, it must be consistent with $245.",
+  "core_rubric": "Gives €225.40.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "234",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0232",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?",
+  "reference": "HTTPS encrypts the connection between the browser and the website and uses a certificate to verify that you are connected to the server for that domain, so data cannot easily be read or changed in transit. It does not guarantee that the site is honest; scam sites can use HTTPS too.",
+  "rubric": "States that HTTPS encrypts traffic in transit (with TLS) and authenticates the server's domain, protecting against eavesdropping and tampering. Answers no: HTTPS does not make the site's owner or content trustworthy. Claiming that HTTPS guarantees a safe or legitimate site, or that it encrypts data stored on the server, fails.",
+  "core_rubric": "Says HTTPS encrypts and authenticates the connection, and that it does not guarantee the site is honest or safe.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "HTTPS adds encryption (TLS/SSL) to secure data in transit and provides server authentication via digital certificates. It does not guarantee that the website is honest or safe; it only ensures the connection between the client and server is encrypted and that the server's identity has been verified against a trusted Certificate Authority.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0241",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?",
+  "reference": "The tent, stove, and camera: exactly 10 kg, with a total usefulness of 17.",
+  "rubric": "Chooses the tent, stove, and camera, weighing 10 kg, with total usefulness 17. This is the unique best choice. Stove, food bag, and camera (16), tent and food bag (15), or any set over 10 kg fails.",
+  "core_rubric": "Chooses the tent, stove, and camera with a total usefulness of 17.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To solve this problem, we need to maximize the total usefulness while keeping the total weight at or below 10 kg. This is a classic **Knapsack Problem**.\n\n### Step 1: Analyze the Items\nLet's list the items with their weights ($w$) and usefulness scores ($u$):\n\n| Item | Weight (kg) | Usefulness |\n| :--- | :---: | :---: |\n| Tent | 5 | 8 |\n| Stove | 3 | 5 |\n| Food Bag | 4 | 7 |\n| Camera | 2 | 4 |\n| **Capacity** | **10** | **-** |\n\n### Step 2: Calculate Efficiency (Usefulness per kg)\nA good heuristic for choosing items is to look at the \"value density\" (usefulness divided by weight). Higher density suggests better value.\n\n*   **Tent**: $8 / 5 = 1.6$\n*   **Food Bag**: $7 / 4 = 1.75$\n*   **Stove**: $5 / 3 \\approx 1.67$\n*   **Camera**: $4 / 2 = 2.0$\n\nBased purely on efficiency, the order is: Camera > Food Bag > Stove > Tent. However, since items are discrete (you can't take half an item), we must test combinations systematically.\n\n### Step 3: Evaluate Combinations\nWe will try different combinations of items to see which fits within 10 kg and yields the highest score.\n\n**Option A: Take the most efficient items first**\n1.  **Camera** (2 kg, 4 pts) + **Food Bag** (4 kg, 7 pts) = Total 6 kg, 11 pts.\n    *   Remaining space: $10 - 6 = 4$ kg.\n    *   Can we fit anything else?\n        *   Tent (5 kg): Too heavy.\n        *   Stove (3 kg): Fits!\n    *   **New Combination**: Camera + Food Bag + Stove.\n    *   Total Weight: $2 + 4 + 3 = 9$ kg.\n    *   Total Usefulness: $4 + 7 + 5 = \\mathbf{16}$.\n\n**Option B: Include the Tent**\nThe Tent weighs 5 kg and gives 8 points. Let's see if including it allows us to reach 10 kg exactly with other high-value items.\n1.  **Tent** (5 kg, 8 pts).\n    *   Remaining space: $10 - 5 = 5$ kg.\n    *   What fits in 5 kg besides the Tent?\n        *   Food Bag (4 kg): Leaves 1 kg empty.\n            *   Combo: Tent + Food Bag.\n            *   Weight: 9 kg. Score: $8 + 7 = 15$.\n        *   Stove (3 kg) + Camera (2 kg): Leaves 0 kg empty.\n            *   Combo: Tent + Stove + Camera.\n            *   Weight: $5 + 3 + 2 = 10$ kg.\n            *   Score: $8 + 5 + 4 = 17$.\n            *   *Wait, let's re-calculate Option A.*\n\n**Re-evaluating Option A:**\n*   Items: Camera (2), Food Bag (4), Stove (3).\n*   Weight: $2 + 4 + 3 = 9$ kg.\n*   Score: $4 + 7 + 5 = 16$.\n\n**Re-evaluating Option B (with Camera):**\n*   Items: Tent (5), Stove (3), Camera (2).\n*   Weight: $5 + 3 + 2 = 10$ kg.\n*   Score: $8 + 5 + 4 = 17$.\n\n**Let's check if there is any other combination involving the Food Bag and Tent:**\n*   Tent (5) + Food Bag (4) = 9 kg, Score 15. (Leaves 1 kg gap).\n*   Add Camera to that? $5+4+2 = 11$ kg (Too heavy).\n*   Add Stove to that? $5+4+3 = 12$ kg (Too heavy).\n\n**Let's check combinations without the Tent:**\n*   Food Bag (4) + Stove (3) + Camera (2) = 9 kg, Score $7+5+4=16$.\n*   Food Bag (4) + Stove (3) +",
+  "at_token_cap": true
+ },
+ {
+  "id": "S0250",
+  "question": "Rewrite this text message as one polite, complete sentence with standard spelling and punctuation: 'hey cant make it 2day sry'. Keep the meaning, and do not add a reason.",
+  "reference": "Sorry, I can't make it today.",
+  "rubric": "One sentence with standard spelling and punctuation that apologizes and says the writer cannot make it today, for example 'Sorry, I can't make it today.' or 'Hi, I'm sorry, but I can't make it today.' A greeting is optional. Adding a reason, changing the day, or giving several sentences fails.",
+  "core_rubric": "One standard, polite sentence that apologizes and says the writer can't make it today, with no reason added.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "I am sorry, but I cannot make it today.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0259",
+  "question": "Shipping rates are: up to and including 1 kg, $5; over 1 kg and up to and including 3 kg, $9; over 3 kg, $14. A package weighs exactly 3 kg. What is the shipping cost?",
+  "reference": "$9. Exactly 3 kg is in the 'over 1 kg and up to and including 3 kg' band.",
+  "rubric": "Gives $9. $14 (treating 3 kg as over 3 kg) fails.",
+  "core_rubric": "Gives $9.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$14",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0268",
+  "question": "How many days pass from January 15, 2027 to March 15, 2027? Count elapsed days, so January 15 to January 16 is one day. Give the answer in days and also as whole weeks plus remaining days.",
+  "reference": "59 days, which is 8 weeks and 3 days: 16 days left in January, 28 in February 2027, and 15 in March.",
+  "rubric": "Gives 59 days and 8 weeks plus 3 days. 2027 is not a leap year, so February has 28 days; 60 days (treating February as 29 days) or a count of 58 or 60 from an off-by-one error fails. Both forms are required.",
+  "core_rubric": "Gives 59 days and 8 weeks plus 3 days.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "60 days; 8 weeks and 4 days.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0277",
+  "question": "I borrow $2,400 at 6% simple annual interest and repay everything in one payment after 18 months. How much do I repay in total?",
+  "reference": "$2,616: the interest is $2,400 × 0.06 × 1.5 = $216.",
+  "rubric": "Gives $2,616 in total. Simple interest for 1.5 years is $216; giving only $216, using 18 years, or compounding fails. If working is shown, it must be consistent with $216.",
+  "core_rubric": "Gives a total repayment of $2,616.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the total repayment amount, we use the simple interest formula:\n\n$$A = P(1 + rt)$$\n\nWhere:\n*   $A$ is the total amount to be repaid.\n*   $P$ is the principal amount borrowed ($\\$2,400$).\n*   $r$ is the annual interest rate in decimal form ($6\\% = 0.06$).\n*   $t$ is the time in years.\n\n**Step 1: Convert the time into years.**\nSince the loan period is 18 months and there are 12 months in a year:\n$$t = \\frac{18}{12} = 1.5 \\text{ years}$$\n\n**Step 2: Calculate the total amount.**\nSubstitute the values into the formula:\n$$A = 2400 \\times (1 + 0.06 \\times 1.5)$$\n$$A = 2400 \\times (1 + 0.09)$$\n$$A = 2400 \\times 1.09$$\n$$A = 2616$$\n\nAlternatively, you can calculate the interest first:\n$$\\text{Interest} = P \\times r \\times t = 2400 \\times 0.06 \\times 1.5 = 216$$\n$$\\text{Total Repayment} = \\text{Principal} + \\text{Interest} = 2400 + 216 = 2616$$\n\n**Answer:**\nYou repay a total of **$2,616**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0286",
+  "question": "How many different colors are mentioned in this sentence, and what are they? 'A red car passed a blue van, then another red car stopped next to a green truck.'",
+  "reference": "Three: red, blue, and green.",
+  "rubric": "Gives 3 and names red, blue, and green. 4 (counting red twice) fails, and so does adding any color not in the sentence.",
+  "core_rubric": "Gives three colors: red, blue, and green.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "There are **4** different colors mentioned in the sentence:\n\n1.  Red\n2.  Blue\n3.  Green",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0295",
+  "question": "In Python, return the string s with its first character converted to uppercase and every other character left exactly as it is. s contains only ASCII characters and may be empty; an empty string must return an empty string without raising an error.",
+  "reference": "s[:1].upper() + s[1:]",
+  "rubric": "Uppercases only the first character and leaves the rest unchanged, so 'hELLO world' gives 'HELLO world', '1abc' gives '1abc', and '' gives ''. s.capitalize() and s.title() fail because they change later characters. s[0].upper() + s[1:] without an empty-string guard fails because it raises IndexError on ''. Equivalent correct code, such as a version guarded with `if s else s`, is acceptable.",
+  "core_rubric": "Uppercases only the first character, leaves every later character unchanged, and returns '' for '' without an error.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here's a simple and robust Python function that meets your requirements:\n\n```python\ndef capitalize_first(s: str) -> str:\n    if not s:  # Handle empty string\n        return \"\"\n    return s[0].upper() + s[1:]\n```\n\n### How it works:\n- If the string `s` is empty, it returns an empty string immediately (no error).\n- Otherwise, it takes the first character `s[0]`, converts it to uppercase using `.upper()`, and concatenates it with the rest of the string `s[1:]` unchanged.\n\n### Example usage:\n```python\nprint(capitalize_first(\"hello\"))       # \"Hello\"\nprint(capitalize_first(\"\"))            # \"\"\nprint(capitalize_first(\"aBcDeF\"))      # \"ABcDeF\"\nprint(capitalize_first(\"123!@#\"))      # \"123!@#\"\n```\n\nThis solution handles all ASCII characters correctly and safely manages edge cases like empty strings.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0304",
+  "question": "A jacket is marked 30% off its original price, and then a coupon takes a further 10% off the already reduced price. What is the total discount, as a percentage of the original price?",
+  "reference": "37%: the final price is 0.7 × 0.9 = 0.63 of the original, so the discount is 37%.",
+  "rubric": "Gives 37%. Simply adding the two discounts to get 40% fails. If working is shown, it must be consistent with 0.7 × 0.9 = 0.63.",
+  "core_rubric": "Gives a total discount of 37% of the original price.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "37%",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0313",
+  "question": "Order these tasks by due date, earliest first: 'Report — due 14 March; Slides — due 2 March; Budget — due 9 March.' All three dates are in the same year.",
+  "reference": "Slides (2 March), Budget (9 March), Report (14 March).",
+  "rubric": "Gives the order Slides, Budget, Report. Including the dates is optional, but if given they must match. Any other order, or ordering by name, fails.",
+  "core_rubric": "Gives Slides, Budget, Report.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "1. Slides — due 2 March\n2. Budget — due 9 March\n3. Report — due 14 March",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0322",
+  "question": "In Python, flags is a list that may contain any values, such as True, False, 1, 0, 1.0, 'yes', or None. Count how many elements are the boolean value True itself. The integer 1, the float 1.0, and other truthy values must not be counted. flags may be empty; leave it unchanged.",
+  "reference": "sum(1 for value in flags if value is True)",
+  "rubric": "Returns the number of elements that are the bool True (an identity or exact-type test such as `value is True` or `type(value) is bool and value`). The integer 1 and the float 1.0 are not counted, and neither are other truthy values such as 'yes'. An empty list gives 0. Does not modify flags. flags.count(True), sum(flags), `value == True`, or a plain truthiness test fails, because each counts 1 or 1.0. Equivalent correct code is acceptable.",
+  "core_rubric": "Counts only elements that are the bool True, excluding 1, 1.0, and other truthy values; an empty list gives 0 and flags is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "0\n</think>\n\n0",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0331",
+  "question": "A museum charges $12 per person, and children under 5 are free. Two adults visit with a 5-year-old and a 3-year-old. What is the total admission charge? Explain.",
+  "reference": "$36. The two adults and the 5-year-old pay $12 each; only the 3-year-old is under 5 and free.",
+  "rubric": "Gives $36 and explains that the 5-year-old is not under 5 and pays, while the 3-year-old is free. $24 (treating the 5-year-old as free) or $48 fails.",
+  "core_rubric": "Gives $36, with the 5-year-old paying and only the 3-year-old free.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$24. Two adults pay $12 each ($24 total). The 5-year-old is not under 5, so they must pay $12. The 3-year-old is under 5 and is free. Total: $12 + $12 = $24.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0340",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?",
+  "reference": "HTTPS encrypts the connection between the browser and the website and uses a certificate to verify that you are connected to the server for that domain, so data cannot easily be read or changed in transit. It does not guarantee that the site is honest; scam sites can use HTTPS too.",
+  "rubric": "States that HTTPS encrypts traffic in transit (with TLS) and authenticates the server's domain, protecting against eavesdropping and tampering. Answers no: HTTPS does not make the site's owner or content trustworthy. Claiming that HTTPS guarantees a safe or legitimate site, or that it encrypts data stored on the server, fails.",
+  "core_rubric": "Says HTTPS encrypts and authenticates the connection, and that it does not guarantee the site is honest or safe.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "HTTPS adds encryption and server authentication to HTTP, ensuring data privacy and integrity during transmission. However, it does not guarantee that the website is honest or safe; a malicious actor can still host fraudulent content on an HTTPS-secured server.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0349",
+  "question": "In Python, return the second-largest distinct value in the list of integers nums, meaning the largest value that is strictly smaller than the maximum. Return None if nums has fewer than two distinct values, including when it is empty. Leave nums unchanged.",
+  "reference": "sorted(set(nums))[-2] if len(set(nums)) > 1 else None",
+  "rubric": "Returns the largest value strictly below the maximum: [3, 5, 5] gives 3, [-1, -5, -1] gives -5, and [], [7], and [5, 5] give None. sorted(nums)[-2] fails because duplicates of the maximum return the maximum itself. Sorting nums in place fails. Equivalent correct code is acceptable.",
+  "core_rubric": "Returns the largest value strictly smaller than the maximum, or None when there are fewer than two distinct values; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def second_largest(nums):\n    if len(set(nums)) < 2:\n        return None\n    return sorted(list(set(nums)))[-2]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0358",
+  "question": "A runner keeps a steady pace of 5 minutes 30 seconds per kilometer for a 10-kilometer race that starts at 08:47:30. At what clock time does the runner finish? Give hours, minutes, and seconds.",
+  "reference": "09:42:30. The race takes 10 × 5 min 30 s = 55 minutes.",
+  "rubric": "Gives 09:42:30 (9:42:30 a.m.). The race time is 55 minutes; 09:37:30 or 09:47:30 fails. If working is shown, it must be consistent with 55 minutes.",
+  "core_rubric": "Gives a finish time of 09:42:30.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "09:52:30",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0367",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. 08:15 falls outside the defined off-peak hours (before 07:00 or after 09:30).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0376",
+  "question": "My team of five meets every Monday, and we keep forgetting whose turn it is to take notes, so the same two people end up doing it. Suggest a simple system that makes each week's note-taker clear in advance and spreads the work evenly.",
+  "reference": "Write a fixed rotation of all five names in a shared place, such as the recurring meeting invite or a team document, and announce next week's note-taker at the end of each meeting. After the fifth person, start again at the top; if someone is away, they swap with the next person.",
+  "rubric": "Proposes a fixed rotation or schedule that includes all five people and repeats, so each person takes notes equally often, and makes the next note-taker known before the meeting, for example in a shared list, the meeting invite, or an announcement. Handling absences and reminders is optional. Asking for volunteers each week, or leaving it to the same people, is insufficient.",
+  "core_rubric": "Proposes a repeating rotation of all five members that is recorded or announced before each meeting.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here are a few simple systems to ensure fair rotation:\n\n1.  **The \"Next Person\" Rule:** When person A takes notes, they explicitly say or write down the name of person B for the next meeting. This prevents skipping people if someone forgets.\n\n2.  **Physical Rotation Board:** Put a small whiteboard in your meeting space with five names listed vertically. Each time it's their turn, they cross out their name (or move it down). The top name is always the current note-taker.\n\n3.  **Calendar Reminder:** Set a recurring reminder on everyone's calendar one week before each Monday that says \"It's [Name]'s turn to take notes.\" They can then forward this reminder to the group.\n\n4.  **Digital Spreadsheet:** Create a shared Google Sheet or Excel file with two columns: \"Week\" and \"Note Taker.\" It automatically updates when you fill in the previous week's name.\n\n5.  **Random Picker (if fairness isn't strictly weekly):** Use a quick online random picker tool at the start of the meeting to assign the next person.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0385",
+  "question": "Two trains start at 09:00 from stations 300 kilometers apart and travel toward each other on the same line, one at a constant 70 kilometers per hour and the other at a constant 80 kilometers per hour. At what time do they meet?",
+  "reference": "11:00. They close the gap at 70 + 80 = 150 km/h, so meeting takes 300 / 150 = 2 hours.",
+  "rubric": "Gives 11:00. If working is shown, it must be consistent with a closing speed of 150 km/h and 2 hours. Using the difference in speeds (10 km/h) fails.",
+  "core_rubric": "Gives a meeting time of 11:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The trains meet at 09:42.\n\nHere is the quick calculation:\n1.  **Combined Speed:** $70 + 80 = 150$ km/h.\n2.  **Time to Meet:** $\\frac{300 \\text{ km}}{150 \\text{ km/h}} = 2$ hours.\n3.  **Meeting Time:** 09:00 + 2 hours = **11:00**.\n\n*(Self-correction: The previous \"lazy\" output was incorrect. Let me re-calculate.)*\n\n**Correct Calculation:**\n1.  **Combined Speed:** $70 + 80 = 150$ km/h.\n2.  **Time to Meet:** $\\frac{300}{150} = 2$ hours.\n3.  **Meeting Time:** 09:00 + 2 hours = **11:00**.\n\nI apologize for the error in the first lazy response. They meet at **11:00**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0394",
+  "question": "A subscription renews every 30 days. Its first renewal is on January 30, 2027. On what date is its third renewal?",
+  "reference": "March 31, 2027. The second renewal is 30 days after January 30, on March 1, 2027 (February 2027 has 28 days), and the third is 30 days later, on March 31.",
+  "rubric": "Gives March 31, 2027. The second renewal is March 1, 2027; treating renewals as monthly on the 30th, or counting February 2027 as 29 or 30 days, fails. Counting the first renewal as the third, giving April 30, also fails.",
+  "core_rubric": "Gives March 31, 2027 as the third renewal date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "March 1, 2027",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0403",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?",
+  "reference": "A solar year is about 365.2422 days, so adding a day every 4 years keeps the calendar in step with the seasons. That rule, which averages 365.25 days, slightly overcorrects, so century years are skipped unless they are divisible by 400, giving an average of 365.2425 days.",
+  "rubric": "Explains that Earth's orbit, the tropical year, takes about 365.24 days, so leap days keep the calendar aligned with the seasons; and that a leap day every 4 years overcorrects slightly, so century years are leap years only when divisible by 400. Stating the year as exactly 365.25 days, or saying century years are never leap years, fails.",
+  "core_rubric": "Explains leap days as correcting for a year of about 365.24 days, and that skipping most century years (except those divisible by 400) fixes the slight overcorrection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The Gregorian calendar adds a leap day (February 29th) to keep our calendar year synchronized with the astronomical year, which is based on Earth's orbit around the Sun.\n\nHere is the logic behind the rules:\n\n1.  **The Basic Rule (Divisible by 4):** A common year has 365 days. However, it takes approximately 365.2425 days for Earth to complete one orbit. To account for the extra ~0.2425 days, we add an entire day every four years. So, if a year is divisible by 4, it is a leap year.\n\n2.  **The Exception (Divisible by 100):** If we simply added a day every four years, we would overcompensate slightly because $365.25$ days is still more than the actual $365.2425$ days. This discrepancy accumulates over time. Therefore, the rule states that if a year is divisible by 100, it is **not** a leap year, unless...\n\n3.  **The Final Exception (Divisible by 400):** If a year is divisible by 400, it **is** a leap year. This corrects the error introduced by skipping the leap day for century years.\n\n**Summary:**\n*   Leap years are generally every 4 years ($365 + 1 = 366$ days).\n*   Years divisible by 100 are skipped to prevent the calendar from drifting forward too quickly.\n*   Years divisible by 400 are included again to maintain long-term accuracy.\n\nFor example:\n*   **2000** was a leap year (divisible by 400).\n*   **1900** was *not* a leap year (divisible by 100 but not 400).\n*   **2024** is a leap year (divisible by 4 and not 100).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0412",
+  "question": "In a Git repository, secrets.env is tracked and has no uncommitted changes. Stop tracking it, so that the next commit removes it from the repository, while keeping the file on disk unchanged. Do not commit, and do not edit .gitignore. Give the command.",
+  "reference": "git rm --cached secrets.env",
+  "rubric": "Uses git rm --cached secrets.env. git rm secrets.env without --cached fails because it deletes the working file. git restore --staged secrets.env and git update-index --assume-unchanged secrets.env fail because neither stops tracking the file. Mentioning that adding the file to .gitignore is a common later step is harmless, provided the answer does not edit .gitignore as part of the command.",
+  "core_rubric": "Gives git rm --cached secrets.env, which stages the file's removal from the index while leaving the working file in place.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git rm --cached secrets.env`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0421",
+  "question": "I start at home, must visit the pharmacy, the bank, and the post office once each in any order, and then return home. Travel times in minutes, the same in both directions, are: home–pharmacy 5, home–bank 8, home–post office 6, pharmacy–bank 4, pharmacy–post office 9, and bank–post office 3. Which order of stops gives the shortest total travel time, and what is that time?",
+  "reference": "Home → pharmacy → bank → post office → home, for 18 minutes. The reverse order, home → post office → bank → pharmacy → home, also takes 18 minutes.",
+  "rubric": "Gives the order pharmacy, bank, post office (or its exact reverse, post office, bank, pharmacy) and a total of 18 minutes. The other routes take 25 or 27 minutes and fail.",
+  "core_rubric": "Gives pharmacy → bank → post office (or the reverse) and 18 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The shortest total travel time is 24 minutes, achieved by visiting the **pharmacy**, then the **bank**, and finally the **post office** (or the reverse order: post office, bank, pharmacy).\n\nPath: Home → Pharmacy (5) → Bank (4) → Post Office (3) → Home (6).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0430",
+  "question": "Three workers, all working at the same constant rate, build 3 identical shelves in 3 hours. Work on a shelf can be shared among workers. How many hours will 6 such workers take to build 6 identical shelves?",
+  "reference": "3 hours. Each worker builds one shelf per 3 hours, so 6 workers build 6 shelves in 3 hours.",
+  "rubric": "Gives 3 hours. 6 hours or 1.5 hours fails. If working is shown, it must be consistent with one shelf per worker per 3 hours.",
+  "core_rubric": "Gives 3 hours.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To solve this, let's break down the work rate:\n\n1.  **Total Work:**\n    *   3 workers build 3 shelves in 3 hours.\n    *   The total amount of \"worker-hours\" required to build one shelf is calculated as follows:\n        $$ \\text{Worker-hours for 3 shelves} = 3 \\text{ workers} \\times 3 \\text{ hours} = 9 \\text{ worker-hours} $$\n        $$ \\text{Worker-hours per shelf} = \\frac{9}{3} = 3 \\text{ worker-hours} $$\n    *   So, building a single shelf requires 3 hours of work by one person (or any equivalent combination of workers and time).\n\n2.  **New Scenario:**\n    *   We need to build 6 identical shelves.\n    *   Total worker-hours needed for 6 shelves:\n        $$ 6 \\text{ shelves} \\times 3 \\text{ worker-hours/shelf} = 18 \\text{ worker-hours} $$\n    *   We have 6 workers available.\n\n3.  **Calculate Time:**\n    *   Let $t$ be the number of hours.\n    *   $\\text{Total Worker-hours} = \\text{Number of Workers} \\times \\text{Time}$\n    *   $18 = 6 \\times t$\n    *   $t = \\frac{18}{6} = 3$ hours.\n\n**Alternative Logic (Scaling):**\n*   Doubling the number of workers (from 3 to 6) halves the time required for the same task.\n*   Doubling the number of shelves (from 3 to 6) doubles the time required.\n*   Since we are doubling both the workforce and the output volume, these two effects cancel each other out ($2x / 2 = x$).\n*   Therefore, the time remains the same as the original scenario: **3 hours**.\n\nAnswer: **3 hours**",
+  "at_token_cap": false
+ }
+]

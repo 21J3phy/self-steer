@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0002",
+  "question": "A tap drips once every 4 seconds without stopping, and 20 drops make 1 milliliter. How many liters does it drip in 30 days?",
+  "reference": "32.4 liters: 30 days is 2,592,000 seconds, giving 648,000 drops, which is 32,400 milliliters.",
+  "rubric": "Gives 32.4 liters. If working is shown, it must be consistent with 2,592,000 seconds, 648,000 drops, and 32,400 mL. Answers in milliliters alone, without liters, fail the requested unit.",
+  "core_rubric": "Gives 32.4 liters.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the total amount of liquid dripping in 30 days, let's break it down step-by-step:\n\n1.  **Calculate the number of drops per day:**\n    *   There are 4 seconds per drop.\n    *   There are 60 seconds in a minute and 24 hours in a day.\n    *   Total seconds in a day = $60 \\times 60 \\times 24 = 86,400$ seconds.\n    *   Drops per day = $\\frac{86,400}{4} = 21,600$ drops.\n\n2.  **Calculate the total drops in 30 days:**\n    *   Total drops = $21,600 \\text{ drops/day} \\times 30 \\text{ days} = 648,000$ drops.\n\n3.  **Convert drops to milliliters:**\n    *   20 drops make 1 milliliter.\n    *   Milliliters = $\\frac{648,000}{20} = 32,400$ ml.\n\n4.  **Convert milliliters to liters:**\n    *   There are 1,000 milliliters in 1 liter.\n    *   Liters = $\\frac{32,400}{1,000} = 32.4$ liters.\n\nThe tap drips **32.4 liters** in 30 days.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0006",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To add execute permission for the owner of `deploy.sh` without changing other permissions or file contents, run:\n\n```bash\nchmod u+x deploy.sh\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0010",
+  "question": "List every person named in this sentence, in the order they are first mentioned, as a comma-separated list: 'Ravi emailed Mei and Tom, then called his manager, Ines, who later met Mei.'",
+  "reference": "Ravi, Mei, Tom, Ines",
+  "rubric": "Gives exactly the four names Ravi, Mei, Tom, Ines, in that order, separated by commas, with Mei listed only once. Adding 'manager' as a separate person, repeating Mei, or using a different order fails. Using 'and' before the last name is acceptable.",
+  "core_rubric": "Lists Ravi, Mei, Tom, Ines in that order, comma-separated, each once.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Ravi, Mei, Tom, Ines",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0014",
+  "question": "I have $60 for a party. Pizzas cost $12 each, and I need at least 3; drink packs cost $4 each, and I need at least 2. After buying those minimums, I will spend the remaining money only on as many extra pizzas as I can afford. How many pizzas and drink packs will I buy, and how much money will be left?",
+  "reference": "4 pizzas and 2 drink packs, costing $56, with $4 left. The minimums cost $44, and the remaining $16 buys one extra pizza.",
+  "rubric": "Gives 4 pizzas, 2 drink packs, and $4 left over. Buying extra drink packs fails because the leftover money is only for pizzas. 5 pizzas (over budget) fails. If working is shown, it must be consistent with $44 for the minimums.",
+  "core_rubric": "Gives 4 pizzas, 2 drink packs, and $4 remaining.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You will buy **3 pizzas**, **2 drink packs**, and **1 extra pizza** (4 pizzas total).\n\nHere is the breakdown:\n*   **Minimums:** 3 pizzas ($36) + 2 drinks ($8) = $44.\n*   **Remaining money:** $60 - $44 = $16.\n*   **Extra purchase:** You can afford 1 more pizza for $12.\n*   **Final Total Cost:** $56.\n*   **Money Left:** $4.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0018",
+  "question": "A warranty says it covers 'manufacturing defects for 12 months from purchase; accidental damage is not covered.' I accidentally dropped my phone 3 months after buying it, and the screen cracked. Does this warranty cover the repair? Explain.",
+  "reference": "No. A screen cracked by an accidental drop is accidental damage, which the warranty excludes; being within 12 months does not change that.",
+  "rubric": "Answers no and explains that the crack is accidental damage, which is not covered, so the 12-month period does not help. Answering yes because the damage happened within 12 months, or calling the crack a manufacturing defect, fails. Suggesting a separate insurance or paid repair option is harmless.",
+  "core_rubric": "Answers no because the cracked screen is accidental damage, which the warranty excludes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, this warranty does not cover the repair.\n\nHere is the explanation based on the terms you provided:\n1.  **Accidental Damage Exclusion**: The warranty explicitly states that \"accidental damage is not covered.\" Dropping your phone and cracking the screen falls under accidental damage.\n2.  **Scope of Coverage**: The warranty only covers \"manufacturing defects,\" which are issues with how the product was made (e.g., a battery swelling or a screen failing to turn on despite being dropped). Since the damage resulted from an external event (the drop) rather than a manufacturing flaw, it is outside the scope of the coverage.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0022",
+  "question": "A jacket is marked 30% off its original price, and then a coupon takes a further 10% off the already reduced price. What is the total discount, as a percentage of the original price?",
+  "reference": "37%: the final price is 0.7 × 0.9 = 0.63 of the original, so the discount is 37%.",
+  "rubric": "Gives 37%. Simply adding the two discounts to get 40% fails. If working is shown, it must be consistent with 0.7 × 0.9 = 0.63.",
+  "core_rubric": "Gives a total discount of 37% of the original price.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The total discount is **37%**.\n\nHere is the breakdown:\n1.  First, the jacket is marked **30%** off. This means you pay 70% of the original price ($100 - 30 = 70$).\n2.  Next, a coupon takes **10%** off the *already reduced* price. You take 10% of the 70% remaining value ($0.10 \\times 70 = 7$).\n3.  Subtracting this second discount from the reduced price: $70 - 7 = 63$.\n4.  You are paying 63% of the original price, which means the total discount is $100\\% - 63\\% = \\mathbf{37\\%}$.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0026",
+  "question": "A runner keeps a steady pace of 5 minutes 30 seconds per kilometer for a 10-kilometer race that starts at 08:47:30. At what clock time does the runner finish? Give hours, minutes, and seconds.",
+  "reference": "09:42:30. The race takes 10 × 5 min 30 s = 55 minutes.",
+  "rubric": "Gives 09:42:30 (9:42:30 a.m.). The race time is 55 minutes; 09:37:30 or 09:47:30 fails. If working is shown, it must be consistent with 55 minutes.",
+  "core_rubric": "Gives a finish time of 09:42:30.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The runner finishes at **09:54:30**.\n\n**Calculation:**\n*   **Pace:** 5 min 30 sec/km = 5.5 min/km\n*   **Total Time:** 10 km × 5.5 min/km = 55 minutes\n*   **Start Time:** 08:47:30\n*   **Finish Time:** 08:47:30 + 55 minutes = 09:42:30 + 13 minutes = **09:55:30**? Let me re-check.\n\nLet's do it step-by-step to be precise:\n1.  Start: 08:47:30\n2.  Add 55 minutes (10 km * 5.5 min):\n    *   08:47:30 + 55 mins = 09:42:30\n3.  Wait, let's just add directly:\n    *   Minutes: 47 + 55 = 102 minutes.\n    *   102 minutes = 1 hour and 42 minutes.\n    *   Hours: 8 + 1 = 9 hours.\n    *   Remaining Minutes: 42 minutes.\n    *   Seconds: 30 seconds.\n    *   Result: 09:42:30.\n\nLet me re-calculate 47 + 55.\n47 + 55 = 102.\n102 minutes is 1 hour and 42 minutes.\nSo 8:00 + 1 hour = 9:00.\nRemaining time is 42 minutes and 30 seconds.\nResult: **09:42:30**.\n\nWait, I made a mistake in the first quick thought process where I said 09:55:30. Let's stick to the math:\nStart: 08:47:30\nDuration: 55 minutes.\n08:47:30 + 55 min = 08:47:30 + 60 min - 5 min = 09:47:30 - 5 min = 09:42:30.\n\nCorrect answer: **09:42:30**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0030",
+  "question": "Rewrite 'We will utilize the new room when the meeting commences.' by replacing 'utilize' and 'commences' with simpler everyday words. Keep the meaning and leave the rest of the sentence unchanged.",
+  "reference": "We will use the new room when the meeting starts.",
+  "rubric": "Replaces utilize with use and commences with starts or begins, and keeps every other word: 'We will use the new room when the meeting starts.' or '... begins.' Changing other words, the tense, or the meaning fails.",
+  "core_rubric": "Gives 'We will use the new room when the meeting starts.' or the same sentence with 'begins'.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "We will use the new room when the meeting starts.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0034",
+  "question": "Two trains start at 09:00 from stations 300 kilometers apart and travel toward each other on the same line, one at a constant 70 kilometers per hour and the other at a constant 80 kilometers per hour. At what time do they meet?",
+  "reference": "11:00. They close the gap at 70 + 80 = 150 km/h, so meeting takes 300 / 150 = 2 hours.",
+  "rubric": "Gives 11:00. If working is shown, it must be consistent with a closing speed of 150 km/h and 2 hours. Using the difference in speeds (10 km/h) fails.",
+  "core_rubric": "Gives a meeting time of 11:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The trains meet at **09:56** (specifically 56 minutes and 28 seconds past 9:00).\n\nHere is the quick calculation:\n1.  **Combined speed:** $70 + 80 = 150$ km/h.\n2.  **Time to meet:** $\\frac{300 \\text{ km}}{150 \\text{ km/h}} = 2$ hours.\n3.  **Meeting time:** $09:00 + 2 \\text{ hours} = 11:00$.\n\n*Correction:* The combined speed is 150 km/h, so they cover 300 km in exactly **2 hours**. Therefore, they meet at **11:00**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0038",
+  "question": "In a Git repository, set the email address used for commits to dev@example.com for this repository only, without changing global or system Git settings. Give the command.",
+  "reference": "git config user.email dev@example.com",
+  "rubric": "Uses git config user.email dev@example.com, git config --local user.email dev@example.com, or a quoted equivalent; git config writes to the repository's own config by default. Using --global or --system fails. Setting user.name instead of user.email fails.",
+  "core_rubric": "Sets user.email to dev@example.com in the repository's local config, without --global or --system.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```bash\ngit config user.email \"dev@example.com\"\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0042",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Hi Lee, your refund of $24.50 has been issued today. Please allow up to 5 business days for it to appear in your account.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0046",
+  "question": "I start at home, must visit the pharmacy, the bank, and the post office once each in any order, and then return home. Travel times in minutes, the same in both directions, are: home–pharmacy 5, home–bank 8, home–post office 6, pharmacy–bank 4, pharmacy–post office 9, and bank–post office 3. Which order of stops gives the shortest total travel time, and what is that time?",
+  "reference": "Home → pharmacy → bank → post office → home, for 18 minutes. The reverse order, home → post office → bank → pharmacy → home, also takes 18 minutes.",
+  "rubric": "Gives the order pharmacy, bank, post office (or its exact reverse, post office, bank, pharmacy) and a total of 18 minutes. The other routes take 25 or 27 minutes and fail.",
+  "core_rubric": "Gives pharmacy → bank → post office (or the reverse) and 18 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the shortest route, we can calculate the total time for each possible order of visiting the three locations (pharmacy, bank, post office). Since the return trip is to home, there are $3! = 6$ possible permutations.\n\nLet's denote the locations as:\n*   **H** = Home\n*   **P** = Pharmacy\n*   **B** = Bank\n*   **O** = Post Office\n\nDistances:\n*   H-P = 5\n*   H-B = 8\n*   H-O = 6\n*   P-B = 4\n*   P-O = 9\n*   B-O = 3\n\nThe routes start at H, visit one location, then a second, then the third, and return to H.\n\n1.  **H → P → B → O → H**: $5 + 4 + 3 + 6 = 18$\n2.  **H → P → O → B → H**: $5 + 9 + 3 + 8 = 25$\n3.  **H → B → P → O → H**: $8 + 4 + 9 + 6 = 27$\n4.  **H → B → O → P → H**: $8 + 3 + 9 + 5 = 25$\n5.  **H → O → P → B → H**: $6 + 9 + 4 + 8 = 27$\n6.  **H → O → B → P → H**: $6 + 3 + 4 + 5 = 18$\n\nWait, let me re-check the calculations.\n\nRoute 1: H-P-B-O-H\n*   H to P: 5\n*   P to B: 4\n*   B to O: 3\n*   O to H: 6\n*   Total: $5+4+3+6 = 18$\n\nRoute 2: H-P-O-B-H\n*   H to P: 5\n*   P to O: 9\n*   O to B: 3\n*   B to H: 8\n*   Total: $5+9+3+8 = 25$\n\nRoute 3: H-B-P-O-H\n*   H to B: 8\n*   B to P: 4\n*   P to O: 9\n*   O to H: 6\n*   Total: $8+4+9+6 = 27$\n\nRoute 4: H-B-O-P-H\n*   H to B: 8\n*   B to O: 3\n*   O to P: 9\n*   P to H: 5\n*   Total: $8+3+9+5 = 25$\n\nRoute 5: H-O-P-B-H\n*   H to O: 6\n*   O to P: 9\n*   P to B: 4\n*   B to H: 8\n*   Total: $6+9+4+8 = 27$\n\nRoute 6: H-O-B-P-H\n*   H to O: 6\n*   O to B: 3\n*   B to P: 4\n*   P to H: 5\n*   Total: $6+3+4+5 = 18$\n\nThere are two orders that give the same shortest time:\n1.  Home → Pharmacy → Bank → Post Office → Home (**18 minutes**)\n2.  Home → Post Office → Bank → Pharmacy → Home (**18 minutes**)\n\nBoth orders result in a total travel time of **18 minutes**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0050",
+  "question": "Why does a pressure cooker cook food faster than an ordinary pot of boiling water at normal air pressure?",
+  "reference": "Sealing the pot traps steam and raises the pressure inside, which raises water's boiling point above 100°C, to about 120°C at typical settings. The hotter water and steam transfer heat to the food faster, so it cooks faster.",
+  "rubric": "Explains that the higher pressure raises the boiling point above 100°C, so the food is cooked at a higher temperature. A specific temperature is optional; if one is given, it should be about 110–125°C. Saying the pressure itself squeezes the food cooked, or that the water boils at a lower temperature, fails.",
+  "core_rubric": "Explains that higher pressure raises the boiling point above 100°C, so cooking happens at a higher temperature.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A pressure cooker cooks food faster than an ordinary pot because it operates at a higher temperature.\n\nHere is the breakdown of why this happens:\n\n1.  **Boiling Point and Pressure:** In an open pot, water boils at $100^\\circ\\text{C}$ ($212^\\circ\\text{F}$) at standard atmospheric pressure. Once it reaches this temperature, adding more heat only turns the water into steam; the liquid temperature cannot rise further as long as there is liquid present.\n2.  **Sealed Environment:** A pressure cooker is a sealed vessel. As the water heats up and produces steam, the steam gets trapped inside, increasing the internal pressure.\n3.  **Elevated Boiling Point:** This increased pressure raises the boiling point of the water above $100^\\circ\\text{C}$. Depending on how much pressure is built up (typically around $15$ psi), the water can reach temperatures of approximately $121^\\circ\\text{C}$ ($250^\\circ\\text{F}$).\n4.  **Cooking Efficiency:** Cooking relies on heat transfer to break down tough fibers and proteins in food. The higher temperature in a pressure cooker significantly accelerates these chemical reactions compared to the lower temperature of a standard boiling pot.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0054",
+  "question": "In New York, clocks jump forward from 02:00 to 03:00 early on Sunday, March 14, 2027, when daylight saving time begins. A night shift starts at 22:00 local time on Saturday, March 13, 2027, and lasts exactly 8 hours of elapsed time. What does the local clock show when the shift ends?",
+  "reference": "07:00 on Sunday, March 14, 2027. Eight elapsed hours would reach 06:00 without the change, and the clocks moved forward one hour during the shift.",
+  "rubric": "Gives 07:00 local time on Sunday, March 14, 2027. 06:00 (ignoring the clock change) or 05:00 (moving the clock the wrong way) fails.",
+  "core_rubric": "Gives an end time of 07:00 local time on March 14, 2027.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The local clock shows **04:00**.\n\nHere is the breakdown:\n1.  **Start:** The shift starts at 22:00 on Saturday, March 13.\n2.  **Duration:** It lasts for 8 hours of elapsed time.\n3.  **Calculation:** 22:00 + 8 hours = 06:00.\n4.  **DST Check:** Daylight Saving Time (DST) begins Sunday, March 14, 2027, at 02:00 AM (clocks jump to 03:00). Since the shift ends at 06:00 AM, it occurs after the clock has already jumped. Therefore, the clock reads 06:00 directly without any adjustment needed for the transition.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0058",
+  "question": "Why does a hot-air balloon rise when the air inside it is heated?",
+  "reference": "Heating makes the air inside expand, so it becomes less dense than the cooler air outside. The surrounding air then exerts an upward buoyant force greater than the weight of the balloon, so it rises.",
+  "rubric": "Explains that heated air is less dense than the surrounding cooler air, and that the resulting buoyant force exceeds the total weight of the balloon, envelope, and load. Saying only that 'heat rises', or that the hot air pushes the balloon up like a jet, is insufficient.",
+  "core_rubric": "Explains that the heated air inside is less dense than the outside air, so buoyancy exceeds the balloon's weight.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A hot-air balloon rises due to the principle of **buoyancy**, which is governed by **Archimedes' Principle**. Here's how it works:\n\n1.  **Heating the Air:** When you heat the air inside the balloon's envelope (the large fabric bag), the air molecules gain kinetic energy and move faster. This causes them to spread out, making the air less dense than the cooler air outside the balloon.\n\n2.  **Displacement:** The balloon displaces a volume of the cooler, denser air outside. According to Archimedes' Principle, the buoyant force acting on the balloon is equal to the weight of the displaced air.\n\n3.  **Net Force:** Because the air inside the balloon is lighter (less dense) than the air it displaces, the upward buoyant force becomes greater than the downward pull of gravity (which includes the weight of the balloon, basket, and passengers).\n\n4.  **Rising:** As long as this net upward force exists, the balloon accelerates upward. Once the balloon reaches an altitude where the surrounding air density matches the density of the heated air inside, it will stop rising and float at that height. To descend, the pilot allows the air inside to cool down or vents some hot air, increasing the density inside until gravity pulls it back down.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0062",
+  "question": "In a Unix shell, print every line of app.conf that does not begin with the character #, keeping the original order. A line with spaces before a # does not begin with #, and empty lines must be kept. Leave app.conf unchanged.",
+  "reference": "grep -v '^#' app.conf",
+  "rubric": "Prints exactly the lines whose first character is not #, including empty lines and lines such as '  # note' or 'key=1 # note', in order. grep -v '^#' app.conf, sed '/^#/d' app.conf, and awk '!/^#/' app.conf are acceptable. grep -v '#' (drops lines with a later #), patterns that also drop indented comments or empty lines, or editing the file with sed -i fails. grep's nonzero exit status when every line is a comment is acceptable.",
+  "core_rubric": "Prints, in order, exactly the lines whose first character is not #, keeping empty and indented-comment lines; app.conf is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To print every line of `app.conf` that does not begin with the character `#` (including lines with leading spaces before a `#`, and empty lines) while keeping the file unchanged, use the following command:\n\n```bash\ngrep -v '^[[:space:]]*#' app.conf\n```\n\nOr, if you want to be more explicit about preserving all lines except those starting with `#`:\n\n```bash\nawk '!/^#/ {print}' app.conf\n```\n\nBoth commands will filter out only lines that start directly with `#` and leave everything else (including lines with spaces before `#` and empty lines) intact.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0066",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?",
+  "reference": "HTTPS encrypts the connection between the browser and the website and uses a certificate to verify that you are connected to the server for that domain, so data cannot easily be read or changed in transit. It does not guarantee that the site is honest; scam sites can use HTTPS too.",
+  "rubric": "States that HTTPS encrypts traffic in transit (with TLS) and authenticates the server's domain, protecting against eavesdropping and tampering. Answers no: HTTPS does not make the site's owner or content trustworthy. Claiming that HTTPS guarantees a safe or legitimate site, or that it encrypts data stored on the server, fails.",
+  "core_rubric": "Says HTTPS encrypts and authenticates the connection, and that it does not guarantee the site is honest or safe.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**HTTPS (Hypertext Transfer Protocol Secure)** adds a layer of security on top of plain HTTP. Here are the key differences:\n\n1.  **Encryption:** HTTPS encrypts the data transferred between your browser and the website. This means that even if someone intercepts the connection, they cannot read the content (like passwords, messages, or credit card numbers). Plain HTTP sends data in clear text, making it vulnerable to eavesdropping.\n2.  **Authentication:** HTTPS uses digital certificates (usually issued by trusted Certificate Authorities) to verify the identity of the server. It proves that you are connecting to the legitimate website you intended to visit, rather than an imposter.\n\n**Does HTTPS guarantee that the site is honest or safe?**\n\n**No.** HTTPS only guarantees **confidentiality** (your data is private) and **integrity** (the data hasn't been tampered with during transit). It does **not** guarantee the truthfulness or safety of the content itself.\n\n*   **Malicious Content:** A hacker can set up a fraudulent website using HTTPS. They will have a valid SSL certificate from a trusted authority, so your browser will show the padlock icon. However, the *content* of that site could be phishing material designed to steal your credentials or display malware.\n*   **Unethical Content:** A legitimate company could use HTTPS to host illegal or harmful content (e.g., hate speech, pirated material, or dangerous instructions), provided they own the domain and have their own certificate.\n\nIn short, **HTTPS secures the pipe**, but it doesn't necessarily mean the **contents** of the pipe are trustworthy. You still need to judge the source and content of the website yourself.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0070",
+  "question": "In a Git repository, secrets.env is tracked and has no uncommitted changes. Stop tracking it, so that the next commit removes it from the repository, while keeping the file on disk unchanged. Do not commit, and do not edit .gitignore. Give the command.",
+  "reference": "git rm --cached secrets.env",
+  "rubric": "Uses git rm --cached secrets.env. git rm secrets.env without --cached fails because it deletes the working file. git restore --staged secrets.env and git update-index --assume-unchanged secrets.env fail because neither stops tracking the file. Mentioning that adding the file to .gitignore is a common later step is harmless, provided the answer does not edit .gitignore as part of the command.",
+  "core_rubric": "Gives git rm --cached secrets.env, which stages the file's removal from the index while leaving the working file in place.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`git rm --cached secrets.env`",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0074",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes.",
+  "reference": "1 hour 15 minutes: 50 × 27 = 1,350 pages, and 1,350 / 18 = 75 minutes.",
+  "rubric": "Gives 1 hour 15 minutes. Also stating 75 minutes is fine, but 75 minutes alone does not give the requested hours-and-minutes form and fails. If working is shown, it must be consistent with 1,350 pages and 75 minutes.",
+  "core_rubric": "Gives 1 hour 15 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To print 50 copies of a 27-page document:\n\n1.  **Total pages to print:** $50 \\text{ copies} \\times 27 \\text{ pages/copy} = 1,350 \\text{ pages}$.\n2.  **Time in minutes:** $1,350 \\text{ pages} / 18 \\text{ pages/minute} = 75 \\text{ minutes}$.\n3.  **Convert to hours and minutes:** 75 minutes is 1 hour and 15 minutes.\n\nIt will take **1 hour and 15 minutes**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0078",
+  "question": "In Python, return the string s with its first character converted to uppercase and every other character left exactly as it is. s contains only ASCII characters and may be empty; an empty string must return an empty string without raising an error.",
+  "reference": "s[:1].upper() + s[1:]",
+  "rubric": "Uppercases only the first character and leaves the rest unchanged, so 'hELLO world' gives 'HELLO world', '1abc' gives '1abc', and '' gives ''. s.capitalize() and s.title() fail because they change later characters. s[0].upper() + s[1:] without an empty-string guard fails because it raises IndexError on ''. Equivalent correct code, such as a version guarded with `if s else s`, is acceptable.",
+  "core_rubric": "Uppercases only the first character, leaves every later character unchanged, and returns '' for '' without an error.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef capitalize_first(s):\n    if not s:\n        return \"\"\n    return s[0].upper() + s[1:]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0082",
+  "question": "Read: 'Only Alex finished the test early.' According to this sentence, did anyone other than Alex finish the test early? Explain.",
+  "reference": "No. 'Only Alex' means Alex was the one person who finished the test early.",
+  "rubric": "Answers no and explains that 'only' limits finishing early to Alex. Answering yes or saying the sentence leaves it open fails.",
+  "core_rubric": "Answers no because 'only' means no one besides Alex finished early.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, based on the sentence \"Only Alex finished the test early,\" no one other than Alex finished the test early.\n\nThe word \"**only**\" is used to restrict the scope of the statement. It explicitly states that Alex was the sole person who completed the task ahead of schedule. If anyone else had finished early, the statement would be false.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0086",
+  "question": "In a survey of 800 people, 45% own a bicycle. Of the bicycle owners, 30% ride every day. How many of the surveyed people ride a bicycle every day?",
+  "reference": "108: 45% of 800 is 360, and 30% of 360 is 108.",
+  "rubric": "Gives 108. 600 (adding the percentages) or 240 (30% of 800) fails. If working is shown, it must be consistent with 360 owners.",
+  "core_rubric": "Gives 108 people.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the number of people who ride a bicycle every day, we can follow these steps:\n\n1.  **Find the number of bicycle owners:**\n    $800 \\times 0.45 = 360$ people own a bicycle.\n\n2.  **Find the number of daily riders among the bicycle owners:**\n    $360 \\times 0.30 = 108$ people.\n\n**Answer:** 108 people ride a bicycle every day.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0090",
+  "question": "Three meetings happen at the same time, with 25, 11, and 18 attendees. Three rooms are available, seating 12, 20, and 30 people. Each meeting needs its own room with a seat for every attendee. Assign a room to each meeting.",
+  "reference": "The 25-person meeting uses the 30-seat room, the 18-person meeting uses the 20-seat room, and the 11-person meeting uses the 12-seat room.",
+  "rubric": "Gives 25 → 30 seats, 18 → 20 seats, and 11 → 12 seats. This is the only assignment that fits; any assignment that leaves a meeting with too few seats fails.",
+  "core_rubric": "Assigns the 25-, 18-, and 11-person meetings to the 30-, 20-, and 12-seat rooms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is the assignment:\n\n*   **Meeting with 25 attendees** → Room with **30 seats**.\n*   **Meeting with 18 attendees** → Room with **20 seats**.\n*   **Meeting with 11 attendees** → Room with **12 seats**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0094",
+  "question": "In Python, given a nonnegative integer n, return the sum of its decimal digits as an integer. For example, 507 gives 12. For n = 0 the result is 0.",
+  "reference": "sum(int(digit) for digit in str(n))",
+  "rubric": "Returns the integer sum of the decimal digits of n: 0 gives 0, 9 gives 9, 507 gives 12, and 10**30 gives 1. Arithmetic digit extraction with % 10 and // 10 is acceptable if it returns 0 for n = 0. n % 9 (a digital-root shortcut) or returning the number of digits fails. Equivalent correct code, such as sum(map(int, str(n))), is acceptable.",
+  "core_rubric": "Returns the sum of n's decimal digits as an integer, including 0 for n = 0.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef sum_of_digits(n):\n    return sum(int(digit) for digit in str(n))\n\nprint(sum_of_digits(507))  # Output: 12\nprint(sum_of_digits(0))    # Output: 0\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0098",
+  "question": "In Python, given a list of strings named lines, return a new list without the strings that are empty or contain only whitespace characters such as spaces, tabs, or newlines. Keep every other string exactly as it is, including any leading or trailing whitespace, in the original order. lines may be empty; leave it unchanged.",
+  "reference": "[line for line in lines if line.strip()]",
+  "rubric": "Returns a new list that drops '' and whitespace-only strings such as ' ', '\\t', and '\\n', and keeps every other string unmodified (for example ' a ' stays ' a ') in the original order. An empty list gives []. Stripping the kept strings, keeping whitespace-only strings, or modifying lines in place fails. Equivalent correct code, such as `if line and not line.isspace()`, is acceptable.",
+  "core_rubric": "Drops empty and whitespace-only strings, keeps all other strings unmodified and in order, returns a new list, and leaves lines unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef filter_lines(lines):\n    return [line for line in lines if line.strip()]\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0102",
+  "question": "On an analog clock, what is the smaller angle between the hour hand and the minute hand at exactly 3:30?",
+  "reference": "75 degrees. The minute hand is at 180°, and the hour hand is halfway between 3 and 4, at 105°.",
+  "rubric": "Gives 75°. 90° (placing the hour hand exactly on 3) fails. If working is shown, the hour hand must be at 105° and the minute hand at 180°.",
+  "core_rubric": "Gives 75 degrees.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "At exactly 3:30, the smaller angle between the hour and minute hands is **75 degrees**.\n\nHere is the quick breakdown:\n*   The minute hand points directly at the 6.\n*   The hour hand has moved halfway between the 3 and the 4 (since it's half past).\n*   The distance from the 3 to the 6 is 90 degrees.\n*   Since the hour hand is halfway through that gap (at the 3.5 mark), it is 45 degrees away from the 6.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0106",
+  "question": "A bag holds 4 green marbles and 6 yellow marbles. I draw one marble at random, put it back, mix, and draw again. What is the probability that both draws are the same color?",
+  "reference": "13/25, or 52%: (4/10)² + (6/10)² = 0.16 + 0.36 = 0.52.",
+  "rubric": "Gives 13/25, 0.52, or 52%. The draws are with replacement; the without-replacement value 7/15 (about 46.7%) fails. If working is shown, it must be consistent with 0.16 + 0.36.",
+  "core_rubric": "Gives the probability as 13/25 (0.52 or 52%).",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the probability that both draws are the same color, we need to calculate the probability of two specific scenarios:\n1.  Both marbles drawn are green.\n2.  Both marbles drawn are yellow.\n\nSince the marble is put back after the first draw, the events are independent. This means the probability of the second draw remains the same as the first.\n\n**Step 1: Calculate the probabilities for a single draw.**\n*   Total number of marbles = 4 (green) + 6 (yellow) = 10.\n*   Probability of drawing a green marble ($P(G)$) = $4/10$.\n*   Probability of drawing a yellow marble ($P(Y)$) = $6/10$.\n\n**Step 2: Calculate the probability for each scenario.**\n*   **Scenario A: Both Green**\n    $$P(G \\text{ and } G) = P(G) \\times P(G) = \\frac{4}{10} \\times \\frac{4}{10} = \\frac{16}{100}$$\n\n*   **Scenario B: Both Yellow**\n    $$P(Y \\text{ and } Y) = P(Y) \\times P(Y) = \\frac{6}{10} \\times \\frac{6}{10} = \\frac{36}{100}$$\n\n**Step 3: Add the probabilities together.**\nThe total probability is the sum of the probabilities of these mutually exclusive scenarios.\n$$P(\\text{Same Color}) = \\frac{16}{100} + \\frac{36}{100} = \\frac{52}{100}$$\n\n**Step 4: Simplify the fraction.**\n$$\\frac{52}{100} = \\frac{13}{25}$$\n\nAs a decimal, this is $0.52$ or $52\\%$.\n\n**Answer:**\nThe probability that both draws are the same color is **13/25** (or 0.52).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0110",
+  "question": "What does HTTPS add compared with plain HTTP? Does a website that uses HTTPS guarantee that the site itself is honest or safe to trust?",
+  "reference": "HTTPS encrypts the connection between the browser and the website and uses a certificate to verify that you are connected to the server for that domain, so data cannot easily be read or changed in transit. It does not guarantee that the site is honest; scam sites can use HTTPS too.",
+  "rubric": "States that HTTPS encrypts traffic in transit (with TLS) and authenticates the server's domain, protecting against eavesdropping and tampering. Answers no: HTTPS does not make the site's owner or content trustworthy. Claiming that HTTPS guarantees a safe or legitimate site, or that it encrypts data stored on the server, fails.",
+  "core_rubric": "Says HTTPS encrypts and authenticates the connection, and that it does not guarantee the site is honest or safe.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**HTTPS (Hypertext Transfer Protocol Secure)** adds **encryption** and **data integrity verification** to the plain HTTP protocol.\n\nHere is a breakdown of what HTTPS adds:\n\n1.  **Encryption:** It uses SSL/TLS to encrypt the data transmitted between your browser and the server. This means that anyone intercepting the traffic (e.g., on public Wi-Fi) can see the content as scrambled gibberish rather than readable text or sensitive information like passwords.\n2.  **Authentication:** The website sends you a digital certificate issued by a trusted third-party authority (like DigiCert, Let's Encrypt, etc.). This allows your browser to verify that you are actually connecting to the legitimate domain name you intended to visit, not an imposter trying to look like it.\n3.  **Data Integrity:** It ensures that the data sent from the server hasn't been altered in transit. If someone tries to change a piece of data while it's being transferred, the connection will be broken.\n\n**Does HTTPS guarantee the site is honest or safe?**\n\n**No.** HTTPS does **not** guarantee that the website is trustworthy, legal, or free of malicious content.\n\n*   **Phishing:** A hacker can set up a fake version of your favorite bank or social media site. If they buy a certificate from a trusted Certificate Authority (CA), their fake site will show the \"padlock\" icon and have an HTTPS connection. You would be sending your credentials over a secure line, but to the wrong person.\n*   **Malware:** A website can use HTTPS to serve malware, phishing pages, or other harmful scripts without violating security protocols.\n*   **Legitimacy vs. Security:** HTTPS secures the *connection*, not the *content*. It prevents eavesdropping and tampering, but it cannot judge the intent or legality of the website owner.\n\nTo determine if a site is safe, you must evaluate its reputation, read reviews, check for official contact information, and exercise caution regardless of whether the URL starts with `https://`.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0114",
+  "question": "A policy says a report must be filed within 3 business days after an incident, not counting the day of the incident. Business days are Monday through Friday, and there are no holidays. An incident happens on a Thursday. What is the last day the report can be filed?",
+  "reference": "The following Tuesday: Friday is business day 1, Monday is day 2, and Tuesday is day 3.",
+  "rubric": "Gives Tuesday (the Tuesday after the incident). Sunday (counting calendar days), Monday, or Wednesday fails. If working is shown, it must skip Saturday and Sunday and start counting on Friday.",
+  "core_rubric": "Gives the following Tuesday.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The incident happens on a **Thursday**.\n\n1.  **Day 0 (Incident):** Thursday. This day is not counted.\n2.  **Day 1:** Friday. (1 business day passed).\n3.  **Day 2:** Monday. (Saturday and Sunday are not business days). (2 business days passed).\n4.  **Day 3:** Tuesday. (3 business days passed).\n\nThe report must be filed *within* 3 business days after the incident, meaning it can be filed on the 1st, 2nd, or 3rd business day following the incident.\n\nTherefore, the last day the report can be filed is **Tuesday**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0118",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the Moon's phases are **not** caused by Earth's shadow falling on the Moon. That phenomenon is actually what causes a **lunar eclipse**.\n\nThe Moon's phases are caused by the changing angles between the Sun, Earth, and Moon as they orbit each other. Here is how it works:\n\n1.  **Light Source:** The Moon does not produce its own light; it reflects sunlight.\n2.  **Viewing Angle:** As the Moon orbits Earth, the portion of the Moon's surface illuminated by the Sun that we can see from Earth changes.\n3.  **The Cycle:**\n    *   **New Moon:** The Moon is between the Earth and the Sun. The side facing Earth is in darkness.\n    *   **First Quarter:** We see half of the Moon's illuminated side.\n    *   **Full Moon:** The Earth is between the Sun and the Moon. We see the entire illuminated side.\n    *   **Last (Third) Quarter:** We see the other half of the illuminated side.\n\nEarth's shadow only falls on the Moon during a **lunar eclipse**, which happens when the Earth passes directly between the Sun and the Moon, blocking the sunlight. This is a much rarer event than the regular monthly cycle of phases.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0122",
+  "question": "How many times does the letter r appear in the word 'strawberry'? Count every occurrence.",
+  "reference": "3 times: once in 'str' and twice in 'rry'.",
+  "rubric": "Gives 3. 2 fails. If the positions are shown, they must be consistent with one r after 'st' and two r's before the final y.",
+  "core_rubric": "Gives 3.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The letter \"r\" appears **3** times in the word 'strawberry'.\n\nHere is the breakdown:\n1.  st**r**awbe**rr**y (2nd letter)\n2.  st**r**awbe**rr**y (7th letter)\n3.  st**r**awbe**rr**y (8th letter)",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0126",
+  "question": "On a 60-kilometer trip, I drive the first 30 kilometers at an average speed of 30 kilometers per hour. Is there any speed for the remaining 30 kilometers that would make my average speed for the whole 60-kilometer trip equal to 60 kilometers per hour? Answer yes or no and explain.",
+  "reference": "No. Averaging 60 km/h over 60 km would require a total time of 1 hour, but the first 30 km already took 1 hour, so no time is left for the remaining 30 km.",
+  "rubric": "Answers no and explains that a 60 km/h average for 60 km allows exactly 1 hour in total, which the first 30 km has already used. Answering yes, giving 90 km/h (averaging the speeds), or claiming that an extremely high but finite speed would work fails.",
+  "core_rubric": "Answers no because the whole trip would have to take 1 hour, and the first half already took 1 hour.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No.\n\nTo have an average speed of 60 km/h for the entire 60 km trip, you would need to cover the whole distance in exactly 1 hour (since Time = Distance / Speed).\n\nHowever, you already drove the first 30 km at 30 km/h, which took exactly 1 hour (30 km / 30 km/h = 1 hour). You have no time left remaining to drive the second 30 km while maintaining that overall average. Therefore, it is impossible.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0130",
+  "question": "A printer prints at a constant 18 pages per minute with no pauses between copies. How long will it take to print 50 copies of a 27-page document? Give the answer in hours and minutes.",
+  "reference": "1 hour 15 minutes: 50 × 27 = 1,350 pages, and 1,350 / 18 = 75 minutes.",
+  "rubric": "Gives 1 hour 15 minutes. Also stating 75 minutes is fine, but 75 minutes alone does not give the requested hours-and-minutes form and fails. If working is shown, it must be consistent with 1,350 pages and 75 minutes.",
+  "core_rubric": "Gives 1 hour 15 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the total time:\n\n1.  **Calculate total pages:** 50 copies × 27 pages = 1,350 pages.\n2.  **Calculate minutes:** 1,350 pages ÷ 18 pages/minute = 75 minutes.\n3.  **Convert to hours and minutes:** 75 minutes = 1 hour and 15 minutes.\n\nIt will take **1 hour and 15 minutes**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0134",
+  "question": "Correct the word errors in this sentence and change nothing else: 'Their going to bring there own chairs, and its fine if your late.'",
+  "reference": "They're going to bring their own chairs, and it's fine if you're late.",
+  "rubric": "Makes exactly four corrections, Their → They're, there → their, its → it's, and your → you're, and leaves every other word and punctuation mark unchanged. The full forms They are, it is, and you are are also acceptable. Missing any of the four corrections, introducing a new error, or rewording the sentence fails.",
+  "core_rubric": "Gives the sentence with They're, their, it's, and you're (or their full forms) and no other changes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Their going to bring their own chairs, and it's fine if you're late.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0138",
+  "question": "Order these tasks by due date, earliest first: 'Report — due 14 March; Slides — due 2 March; Budget — due 9 March.' All three dates are in the same year.",
+  "reference": "Slides (2 March), Budget (9 March), Report (14 March).",
+  "rubric": "Gives the order Slides, Budget, Report. Including the dates is optional, but if given they must match. Any other order, or ordering by name, fails.",
+  "core_rubric": "Gives Slides, Budget, Report.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "1. Slides — due 2 March\n2. Budget — due 9 March\n3. Report — due 14 March",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0142",
+  "question": "Rewrite this instruction as a short, positive instruction with the same meaning: 'Don't forget to not leave the back door unlocked.' Do not use the words not, don't, never, or unlocked.",
+  "reference": "Remember to lock the back door.",
+  "rubric": "Tells the reader to lock the back door, for example 'Remember to lock the back door', 'Lock the back door', or 'Make sure the back door is locked'. Uses none of the words not, don't, never, or unlocked. Telling the reader to leave the door unlocked, or changing which door, fails.",
+  "core_rubric": "Gives an instruction to lock the back door that uses none of the words not, don't, never, or unlocked.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Always keep the back door locked.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0146",
+  "question": "A file is 3.6 gigabytes, using 1 gigabyte = 1,000 megabytes. My connection downloads at a steady 40 megabits per second, and 1 byte = 8 bits. Ignoring overhead, how many minutes will the download take?",
+  "reference": "12 minutes: 3,600 megabytes × 8 = 28,800 megabits, and 28,800 / 40 = 720 seconds.",
+  "rubric": "Gives 12 minutes. Also stating 720 seconds is fine, but 720 seconds alone does not give the requested unit and fails. Converts bytes to bits; 1.5 minutes (treating megabits as megabytes) fails. If working is shown, it must be consistent with 28,800 megabits and 720 seconds.",
+  "core_rubric": "Gives the download time as 12 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The download will take approximately **27 minutes**.\n\nHere is the quick breakdown:\n1.  **File Size:** 3.6 GB = 3,600 MB = 28,800 Megabits (since 1 Byte = 8 bits).\n2.  **Download Speed:** 40 Mbps.\n3.  **Time in Seconds:** $28,800 / 40 = 720$ seconds.\n4.  **Time in Minutes:** $720 / 60 = 12$ minutes.\n\nWait, let me recalculate that carefully.\n*   3.6 GB * 1,000 MB/GB = 3,600 MB.\n*   3,600 MB * 8 bits/Byte = 28,800 Megabits.\n*   28,800 Megabits / 40 Mbps = 720 seconds.\n*   720 seconds / 60 seconds/minute = **12 minutes**.\n\nMy previous estimate was off by a factor of two. The correct answer is **12 minutes**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0150",
+  "question": "In Python, text contains words separated by one or more spaces and may have leading or trailing spaces. Return a string with the words in reverse order, separated by single spaces, with no leading or trailing spaces. If text is empty or contains only spaces, return an empty string.",
+  "reference": "' '.join(reversed(text.split()))",
+  "rubric": "Returns the words in reverse word order joined by single spaces, so '  a  bb c ' gives 'c bb a', and '' or '   ' gives ''. Reversing the characters of text, or splitting with split(' ') so that repeated spaces produce extra empty words, fails. Equivalent correct code, such as ' '.join(text.split()[::-1]), is acceptable.",
+  "core_rubric": "Returns the words in reverse order separated by single spaces with no outer spaces; empty or all-space text gives ''.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is the Python function to solve your problem:\n\n```python\ndef reverse_words(text):\n    if not text.strip():\n        return \"\"\n    \n    # Split by one or more spaces, which removes leading/trailing whitespace and handles multiple spaces between words\n    words = text.split()\n    \n    # Reverse the list of words and join them with a single space\n    return \" \".join(reversed(words))\n\n# Examples:\nprint(reverse_words(\"  hello   world \"))      # Output: \"world hello\"\nprint(reverse_words(\"one two three\"))         # Output: \"three two one\"\nprint(reverse_words(\"\"))                      # Output: \"\"\nprint(reverse_words(\"   \"))                   # Output: \"\"\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0154",
+  "question": "In a vacuum, a heavy hammer and a light feather are dropped at the same moment from the same height. Does the hammer reach the ground first? Explain.",
+  "reference": "No. Without air resistance, all objects fall with the same gravitational acceleration regardless of their mass, so the hammer and the feather land at the same time.",
+  "rubric": "Answers no and explains that, without air resistance, both fall with the same acceleration due to gravity, independent of mass, so they land together. Mentioning the Apollo 15 demonstration is optional. Saying heavier objects fall faster in a vacuum fails.",
+  "core_rubric": "Answers no because both fall with the same acceleration in a vacuum and land together.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "In a true vacuum, **both the hammer and the feather will reach the ground at exactly the same time.**\n\nHere is the explanation:\n\n1.  **No Air Resistance:** In our everyday experience, a feather falls slower than a hammer because of air resistance (drag). The air pushes against the large surface area of the feather more significantly relative to its weight than it does for the dense hammer. However, in a vacuum, there is no air, so this opposing force is completely absent.\n2.  **Gravity Acts Equally:** According to Newton's law of universal gravitation and Galileo's principle of equivalence, the acceleration due to gravity ($g$) depends only on the mass of the Earth and the distance from its center. It does not depend on the mass of the falling object. Therefore, both objects accelerate downward at the same rate (approximately $9.8 \\, m/s^2$ on Earth).\n3.  **Result:** Since they start from the same height with the same initial velocity (zero) and experience the same constant acceleration without any external interference like air drag, they will cover the distance in the exact same amount of time.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0158",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To calculate the cost:\n\n1.  **Find the fuel needed for the trip:**\n    *   Consumption: 6.5 liters / 100 km\n    *   Distance: 380 km\n    *   Fuel needed = (6.5 / 100) * 380 = 24.7 liters\n\n2.  **Calculate the total cost:**\n    *   Cost per liter: $1.80\n    *   Total cost = 24.7 * 1.80 = $44.46\n\nThe fuel for the trip will cost **$44.46**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0162",
+  "question": "How many different colors are mentioned in this sentence, and what are they? 'A red car passed a blue van, then another red car stopped next to a green truck.'",
+  "reference": "Three: red, blue, and green.",
+  "rubric": "Gives 3 and names red, blue, and green. 4 (counting red twice) fails, and so does adding any color not in the sentence.",
+  "core_rubric": "Gives three colors: red, blue, and green.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "There are **4** different colors mentioned in the sentence:\n\n1.  Red\n2.  Blue\n3.  Green",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0166",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?",
+  "reference": "A solar year is about 365.2422 days, so adding a day every 4 years keeps the calendar in step with the seasons. That rule, which averages 365.25 days, slightly overcorrects, so century years are skipped unless they are divisible by 400, giving an average of 365.2425 days.",
+  "rubric": "Explains that Earth's orbit, the tropical year, takes about 365.24 days, so leap days keep the calendar aligned with the seasons; and that a leap day every 4 years overcorrects slightly, so century years are leap years only when divisible by 400. Stating the year as exactly 365.25 days, or saying century years are never leap years, fails.",
+  "core_rubric": "Explains leap days as correcting for a year of about 365.24 days, and that skipping most century years (except those divisible by 400) fixes the slight overcorrection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The Gregorian calendar adds a leap day (February 29th) to keep our calendar year synchronized with the astronomical year, which is the time it takes Earth to complete one orbit around the Sun.\n\nHere is the breakdown of why this happens and how the rules work:\n\n**1. Why do we need leap years?**\nA tropical year (the time from one vernal equinox to the next) is approximately **365.2422 days** long. If we only had 365 days in a year, we would be short by about **0.2422 days** every year. Over 4 years, that accumulated error reaches almost exactly one full day ($0.2422 \\times 4 \\approx 0.9688$). To compensate for this missing fraction of a day, we add an extra day every four years. This keeps our seasons aligned with the calendar dates.\n\n**2. Why are most years divisible by 100 not leap years?**\nIf we simply added a leap day every 4 years indefinitely, we would actually overshoot the mark slightly. The calculation $0.2422 \\times 4$ isn't quite 1; it's slightly less. By adding a day every 4 years, we introduce a tiny excess of about 0.0078 days per century. Over a period of 400 years, this small excess accumulates to roughly 3 days.\n\nTo correct for this slight over-compensation, the Gregorian calendar introduced a \"skip\" rule:\n*   A year is a leap year if it is divisible by **4**.\n*   **However**, if the year is also divisible by **100**, it is **not** a leap year.\n*   **Exception:** If the year is also divisible by **400**, it **is** a leap year.\n\nThis creates a cycle of 400 years containing exactly 97 leap years instead of 100. This average out comes to $365 + \\frac{97}{400} = 365.2425$ days, which is incredibly close to the actual tropical year of $365.2422$ days.\n\n**Summary of the Rules:**\n*   **1700**: Divisible by 4, but also by 100 (and not 400) $\\rightarrow$ **Not a leap year.**\n*   **1800**: Divisible by 4, but also by 100 (and not 400) $\\rightarrow$ **Not a leap year.**\n*   **1900**: Divisible by 4, but also by 100 (and not 400) $\\rightarrow$ **Not a leap year.**\n*   **2000**: Divisible by 4, 100, and 400 $\\rightarrow$ **Leap year.**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0170",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the Moon's phases are **not** caused by Earth's shadow falling on the Moon. That phenomenon is actually what causes a **lunar eclipse**.\n\nThe phases of the Moon (New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Third Quarter, and Waning Crescent) are caused by the changing relative positions of the Sun, Earth, and Moon as they orbit each other.\n\nHere is how it works:\n*   The Moon does not produce its own light; we see it because it reflects sunlight.\n*   As the Moon orbits Earth, the portion of the side facing us that is illuminated by the Sun changes.\n    *   When the Moon is between the Earth and the Sun, the side facing us is in darkness (New Moon).\n    *   When the Earth is between the Sun and the Moon, the entire face is lit up (Full Moon).\n    *   In between these positions, we see varying amounts of the lit side, creating the different phases.\n\nEarth's shadow only falls on the Moon when the Earth is directly between the Sun and the Moon, which happens during a lunar eclipse. This is a specific event, not the reason for the regular monthly cycle of phases.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0174",
+  "question": "I have $60 for a party. Pizzas cost $12 each, and I need at least 3; drink packs cost $4 each, and I need at least 2. After buying those minimums, I will spend the remaining money only on as many extra pizzas as I can afford. How many pizzas and drink packs will I buy, and how much money will be left?",
+  "reference": "4 pizzas and 2 drink packs, costing $56, with $4 left. The minimums cost $44, and the remaining $16 buys one extra pizza.",
+  "rubric": "Gives 4 pizzas, 2 drink packs, and $4 left over. Buying extra drink packs fails because the leftover money is only for pizzas. 5 pizzas (over budget) fails. If working is shown, it must be consistent with $44 for the minimums.",
+  "core_rubric": "Gives 4 pizzas, 2 drink packs, and $4 remaining.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You will buy **3 pizzas** and **2 drink packs**.\n\nHere is the breakdown:\n*   **Minimums:** 3 pizzas ($12 x 3 = $36) + 2 drink packs ($4 x 2 = $8) = **$44 total**.\n*   **Remaining money:** $60 - $44 = **$16**.\n*   **Extra pizzas:** You can afford **1 extra pizza** with the remaining $16 ($16 / $12).\n*   **Total bought:** 3 (minimum) + 1 (extra) = **4 pizzas**.\n*   **Money left over:** $16 - $12 = **$4**.\n\n**Final Answer:**\n*   **Pizzas:** 4\n*   **Drink packs:** 2\n*   **Money left:** $4",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0178",
+  "question": "What does two-factor authentication add to a password login? If an attacker steals only my password, is that enough to log in to an account protected by two-factor authentication?",
+  "reference": "It requires a second, separate proof of identity, such as a code from an authenticator app, a security key, or a code sent to a phone, in addition to the password. A stolen password alone is not enough; the attacker would also need the second factor.",
+  "rubric": "Explains that two-factor authentication requires a second factor of a different kind, such as something you have, in addition to the password, and says the password alone is not enough to log in. Saying that the password alone suffices, or that two-factor authentication just means a longer password, fails. Mentioning phishing of codes or recovery weaknesses as risks is harmless.",
+  "core_rubric": "Says a second, separate factor is required in addition to the password, so a stolen password alone is not enough.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Two-factor authentication (2FA) adds a **second layer of security** to a standard password login. Instead of just verifying \"what you know\" (your password), it requires verification of \"something you have\" or \"something you are.\"\n\nHere is how it works in practice:\n1.  **First Factor:** You enter your username and password.\n2.  **Second Factor:** The system then asks for a second form of identification, such as:\n    *   A temporary code generated by an app on your phone (Time-based One-Time Passwords).\n    *   A push notification that you must approve on your mobile device.\n    *   A hardware token (like a YubiKey).\n    *   A biometric scan (fingerprint or face ID).\n\n**Is a stolen password enough?**\nNo, generally speaking. If an attacker steals only your password, they **cannot** log into an account protected by two-factor authentication unless they also possess the second factor (e.g., your phone, the specific hardware token, or can bypass the biometric check). The stolen password alone is insufficient to complete the authentication process.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0182",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you cannot use the pass for a train at 08:15 on a Tuesday.\n\nHere is the explanation:\n1.  **Day of Week:** The train is on a Tuesday, which falls within your valid days (Monday to Friday).\n2.  **Time of Day:** Your pass defines \"off-peak\" as before 07:00 or after 09:30.\n    *   08:15 is between 07:00 and 09:30.\n    *   Therefore, 08:15 is considered **peak time**.\n\nSince the train is running during peak hours, it does not meet the conditions of your off-peak only pass.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0186",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Subject: Refund Confirmation for Your Order\n\nDear Lee,\n\nThis message is to confirm that your refund of $24.50 has been issued today. Please note that it may take up to 5 business days for the funds to appear in your account.\n\nThank you for your patience.\n\nBest regards,\nCustomer Support Team",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0190",
+  "question": "A form says, 'Applications must be received by 17:00 on March 3.' I mailed my application on March 2, and it was delivered on March 4. Under this wording, did my application meet the deadline? Explain.",
+  "reference": "No. The deadline is about when the application is received, not when it is sent, and it was received on March 4, after the deadline.",
+  "rubric": "Answers no and explains that the rule depends on the receipt date, March 4, which is after March 3. Treating the mailing date as what counts, or answering yes, fails.",
+  "core_rubric": "Answers no because the application was received on March 4, after the March 3 receipt deadline.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, your application did not meet the deadline.\n\nThe form states applications must be **received** by 17:00 on March 3. Since you mailed it on March 2 but it was delivered on March 4, it arrived after the specified time and date.",
+  "at_token_cap": false
+ }
+]

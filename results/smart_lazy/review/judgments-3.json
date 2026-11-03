@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0003",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives exactly 'Did the package arrive on Monday?'"
+ },
+ {
+  "id": "S0012",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Heated air expands, becomes less dense than outside air, buoyancy lifts balloon; no false claims"
+ },
+ {
+  "id": "S0021",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 12:00; correct is 11:00 (300/150 = 2 h)"
+ },
+ {
+  "id": "S0030",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 10:50 train / 11:23 arrival; correct is 09:05 train, 09:38 arrival"
+ },
+ {
+  "id": "S0039",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives $9 with correct band reasoning"
+ },
+ {
+  "id": "S0048",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "line.strip() filter in list comprehension returns new list, keeps strings unmodified"
+ },
+ {
+  "id": "S0057",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Rice start given as 18:25 (finishes 18:45); rice must start 18:40"
+ },
+ {
+  "id": "S0066",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives 3"
+ },
+ {
+  "id": "S0075",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Says no to Earth's shadow; phases from changing Sun-Earth-Moon angles altering visible sunlit portion"
+ },
+ {
+  "id": "S0084",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Same time (no); a = mg/m = g independent of mass without air resistance"
+ },
+ {
+  "id": "S0093",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Rice 18:40, chicken 18:25, salad 18:50"
+ },
+ {
+  "id": "S0102",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 427 working seats; correct is 377"
+ },
+ {
+  "id": "S0111",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 600; correct is 750 mL"
+ },
+ {
+  "id": "S0120",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Less dense heated air; displaced air weight exceeds total weight so net upward buoyant force"
+ },
+ {
+  "id": "S0129",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "line.strip() comprehension is correct"
+ },
+ {
+  "id": "S0138",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Returns None for empty, sum/len true division otherwise (0.0 for zero mean)"
+ },
+ {
+  "id": "S0147",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final labeled answer 9:05 train, 9:38 arrival is correct, but working first wrongly proposes the 9:50 train (arriving 10:23) before self-correcting"
+ },
+ {
+  "id": "S0156",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives $24 treating the 5-year-old as free; correct is $36"
+ },
+ {
+  "id": "S0165",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Rice 18:40, chicken 18:25, salad 18:50"
+ },
+ {
+  "id": "S0174",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "8 boxes with consistent working 14.7, 16.17, 7.35"
+ },
+ {
+  "id": "S0183",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Encryption plus certificate-based server authentication; answers no, HTTPS does not make site honest; no material errors"
+ },
+ {
+  "id": "S0192",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "24.7 L x $1.80 = $44.46"
+ },
+ {
+  "id": "S0201",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 5 h 10 min; correct is 1 h 15 min"
+ },
+ {
+  "id": "S0210",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; 30 min is outside the 20-25 min range"
+ },
+ {
+  "id": "S0219",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 18; correct is 36"
+ },
+ {
+  "id": "S0228",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final 9:05 train / 9:38 arrival correct, but working says 09:20 train arrives after 10:03 (actually 9:53) and falsely says 8:50 train arriving 9:23 is '23 minutes late'"
+ },
+ {
+  "id": "S0237",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Gives 36"
+ },
+ {
+  "id": "S0246",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "8 boxes with consistent working"
+ },
+ {
+  "id": "S0255",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Opens by stating total is $24 (with false claim both children pay full price), then revises to $36; competing answers make deliverable contradictory"
+ },
+ {
+  "id": "S0264",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Correctly says no because accidental damage is excluded, but falsely states the 12-month timeframe has passed (only 3 months)"
+ },
+ {
+  "id": "S0273",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Same time; g independent of falling object's mass without air resistance"
+ },
+ {
+  "id": "S0282",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "4 pizzas and 2 drink packs right but says $0 left; correct is $4"
+ },
+ {
+  "id": "S0291",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Correct atom/molecule definitions; O2 is a molecule of two O atoms"
+ },
+ {
+  "id": "S0300",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git commit --amend -m \"Fix typo in README\" without -a"
+ },
+ {
+  "id": "S0309",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One polite sentence, apology, can't make it today, no reason added"
+ },
+ {
+  "id": "S0318",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 0.58; correct is 0.52"
+ },
+ {
+  "id": "S0327",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Exactly the three spelling corrections, punctuation unchanged"
+ },
+ {
+  "id": "S0336",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 414 working seats (ignores broken seats) and says it is enough; correct is 377"
+ },
+ {
+  "id": "S0345",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Slides, Budget, Report with correct dates"
+ },
+ {
+  "id": "S0354",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Proposes rotating shelf ownership; no name-and-date labels or age-limit scheduled clean-out"
+ },
+ {
+  "id": "S0363",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 15; correct is 8 boxes"
+ },
+ {
+  "id": "S0372",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "line.strip() comprehension is correct"
+ },
+ {
+  "id": "S0381",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline answer is June 10 2:55 AM, then 11:55 PM with wrong UTC working, then finally 5:55 PM; multiple competing answers and wrong intermediates"
+ },
+ {
+  "id": "S0390",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "555-0199, reaches security"
+ },
+ {
+  "id": "S0399",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 03:45; correct is 17:55 June 10"
+ },
+ {
+  "id": "S0408",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Six 1-hour evenings: one brief evening for ch1-2, one dedicated evening each for ch3-6, final review; muddled rationale for reverse order is not materially false"
+ },
+ {
+  "id": "S0417",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Only the word 'Refraction'; no explanation of light bending at the water-air boundary making the underwater part appear shifted, as the why-question requires"
+ },
+ {
+  "id": "S0426",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives Monday; correct is the following Tuesday"
+ }
+]

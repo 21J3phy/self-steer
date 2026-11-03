@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0006",
+  "question": "I borrow $2,400 at 6% simple annual interest and repay everything in one payment after 18 months. How much do I repay in total?",
+  "reference": "$2,616: the interest is $2,400 × 0.06 × 1.5 = $216.",
+  "rubric": "Gives $2,616 in total. Simple interest for 1.5 years is $216; giving only $216, using 18 years, or compounding fails. If working is shown, it must be consistent with $216.",
+  "core_rubric": "Gives a total repayment of $2,616.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$2,640",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0015",
+  "question": "Why does a pressure cooker cook food faster than an ordinary pot of boiling water at normal air pressure?",
+  "reference": "Sealing the pot traps steam and raises the pressure inside, which raises water's boiling point above 100°C, to about 120°C at typical settings. The hotter water and steam transfer heat to the food faster, so it cooks faster.",
+  "rubric": "Explains that the higher pressure raises the boiling point above 100°C, so the food is cooked at a higher temperature. A specific temperature is optional; if one is given, it should be about 110–125°C. Saying the pressure itself squeezes the food cooked, or that the water boils at a lower temperature, fails.",
+  "core_rubric": "Explains that higher pressure raises the boiling point above 100°C, so cooking happens at a higher temperature.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A pressure cooker cooks food faster primarily because **it raises the boiling point of water**, which in turn increases the temperature at which heat is transferred to the food.\n\nHere is the step-by-step physical process behind this phenomenon:\n\n1.  **The Relationship Between Pressure and Boiling Point**:\n    Normally, water boils at $100^\\circ\\text{C}$ ($212^\\circ\\text{F}$) at standard atmospheric pressure (1 atm). This happens because the vapor pressure of the water equals the external air pressure pushing down on it. In a sealed pressure cooker, steam cannot escape. As the water heats up, the steam builds up pressure inside the pot. According to thermodynamic principles, as external pressure increases, the temperature required for the liquid to boil also increases.\n\n2.  **Higher Cooking Temperature**:\n    Because the pressure inside a typical pressure cooker can reach about 15 psi (pounds per square inch) above atmospheric pressure, the boiling point of water rises to approximately **$121^\\circ\\text{C}$ ($250^\\circ\\text{F}$)**.\n    *   In an ordinary pot: Water boils at $100^\\circ\\text{C}$. Even if you keep the burner on high, the water cannot get any hotter than this; any extra energy goes into turning more water into steam rather than raising the temperature.\n    *   In a pressure cooker: The water stays liquid at temperatures significantly higher than $100^\\circ\\text{C}$ until the valve releases steam.\n\n3.  **Increased Kinetic Energy and Reaction Rates**:\n    Food cooking involves chemical reactions (such as gelatinizing starch or denaturing proteins) and the diffusion of heat into the food. These processes are driven by kinetic energy. Since the molecules in the hot water in a pressure cooker move much faster (due to the higher temperature), they collide with the food molecules more frequently and with greater energy. This accelerates the breakdown of tough fibers and the transfer of heat deep into the food, drastically reducing cooking time.\n\n**Conclusion**\n\nA pressure cooker cooks food faster because the trapped steam creates **high internal pressure**, which forces the **boiling point of water to rise** (typically to $121^\\circ\\text{C}$ instead of $100^\\circ\\text{C}$). This allows the food to be heated at a significantly higher temperature, accelerating the rate of thermal and chemical reactions necessary for cooking.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0024",
+  "question": "In Python, pairs is a list of (name, score) tuples, where scores are integers that may be negative and a name may appear several times. Return a dictionary mapping each name to the highest score recorded for it, with the names in order of their first appearance. pairs may be empty; leave it unchanged.",
+  "reference": "{name: max(score for other, score in pairs if other == name) for name, _ in pairs}",
+  "rubric": "Returns a dictionary whose keys are the distinct names in first-appearance order and whose values are each name's maximum score, so negative-only scores keep their true maximum (for example [('a', -5), ('a', -2)] gives {'a': -2}). An empty list gives {}. dict(pairs) (the last score wins), starting a running maximum at 0, or sorting the names alphabetically fails. A loop that builds the dictionary is acceptable. Does not modify pairs.",
+  "core_rubric": "Maps each distinct name, in first-appearance order, to its highest score, including all-negative cases; [] gives {} and pairs is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef highest_score(pairs):\n    if not pairs:\n        return {}\n\n    result = {}\n    order = []  # to preserve first appearance order\n\n    for name, score in pairs:\n        if name not in result:\n            result[name] = score\n            order.append(name)\n        else:\n            result[name] = max(result[name], score)\n\n    return {name: result[name] for name in order}\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0033",
+  "question": "What does two-factor authentication add to a password login? If an attacker steals only my password, is that enough to log in to an account protected by two-factor authentication?",
+  "reference": "It requires a second, separate proof of identity, such as a code from an authenticator app, a security key, or a code sent to a phone, in addition to the password. A stolen password alone is not enough; the attacker would also need the second factor.",
+  "rubric": "Explains that two-factor authentication requires a second factor of a different kind, such as something you have, in addition to the password, and says the password alone is not enough to log in. Saying that the password alone suffices, or that two-factor authentication just means a longer password, fails. Mentioning phishing of codes or recovery weaknesses as risks is harmless.",
+  "core_rubric": "Says a second, separate factor is required in addition to the password, so a stolen password alone is not enough.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Two-factor authentication (2FA) adds a **second layer of security** to a standard password login. Instead of just verifying \"what you know\" (your password), it requires verification of \"something you have\" or \"something you are.\"\n\nHere is how it works in practice:\n1.  **First Factor:** You enter your username and password.\n2.  **Second Factor:** The system then asks for a second form of identification, such as:\n    *   A temporary code generated by an app on your phone (Time-based One-Time Passwords).\n    *   A push notification that you must approve on your mobile device.\n    *   A hardware token (like a YubiKey).\n    *   A biometric scan (fingerprint or face ID).\n\n**Is a stolen password enough?**\nNo, generally speaking. If an attacker steals only your password, they **cannot** log into an account protected by two-factor authentication unless they also possess the second factor (e.g., your phone, the specific hardware token, or can bypass the biometric check). The stolen password alone is insufficient to complete the authentication process.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0042",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?",
+  "reference": "A solar year is about 365.2422 days, so adding a day every 4 years keeps the calendar in step with the seasons. That rule, which averages 365.25 days, slightly overcorrects, so century years are skipped unless they are divisible by 400, giving an average of 365.2425 days.",
+  "rubric": "Explains that Earth's orbit, the tropical year, takes about 365.24 days, so leap days keep the calendar aligned with the seasons; and that a leap day every 4 years overcorrects slightly, so century years are leap years only when divisible by 400. Stating the year as exactly 365.25 days, or saying century years are never leap years, fails.",
+  "core_rubric": "Explains leap days as correcting for a year of about 365.24 days, and that skipping most century years (except those divisible by 400) fixes the slight overcorrection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The Gregorian calendar adds a leap day to keep our year-length aligned with the Earth's actual orbit around the Sun.\n\n**1. Why we need leap days at all**  \n- A tropical year (the time it takes Earth to complete one orbit) is about **365.2422 days**.  \n- The calendar counts years in whole days, so if we only had 365 days each year, we would fall behind by roughly **0.2422 days per year**, or about **one extra day every 4 years**.  \n- After ~4 years, those fractions add up to nearly a full day, causing seasons to drift relative to the calendar. To compensate, we insert an extra day (February 29) in most leap years.\n\n**2. Why not just add a day every 4 years?**  \nIf we added a leap day every 4 years without any adjustment:\n- We’d add too many days: $ \\frac{1}{4} = 0.25 $ days/year instead of the needed $0.2422$ days/year.  \n- Over time, this would cause the calendar to gain about **1 day every 128 years**, eventually shifting seasons badly (e.g., summer starting in January).\n\nTo reduce this excess, the Gregorian calendar uses a more precise rule set that approximates the true year length much better.\n\n**3. The 100‑year exception**  \nThe rules are:\n1. If a year is divisible by **4**, it is a leap year (**except**...).\n2. If a year is divisible by **100**, it is **not** a leap year (**unless**...).\n3. If a year is divisible by **400**, it **is** a leap year.\n\nSo:\n- 2000 → divisible by 400 → leap year.\n- 1900 → divisible by 100 but not by 400 → **not** a leap year.\n- 2024 → divisible by 4 and not by 100 → leap year.\n- 2100 → divisible by 100 but not by 400 → **not** a leap year.\n\n**4. Why skip the 100‑year leap days?**  \nThis refinement makes the average year length closer to the true tropical year:\n\n- Leap years every 4 years give:  \n  $$ \\text{Average} = 365 + \\frac{1}{4} = 365.25 \\text{ days} $$\n- Removing leap years for century years (every 100 years) gives:  \n  $$ \\text{Average} = 365 + \\frac{97}{400} = 365.2425 \\text{ days} $$\n- This is very close to the actual $365.2422$ days, leaving an error of only about **1 second per year**, or roughly **3 minutes per year** compared to the naive 4‑year rule. Over centuries, this keeps the calendar drift to just a few days after millennia.\n\nIn short:  \nWe add a leap day mostly every 4 years to account for the fractional part of a year, but we omit it in century years (except when also divisible by 400) to avoid adding too many days and to match the true length of the solar year as closely as possible.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0051",
+  "question": "On an analog clock, what is the smaller angle between the hour hand and the minute hand at exactly 3:30?",
+  "reference": "75 degrees. The minute hand is at 180°, and the hour hand is halfway between 3 and 4, at 105°.",
+  "rubric": "Gives 75°. 90° (placing the hour hand exactly on 3) fails. If working is shown, the hour hand must be at 105° and the minute hand at 180°.",
+  "core_rubric": "Gives 75 degrees.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The smaller angle is 75°.\n\nHere's the quick breakdown:\n*   The minute hand points at 6 (180° from 12).\n*   The hour hand is halfway between 3 and 4, which is 15° past the 3 (which is 90° from 12).\n*   The difference is 180° - 105° = 75°.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0060",
+  "question": "In Python, counts is a dictionary mapping strings to integers, and word is a string. Return a new dictionary equal to counts except that the value for word is increased by 1. If word is not already a key, it must be added with the value 1, and an existing value of 0 must become 1. Leave counts unchanged.",
+  "reference": "{**counts, word: counts.get(word, 0) + 1}",
+  "rubric": "Returns a new dictionary with every other key and value unchanged and word mapped to its old value plus 1, or to 1 if word was absent; an existing 0 becomes 1 and an existing 5 becomes 6. Always setting word to 1, using a default of 1 so that an absent word becomes 2, or modifying counts in place fails. Copying counts and then updating the copy is acceptable.",
+  "core_rubric": "Returns a new dictionary with word's value increased by 1 (1 if absent) and everything else the same; counts is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ncounts[word] = counts.get(word, 0) + 1\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0069",
+  "question": "In a Unix shell, print the number of words in essay.txt, where a word is a run of non-whitespace characters. Print only the number, without the file name. The file contains only ASCII text; leave it unchanged.",
+  "reference": "wc -w < essay.txt",
+  "rubric": "Uses wc -w < essay.txt, or an equivalent such as cat essay.txt | wc -w or wc -w essay.txt | awk '{print $1}'. Leading spaces that some wc versions print before the number are acceptable. wc -w essay.txt alone fails because it also prints the file name; wc -l or wc -c counts lines or bytes and fails.",
+  "core_rubric": "Prints only the whitespace-separated word count of essay.txt, without the file name; essay.txt is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "wc -w essay.txt | awk '{print $1}'",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0078",
+  "question": "How many days pass from January 15, 2027 to March 15, 2027? Count elapsed days, so January 15 to January 16 is one day. Give the answer in days and also as whole weeks plus remaining days.",
+  "reference": "59 days, which is 8 weeks and 3 days: 16 days left in January, 28 in February 2027, and 15 in March.",
+  "rubric": "Gives 59 days and 8 weeks plus 3 days. 2027 is not a leap year, so February has 28 days; 60 days (treating February as 29 days) or a count of 58 or 60 from an off-by-one error fails. Both forms are required.",
+  "core_rubric": "Gives 59 days and 8 weeks plus 3 days.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "60 days; 8 weeks and 4 days.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0087",
+  "question": "Rewrite 'We will utilize the new room when the meeting commences.' by replacing 'utilize' and 'commences' with simpler everyday words. Keep the meaning and leave the rest of the sentence unchanged.",
+  "reference": "We will use the new room when the meeting starts.",
+  "rubric": "Replaces utilize with use and commences with starts or begins, and keeps every other word: 'We will use the new room when the meeting starts.' or '... begins.' Changing other words, the tense, or the meaning fails.",
+  "core_rubric": "Gives 'We will use the new room when the meeting starts.' or the same sentence with 'begins'.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "We will use the new room when the meeting starts.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0096",
+  "question": "In a Git repository, print the full hexadecimal commit ID of the current commit, HEAD, and nothing else. In a default SHA-1 repository this ID is 40 characters long. Do not change the repository.",
+  "reference": "git rev-parse HEAD",
+  "rubric": "Uses git rev-parse HEAD, or an equivalent that prints only the full ID, such as git log -1 --format=%H or git show -s --format=%H. git rev-parse --short HEAD, git log -1 --oneline, or plain git log fails because it prints an abbreviated ID or extra text.",
+  "core_rubric": "Prints only the full commit ID of HEAD without changing the repository.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git rev-parse HEAD",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0105",
+  "question": "My team of five meets every Monday, and we keep forgetting whose turn it is to take notes, so the same two people end up doing it. Suggest a simple system that makes each week's note-taker clear in advance and spreads the work evenly.",
+  "reference": "Write a fixed rotation of all five names in a shared place, such as the recurring meeting invite or a team document, and announce next week's note-taker at the end of each meeting. After the fifth person, start again at the top; if someone is away, they swap with the next person.",
+  "rubric": "Proposes a fixed rotation or schedule that includes all five people and repeats, so each person takes notes equally often, and makes the next note-taker known before the meeting, for example in a shared list, the meeting invite, or an announcement. Handling absences and reminders is optional. Asking for volunteers each week, or leaving it to the same people, is insufficient.",
+  "core_rubric": "Proposes a repeating rotation of all five members that is recorded or announced before each meeting.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Use a rotating schedule based on the week number (e.g., Week 1: Person A, Week 2: Person B). Write it in a shared calendar or a simple spreadsheet with columns for \"Week,\" \"Note-taker,\" and \"Notes.\"",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0114",
+  "question": "A bag holds 4 green marbles and 6 yellow marbles. I draw one marble at random, put it back, mix, and draw again. What is the probability that both draws are the same color?",
+  "reference": "13/25, or 52%: (4/10)² + (6/10)² = 0.16 + 0.36 = 0.52.",
+  "rubric": "Gives 13/25, 0.52, or 52%. The draws are with replacement; the without-replacement value 7/15 (about 46.7%) fails. If working is shown, it must be consistent with 0.16 + 0.36.",
+  "core_rubric": "Gives the probability as 13/25 (0.52 or 52%).",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the probability that both draws are the same color, we can calculate the probabilities of drawing two green marbles or two yellow marbles and then add them together.\n\n**1. Calculate the total number of marbles:**\nTotal = 4 (green) + 6 (yellow) = 10 marbles.\n\n**2. Calculate the probability of drawing two green marbles ($P(GG)$):**\n*   Probability of the first marble being green: $4/10$\n*   Since the marble is put back, the probability of the second marble being green remains: $4/10$\n*   $P(GG) = \\frac{4}{10} \\times \\frac{4}{10} = \\frac{16}{100}$\n\n**3. Calculate the probability of drawing two yellow marbles ($P(YY)$):**\n*   Probability of the first marble being yellow: $6/10$\n*   Since the marble is put back, the probability of the second marble being yellow remains: $6/10$\n*   $P(YY) = \\frac{6}{10} \\times \\frac{6}{10} = \\frac{36}{100}$\n\n**4. Calculate the total probability of drawing the same color:**\n$P(\\text{Same Color}) = P(GG) + P(YY)$\n$P(\\text{Same Color}) = \\frac{16}{100} + \\frac{36}{100} = \\frac{52}{100}$\n\nSimplifying the fraction:\n$\\frac{52}{100} = \\frac{13}{25}$ or $0.52$.\n\nThe probability that both draws are the same color is **0.52** (or 52%).",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0123",
+  "question": "Starting at 09:00, with enough helpers to work on several tasks at once, I need to: clear the yard (1 hour); build a shed base (3 hours, which can start only after the yard is cleared); assemble the shed walls in the garage (2 hours, with no prerequisite); and mount the walls on the base (1 hour, which can start only after both the base and the walls are done). What is the earliest time everything can be finished?",
+  "reference": "14:00. Clear the yard 09:00–10:00 and build the base 10:00–13:00, while the walls are assembled 09:00–11:00; then mount the walls 13:00–14:00.",
+  "rubric": "Gives 14:00. Doing the tasks one after another (16:00) fails because the walls can be assembled at the same time as the other work. If a schedule is shown, it must respect every prerequisite and be consistent with mounting from 13:00 to 14:00.",
+  "core_rubric": "Gives an earliest finish time of 14:00.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the earliest completion time, let's break down the timeline based on the dependencies:\n\n1.  **Clear the yard**: Takes 1 hour.\n    *   Start: 09:00\n    *   End: 10:00\n\n2.  **Build shed base**: Takes 3 hours. Can start after the yard is cleared (10:00).\n    *   Start: 10:00\n    *   End: 13:00\n\n3.  **Assemble shed walls**: Takes 2 hours. No prerequisites.\n    *   Start: 09:00 (immediately with helpers)\n    *   End: 11:00\n\n4.  **Mount walls on base**: Takes 1 hour. Can start only after *both* the base and walls are done.\n    *   Base finishes at 13:00.\n    *   Walls finish at 11:00.\n    *   The task must wait for the later of the two (the base), so it starts at 13:00.\n    *   Start: 13:00\n    *   End: 14:00\n\nEverything is finished at **14:00**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0132",
+  "question": "How many days pass from January 15, 2027 to March 15, 2027? Count elapsed days, so January 15 to January 16 is one day. Give the answer in days and also as whole weeks plus remaining days.",
+  "reference": "59 days, which is 8 weeks and 3 days: 16 days left in January, 28 in February 2027, and 15 in March.",
+  "rubric": "Gives 59 days and 8 weeks plus 3 days. 2027 is not a leap year, so February has 28 days; 60 days (treating February as 29 days) or a count of 58 or 60 from an off-by-one error fails. Both forms are required.",
+  "core_rubric": "Gives 59 days and 8 weeks plus 3 days.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To calculate the number of days from **January 15, 2027** to **March 15, 2027**, we break down the period month by month.\n\nFirst, let's verify if 2027 is a leap year. A year is a leap year if it is divisible by 4 (except for end-of-century years, which must be divisible by 400).\n$2027 \\div 4 = 506.75$. Since it is not divisible by 4, 2027 is a common year with 365 days. This means February has 28 days.\n\nNow, we count the days elapsed:\n\n1.  **January**:\n    *   Start date: January 15\n    *   End of month: January 31\n    *   Days in January = $31 - 15 = 16$ days.\n    *   *(Note: If you count Jan 15 to Jan 16 as 1 day, then Jan 15 to Jan 31 is indeed 16 days).*\n\n2.  **February**:\n    *   Full month days = 28 days.\n\n3.  **March**:\n    *   Start date: March 1\n    *   End date: March 15\n    *   Days in March = 15 days.\n\n**Total Calculation:**\n$$16 \\text{ (Jan)} + 28 \\text{ (Feb)} + 15 \\text{ (Mar)} = 59 \\text{ days}$$\n\n**Conversion to Weeks and Days:**\n*   Total days: 59\n*   Days in a week: 7\n*   $59 \\div 7 = 8$ with a remainder of $3$.\n    *   ($8 \\times 7 = 56$)\n    *   ($59 - 56 = 3$)\n\nSo, there are **8 weeks** and **3 days**.\n\n### Final Answer\n*   **Total days**: 59 days\n*   **Weeks and remaining days**: 8 weeks and 3 days",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0141",
+  "question": "Three meetings happen at the same time, with 25, 11, and 18 attendees. Three rooms are available, seating 12, 20, and 30 people. Each meeting needs its own room with a seat for every attendee. Assign a room to each meeting.",
+  "reference": "The 25-person meeting uses the 30-seat room, the 18-person meeting uses the 20-seat room, and the 11-person meeting uses the 12-seat room.",
+  "rubric": "Gives 25 → 30 seats, 18 → 20 seats, and 11 → 12 seats. This is the only assignment that fits; any assignment that leaves a meeting with too few seats fails.",
+  "core_rubric": "Assigns the 25-, 18-, and 11-person meetings to the 30-, 20-, and 12-seat rooms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Meeting with 25 attendees: Room with 30 seats.\nMeeting with 18 attendees: Room with 20 seats.\nMeeting with 11 attendees: Room with 12 seats.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0150",
+  "question": "Turn the statement 'The package arrived on Monday' into a yes/no question about the same fact, changing only the words needed to form the question.",
+  "reference": "Did the package arrive on Monday?",
+  "rubric": "Gives 'Did the package arrive on Monday?' Small variations in capitalization are acceptable. Changing the verb to a different word, such as 'delivered', or asking about a different day or object fails. A question that is not answerable with yes or no fails.",
+  "core_rubric": "Gives 'Did the package arrive on Monday?'",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Did the package arrive on Monday?",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0159",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the Moon's phases are **not** caused by Earth's shadow falling on the Moon. That phenomenon is actually what causes a **lunar eclipse**.\n\nThe Moon's phases are caused by the changing angles between the Sun, Earth, and Moon as they orbit each other. Here is how it works:\n\n1.  **Light Source:** The Moon does not produce its own light; it reflects sunlight.\n2.  **Viewing Angle:** As the Moon orbits Earth, the portion of the Moon's surface illuminated by the Sun that we can see from Earth changes.\n3.  **The Cycle:**\n    *   **New Moon:** The Moon is between the Earth and the Sun. The side facing Earth is in darkness.\n    *   **First Quarter:** We see half of the Moon's illuminated side.\n    *   **Full Moon:** The Earth is between the Sun and the Moon. We see the entire illuminated side.\n    *   **Last (Third) Quarter:** We see the other half of the illuminated side.\n\nEarth's shadow only falls on the Moon during a **lunar eclipse**, which happens when the Earth passes directly between the Sun and the Moon, blocking the sunlight. This is a much rarer event than the regular monthly cycle of phases.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0168",
+  "question": "In a Unix shell, scores.csv has lines of the form name,points with no header. Names contain only letters, points is a nonnegative whole number with one or more digits, and no two lines have the same points. Print the lines sorted by points from smallest to largest, comparing points as numbers so that 9 comes before 10. Leave scores.csv unchanged.",
+  "reference": "sort -t, -k2,2n scores.csv",
+  "rubric": "Uses sort with a comma field separator and a numeric key on field 2, such as sort -t, -k2,2n scores.csv, sort -t ',' -k2 -n scores.csv, or sort -t, -n -k2 scores.csv. Because points are plain ASCII digits and all distinct, the result is the same in the C locale and in UTF-8 locales. Sorting field 2 as text (so 10 comes before 9), numeric sorting of whole lines, or omitting -t, so that field 2 is not the points, fails. sort -o scores.csv, which overwrites the file, fails.",
+  "core_rubric": "Prints all lines ordered by the numeric value of the second comma-separated field, smallest first; scores.csv is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "sort -t',' -k2,2n scores.csv > temp && mv temp scores.csv",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0177",
+  "question": "Rewrite this instruction as a short, positive instruction with the same meaning: 'Don't forget to not leave the back door unlocked.' Do not use the words not, don't, never, or unlocked.",
+  "reference": "Remember to lock the back door.",
+  "rubric": "Tells the reader to lock the back door, for example 'Remember to lock the back door', 'Lock the back door', or 'Make sure the back door is locked'. Uses none of the words not, don't, never, or unlocked. Telling the reader to leave the door unlocked, or changing which door, fails.",
+  "core_rubric": "Gives an instruction to lock the back door that uses none of the words not, don't, never, or unlocked.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Make sure to lock the back door.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0186",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you **cannot** use the pass for a train at 08:15 on a Tuesday.\n\nHere is the breakdown of why this does not work based on your conditions:\n\n1.  **Day Check**: The date is a **Tuesday**, which falls within \"Monday to Friday.\" This condition is met.\n2.  **Time Check**: Your pass defines \"off-peak\" as times **before 07:00** or **after 09:30**.\n    *   The time in question is **08:15**.\n    *   08:15 is after 07:00 but before 09:30.\n    *   Therefore, 08:15 falls into the **\"Peak\"** hours (often called \"Off-Peak Workday\" or simply \"Peak\"), not the off-peak window defined by your specific pass rules.\n\nSince the train departs during peak hours, it is outside the validity window of your ticket.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0195",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?",
+  "reference": "The tent, stove, and camera: exactly 10 kg, with a total usefulness of 17.",
+  "rubric": "Chooses the tent, stove, and camera, weighing 10 kg, with total usefulness 17. This is the unique best choice. Stove, food bag, and camera (16), tent and food bag (15), or any set over 10 kg fails.",
+  "core_rubric": "Chooses the tent, stove, and camera with a total usefulness of 17.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Take the tent (5 kg), food bag (4 kg), and stove (3 kg). The camera doesn't fit with these.\n\n**Total Weight:** 12 kg (Too heavy)\n\nLet's try again:\n- Tent (5 kg) + Food Bag (4 kg) = 9 kg. Total usefulness: 8 + 7 = **15**.\n- Stove (3 kg) + Camera (2 kg) = 5 kg. Add Tent (5 kg) = 10 kg. Total usefulness: 5 + 4 + 8 = **17**.\n\nThe best combination is **Tent, Stove, and Camera**.\n\n**Total Weight:** 10 kg\n**Total Usefulness:** 17",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0204",
+  "question": "In Python, return the arithmetic mean of the numbers in the list values as a float, or None if values is empty. A mean of zero, such as for [0, 0], must be returned as 0.0, not None. Leave values unchanged.",
+  "reference": "sum(values) / len(values) if values else None",
+  "rubric": "Returns sum divided by count with true division for a nonempty list ([1, 2] gives 1.5, [0, 0] and [-1, 1] give 0.0) and None for []. Floor division, returning 0 for an empty list, or an `or None` pattern that turns a 0.0 mean into None fails. statistics.fmean(values) guarded for the empty case is acceptable. Does not modify values.",
+  "core_rubric": "Returns the true-division mean as a float for nonempty input, including 0.0 for a zero mean, and None for an empty list.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is the Python function that meets your requirements:\n\n```python\ndef calculate_mean(values):\n    # Check if the list is empty\n    if not values:\n        return None\n    \n    # Calculate the sum and divide by the count to get the mean\n    # Using float division (/) ensures the result is a float (e.g., 0.0 for [0, 0])\n    mean = sum(values) / len(values)\n    \n    return mean\n```\n\n### How it works:\n1.  **Empty Check**: It first checks `if not values`. If the list is empty, it returns `None` immediately.\n2.  **Calculation**: It uses `sum(values)` to add all numbers and divides by `len(values)`. In Python 3, the `/` operator always performs floating-point division, so `[0, 0]` results in `0.0`, satisfying the requirement to return a float even when the mean is zero.\n3.  **Return**: It returns the calculated float value.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0213",
+  "question": "Rewrite 'We will utilize the new room when the meeting commences.' by replacing 'utilize' and 'commences' with simpler everyday words. Keep the meaning and leave the rest of the sentence unchanged.",
+  "reference": "We will use the new room when the meeting starts.",
+  "rubric": "Replaces utilize with use and commences with starts or begins, and keeps every other word: 'We will use the new room when the meeting starts.' or '... begins.' Changing other words, the tense, or the meaning fails.",
+  "core_rubric": "Gives 'We will use the new room when the meeting starts.' or the same sentence with 'begins'.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "We will use the new room when the meeting starts.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0222",
+  "question": "I have $60 for a party. Pizzas cost $12 each, and I need at least 3; drink packs cost $4 each, and I need at least 2. After buying those minimums, I will spend the remaining money only on as many extra pizzas as I can afford. How many pizzas and drink packs will I buy, and how much money will be left?",
+  "reference": "4 pizzas and 2 drink packs, costing $56, with $4 left. The minimums cost $44, and the remaining $16 buys one extra pizza.",
+  "rubric": "Gives 4 pizzas, 2 drink packs, and $4 left over. Buying extra drink packs fails because the leftover money is only for pizzas. 5 pizzas (over budget) fails. If working is shown, it must be consistent with $44 for the minimums.",
+  "core_rubric": "Gives 4 pizzas, 2 drink packs, and $4 remaining.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You will buy 3 pizzas, 2 drink packs, and 1 extra pizza. You will have $0 left.\n\n**Breakdown:**\n*   **Minimums:** 3 pizzas ($36) + 2 drinks ($8) = $44.\n*   **Remaining:** $60 - $44 = $16.\n*   **Extra:** 1 pizza for the remaining $12.\n*   **Total Spent:** $44 + $12 = $56.\n*   **Leftover:** $60 - $56 = $4.\n\nWait, let me recalculate based on the \"lazy\" mode instruction to be direct:\n\nYou will buy **4 pizzas** and **2 drink packs**. You will have **$4** left.\n\n**Calculation:**\n1.  **Minimums:** 3 pizzas ($36) + 2 drinks ($8) = $44.\n2.  **Remaining:** $60 - $44 = $16.\n3.  **Extra Pizzas:** You can afford 1 more pizza ($12).\n4.  **Final Total:** 4 pizzas ($48) + 2 drinks ($8) = $56.\n5.  **Leftover:** $60 - $56 = $4.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0231",
+  "question": "In Python, return the string s with its first character converted to uppercase and every other character left exactly as it is. s contains only ASCII characters and may be empty; an empty string must return an empty string without raising an error.",
+  "reference": "s[:1].upper() + s[1:]",
+  "rubric": "Uppercases only the first character and leaves the rest unchanged, so 'hELLO world' gives 'HELLO world', '1abc' gives '1abc', and '' gives ''. s.capitalize() and s.title() fail because they change later characters. s[0].upper() + s[1:] without an empty-string guard fails because it raises IndexError on ''. Equivalent correct code, such as a version guarded with `if s else s`, is acceptable.",
+  "core_rubric": "Uppercases only the first character, leaves every later character unchanged, and returns '' for '' without an error.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "def capitalize_first(s):\n    if not s:\n        return \"\"\n    return s[0].upper() + s[1:]",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0240",
+  "question": "In a Git repository, secrets.env is tracked and has no uncommitted changes. Stop tracking it, so that the next commit removes it from the repository, while keeping the file on disk unchanged. Do not commit, and do not edit .gitignore. Give the command.",
+  "reference": "git rm --cached secrets.env",
+  "rubric": "Uses git rm --cached secrets.env. git rm secrets.env without --cached fails because it deletes the working file. git restore --staged secrets.env and git update-index --assume-unchanged secrets.env fail because neither stops tracking the file. Mentioning that adding the file to .gitignore is a common later step is harmless, provided the answer does not edit .gitignore as part of the command.",
+  "core_rubric": "Gives git rm --cached secrets.env, which stages the file's removal from the index while leaving the working file in place.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git rm --cached secrets.env",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0249",
+  "question": "Correct the word errors in this sentence and change nothing else: 'Their going to bring there own chairs, and its fine if your late.'",
+  "reference": "They're going to bring their own chairs, and it's fine if you're late.",
+  "rubric": "Makes exactly four corrections, Their → They're, there → their, its → it's, and your → you're, and leaves every other word and punctuation mark unchanged. The full forms They are, it is, and you are are also acceptable. Missing any of the four corrections, introducing a new error, or rewording the sentence fails.",
+  "core_rubric": "Gives the sentence with They're, their, it's, and you're (or their full forms) and no other changes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Their going to bring their own chairs, and it's fine if you're late.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0258",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?",
+  "reference": "The tent, stove, and camera: exactly 10 kg, with a total usefulness of 17.",
+  "rubric": "Chooses the tent, stove, and camera, weighing 10 kg, with total usefulness 17. This is the unique best choice. Stove, food bag, and camera (16), tent and food bag (15), or any set over 10 kg fails.",
+  "core_rubric": "Chooses the tent, stove, and camera with a total usefulness of 17.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Take the tent, stove, food bag, and camera. Total usefulness: 24 kg.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0267",
+  "question": "In a Unix shell, in the current directory, create a symbolic link named current that points to the relative path releases/v2, which is an existing directory. current does not exist yet. Do not copy, move, or change releases/v2.",
+  "reference": "ln -s releases/v2 current",
+  "rubric": "Uses ln -s releases/v2 current: the target comes first and the link name second. ln -s ./releases/v2 current is acceptable. Reversing the arguments (which makes a link inside releases/v2), omitting -s (a hard link, which fails for a directory), or copying the directory fails.",
+  "core_rubric": "Creates a symbolic link named current whose relative target is releases/v2, with the argument order target then link name.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "ln -s releases/v2 current",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0276",
+  "question": "What is the difference between weather and climate? Is the statement 'It will rain this afternoon' about weather or climate?",
+  "reference": "Weather is the short-term state of the atmosphere at a particular place and time; climate is the long-term pattern of weather in a region, usually averaged over decades. 'It will rain this afternoon' is about weather.",
+  "rubric": "Defines weather as short-term atmospheric conditions and climate as long-term average patterns, often over about 30 years, and classifies the statement as weather. Calling it climate, or reversing the definitions, fails.",
+  "core_rubric": "Distinguishes short-term weather from long-term climate and classifies the statement as weather.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The main difference between **weather** and **climate** lies in the time scale and variability:\n\n*   **Weather** refers to the state of the atmosphere at a specific place and time. It involves short-term atmospheric conditions like temperature, humidity, precipitation, wind, etc., that change from minute to minute or day to day.\n*   **Climate** refers to the average weather conditions over a long period of time (usually 30 years or more) for a particular region. It describes the general patterns and trends rather than specific daily events.\n\nRegarding your statement: **\"It will rain this afternoon\"** is about **weather**.\n\nThis prediction concerns a specific, short-term event happening right now, which fits the definition of weather perfectly. Climate would be a statement like \"This region typically receives heavy rainfall in the summer.\"",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0285",
+  "question": "Three workers, all working at the same constant rate, build 3 identical shelves in 3 hours. Work on a shelf can be shared among workers. How many hours will 6 such workers take to build 6 identical shelves?",
+  "reference": "3 hours. Each worker builds one shelf per 3 hours, so 6 workers build 6 shelves in 3 hours.",
+  "rubric": "Gives 3 hours. 6 hours or 1.5 hours fails. If working is shown, it must be consistent with one shelf per worker per 3 hours.",
+  "core_rubric": "Gives 3 hours.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To solve this problem, we can use the concept of \"worker-hours,\" which represents the total amount of work required regardless of how many people are doing it.\n\n### Step 1: Calculate the total work required\nWe know that **3 workers** build **3 shelves** in **3 hours**.\nLet $W$ be the total work required to build one shelf.\n\nThe total work done is calculated as:\n$$ \\text{Total Work} = (\\text{Number of Workers}) \\times (\\text{Time}) $$\n\nFor the first scenario:\n$$ \\text{Total Work for 3 shelves} = 3 \\text{ workers} \\times 3 \\text{ hours} = 9 \\text{ worker-hours} $$\n\nSince there are 3 identical shelves, the work required for a single shelf ($W$) is:\n$$ W = \\frac{9 \\text{ worker-hours}}{3 \\text{ shelves}} = 3 \\text{ worker-hours per shelf} $$\n\n### Step 2: Calculate the work required for the new scenario\nNow we need to build **6 shelves** using **6 workers**.\nFirst, determine the total work needed for 6 shelves:\n$$ \\text{Total Work for 6 shelves} = 6 \\text{ shelves} \\times 3 \\text{ worker-hours/shelf} = 18 \\text{ worker-hours} $$\n\n### Step 3: Calculate the time required\nWe have **6 workers** available to complete the **18 worker-hours** of work. Let $t$ be the time in hours.\n\n$$ \\text{Total Work} = (\\text{Number of Workers}) \\times (\\text{Time}) $$\n$$ 18 = 6 \\times t $$\n\nSolving for $t$:\n$$ t = \\frac{18}{6} = 3 \\text{ hours} $$\n\n### Alternative Logical Approach (Scaling)\nNotice the changes between the two scenarios:\n*   **Shelves**: The number of shelves doubles (from 3 to 6). This would normally double the time if the workforce stayed the same.\n*   **Workers**: The number of workers also doubles (from 3 to 6). Doubling the workforce cuts the time in half for the same amount of work.\n\nSince the increase in workload (doubling the shelves) is exactly offset by the increase in manpower (doubling the workers), the time remains unchanged.\n\n**Answer:**\nIt will take **3** hours.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0294",
+  "question": "Pizza sizes are diameters. Do two 8-inch pizzas have more total area than one 12-inch pizza? Answer yes or no and give both areas.",
+  "reference": "No. Two 8-inch pizzas have 2 × π × 4² = 32π ≈ 100.5 square inches, and one 12-inch pizza has π × 6² = 36π ≈ 113.1 square inches.",
+  "rubric": "Answers no and states that the single 12-inch pizza has more area: 36π (about 113.1 square inches) versus 32π (about 100.5 square inches) for the two 8-inch pizzas. Rounded values within 0.1 square inch, or exact multiples of π, are acceptable. Answering yes, or computing areas from diameters as radii, fails.",
+  "core_rubric": "Answers no, with total areas of about 100.5 square inches (32π) for two 8-inch pizzas and about 113.1 square inches (36π) for one 12-inch pizza.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Yes. Two 8-inch pizzas have a total area of approximately 100.53 square inches, while one 12-inch pizza has an area of approximately 113.10 square inches.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0303",
+  "question": "What does two-factor authentication add to a password login? If an attacker steals only my password, is that enough to log in to an account protected by two-factor authentication?",
+  "reference": "It requires a second, separate proof of identity, such as a code from an authenticator app, a security key, or a code sent to a phone, in addition to the password. A stolen password alone is not enough; the attacker would also need the second factor.",
+  "rubric": "Explains that two-factor authentication requires a second factor of a different kind, such as something you have, in addition to the password, and says the password alone is not enough to log in. Saying that the password alone suffices, or that two-factor authentication just means a longer password, fails. Mentioning phishing of codes or recovery weaknesses as risks is harmless.",
+  "core_rubric": "Says a second, separate factor is required in addition to the password, so a stolen password alone is not enough.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Two-factor authentication adds a second verification step (such as a code, token, or biometric) beyond the password. No, stealing only your password is not enough to log in; the attacker must also possess or access the second factor.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0312",
+  "question": "Turn the statement 'The package arrived on Monday' into a yes/no question about the same fact, changing only the words needed to form the question.",
+  "reference": "Did the package arrive on Monday?",
+  "rubric": "Gives 'Did the package arrive on Monday?' Small variations in capitalization are acceptable. Changing the verb to a different word, such as 'delivered', or asking about a different day or object fails. A question that is not answerable with yes or no fails.",
+  "core_rubric": "Gives 'Did the package arrive on Monday?'",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Did the package arrive on Monday?",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0321",
+  "question": "In a Unix shell, scores.csv has lines of the form name,points with no header. Names contain only letters, points is a nonnegative whole number with one or more digits, and no two lines have the same points. Print the lines sorted by points from smallest to largest, comparing points as numbers so that 9 comes before 10. Leave scores.csv unchanged.",
+  "reference": "sort -t, -k2,2n scores.csv",
+  "rubric": "Uses sort with a comma field separator and a numeric key on field 2, such as sort -t, -k2,2n scores.csv, sort -t ',' -k2 -n scores.csv, or sort -t, -n -k2 scores.csv. Because points are plain ASCII digits and all distinct, the result is the same in the C locale and in UTF-8 locales. Sorting field 2 as text (so 10 comes before 9), numeric sorting of whole lines, or omitting -t, so that field 2 is not the points, fails. sort -o scores.csv, which overwrites the file, fails.",
+  "core_rubric": "Prints all lines ordered by the numeric value of the second comma-separated field, smallest first; scores.csv is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```bash\nsort -t',' -k2,2n scores.csv\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0330",
+  "question": "A warranty says it covers 'manufacturing defects for 12 months from purchase; accidental damage is not covered.' I accidentally dropped my phone 3 months after buying it, and the screen cracked. Does this warranty cover the repair? Explain.",
+  "reference": "No. A screen cracked by an accidental drop is accidental damage, which the warranty excludes; being within 12 months does not change that.",
+  "rubric": "Answers no and explains that the crack is accidental damage, which is not covered, so the 12-month period does not help. Answering yes because the damage happened within 12 months, or calling the crack a manufacturing defect, fails. Suggesting a separate insurance or paid repair option is harmless.",
+  "core_rubric": "Answers no because the cracked screen is accidental damage, which the warranty excludes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the warranty does not cover the repair. The damage resulted from an accident (dropping the phone), which is explicitly excluded by the clause stating that accidental damage is not covered.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0339",
+  "question": "In Python, return a new list containing the strings in names sorted alphabetically without regard to case, so 'apple' comes before 'Banana'. Strings that differ only in case must keep their original relative order. names contains only ASCII letters, may be empty, and must be left unchanged.",
+  "reference": "sorted(names, key=str.lower)",
+  "rubric": "Returns a new list of the original, unmodified strings sorted case-insensitively; Python's stable sort keeps the original order of strings that differ only in case, so ['b', 'B', 'a'] gives ['a', 'b', 'B']. Keys such as str.lower, str.casefold, str.upper, or a lambda that lowercases are all acceptable. sorted(names) without a key, returning lowercased copies of the strings, reverse order, or sorting names in place with names.sort() fails. An empty list gives [].",
+  "core_rubric": "Returns a new case-insensitively sorted list of the original strings, keeping the input order for case-only ties; names is unchanged and [] gives [].",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here’s one way to do it:\n\n```python\ndef sort_names_case_insensitive(names):\n    # Create a list of (key, original_index, name) tuples\n    indexed = [(name.lower(), i, name) for i, name in enumerate(names)]\n    \n    # Sort by key (case-insensitive), then by original index to preserve relative order\n    indexed.sort(key=lambda x: (x[0], x[1]))\n    \n    return [item[2] for item in indexed]\n\n\n# Example usage:\nnames = [\"Banana\", \"apple\", \"Cherry\", \"banana\"]\nprint(sort_names_case_insensitive(names))\n# Output: ['apple', 'Banana', 'Cherry', 'banana']\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0348",
+  "question": "In a Unix shell, in the current directory, create a symbolic link named current that points to the relative path releases/v2, which is an existing directory. current does not exist yet. Do not copy, move, or change releases/v2.",
+  "reference": "ln -s releases/v2 current",
+  "rubric": "Uses ln -s releases/v2 current: the target comes first and the link name second. ln -s ./releases/v2 current is acceptable. Reversing the arguments (which makes a link inside releases/v2), omitting -s (a hard link, which fails for a directory), or copying the directory fails.",
+  "core_rubric": "Creates a symbolic link named current whose relative target is releases/v2, with the argument order target then link name.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```sh\nln -s releases/v2 current\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0357",
+  "question": "I exchange $250. The exchange service first deducts a 2% fee from the dollars, then converts the rest at 1 US dollar = 0.92 euros. How many euros do I receive?",
+  "reference": "€225.40: $250 − 2% = $245, and $245 × 0.92 = €225.40.",
+  "rubric": "Gives €225.40 (225.4 euros is equivalent). Applies the fee before conversion as stated; ignoring the fee (€230) or subtracting $2 instead of 2% fails. If working is shown, it must be consistent with $245.",
+  "core_rubric": "Gives €225.40.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You receive $245 minus the 2% fee, which is $4.90, leaving you with $240.10. Converting this at a rate of 0.92 euros per dollar gives you approximately €220.89.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0366",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?",
+  "reference": "The tent, stove, and camera: exactly 10 kg, with a total usefulness of 17.",
+  "rubric": "Chooses the tent, stove, and camera, weighing 10 kg, with total usefulness 17. This is the unique best choice. Stove, food bag, and camera (16), tent and food bag (15), or any set over 10 kg fails.",
+  "core_rubric": "Chooses the tent, stove, and camera with a total usefulness of 17.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To solve this problem, we need to maximize the total usefulness while keeping the total weight at or below 10 kg. This is a classic **Knapsack Problem**.\n\n### Step 1: List the items with their weights and usefulness\n| Item | Weight (kg) | Usefulness |\n| :--- | :---: | :---: |\n| Tent | 5 | 8 |\n| Stove | 3 | 5 |\n| Food bag | 4 | 7 |\n| Camera | 2 | 4 |\n| **Capacity** | **10** | **-** |\n\n### Step 2: Evaluate possible combinations\nSince there are only 4 items, we can test logical combinations to find the best fit under the 10 kg limit. Let's calculate the total weight and usefulness for promising combinations.\n\n**Option A: Take the heaviest items first**\n*   Tent (5 kg) + Food bag (4 kg) = **9 kg**\n    *   Total Usefulness: $8 + 7 = \\mathbf{15}$\n    *   Remaining space: $10 - 9 = 1$ kg (too small for the Stove or Camera).\n\n**Option B: Try including the Stove**\n*   Tent (5 kg) + Stove (3 kg) = **8 kg**\n    *   Total Usefulness: $8 + 5 = 13$\n    *   Remaining space: $2$ kg. Can we add the Camera?\n        *   Add Camera (2 kg): Total weight = $8 + 2 = \\mathbf{10}$ kg.\n        *   Total Usefulness: $13 + 4 = \\mathbf{17}$.\n    *   *Check*: Does adding the Food bag work here? No ($8+4=12 > 10$).\n\n**Option C: Compare Option A and Option B**\n*   Combination A (Tent + Food): Usefulness = 15\n*   Combination B (Tent + Stove + Camera): Usefulness = 17\n\nLet's quickly check if excluding the Tent allows for a better combination (though unlikely given its high usefulness-to-weight ratio):\n*   Stove (3) + Food (4) + Camera (2) = 9 kg. Usefulness: $5 + 7 + 4 = 16$. (Less than 17).\n*   Food (4) + Camera (2) + ? ... no other light items left.\n\n### Step 3: Verification of the Best Combination\nThe combination **Tent, Stove, and Camera** results in:\n*   **Total Weight**: $5 + 3 + 2 = 10$ kg (Exactly fits the limit).\n*   **Total Usefulness**: $8 + 5 + 4 = 17$.\n\nNo other combination yields a higher total usefulness without exceeding the weight limit.\n\n### Final Conclusion\n\nThe items that give the greatest total usefulness are the **Tent**, the **Stove**, and the **Camera**.\n\n*   **Total Weight**: 10 kg\n*   **Maximum Total Usefulness**: **17**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0375",
+  "question": "Rewrite this text message as one polite, complete sentence with standard spelling and punctuation: 'hey cant make it 2day sry'. Keep the meaning, and do not add a reason.",
+  "reference": "Sorry, I can't make it today.",
+  "rubric": "One sentence with standard spelling and punctuation that apologizes and says the writer cannot make it today, for example 'Sorry, I can't make it today.' or 'Hi, I'm sorry, but I can't make it today.' A greeting is optional. Adding a reason, changing the day, or giving several sentences fails.",
+  "core_rubric": "One standard, polite sentence that apologizes and says the writer can't make it today, with no reason added.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "I cannot rewrite the text message for you because I do not have access to it. Please provide the original text, and I will be happy to help you rephrase it into a polite, complete sentence with standard spelling and punctuation while maintaining its meaning.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0384",
+  "question": "In Python, return the string s with its first character converted to uppercase and every other character left exactly as it is. s contains only ASCII characters and may be empty; an empty string must return an empty string without raising an error.",
+  "reference": "s[:1].upper() + s[1:]",
+  "rubric": "Uppercases only the first character and leaves the rest unchanged, so 'hELLO world' gives 'HELLO world', '1abc' gives '1abc', and '' gives ''. s.capitalize() and s.title() fail because they change later characters. s[0].upper() + s[1:] without an empty-string guard fails because it raises IndexError on ''. Equivalent correct code, such as a version guarded with `if s else s`, is acceptable.",
+  "core_rubric": "Uppercases only the first character, leaves every later character unchanged, and returns '' for '' without an error.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ns.capitalize() if s else \"\"\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0393",
+  "question": "In a Git repository, print the full hexadecimal commit ID of the current commit, HEAD, and nothing else. In a default SHA-1 repository this ID is 40 characters long. Do not change the repository.",
+  "reference": "git rev-parse HEAD",
+  "rubric": "Uses git rev-parse HEAD, or an equivalent that prints only the full ID, such as git log -1 --format=%H or git show -s --format=%H. git rev-parse --short HEAD, git log -1 --oneline, or plain git log fails because it prints an abbreviated ID or extra text.",
+  "core_rubric": "Prints only the full commit ID of HEAD without changing the repository.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "a1b2c3d4e5f6789012345678901234567890abcd",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0402",
+  "question": "I start at home, must visit the pharmacy, the bank, and the post office once each in any order, and then return home. Travel times in minutes, the same in both directions, are: home–pharmacy 5, home–bank 8, home–post office 6, pharmacy–bank 4, pharmacy–post office 9, and bank–post office 3. Which order of stops gives the shortest total travel time, and what is that time?",
+  "reference": "Home → pharmacy → bank → post office → home, for 18 minutes. The reverse order, home → post office → bank → pharmacy → home, also takes 18 minutes.",
+  "rubric": "Gives the order pharmacy, bank, post office (or its exact reverse, post office, bank, pharmacy) and a total of 18 minutes. The other routes take 25 or 27 minutes and fail.",
+  "core_rubric": "Gives pharmacy → bank → post office (or the reverse) and 18 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Order: Home → Bank → Post Office → Pharmacy → Home\nTime: 20 minutes",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0411",
+  "question": "In a Git repository, from the repository root, print the paths of untracked files only, one per line, relative to the root and without any status prefix. Exclude files ignored through .gitignore, and do not list files that are tracked or newly staged. Do not change anything.",
+  "reference": "git ls-files --others --exclude-standard",
+  "rubric": "Uses git ls-files --others --exclude-standard (or -o --exclude-standard). It lists each untracked file, including files inside untracked directories, and omits ignored files. git ls-files --others without --exclude-standard fails because it includes ignored files. git status --porcelain or git status --short fails because it adds status prefixes, also lists modified and staged files, and collapses untracked directories.",
+  "core_rubric": "Prints only the untracked, non-ignored file paths relative to the root, one per line, with no status prefixes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git ls-files --others --exclude-standard",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0420",
+  "question": "My backpack can carry at most 10 kg. I can choose among a tent (5 kg, usefulness 8), a stove (3 kg, usefulness 5), a food bag (4 kg, usefulness 7), and a camera (2 kg, usefulness 4). Each item is taken whole or not at all. Which items give the greatest total usefulness without exceeding 10 kg, and what is that total?",
+  "reference": "The tent, stove, and camera: exactly 10 kg, with a total usefulness of 17.",
+  "rubric": "Chooses the tent, stove, and camera, weighing 10 kg, with total usefulness 17. This is the unique best choice. Stove, food bag, and camera (16), tent and food bag (15), or any set over 10 kg fails.",
+  "core_rubric": "Chooses the tent, stove, and camera with a total usefulness of 17.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To maximize the total usefulness without exceeding 10 kg, let's evaluate the combinations:\n\n**Item Details:**\n*   **Tent:** 5 kg, Usefulness 8\n*   **Food bag:** 4 kg, Usefulness 7\n*   **Stove:** 3 kg, Usefulness 5\n*   **Camera:** 2 kg, Usefulness 4\n\n**Possible Combinations:**\n\n1.  **Tent + Food bag:**\n    *   Weight: $5 + 4 = 9$ kg (Under limit)\n    *   Usefulness: $8 + 7 = 15$\n\n2.  **Tent + Stove + Camera:**\n    *   Weight: $5 + 3 + 2 = 10$ kg (At limit)\n    *   Usefulness: $8 + 5 + 4 = 17$\n\n3.  **Tent + Stove:**\n    *   Weight: $5 + 3 = 8$ kg\n    *   Usefulness: $8 + 5 = 13$\n    *   *(Remaining space: 2 kg, which could fit the camera)* -> This leads back to combination #2.\n\n4.  **Food bag + Stove + Camera:**\n    *   Weight: $4 + 3 + 2 = 9$ kg\n    *   Usefulness: $7 + 5 + 4 = 16$\n\n5.  **All items:**\n    *   Weight: $5 + 4 + 3 + 2 = 14$ kg (Exceeds limit)\n\n**Conclusion:**\nThe best combination is taking the **tent**, the **stove**, and the **camera**.\n*   **Total Weight:** 10 kg\n*   **Total Usefulness:** 17",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0429",
+  "question": "In a vacuum, a heavy hammer and a light feather are dropped at the same moment from the same height. Does the hammer reach the ground first? Explain.",
+  "reference": "No. Without air resistance, all objects fall with the same gravitational acceleration regardless of their mass, so the hammer and the feather land at the same time.",
+  "rubric": "Answers no and explains that, without air resistance, both fall with the same acceleration due to gravity, independent of mass, so they land together. Mentioning the Apollo 15 demonstration is optional. Saying heavier objects fall faster in a vacuum fails.",
+  "core_rubric": "Answers no because both fall with the same acceleration in a vacuum and land together.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "### Logical Deduction\n\nTo determine which object reaches the ground first, we must analyze the forces acting on them and how those forces affect their acceleration according to Newton's laws of motion.\n\n**1. The Forces Involved**\nIn a vacuum, there is no air resistance. Therefore, the only force acting on both the hammer and the feather after they are released is **gravity**. This gravitational force ($F_g$) pulls both objects downward toward the center of the Earth.\n\nAccording to Newton's Second Law ($F = ma$), the acceleration ($a$) of an object is determined by dividing the net force by its mass ($m$):\n$$a = \\frac{F}{m}$$\n\n**2. The Gravitational Force Formula**\nThe magnitude of the gravitational force exerted by the Earth on an object is given by:\n$$F_g = m \\cdot g$$\nWhere:\n*   $m$ is the mass of the object.\n*   $g$ is the acceleration due to gravity (approximately $9.8 \\, \\text{m/s}^2$ near Earth's surface).\n\n**3. Calculating Acceleration for Each Object**\nLet us substitute the formula for gravitational force into Newton's Second Law equation for each object:\n\n*   **For the Hammer:**\n    $$a_{hammer} = \\frac{F_g}{m_{hammer}} = \\frac{m_{hammer} \\cdot g}{m_{hammer}} = g$$\n\n*   **For the Feather:**\n    $$a_{feather} = \\frac{F_g}{m_{feather}} = \\frac{m_{feather} \\cdot g}{m_{feather}} = g$$\n\n**4. Comparison**\nAs shown in the equations above, the mass ($m$) cancels out in both cases. Consequently, the acceleration of both objects is exactly equal to the acceleration due to gravity ($g$), regardless of their individual masses.\n\nSince:\n1.  Both objects start from rest ($v_0 = 0$).\n2.  Both objects start at the same height ($h$).\n3.  Both objects experience the same constant acceleration ($a = g$).\n\nAccording to the kinematic equation for distance ($d = v_0t + \\frac{1}{2}at^2$), if $d$, $v_0$, and $a$ are identical, the time ($t$) required to reach the ground must also be identical.\n\n*(Note: In our daily lives, the feather falls slowly because air resistance exerts a significant upward force relative to its tiny weight, creating a net force less than gravity. However, in a vacuum, this opposing force does not exist.)*\n\n### Final Conclusion\n\n**No, the hammer does not reach the ground first.**\n\nIn a vacuum, **both the heavy hammer and the light feather will hit the ground at the exact same moment.** This is because air resistance is absent, so the acceleration due to gravity acts equally on all objects regardless of their mass.",
+  "at_token_cap": false
+ }
+]

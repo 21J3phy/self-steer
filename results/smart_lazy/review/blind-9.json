@@ -1,0 +1,482 @@
+[
+ {
+  "id": "S0009",
+  "question": "Three meetings happen at the same time, with 25, 11, and 18 attendees. Three rooms are available, seating 12, 20, and 30 people. Each meeting needs its own room with a seat for every attendee. Assign a room to each meeting.",
+  "reference": "The 25-person meeting uses the 30-seat room, the 18-person meeting uses the 20-seat room, and the 11-person meeting uses the 12-seat room.",
+  "rubric": "Gives 25 → 30 seats, 18 → 20 seats, and 11 → 12 seats. This is the only assignment that fits; any assignment that leaves a meeting with too few seats fails.",
+  "core_rubric": "Assigns the 25-, 18-, and 11-person meetings to the 30-, 20-, and 12-seat rooms.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Meeting with 25 attendees: Room with 30 seats.\nMeeting with 18 attendees: Room with 20 seats.\nMeeting with 11 attendees: Room with 12 seats.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0018",
+  "question": "A recipe says, 'Bake for 20–25 minutes.' Does the recipe say that baking for 30 minutes is acceptable? Explain.",
+  "reference": "No. The recipe gives a range of 20 to 25 minutes, and 30 minutes is outside that range.",
+  "rubric": "Answers no and explains that 30 minutes is outside the stated 20–25 minute range. Claiming that the recipe allows 30 minutes, or answering yes, fails. A true remark that ovens vary is harmless if the answer does not say the recipe permits 30 minutes.",
+  "core_rubric": "Answers no because 30 minutes is outside the stated 20–25 minute range.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, 30 minutes is outside the recommended range of 20–25 minutes.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0027",
+  "question": "Under the Gregorian calendar rules, is the year 2100 a leap year? Answer yes or no and give the rule that decides it.",
+  "reference": "No. A year divisible by 100 is a leap year only if it is also divisible by 400, and 2100 is not divisible by 400.",
+  "rubric": "Answers no and states the century rule: years divisible by 100 are leap years only if they are also divisible by 400. Answering yes because 2100 is divisible by 4 fails.",
+  "core_rubric": "Answers no and gives the rule that century years must be divisible by 400.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. The rule is that a year divisible by 400 is a leap year, but years divisible by 100 are not, unless they are also divisible by 400. Since 2100 is divisible by 100 but not by 400, it is not a leap year.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0036",
+  "question": "A pool's posted hours are: weekdays 06:00–10:00 and 16:00–21:00; weekends 08:00–18:00. According to these hours, is the pool open at 12:00 on a Wednesday? Explain.",
+  "reference": "No. Wednesday is a weekday, and 12:00 falls between the weekday sessions, after 10:00 and before 16:00.",
+  "rubric": "Answers no and explains that Wednesday uses the weekday hours and 12:00 is outside both weekday sessions. Applying the weekend hours to Wednesday, or answering yes, fails.",
+  "core_rubric": "Answers no because 12:00 is between the 10:00 close and the 16:00 reopening on weekdays.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the pool is closed at 12:00 on a Wednesday.\n\nWeekdays (which include Wednesdays) have posted hours of 06:00–10:00 and 16:00–21:00. The time between 10:00 and 16:00 is not covered by either opening window, making the facility closed during that period.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0045",
+  "question": "Three workers, all working at the same constant rate, build 3 identical shelves in 3 hours. Work on a shelf can be shared among workers. How many hours will 6 such workers take to build 6 identical shelves?",
+  "reference": "3 hours. Each worker builds one shelf per 3 hours, so 6 workers build 6 shelves in 3 hours.",
+  "rubric": "Gives 3 hours. 6 hours or 1.5 hours fails. If working is shown, it must be consistent with one shelf per worker per 3 hours.",
+  "core_rubric": "Gives 3 hours.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "6",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0054",
+  "question": "A pool's posted hours are: weekdays 06:00–10:00 and 16:00–21:00; weekends 08:00–18:00. According to these hours, is the pool open at 12:00 on a Wednesday? Explain.",
+  "reference": "No. Wednesday is a weekday, and 12:00 falls between the weekday sessions, after 10:00 and before 16:00.",
+  "rubric": "Answers no and explains that Wednesday uses the weekday hours and 12:00 is outside both weekday sessions. Applying the weekend hours to Wednesday, or answering yes, fails.",
+  "core_rubric": "Answers no because 12:00 is between the 10:00 close and the 16:00 reopening on weekdays.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the pool is **not** open at 12:00 on a Wednesday.\n\nHere is the explanation based on the posted hours:\n*   **Day of the week:** Wednesday is considered a weekday.\n*   **Weekday Hours:** The pool operates from 06:00 to 10:00 and again from 16:00 to 21:00.\n*   **Conclusion:** At 12:00, there is a gap between the two operating times (from 10:00 until 16:00), meaning the pool is closed during that period.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0063",
+  "question": "My car uses 6.5 liters of fuel per 100 kilometers. I will drive 380 kilometers, and fuel costs $1.80 per liter. What will the fuel for the trip cost?",
+  "reference": "$44.46: 380 × 6.5 / 100 = 24.7 liters, and 24.7 × $1.80 = $44.46.",
+  "rubric": "Gives $44.46. The trip needs 24.7 liters. If working is shown, it must be consistent with 3.8 × 6.5 = 24.7 and 24.7 × 1.80 = 44.46. Answers such as $44.50 that are rounded to a different amount without also giving $44.46 fail.",
+  "core_rubric": "Gives the fuel cost as $44.46.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$43.62",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0072",
+  "question": "A notice says, 'Call the front desk at 555-0142. After 18:00, call security at 555-0199 instead.' Which number should I call at 19:30, and whom will I reach?",
+  "reference": "555-0199, which reaches security.",
+  "rubric": "Gives 555-0199 and says it reaches security. 555-0142 or the front desk fails.",
+  "core_rubric": "Gives 555-0199 and identifies security.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You should call security at 555-0199.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0081",
+  "question": "In Python, return the second-largest distinct value in the list of integers nums, meaning the largest value that is strictly smaller than the maximum. Return None if nums has fewer than two distinct values, including when it is empty. Leave nums unchanged.",
+  "reference": "sorted(set(nums))[-2] if len(set(nums)) > 1 else None",
+  "rubric": "Returns the largest value strictly below the maximum: [3, 5, 5] gives 3, [-1, -5, -1] gives -5, and [], [7], and [5, 5] give None. sorted(nums)[-2] fails because duplicates of the maximum return the maximum itself. Sorting nums in place fails. Equivalent correct code is acceptable.",
+  "core_rubric": "Returns the largest value strictly smaller than the maximum, or None when there are fewer than two distinct values; nums is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\ndef second_largest(nums):\n    if len(set(nums)) < 2:\n        return None\n    max_val = max(nums)\n    for num in nums:\n        if num != max_val:\n            return num\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0090",
+  "question": "Write a short message to a customer named Lee confirming that their refund of $24.50 was issued today and that it can take up to 5 business days to appear in their account. Do not give a reason for the refund or a specific arrival date.",
+  "reference": "Hi Lee, your refund of $24.50 was issued today. It can take up to 5 business days to appear in your account.",
+  "rubric": "Addresses Lee and states all three facts: the amount is $24.50, it was issued today, and it can take up to 5 business days to appear. Gives no reason for the refund and no specific arrival date or weekday. Promising that it will arrive sooner, or changing 'up to 5 business days' to an exact period, fails. Courtesy phrases such as a thank-you or an offer to help are harmless.",
+  "core_rubric": "A message to Lee stating the $24.50 refund was issued today and may take up to 5 business days, with no refund reason and no specific arrival date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Hi Lee, this is to confirm your refund of $24.50 was issued today. Please allow up to 5 business days for the amount to appear in your account.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0099",
+  "question": "Our office's shared fridge fills up with old food because nobody knows whose it is or how long it has been there. Propose a simple rule that lets old food be cleared out fairly without anyone guessing about ownership.",
+  "reference": "Everyone labels their food with their name and the date it went in. On a set day each week, such as Friday afternoon, anything unlabeled or older than a stated limit, for example one week, is thrown out, with a reminder sent the day before.",
+  "rubric": "Requires labels with at least the owner's name and the date, and a regular clean-out on a known schedule that removes unlabeled food and food older than a stated limit. A reminder before the clean-out is optional. Removing food based on someone's judgment of whether it looks old, or without a set rule, is insufficient.",
+  "core_rubric": "Requires name-and-date labels and a scheduled clean-out that removes unlabeled food and food past a stated age limit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is a simple rule to solve the problem:\n\n**The \"First In, First Out\" (FIFO) Rule with Clear Marking.**\n\n1.  **Mark Everything:** Every time someone puts food in the fridge, they must write their name and the date of purchase on a sticky note or the container itself.\n2.  **The Rotation:** When you are about to eat something, check the dates. You must always take the item that has been there the longest (the oldest date), regardless of who put it there.\n3.  **The Swap:** If you need a specific type of food (e.g., cheese) that someone else put in weeks ago, you can offer to swap your current old item for theirs, but only if yours is older.\n\nThis ensures fairness because everyone contributes equally by clearing out the oldest items, and no one feels guilty about taking someone else's food since it was already marked as \"yours\" when it went in.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0108",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the Moon's phases are not caused by Earth's shadow. They are caused by the changing relative positions of the Sun, Earth, and Moon, which alter the portion of the Moon's sunlit side that is visible from Earth.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0117",
+  "question": "List every person named in this sentence, in the order they are first mentioned, as a comma-separated list: 'Ravi emailed Mei and Tom, then called his manager, Ines, who later met Mei.'",
+  "reference": "Ravi, Mei, Tom, Ines",
+  "rubric": "Gives exactly the four names Ravi, Mei, Tom, Ines, in that order, separated by commas, with Mei listed only once. Adding 'manager' as a separate person, repeating Mei, or using a different order fails. Using 'and' before the last name is acceptable.",
+  "core_rubric": "Lists Ravi, Mei, Tom, Ines in that order, comma-separated, each once.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Ravi, Mei, Tom, Ines",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0126",
+  "question": "In Python, return the arithmetic mean of the numbers in the list values as a float, or None if values is empty. A mean of zero, such as for [0, 0], must be returned as 0.0, not None. Leave values unchanged.",
+  "reference": "sum(values) / len(values) if values else None",
+  "rubric": "Returns sum divided by count with true division for a nonempty list ([1, 2] gives 1.5, [0, 0] and [-1, 1] give 0.0) and None for []. Floor division, returning 0 for an empty list, or an `or None` pattern that turns a 0.0 mean into None fails. statistics.fmean(values) guarded for the empty case is acceptable. Does not modify values.",
+  "core_rubric": "Returns the true-division mean as a float for nonempty input, including 0.0 for a zero mean, and None for an empty list.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "```python\nreturn sum(values) / len(values) if values else None\n```",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0135",
+  "question": "Shipping rates are: up to and including 1 kg, $5; over 1 kg and up to and including 3 kg, $9; over 3 kg, $14. A package weighs exactly 3 kg. What is the shipping cost?",
+  "reference": "$9. Exactly 3 kg is in the 'over 1 kg and up to and including 3 kg' band.",
+  "rubric": "Gives $9. $14 (treating 3 kg as over 3 kg) fails.",
+  "core_rubric": "Gives $9.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To determine the shipping cost for a package weighing exactly 3 kg, let's analyze the given rate tiers:\n\n1.  **Tier 1**: Up to and including 1 kg costs $5.\n2.  **Tier 2**: Over 1 kg and up to and including 3 kg costs $9.\n3.  **Tier 3**: Over 3 kg costs $14.\n\nThe phrase \"up to and including\" means that if the weight is equal to the limit of a tier, it falls into that specific category. Since the package weighs **exactly 3 kg**, it satisfies the condition for the second tier (\"over 1 kg and up to and including 3 kg\"). It does not exceed 3 kg, so it does not fall into the third tier.\n\n**Conclusion:**\nThe shipping cost is **$9**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0144",
+  "question": "Read: 'Only Alex finished the test early.' According to this sentence, did anyone other than Alex finish the test early? Explain.",
+  "reference": "No. 'Only Alex' means Alex was the one person who finished the test early.",
+  "rubric": "Answers no and explains that 'only' limits finishing early to Alex. Answering yes or saying the sentence leaves it open fails.",
+  "core_rubric": "Answers no because 'only' means no one besides Alex finished early.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, according to the sentence \"Only Alex finished the test early,\" no one other than Alex finished the test early.\n\nThe word **\"only\"** is a restrictive quantifier used here to exclude everyone else. It implies that while Alex did finish early, it was exclusive of all other people involved in the test. Therefore, if anyone else finished early, the statement would be false.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0153",
+  "question": "Shipping rates are: up to and including 1 kg, $5; over 1 kg and up to and including 3 kg, $9; over 3 kg, $14. A package weighs exactly 3 kg. What is the shipping cost?",
+  "reference": "$9. Exactly 3 kg is in the 'over 1 kg and up to and including 3 kg' band.",
+  "rubric": "Gives $9. $14 (treating 3 kg as over 3 kg) fails.",
+  "core_rubric": "Gives $9.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "$14",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0162",
+  "question": "Read: 'Invoice 4471 for $860 was paid on 12 May. Invoice 4472 for $1,240 is overdue. Invoice 4473 for $315 is due on 30 May.' Which invoice is overdue, and for what amount?",
+  "reference": "Invoice 4472, for $1,240.",
+  "rubric": "Identifies invoice 4472 and the amount $1,240. Naming 4471 or 4473 as overdue, or giving the wrong amount, fails.",
+  "core_rubric": "Identifies invoice 4472 for $1,240 as the overdue invoice.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Based on the text provided, **Invoice 4472** is overdue.\n\nThe statement explicitly notes that \"Invoice 4472 for **$1,240** is overdue.\"",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0171",
+  "question": "I start at home, must visit the pharmacy, the bank, and the post office once each in any order, and then return home. Travel times in minutes, the same in both directions, are: home–pharmacy 5, home–bank 8, home–post office 6, pharmacy–bank 4, pharmacy–post office 9, and bank–post office 3. Which order of stops gives the shortest total travel time, and what is that time?",
+  "reference": "Home → pharmacy → bank → post office → home, for 18 minutes. The reverse order, home → post office → bank → pharmacy → home, also takes 18 minutes.",
+  "rubric": "Gives the order pharmacy, bank, post office (or its exact reverse, post office, bank, pharmacy) and a total of 18 minutes. The other routes take 25 or 27 minutes and fail.",
+  "core_rubric": "Gives pharmacy → bank → post office (or the reverse) and 18 minutes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To find the shortest total travel time, we can model this as a graph problem where the locations are nodes and the travel times are edge weights. We need to find a path that starts at Home ($H$), visits Pharmacy ($P$), Bank ($B$), and Post Office ($Po$) exactly once each, and returns to $H$.\n\n### Step 1: List the Distances\nLet's organize the given distances in minutes:\n*   $H \\leftrightarrow P$: 5\n*   $H \\leftrightarrow B$: 8\n*   $H \\leftrightarrow Po$: 6\n*   $P \\leftrightarrow B$: 4\n*   $P \\leftrightarrow Po$: 9\n*   $B \\leftrightarrow Po$: 3\n\nSince the order of visiting the three stops ($P, B, Po$) can be any permutation, there are $3! = 6$ possible routes. Let's analyze the most logical paths based on proximity. The Post Office and Bank are very close (3 mins), while the Pharmacy is closer to the Bank (4 mins) than to the Post Office (9 mins). This suggests the route should likely group $B$ and $Po$ together.\n\n### Step 2: Evaluate Possible Routes\nWe will calculate the total distance for the most promising permutations. A full check of all 6 permutations confirms the result, but let's start with the likely candidates.\n\n**Route Option 1: Home $\\to$ Bank $\\to$ Post Office $\\to$ Pharmacy $\\to$ Home**\n1.  $H \\to B$: 8\n2.  $B \\to Po$: 3\n3.  $Po \\to P$: 9\n4.  $P \\to H$: 5\n*   **Total**: $8 + 3 + 9 + 5 = 25$ minutes\n\n**Route Option 2: Home $\\to$ Pharmacy $\\to$ Bank $\\to$ Post Office $\\to$ Home**\n1.  $H \\to P$: 5\n2.  $P \\to B$: 4\n3.  $B \\to Po$: 3\n4.  $Po \\to H$: 6\n*   **Total**: $5 + 4 + 3 + 6 = 18$ minutes\n\n**Route Option 3: Home $\\to$ Pharmacy $\\to$ Post Office $\\to$ Bank $\\to$ Home**\n1.  $H \\to P$: 5\n2.  $P \\to Po$: 9\n3.  $Po \\to B$: 3\n4.  $B \\to H$: 8\n*   **Total**: $5 + 9 + 3 + 8 = 25$ minutes\n\n**Route Option 4: Home $\\to$ Post Office $\\to$ Bank $\\to$ Pharmacy $\\to$ Home**\n1.  $H \\to Po$: 6\n2.  $Po \\to B$: 3\n3.  $B \\to P$: 4\n4.  $P \\to H$: 5\n*   **Total**: $6 + 3 + 4 + 5 = 18$ minutes\n\n**Route Option 5: Home $\\to$ Post Office $\\to$ Pharmacy $\\to$ Bank $\\to$ Home**\n1.  $H \\to Po$: 6\n2.  $Po \\to P$: 9\n3.  $P \\to B$: 4\n4.  $B \\to H$: 8\n*   **Total**: $6 + 9 + 4 + 8 = 27$ minutes\n\n**Route Option 6: Home $\\to$ Bank $\\to$ Pharmacy $\\to$ Post Office $\\to$ Home**\n1.  $H \\to B$: 8\n2.  $B \\to P$: 4\n3.  $P \\to Po$: 9\n4.  $Po \\to H$: 6\n*   **Total**: $8 + 4 + 9 + 6 = 27$ minutes\n\n*(Note: Options 1 and 3 are essentially the same path reversed relative to the middle segment, yielding the same sum. Similarly for others.)*\n\n### Step 3: Compare Results\nThe calculated totals are:\n*   25 minutes\n*   **18 minutes**\n*   25 minutes\n*   **18 minutes**\n*   27 minutes\n*   27 minutes\n\nThe minimum time is 18 minutes. There are two orders that achieve this:\n1.  Home $\\to$ Pharmacy $\\to$ Bank $\\to$ Post Office $\\to$ Home\n2.  Home $\\to$ Post Office $\\to$ Bank $\\to$ Pharmacy",
+  "at_token_cap": true
+ },
+ {
+  "id": "S0180",
+  "question": "Why does a pressure cooker cook food faster than an ordinary pot of boiling water at normal air pressure?",
+  "reference": "Sealing the pot traps steam and raises the pressure inside, which raises water's boiling point above 100°C, to about 120°C at typical settings. The hotter water and steam transfer heat to the food faster, so it cooks faster.",
+  "rubric": "Explains that the higher pressure raises the boiling point above 100°C, so the food is cooked at a higher temperature. A specific temperature is optional; if one is given, it should be about 110–125°C. Saying the pressure itself squeezes the food cooked, or that the water boils at a lower temperature, fails.",
+  "core_rubric": "Explains that higher pressure raises the boiling point above 100°C, so cooking happens at a higher temperature.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A pressure cooker cooks food faster than an ordinary pot because it operates at a higher internal pressure, which raises the boiling point of water.\n\nHere is the breakdown:\n\n1.  **Boiling Point Relationship:** Water boils when its vapor pressure equals the surrounding atmospheric pressure. At standard sea-level pressure (14.7 psi), water boils at **212°F (100°C)**.\n2.  **Increased Pressure:** A sealed pressure cooker traps steam inside as the water heats up. As the temperature rises, the steam builds up pressure against the lid. Once the pressure reaches about 15 psi above atmospheric pressure (roughly 15-16 psig), the water can boil at approximately **250°F (121°C)**.\n3.  **Cooking Speed:** Cooking speed depends largely on temperature. Higher temperatures accelerate chemical reactions and denature proteins much more quickly. Since the food in a pressure cooker is exposed to water at 250°F instead of 212°F, it cooks significantly faster.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0189",
+  "question": "In a Git repository, the most recent commit has not been pushed. Nothing is staged, but some tracked files have unstaged edits. Change that commit's message to 'Fix typo in README' without changing the files it records or its parent, and do not create an additional commit. Give the command.",
+  "reference": "git commit --amend -m 'Fix typo in README'",
+  "rubric": "Uses git commit --amend -m 'Fix typo in README' (or --message=). Using -a or --all with --amend fails because it would add the unstaged edits to the commit. A new commit, for example with --allow-empty, fails. Interactive editing with git commit --amend and then typing the message is acceptable if the answer makes clear that the message must be set to exactly Fix typo in README.",
+  "core_rubric": "Amends the latest commit to have the message Fix typo in README, keeping its tree and parent and adding no commit or unstaged edits.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git commit --amend -m \"Fix typo in README\"",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0198",
+  "question": "On a 60-kilometer trip, I drive the first 30 kilometers at an average speed of 30 kilometers per hour. Is there any speed for the remaining 30 kilometers that would make my average speed for the whole 60-kilometer trip equal to 60 kilometers per hour? Answer yes or no and explain.",
+  "reference": "No. Averaging 60 km/h over 60 km would require a total time of 1 hour, but the first 30 km already took 1 hour, so no time is left for the remaining 30 km.",
+  "rubric": "Answers no and explains that a 60 km/h average for 60 km allows exactly 1 hour in total, which the first 30 km has already used. Answering yes, giving 90 km/h (averaging the speeds), or claiming that an extremely high but finite speed would work fails.",
+  "core_rubric": "Answers no because the whole trip would have to take 1 hour, and the first half already took 1 hour.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No.\n\nTo have an average speed of 60 km/h for the entire 60 km trip, you would need to cover the whole distance in exactly 1 hour (since Time = Distance / Speed).\n\nHowever, you already drove the first 30 km at 30 km/h, which took exactly 1 hour (30 km / 30 km/h = 1 hour). You have no time left remaining to drive the second 30 km while maintaining that overall average. Therefore, it is impossible.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0207",
+  "question": "Why does a pressure cooker cook food faster than an ordinary pot of boiling water at normal air pressure?",
+  "reference": "Sealing the pot traps steam and raises the pressure inside, which raises water's boiling point above 100°C, to about 120°C at typical settings. The hotter water and steam transfer heat to the food faster, so it cooks faster.",
+  "rubric": "Explains that the higher pressure raises the boiling point above 100°C, so the food is cooked at a higher temperature. A specific temperature is optional; if one is given, it should be about 110–125°C. Saying the pressure itself squeezes the food cooked, or that the water boils at a lower temperature, fails.",
+  "core_rubric": "Explains that higher pressure raises the boiling point above 100°C, so cooking happens at a higher temperature.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "A pressure cooker increases the internal pressure, which raises the boiling point of water above 100°C (212°F). Since food cooks at higher temperatures more rapidly than at normal boiling temperatures, the cooking time is significantly reduced.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0216",
+  "question": "In a Unix shell, print every line of app.conf that does not begin with the character #, keeping the original order. A line with spaces before a # does not begin with #, and empty lines must be kept. Leave app.conf unchanged.",
+  "reference": "grep -v '^#' app.conf",
+  "rubric": "Prints exactly the lines whose first character is not #, including empty lines and lines such as '  # note' or 'key=1 # note', in order. grep -v '^#' app.conf, sed '/^#/d' app.conf, and awk '!/^#/' app.conf are acceptable. grep -v '#' (drops lines with a later #), patterns that also drop indented comments or empty lines, or editing the file with sed -i fails. grep's nonzero exit status when every line is a comment is acceptable.",
+  "core_rubric": "Prints, in order, exactly the lines whose first character is not #, keeping empty and indented-comment lines; app.conf is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "grep -v '^#' app.conf",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0225",
+  "question": "In Python, return a new list containing the strings in names sorted alphabetically without regard to case, so 'apple' comes before 'Banana'. Strings that differ only in case must keep their original relative order. names contains only ASCII letters, may be empty, and must be left unchanged.",
+  "reference": "sorted(names, key=str.lower)",
+  "rubric": "Returns a new list of the original, unmodified strings sorted case-insensitively; Python's stable sort keeps the original order of strings that differ only in case, so ['b', 'B', 'a'] gives ['a', 'b', 'B']. Keys such as str.lower, str.casefold, str.upper, or a lambda that lowercases are all acceptable. sorted(names) without a key, returning lowercased copies of the strings, reverse order, or sorting names in place with names.sort() fails. An empty list gives [].",
+  "core_rubric": "Returns a new case-insensitively sorted list of the original strings, keeping the input order for case-only ties; names is unchanged and [] gives [].",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "sorted(names, key=lambda x: (x.lower(), names.index(x)))",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0234",
+  "question": "What causes the Moon's phases? Are they caused by Earth's shadow falling on the Moon?",
+  "reference": "The Sun always lights half of the Moon. As the Moon orbits Earth, we see different portions of that sunlit half, which produces the phases. They are not caused by Earth's shadow; Earth's shadow falls on the Moon only during a lunar eclipse.",
+  "rubric": "Explains that the phases come from our changing view of the Moon's sunlit half as it orbits Earth, and says no to Earth's shadow, which causes lunar eclipses instead. Saying phases are caused by Earth's shadow, by clouds, or by the Moon changing shape fails. Naming the phases is optional.",
+  "core_rubric": "Attributes phases to seeing changing portions of the sunlit half as the Moon orbits, and says they are not caused by Earth's shadow.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the Moon's phases are **not** caused by Earth's shadow falling on the Moon. That phenomenon is actually what causes a **lunar eclipse**.\n\nThe phases of the Moon (New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Third Quarter, and Waning Crescent) are caused by the changing relative positions of the Sun, Earth, and Moon as they orbit each other.\n\nHere is how it works:\n*   The Moon does not produce its own light; we see it because it reflects sunlight.\n*   As the Moon orbits Earth, the portion of the side facing us that is illuminated by the Sun changes.\n    *   When the Moon is between the Earth and the Sun, the side facing us is in darkness (New Moon).\n    *   When the Earth is between the Sun and the Moon, the entire face is lit up (Full Moon).\n    *   In between these positions, we see varying amounts of the lit side, creating the different phases.\n\nEarth's shadow only falls on the Moon when the Earth is directly between the Sun and the Moon, which happens during a lunar eclipse. This is a specific event, not the reason for the regular monthly cycle of phases.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0243",
+  "question": "Read: 'Invoice 4471 for $860 was paid on 12 May. Invoice 4472 for $1,240 is overdue. Invoice 4473 for $315 is due on 30 May.' Which invoice is overdue, and for what amount?",
+  "reference": "Invoice 4472, for $1,240.",
+  "rubric": "Identifies invoice 4472 and the amount $1,240. Naming 4471 or 4473 as overdue, or giving the wrong amount, fails.",
+  "core_rubric": "Identifies invoice 4472 for $1,240 as the overdue invoice.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Invoice 4472 is overdue for $1,240.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0252",
+  "question": "A policy says a report must be filed within 3 business days after an incident, not counting the day of the incident. Business days are Monday through Friday, and there are no holidays. An incident happens on a Thursday. What is the last day the report can be filed?",
+  "reference": "The following Tuesday: Friday is business day 1, Monday is day 2, and Tuesday is day 3.",
+  "rubric": "Gives Tuesday (the Tuesday after the incident). Sunday (counting calendar days), Monday, or Wednesday fails. If working is shown, it must skip Saturday and Sunday and start counting on Friday.",
+  "core_rubric": "Gives the following Tuesday.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The last day the report can be filed is Monday.\n\nHere's the breakdown:\n1.  **Incident Day:** Thursday (Day 0, not counted).\n2.  **Business Days Available:** Friday and Monday.\n3.  **Counting:**\n    *   Friday = 1 business day.\n    *   Monday = 2 business days.\n\nSince the report must be filed within 3 business days, and there are only 2 available business days after a Thursday, the deadline is Monday.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0261",
+  "question": "Our office's shared fridge fills up with old food because nobody knows whose it is or how long it has been there. Propose a simple rule that lets old food be cleared out fairly without anyone guessing about ownership.",
+  "reference": "Everyone labels their food with their name and the date it went in. On a set day each week, such as Friday afternoon, anything unlabeled or older than a stated limit, for example one week, is thrown out, with a reminder sent the day before.",
+  "rubric": "Requires labels with at least the owner's name and the date, and a regular clean-out on a known schedule that removes unlabeled food and food older than a stated limit. A reminder before the clean-out is optional. Removing food based on someone's judgment of whether it looks old, or without a set rule, is insufficient.",
+  "core_rubric": "Requires name-and-date labels and a scheduled clean-out that removes unlabeled food and food past a stated age limit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Here is a simple, fair rule to solve the problem:\n\n### **The \"30-Day & First-Claim\" Rule**\n\n1.  **The Time Limit:** Any item that has been sitting in the fridge for **more than 30 days** (or one full work week, depending on your office culture) without a visible label or date stamp becomes \"community property.\"\n2.  **The Action:** The person who puts the food away first must check it every day. If they haven't claimed it by the end of Day 30, they are responsible for taking it out and throwing it away.\n3.  **The Reward:** If someone finds an unclaimed item before Day 30, they can claim it immediately as their own (no questions asked).\n\n**Why this works:**\n*   **Eliminates Guilt:** No one feels accused of hoarding; they only get fined if they forget to move it.\n*   **Clear Accountability:** The person who put it there owns the maintenance until they actively do something about it.\n*   **Simple Enforcement:** It requires no complex tracking system—just a mental note or a sticky note with today's date.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0270",
+  "question": "My train pass is valid 'Monday to Friday, off-peak only,' and the pass defines off-peak as before 07:00 or after 09:30. Can I use the pass for a train at 08:15 on a Tuesday? Explain.",
+  "reference": "No. 08:15 is between 07:00 and 09:30, so it is not off-peak, even though Tuesday is a valid day.",
+  "rubric": "Answers no and explains that 08:15 is not off-peak because it is neither before 07:00 nor after 09:30. Noting that Tuesday is an allowed day is optional. Answering yes because Tuesday is valid fails.",
+  "core_rubric": "Answers no because 08:15 is between 07:00 and 09:30 and so is not off-peak.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, you **cannot** use your train pass for a train at 08:15 on a Tuesday.\n\nHere is the explanation based on the rules provided:\n\n1.  **Day Check**: The day is Tuesday, which falls within the valid days (\"Monday to Friday\").\n2.  **Time Check**: Your pass defines \"off-peak\" strictly as **before 07:00** or **after 09:30**.\n    *   The scheduled departure time is **08:15**.\n    *   08:15 is not before 07:00.\n    *   08:15 is not after 09:30.\n\nTherefore, 08:15 falls into the gap between the two off-peak windows, meaning it is considered **peak time**. Since your pass is valid for \"off-peak only,\" it does not cover travel during peak hours.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0279",
+  "question": "A warranty says it covers 'manufacturing defects for 12 months from purchase; accidental damage is not covered.' I accidentally dropped my phone 3 months after buying it, and the screen cracked. Does this warranty cover the repair? Explain.",
+  "reference": "No. A screen cracked by an accidental drop is accidental damage, which the warranty excludes; being within 12 months does not change that.",
+  "rubric": "Answers no and explains that the crack is accidental damage, which is not covered, so the 12-month period does not help. Answering yes because the damage happened within 12 months, or calling the crack a manufacturing defect, fails. Suggesting a separate insurance or paid repair option is harmless.",
+  "core_rubric": "Answers no because the cracked screen is accidental damage, which the warranty excludes.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the warranty does not cover the repair.\n\nHere is the explanation:\n*   **The Event:** You dropped your phone, which caused a cracked screen. This classifies as **accidental damage**.\n*   **The Warranty Terms:** The policy explicitly states that it only covers **manufacturing defects** and specifically excludes **accidental damage**.\n*   **The Timeframe:** While 3 months falls within the 12-month coverage period, the type of damage (accidental) disqualifies it from being covered under the terms provided.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0288",
+  "question": "In a Git repository, print the full hexadecimal commit ID of the current commit, HEAD, and nothing else. In a default SHA-1 repository this ID is 40 characters long. Do not change the repository.",
+  "reference": "git rev-parse HEAD",
+  "rubric": "Uses git rev-parse HEAD, or an equivalent that prints only the full ID, such as git log -1 --format=%H or git show -s --format=%H. git rev-parse --short HEAD, git log -1 --oneline, or plain git log fails because it prints an abbreviated ID or extra text.",
+  "core_rubric": "Prints only the full commit ID of HEAD without changing the repository.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "git rev-parse HEAD",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0297",
+  "question": "In a Unix shell, scores.csv has lines of the form name,points with no header. Names contain only letters, points is a nonnegative whole number with one or more digits, and no two lines have the same points. Print the lines sorted by points from smallest to largest, comparing points as numbers so that 9 comes before 10. Leave scores.csv unchanged.",
+  "reference": "sort -t, -k2,2n scores.csv",
+  "rubric": "Uses sort with a comma field separator and a numeric key on field 2, such as sort -t, -k2,2n scores.csv, sort -t ',' -k2 -n scores.csv, or sort -t, -n -k2 scores.csv. Because points are plain ASCII digits and all distinct, the result is the same in the C locale and in UTF-8 locales. Sorting field 2 as text (so 10 comes before 9), numeric sorting of whole lines, or omitting -t, so that field 2 is not the points, fails. sort -o scores.csv, which overwrites the file, fails.",
+  "core_rubric": "Prints all lines ordered by the numeric value of the second comma-separated field, smallest first; scores.csv is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "sort -t',' -k2,2n scores.csv > temp && mv temp scores.csv",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0306",
+  "question": "A subscription renews every 30 days. Its first renewal is on January 30, 2027. On what date is its third renewal?",
+  "reference": "March 31, 2027. The second renewal is 30 days after January 30, on March 1, 2027 (February 2027 has 28 days), and the third is 30 days later, on March 31.",
+  "rubric": "Gives March 31, 2027. The second renewal is March 1, 2027; treating renewals as monthly on the 30th, or counting February 2027 as 29 or 30 days, fails. Counting the first renewal as the third, giving April 30, also fails.",
+  "core_rubric": "Gives March 31, 2027 as the third renewal date.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To determine the date of the third renewal, we can follow these steps:\n\n1.  **Identify the start date**: The first renewal is on **January 30, 2027**.\n2.  **Calculate the interval**: Each renewal occurs every 30 days. We need to add 30 days three times (or add $30 \\times 3 = 90$ days total) to the initial date.\n3.  **Step-by-step addition**:\n    *   **First Renewal**: January 30, 2027\n    *   **Second Renewal**: Add 30 days. Since January has 31 days, adding 30 days from Jan 30 lands us on **February 29, 2027** (because 2027 is not a leap year? Wait, let's re-evaluate carefully).\n\n    *Correction on Step 3*: Let's count strictly by adding 30 days at a time to avoid confusion with month lengths.\n\n    *   **Start**: Jan 30, 2027\n    *   **+ 30 days**:\n        *   Days remaining in Jan after the 30th: 1 day (Jan 31).\n        *   Need 29 more days.\n        *   February 2027 has 28 days (2027 is not divisible by 4).\n        *   So, Feb 1 to Feb 28 = 28 days.\n        *   Total used so far: $1 + 28 = 29$ days.\n        *   Remaining needed: $30 - 29 = 1$ day.\n        *   Result: **March 1, 2027**.\n    \n    *   **+ 30 days** (from March 1):\n        *   Days remaining in March (31 days): From March 1 to March 31 is 30 days? No.\n        *   Let's count forward from March 1:\n        *   March has 31 days.\n        *   March 1 + 30 days = March 31.\n        *   Result: **March 31, 2027**.\n    \n    *   **+ 30 days** (from March 31):\n        *   April has 30 days.\n        *   Starting April 1, we need 30 days to reach exactly April 30.\n        *   Calculation: April 1 + 29 days = April 30.\n        *   Wait, let's do simple math: March 31 + 30 days.\n        *   April has 30 days. So March 31 + 30 days = April 30.\n        *   Result: **April 30, 2027**.\n\nLet's double-check the logic using total days added ($30 \\times 3 = 90$ days).\n*   Jan 30 + 90 days.\n*   Days left in Jan: 1 (Jan 31).\n*   Days in Feb: 28.\n*   Days in Mar: 31.\n*   Days in Apr: 30.\n*   Sum of full months: $1 + 28 + 31 + 30 = 90$.\n*   Therefore, 90 days after Jan 30 is exactly the end of April 30.\n\nThe dates are:\n1.  Jan 30, 2027 (Renewal 1)\n2.  Mar 1, 2027 (Renewal 2)\n3.  Mar 31, 2027 (Renewal 3)? **Wait, my previous step-by-step had an error.**\n\nLet's re-calculate the second and third renewals very carefully.\n\n*   **Renewal 1**: Jan 30, 2027.\n*   **Renewal 2**: Add 30 days to Jan 30.\n    *   Jan 30 + 1 day = Jan 31.\n    *   Jan 30 + 29 days = Feb 28.\n    *   Jan 30 + 30 days = **Feb 29**?\n    *   Let's check calendar days: Jan has 31 days.\n    *   Jan 30 to Jan 31 = 1 day.\n    *   Feb 1 to Feb 28 = 28 days.\n    *  ",
+  "at_token_cap": true
+ },
+ {
+  "id": "S0315",
+  "question": "I exchange $250. The exchange service first deducts a 2% fee from the dollars, then converts the rest at 1 US dollar = 0.92 euros. How many euros do I receive?",
+  "reference": "€225.40: $250 − 2% = $245, and $245 × 0.92 = €225.40.",
+  "rubric": "Gives €225.40 (225.4 euros is equivalent). Applies the fee before conversion as stated; ignoring the fee (€230) or subtracting $2 instead of 2% fails. If working is shown, it must be consistent with $245.",
+  "core_rubric": "Gives €225.40.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "You receive €224.\n\n**Calculation:**\n1.  **Deduct the fee:** $250 - (2% of $250) = $250 - $5 = $245.\n2.  **Convert to euros:** $245 × 0.92 = €225.40.\n\n*(Self-correction: Let me re-calculate precisely. 2% of 250 is 5. So you have 245 dollars left. 245 * 0.92 = 225.4. Okay, my initial quick mental math was off by a bit.)*\n\n**Correct Answer:** You receive **€225.40**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0324",
+  "question": "A form says, 'Do not write below this line unless you are an officer.' I am not an officer. Under this instruction, may I write below the line? Explain.",
+  "reference": "No. The instruction permits writing below the line only for officers, and you are not an officer.",
+  "rubric": "Answers no and explains that writing below the line is allowed only for officers. Answering yes, or saying the instruction does not apply to non-officers, fails.",
+  "core_rubric": "Answers no because only officers may write below the line.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "**No, you may not write below the line.**\n\nHere is the logical explanation based on the instruction provided:\n\n1.  **The Condition**: The rule states, \"Do not write... **unless** you are an officer.\"\n2.  **The Logic of \"Unless\"**: In logic and language, \"unless\" functions as a conditional exception. It means that the prohibition (\"do not write\") applies to everyone **except** those who meet the specific condition (being an officer).\n    *   If you are an officer $\\rightarrow$ You may write.\n    *   If you are **not** an officer $\\rightarrow$ The exception does not apply, so the prohibition remains in force.\n3.  **Application to Your Situation**: Since you explicitly stated that you are **not** an officer, the exception is invalid. Therefore, the instruction \"Do not write\" applies fully to your case.\n\nConsequently, writing below the line would be a violation of the form's instructions.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0333",
+  "question": "In a survey of 800 people, 45% own a bicycle. Of the bicycle owners, 30% ride every day. How many of the surveyed people ride a bicycle every day?",
+  "reference": "108: 45% of 800 is 360, and 30% of 360 is 108.",
+  "rubric": "Gives 108. 600 (adding the percentages) or 240 (30% of 800) fails. If working is shown, it must be consistent with 360 owners.",
+  "core_rubric": "Gives 108 people.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "360",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0342",
+  "question": "Why does the Gregorian calendar add a leap day in some years, and why are most years divisible by 100 not leap years?",
+  "reference": "A solar year is about 365.2422 days, so adding a day every 4 years keeps the calendar in step with the seasons. That rule, which averages 365.25 days, slightly overcorrects, so century years are skipped unless they are divisible by 400, giving an average of 365.2425 days.",
+  "rubric": "Explains that Earth's orbit, the tropical year, takes about 365.24 days, so leap days keep the calendar aligned with the seasons; and that a leap day every 4 years overcorrects slightly, so century years are leap years only when divisible by 400. Stating the year as exactly 365.25 days, or saying century years are never leap years, fails.",
+  "core_rubric": "Explains leap days as correcting for a year of about 365.24 days, and that skipping most century years (except those divisible by 400) fixes the slight overcorrection.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "The Gregorian calendar adds a leap day (February 29th) to keep our calendar year synchronized with the astronomical year, which is the time it takes Earth to complete one orbit around the Sun.\n\nHere is the breakdown of why this happens and how the rules work:\n\n**1. Why do we need leap years?**\nA tropical year (the time from one vernal equinox to the next) is approximately **365.2422 days** long. If we only had 365 days in a year, we would be short by about **0.2422 days** every year. Over 4 years, that accumulated error reaches almost exactly one full day ($0.2422 \\times 4 \\approx 0.9688$). To compensate for this missing fraction of a day, we add an extra day every four years. This keeps our seasons aligned with the calendar dates.\n\n**2. Why are most years divisible by 100 not leap years?**\nIf we simply added a leap day every 4 years indefinitely, we would actually overshoot the mark slightly. The calculation $0.2422 \\times 4$ isn't quite 1; it's slightly less. By adding a day every 4 years, we introduce a tiny excess of about 0.0078 days per century. Over a period of 400 years, this small excess accumulates to roughly 3 days.\n\nTo correct for this slight over-compensation, the Gregorian calendar introduced a \"skip\" rule:\n*   A year is a leap year if it is divisible by **4**.\n*   **However**, if the year is also divisible by **100**, it is **not** a leap year.\n*   **Exception:** If the year is also divisible by **400**, it **is** a leap year.\n\nThis creates a cycle of 400 years containing exactly 97 leap years instead of 100. This average out comes to $365 + \\frac{97}{400} = 365.2425$ days, which is incredibly close to the actual tropical year of $365.2422$ days.\n\n**Summary of the Rules:**\n*   **1700**: Divisible by 4, but also by 100 (and not 400) $\\rightarrow$ **Not a leap year.**\n*   **1800**: Divisible by 4, but also by 100 (and not 400) $\\rightarrow$ **Not a leap year.**\n*   **1900**: Divisible by 4, but also by 100 (and not 400) $\\rightarrow$ **Not a leap year.**\n*   **2000**: Divisible by 4, 100, and 400 $\\rightarrow$ **Leap year.**",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0351",
+  "question": "In a vacuum, a heavy hammer and a light feather are dropped at the same moment from the same height. Does the hammer reach the ground first? Explain.",
+  "reference": "No. Without air resistance, all objects fall with the same gravitational acceleration regardless of their mass, so the hammer and the feather land at the same time.",
+  "rubric": "Answers no and explains that, without air resistance, both fall with the same acceleration due to gravity, independent of mass, so they land together. Mentioning the Apollo 15 demonstration is optional. Saying heavier objects fall faster in a vacuum fails.",
+  "core_rubric": "Answers no because both fall with the same acceleration in a vacuum and land together.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, they reach the ground at the same time. In a vacuum, there is no air resistance to slow down the lighter feather, so both objects accelerate downward at the same rate due to gravity regardless of their mass.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0360",
+  "question": "A recipe says, 'Bake for 20–25 minutes.' Does the recipe say that baking for 30 minutes is acceptable? Explain.",
+  "reference": "No. The recipe gives a range of 20 to 25 minutes, and 30 minutes is outside that range.",
+  "rubric": "Answers no and explains that 30 minutes is outside the stated 20–25 minute range. Claiming that the recipe allows 30 minutes, or answering yes, fails. A true remark that ovens vary is harmless if the answer does not say the recipe permits 30 minutes.",
+  "core_rubric": "Answers no because 30 minutes is outside the stated 20–25 minute range.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No, the recipe does not say baking for 30 minutes is acceptable. The range \"20–25 minutes\" specifies that the ideal or recommended time is between 20 and 25 minutes inclusive; exceeding this upper limit may result in overcooked food.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0369",
+  "question": "Ana, Ben, and Cy will sit in a row of three chairs. Ana and Ben must not sit next to each other. Who must sit in the middle chair? Give one valid seating order from left to right.",
+  "reference": "Cy must sit in the middle. One valid order is Ana, Cy, Ben.",
+  "rubric": "Says Cy must sit in the middle, and gives either Ana, Cy, Ben or Ben, Cy, Ana. Any order with Ana next to Ben fails.",
+  "core_rubric": "Says Cy sits in the middle and gives Ana, Cy, Ben or Ben, Cy, Ana.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Cy must sit in the middle chair.\nValid order: Ana, Cy, Ben",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0378",
+  "question": "I borrow $2,400 at 6% simple annual interest and repay everything in one payment after 18 months. How much do I repay in total?",
+  "reference": "$2,616: the interest is $2,400 × 0.06 × 1.5 = $216.",
+  "rubric": "Gives $2,616 in total. Simple interest for 1.5 years is $216; giving only $216, using 18 years, or compounding fails. If working is shown, it must be consistent with $216.",
+  "core_rubric": "Gives a total repayment of $2,616.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "To calculate the total repayment:\n\n1.  **Calculate the interest:**\n    *   Principal ($P$) = $2,400\n    *   Annual Interest Rate ($r$) = 6% or 0.06\n    *   Time in years ($t$) = 18 months / 12 months/year = 1.5 years\n    *   Simple Interest ($I$) = $P \\times r \\times t$\n    *   $I = 2400 \\times 0.06 \\times 1.5$\n    *   $I = 144 \\times 1.5$\n    *   $I = 216$\n\n2.  **Calculate the total repayment:**\n    *   Total Repayment = Principal + Interest\n    *   Total Repayment = $2,400 + $216\n    *   Total Repayment = $2,616\n\nYou will repay a total of **$2,616**.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0387",
+  "question": "Why does a straight spoon look bent where it enters a glass of water?",
+  "reference": "Light from the underwater part of the spoon bends, or refracts, as it passes from water into air, because light travels at different speeds in the two materials. Our eyes trace the light back in straight lines, so the underwater part appears shifted, making the spoon look bent at the surface.",
+  "rubric": "Explains that light refracts at the water–air boundary because its speed changes, and that our brain interprets the bent rays as coming from a shifted position. Attributing the effect to reflection, or saying the water actually bends the spoon, fails.",
+  "core_rubric": "Attributes the appearance to refraction of light at the water–air boundary, making the underwater part appear shifted.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "That phenomenon is caused by **refraction**, the bending of light as it passes from one medium to another with a different density.\n\nHere’s how it works:\n1.  **Light Speed Changes:** Light travels at different speeds in different materials. It moves faster in air than in water (or glass).\n2.  **Bending at the Boundary:** When light rays traveling through the air hit the surface of the water, they change speed. Because the angle at which they enter isn't perfectly perpendicular to the surface, the rays bend toward the normal line (an imaginary line perpendicular to the surface).\n3.  **Your Brain's Interpretation:** Your brain assumes that light always travels in straight lines. Therefore, when your eyes receive the refracted light coming from the submerged part of the spoon, your brain traces the light ray backward in a straight line. This creates a virtual image of the spoon that appears higher and shifted compared to its actual position, making the spoon look bent or broken at the water's surface.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0396",
+  "question": "In a Unix shell, add execute permission for the owner of deploy.sh, leaving all of its other permission bits, including the group and others permissions, unchanged. Do not change the file's contents.",
+  "reference": "chmod u+x deploy.sh",
+  "rubric": "Uses chmod u+x deploy.sh. chmod +x or a+x fails because it can also add execute permission for group and others. Absolute modes such as chmod 744 or chmod 755 fail because they overwrite the existing group and others bits instead of preserving them.",
+  "core_rubric": "Uses chmod u+x on deploy.sh (./deploy.sh is acceptable), adding only the owner's execute bit and preserving every other permission bit.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "chmod +x deploy.sh",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0405",
+  "question": "A pool's posted hours are: weekdays 06:00–10:00 and 16:00–21:00; weekends 08:00–18:00. According to these hours, is the pool open at 12:00 on a Wednesday? Explain.",
+  "reference": "No. Wednesday is a weekday, and 12:00 falls between the weekday sessions, after 10:00 and before 16:00.",
+  "rubric": "Answers no and explains that Wednesday uses the weekday hours and 12:00 is outside both weekday sessions. Applying the weekend hours to Wednesday, or answering yes, fails.",
+  "core_rubric": "Answers no because 12:00 is between the 10:00 close and the 16:00 reopening on weekdays.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. Wednesday is a weekday, and the pool only opens at 16:00 after lunch.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0414",
+  "question": "My team of five meets every Monday, and we keep forgetting whose turn it is to take notes, so the same two people end up doing it. Suggest a simple system that makes each week's note-taker clear in advance and spreads the work evenly.",
+  "reference": "Write a fixed rotation of all five names in a shared place, such as the recurring meeting invite or a team document, and announce next week's note-taker at the end of each meeting. After the fifth person, start again at the top; if someone is away, they swap with the next person.",
+  "rubric": "Proposes a fixed rotation or schedule that includes all five people and repeats, so each person takes notes equally often, and makes the next note-taker known before the meeting, for example in a shared list, the meeting invite, or an announcement. Handling absences and reminders is optional. Asking for volunteers each week, or leaving it to the same people, is insufficient.",
+  "core_rubric": "Proposes a repeating rotation of all five members that is recorded or announced before each meeting.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "Assign a rotating weekly note-taker using a simple list. Write down the names of all five team members in order, starting with the current week's assignee. At the beginning of each Monday meeting, place a marker or sticky note on the name of the person responsible for that week's notes. When they finish, move the marker to the next person on the list.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0423",
+  "question": "On a 60-kilometer trip, I drive the first 30 kilometers at an average speed of 30 kilometers per hour. Is there any speed for the remaining 30 kilometers that would make my average speed for the whole 60-kilometer trip equal to 60 kilometers per hour? Answer yes or no and explain.",
+  "reference": "No. Averaging 60 km/h over 60 km would require a total time of 1 hour, but the first 30 km already took 1 hour, so no time is left for the remaining 30 km.",
+  "rubric": "Answers no and explains that a 60 km/h average for 60 km allows exactly 1 hour in total, which the first 30 km has already used. Answering yes, giving 90 km/h (averaging the speeds), or claiming that an extremely high but finite speed would work fails.",
+  "core_rubric": "Answers no because the whole trip would have to take 1 hour, and the first half already took 1 hour.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "No. To achieve an average speed of 60 km/h for the entire 60 km trip, you must complete it in exactly 1 hour (Total Distance / Total Average Speed = 60/60). You have already spent 1 hour driving the first 30 km at 30 km/h. Therefore, you have no time remaining to cover the second 30 km, making it impossible to reach the required average.",
+  "at_token_cap": false
+ },
+ {
+  "id": "S0432",
+  "question": "In a Unix shell, print the number of words in essay.txt, where a word is a run of non-whitespace characters. Print only the number, without the file name. The file contains only ASCII text; leave it unchanged.",
+  "reference": "wc -w < essay.txt",
+  "rubric": "Uses wc -w < essay.txt, or an equivalent such as cat essay.txt | wc -w or wc -w essay.txt | awk '{print $1}'. Leading spaces that some wc versions print before the number are acceptable. wc -w essay.txt alone fails because it also prints the file name; wc -l or wc -c counts lines or bytes and fails.",
+  "core_rubric": "Prints only the whitespace-separated word count of essay.txt, without the file name; essay.txt is unchanged.",
+  "whole_answer_rubric": "Apply this item's rubric to the entire answer under GRADING_SAMPLED.md. The requested core must be correct. Any materially false extra statement, wrong intermediate calculation, contradictory alternative answer, or broken extra code fails whole-answer correctness. True optional information and harmless wording or formatting differences do not fail. Do not add requirements that are absent from the question.",
+  "output": "`wc -w essay.txt | cut -d' ' -f1`",
+  "at_token_cap": false
+ }
+]

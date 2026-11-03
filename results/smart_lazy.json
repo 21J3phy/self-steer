@@ -65,6 +65,32 @@
    "new_core_errors": 39,
    "fixed_core_errors": 14
   },
+  "placebo": {
+   "n": 192,
+   "words_mean": 80.296875,
+   "total_word_reduction": 0.611261000025215,
+   "median_per_answer_reduction": 0.5845876616493534,
+   "core": 161,
+   "whole": 138,
+   "completion_failures": 1,
+   "lazy_chosen": 118,
+   "core_diff_pts": {
+    "mean": -3.6458333333333335,
+    "ci95": [
+     -10.416666666666668,
+     3.125
+    ]
+   },
+   "whole_diff_pts": {
+    "mean": -1.0416666666666665,
+    "ci95": [
+     -10.416666666666668,
+     8.854166666666668
+    ]
+   },
+   "new_core_errors": 19,
+   "fixed_core_errors": 12
+  },
   "prompt": {
    "n": 192,
    "words_mean": 15.390625,
@@ -168,6 +194,14 @@
     "whole": 21,
     "lazy_chosen": 35
    },
+   "placebo": {
+    "n": 48,
+    "words_mean": 112.97916666666667,
+    "total_word_reduction": 0.4990762978015888,
+    "core": 37,
+    "whole": 24,
+    "lazy_chosen": 35
+   },
    "prompt": {
     "n": 48,
     "words_mean": 6.875,
@@ -212,6 +246,14 @@
     "n": 24,
     "words_mean": 174.41666666666666,
     "total_word_reduction": 0.5365367581930912,
+    "core": 24,
+    "whole": 22,
+    "lazy_chosen": 1
+   },
+   "placebo": {
+    "n": 24,
+    "words_mean": 178.79166666666666,
+    "total_word_reduction": 0.524911426040744,
     "core": 24,
     "whole": 22,
     "lazy_chosen": 1
@@ -264,6 +306,14 @@
     "whole": 12,
     "lazy_chosen": 14
    },
+   "placebo": {
+    "n": 24,
+    "words_mean": 118.08333333333333,
+    "total_word_reduction": 0.6917554927126387,
+    "core": 19,
+    "whole": 14,
+    "lazy_chosen": 14
+   },
    "prompt": {
     "n": 24,
     "words_mean": 19.916666666666668,
@@ -310,6 +360,14 @@
     "total_word_reduction": 0.9004601598449988,
     "core": 18,
     "whole": 18,
+    "lazy_chosen": 22
+   },
+   "placebo": {
+    "n": 24,
+    "words_mean": 30.416666666666668,
+    "total_word_reduction": 0.8232017437636232,
+    "core": 21,
+    "whole": 21,
     "lazy_chosen": 22
    },
    "prompt": {
@@ -360,6 +418,14 @@
     "whole": 22,
     "lazy_chosen": 24
    },
+   "placebo": {
+    "n": 24,
+    "words_mean": 12.958333333333334,
+    "total_word_reduction": 0.8925362819626814,
+    "core": 20,
+    "whole": 20,
+    "lazy_chosen": 24
+   },
    "prompt": {
     "n": 24,
     "words_mean": 4.916666666666667,
@@ -408,6 +474,14 @@
     "whole": 37,
     "lazy_chosen": 22
    },
+   "placebo": {
+    "n": 48,
+    "words_mean": 38.083333333333336,
+    "total_word_reduction": 0.4899553571428571,
+    "core": 40,
+    "whole": 37,
+    "lazy_chosen": 22
+   },
    "prompt": {
     "n": 48,
     "words_mean": 16.4375,
@@ -434,9 +508,31 @@
    }
   }
  },
+ "calibration": {
+  "n": 48,
+  "core_correct": 48,
+  "correct": 46
+ },
  "hypotheses": {
   "H4a_self_keeps_half_of_lazy_reduction": true,
   "H4b_self_planning_core_ge_lazy": false,
   "H4c_self_core_lower_bound_gt_minus5": false
+ },
+ "extra": {
+  "SelfMinusPlacebo": "-9.4",
+  "SelfMinusPlaceboCI": "[-14.6, -4.2]",
+  "ChosenN": 118,
+  "ChosenSelfCore": 77,
+  "ChosenPlaceboCore": 94,
+  "ChosenSelfWords": 34,
+  "ChosenPlaceboWords": 58,
+  "ArithSelf": 24,
+  "ArithPlacebo": 37,
+  "ArithBase": 41,
+  "ArithLazy": 40,
+  "PlanSelfChosen": 14,
+  "PlanRoutedChosen": 4,
+  "DupN": 96,
+  "DupMismatch": 1
  }
 }

@@ -1,0 +1,338 @@
+[
+ {
+  "id": "S0004",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Says there are 4 different colors (counts red twice); rubric fails 4."
+ },
+ {
+  "id": "S0008",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Answers no; 30 min exceeds stated 20-25 min range. Overcooking remark is harmless."
+ },
+ {
+  "id": "S0012",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Dedupes, returns second of sorted-desc set, None if <2 distinct; tested [3,5,5]->3, [-1,-5,-1]->-5, []/[7]/[5,5]->None; nums unchanged; example output 5 correct."
+ },
+ {
+  "id": "S0016",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Cy in middle; Ana - Cy - Ben."
+ },
+ {
+  "id": "S0020",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Invoice 4472 for $1,240."
+ },
+ {
+  "id": "S0024",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Slides, Budget, Report with correct dates."
+ },
+ {
+  "id": "S0028",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "s == s[::-1], exact comparison; 'Aa'->False, ''->True."
+ },
+ {
+  "id": "S0032",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Says start rice at 18:25 (finishing 18:45), not 18:40; rice does not finish at 19:00."
+ },
+ {
+  "id": "S0036",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Labeled corrected sentence fixes committee/received/agreed with nothing else changed; first line merely echoes the original before the labeled answer."
+ },
+ {
+  "id": "S0040",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git rev-parse HEAD."
+ },
+ {
+  "id": "S0044",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "750 mL via 2000/8*3; working correct."
+ },
+ {
+  "id": "S0048",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Answers no: 1 hour total, first half already took 1 hour. But falsely says a 60 km/h average would require each 30 km in 30 minutes (only total of 1 hour needed), and the reasoning is muddled."
+ },
+ {
+  "id": "S0052",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "One sentence with 15:00 Friday, staff training, Saturday normal hours, anytime drop box; nothing added."
+ },
+ {
+  "id": "S0056",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Cy in middle; Ana - Cy - Ben; reasoning correct."
+ },
+ {
+  "id": "S0060",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Invoice 4472 for $1,240; other invoice statuses restated correctly."
+ },
+ {
+  "id": "S0064",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "git checkout -b feature/login."
+ },
+ {
+  "id": "S0068",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$9, 3 kg in second band."
+ },
+ {
+  "id": "S0072",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; century years must be divisible by 400."
+ },
+ {
+  "id": "S0076",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final explicitly corrected answer is EUR 225.40 with correct working, but it opens with a false bold claim of 224 euros (later retracted)."
+ },
+ {
+  "id": "S0080",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "wc -w essay.txt | awk '{print $1}' prints only the count; listed acceptable equivalent."
+ },
+ {
+  "id": "S0084",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "FIFO rotation/swap rule; has name-and-date labels but no scheduled clean-out, no age limit, no removal of unlabeled food."
+ },
+ {
+  "id": "S0088",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline answer is $20.52; breakdown gives $44.46 with no resolution, so contradictory and headline wrong."
+ },
+ {
+  "id": "S0092",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Final answer after recalculation is 09:42:30, but it states 09:35:30 and 09:40:30 earlier and wrongly computes 53 minutes; working inconsistent with 55 min."
+ },
+ {
+  "id": "S0096",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Loop tracks first-appearance order and running max initialized to first score; tested [('a',-5),('a',-2)]->{'a':-2}, []->{}; pairs unchanged; example output correct."
+ },
+ {
+  "id": "S0100",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Mutates counts in place and returns it instead of returning a new dictionary."
+ },
+ {
+  "id": "S0104",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$9, 3 kg in second band."
+ },
+ {
+  "id": "S0108",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Concludes 'The answer is indeed 3 hours' with correct worker-hours, but opens with a bold contradictory '2 hours' and includes broken algebra (54R/6 = 9R)."
+ },
+ {
+  "id": "S0112",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Did the package arrive on Monday?"
+ },
+ {
+  "id": "S0116",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; only officers may write below the line."
+ },
+ {
+  "id": "S0120",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Returns False on any nums[i] > nums[i+1]; [1,1,2]->True, [2,1]->False, []/[5]->True; no mutation."
+ },
+ {
+  "id": "S0124",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 04:00 then 06:00; correct is 07:00 (clock jumps forward one hour)."
+ },
+ {
+  "id": "S0128",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Chooses tent + food bag for 15; optimum is tent, stove, camera for 17. Also falsely claims it is best."
+ },
+ {
+  "id": "S0132",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Explains second factor (something you have) beyond password; stolen password alone generally insufficient."
+ },
+ {
+  "id": "S0136",
+  "core_correct": true,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Headline and final answer 37% with correct 0.7*0.9 working, but first working wrongly uses 90%*90% to get 19% and then falsely claims the earlier conclusion was correct."
+ },
+ {
+  "id": "S0140",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives Monday; correct is Tuesday (Fri=1, Mon=2, Tue=3). Working miscounts weekend days."
+ },
+ {
+  "id": "S0144",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "36; working 3S+12=2(S+12), S=12 correct."
+ },
+ {
+  "id": "S0148",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "$2,616; interest 2400*0.06*1.5 = $216."
+ },
+ {
+  "id": "S0152",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(1 for f in flags if f is True); excludes 1, 1.0, 'yes'; [] -> 0."
+ },
+ {
+  "id": "S0156",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Atom = basic unit of element, molecule = bonded atoms; O2 is a diatomic molecule of two oxygen atoms."
+ },
+ {
+  "id": "S0160",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "sum(int(d) for d in str(n)); 0->0, 507->12, 10**30->1."
+ },
+ {
+  "id": "S0164",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Six one-evening slots: one review evening for ch1-2, one dedicated evening each for ch6,5,4,3, final review; fits time and gives ch1-2 less time. Reverse order is unusual but not a rubric failure."
+ },
+ {
+  "id": "S0168",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "tail -n +2 drops the first data line (there is no header) and the mv overwrites scores.csv instead of printing."
+ },
+ {
+  "id": "S0172",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Gives 129.6 liters; (648,000/20)/1000 is actually 32.4, so final arithmetic wrong."
+ },
+ {
+  "id": "S0176",
+  "core_correct": false,
+  "correct": false,
+  "completion_failure": false,
+  "reason": "Leaves 'Their' uncorrected (should be They're); only three of four corrections."
+ },
+ {
+  "id": "S0180",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Weather short-term, climate ~30-year averages; classifies statement as weather. 'happening right now' wording is a minor imprecision, not material."
+ },
+ {
+  "id": "S0184",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "No; century years must be divisible by 400."
+ },
+ {
+  "id": "S0188",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "Guards empty string, uppercases only first char; 'hELLO world'->'HELLO world', '1abc'->'1abc', ''->''."
+ },
+ {
+  "id": "S0192",
+  "core_correct": true,
+  "correct": true,
+  "completion_failure": false,
+  "reason": "14:00 with schedule respecting all prerequisites; mounting 13:00-14:00."
+ }
+]
