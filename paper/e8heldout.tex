@@ -1,0 +1,6 @@
+\paragraph{Held-out result: a real effect, but H8 fails on degeneracy.}
+On E5's 20 held-out \texttt{eli5} prompts (seeds 2000--2019, 500 tokens), \texttt{eli5-cos29} lowered the Flesch--Kincaid grade from 10.7 to 7.2. The paired difference is $-3.5$ (95\% bootstrap CI $[-4.2,-2.9]$), and the grade was lower on all 20 prompts. Answers also got shorter (274 vs.\ 336 words; 4 vs.\ 11 hit the token limit).
+
+H8 required a drop of at least 3 points \emph{and} no degenerate outputs. One of 20 edited answers looped (``Wait, no, it is Solid State Drive (SSD).'' ten times), so H8 fails as written. Other edited answers stayed coherent but less careful. For example, ``Most vaccines do not kill you'' opens one explanation.
+
+The instruction still did much better: grade 3.3 and 73 words, with no loops. The edit made Qwen's normal structure, headings and numbered steps, friendlier (``Here is how the magic happens'', ``like a mail delivery system''). It did not make Qwen write the short sentences of a five-year-old explanation.

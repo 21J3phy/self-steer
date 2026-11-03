@@ -1,0 +1,36 @@
+\subsection{E8: \texttt{eli5} from neuron values}
+\label{sec:e8}
+E5's \texttt{eli5} was a dense CAA vector. Here Claude had to build it as a scaling edit on chosen neurons, from reads alone, with 10 passes. It used 8 (Table~\ref{tab:e8}).
+
+\begin{table}[t]\centering\small
+\begin{tabular}{rp{6.2cm}p{5.6cm}}\toprule
+Pass & What Claude ran & Result\\\midrule
+1--2 & 16 practice answers, normal and with the eli5 instruction & FK 10.0 and 2.2\\
+3 & read: kid-style vs.\ normal answer texts & the gap grows from L16 to L31; even exact matching of all L16--31 neurons covers 27\% of it\\
+4 & set 1024 neurons to their kid-text level & no effect (FK 10.4 vs.\ 9.3 on 8 prompts)\\
+5 & read: the same texts with vs.\ without the instruction & MLPs write 19\% of the instruction's effect directly, and work against it in L8--16\\
+6 & 2048 neurons that already write toward it, $\times4$ & FK 6.9 vs.\ 9.3; 1/8 collapses (``money money \dots'')\\
+7 & 4096 neurons ranked by alignment, L16--31, $\times4$ & FK 5.9 vs.\ 10.0; 2/16 collapse (``little little \dots'')\\
+8 & the same rule without L30--31: 3584 neurons & FK 6.5 vs.\ 10.0; 0/16 collapse\\\bottomrule
+\end{tabular}
+\caption{E8's practice passes. FK is the Flesch--Kincaid grade.}
+\label{tab:e8}
+\end{table}
+
+\paragraph{The first read was misleading.}
+Contrasting a kid-style answer with a normal answer mostly measures the two texts, not the model's state. The kernel showed this before any generation was spent. If every neuron in layers 16--31 were set to its kid-text level, their direct writes would close only 27\% of the final-layer gap; the edit actually built from that read closed 12\% and did nothing.
+
+\paragraph{A matched context fixed it.}
+Pass 5 read the same texts with and without the instruction, so only the model's state differs. The logit lens of that difference at the last layer is unmistakable:
+\begin{itemize}
+\item it promotes `` yummy'', `` big'', `` mommy'', `` silly'' and `` sleepy'';
+\item it suppresses `` fundamentally'', `` essentially'', `` predominantly'' and `` primarily''.
+\end{itemize}
+But MLP neurons write only 19\% of it directly, and in layers 8--16 they write against it. Attention to the instruction carries the rest.
+
+\paragraph{So Claude stopped matching levels and started amplifying.}
+A scaling edit cannot turn on a neuron that is silent without the instruction. It can only turn up neurons that already write toward the target in plain text. Claude ranked those neurons by how well their write aligns with the instruction effect.
+
+The kernel then predicted the trade-off: every candidate edit also writes off-target, about twice as much as on-target. That off-target write showed up as collapses into repetition. Dropping the last two layers, whose neurons push words like ``little'' directly, removed the collapses on practice prompts.
+
+\input{e8heldout.tex}

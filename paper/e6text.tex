@@ -1,0 +1,34 @@
+\subsection{E6: plain-text math from neuron values}
+\label{sec:e6}
+The task is the one E5's weight edit failed: Qwen should write arithmetic in plain text, not LaTeX, and keep the numbers. Claude had 10 forward passes on practice prompts and used 8. Table~\ref{tab:e6} lists them.
+
+\begin{table}[t]\centering\small
+\begin{tabular}{rp{4.9cm}p{5.4cm}p{1.9cm}}\toprule
+Pass & What Claude ran & What it found or did & LaTeX per 100 words\\\midrule
+1 & 24 normal answers & LaTeX in 24/24 & 20.8\\
+2 & read: LaTeX answers vs.\ the same answers with the LaTeX removed & mean-activation contrast plus weight lenses & --\\
+3 & silence 26 rule-chosen neurons & no effect & 21.5 (normal 21.2)\\
+4 & read with logit attribution to LaTeX openers & L27 n1173 adds +2.2 logits; the next largest adds 0.73 & --\\
+5 & silence L27 n1173 alone & no effect & 20.9\\
+6 & silence the top 256 by attribution & \texttt{\$\$} blocks become inline \texttt{\$} & 18.2\\
+7 & read with attribution that also covers \texttt{\$} and \texttt{\ \$} & the top 512 neurons hold only 26\% of the positive attribution & --\\
+8 & silence the top 512 (1.31M weights) & LaTeX in 15/16, numbers intact & 10.9\\\bottomrule
+\end{tabular}
+\caption{E6's eight practice passes (16 practice prompts each, except pass~1).}
+\label{tab:e6}
+\end{table}
+
+\paragraph{Localization was precise. The behavior was not local.}
+Logit attribution named the neurons that push LaTeX tokens, and it predicts the logit drop from silencing a neuron within 5\% (Section~\ref{sec:wsp}). But silencing even the single largest one, L27 n1173, changed nothing. The model routed around each cut:
+\begin{itemize}
+\item Removing the writers of \texttt{\$\$} moved display math to inline \texttt{\$}.
+\item Removing those as well halved LaTeX density, but almost every answer still had some.
+\end{itemize}
+This matches what Weight-Space Programming reported for small budgets~\cite{takehi2026wsp}: the attribution is right, but one direction is written by many neurons, and the rest compensate.
+
+\paragraph{Held-out result: H6 fails on its pre-registered metric.}
+On E5's 20 held-out arithmetic prompts (seeds 2000--2019, 500 tokens), the 512-neuron edit \texttt{tex-dla512} left LaTeX in 20/20 answers, the same as normal Qwen. The instruction left it in 14/20. All 20 edited answers kept the correct number, as did all 20 normal ones.
+
+Measured as density, which we did not pre-register, the edit cut LaTeX markup from 25.6 to 10.1 tokens per 100 words. The paired difference is $-15.5$ (95\% bootstrap CI $[-18.2,-13.0]$), close to the instruction's 9.7. Typically, prices and units became plain text (``\textbackslash\$338'', ``87 km/h''), while one displayed equation per answer kept its \texttt{\$\$}.
+
+\paragraph{Side effects.} On the 20 held-out how-to prompts, the edit left length unchanged (351 vs.\ 341 words; all hit the 500-token limit) and degenerate repeats unchanged (1 vs.\ 1 answer).

@@ -1,0 +1,30 @@
+\subsection{E7: why self-steering broke arithmetic, read from neuron values}
+\label{sec:e7}
+In E4, Qwen answered arithmetic and time questions worse when it switched \texttt{lazy} on itself than when the same tool call was a placebo (Section~\ref{sec:e4}). Yet the same edit, applied without the tool context, was harmless. E7 asks why, from reads rather than outputs.
+
+\paragraph{The failure is rare on Kaggle's weights.}
+On the 12 practice questions (seed 17), Qwen in FP32 called \texttt{lazy} on 4. Those 4 answers got shorter, and 3 stayed correct; the fourth gave ``85 minutes'' where hours and minutes were asked for. That is too little failure to tune a fix on, so the diagnosis relies on reads.
+
+\paragraph{The edit's effect flips sign with context.}
+Claude read the 9 well-formed placebo answers, over the first 6 answer tokens (the \texttt{lazy} window), in four contexts. The measure is how likely Qwen finds those good answers:
+
+\begin{center}\small
+\begin{tabular}{lcc}\toprule
+Mean log-prob per token & bare chat & after the tool call\\\midrule
+no edit & $-1.74$ & $-1.15$\\
+\texttt{lazy} on & $-1.45$ & $-1.30$\\
+effect of \texttt{lazy} & $+0.30$ & $-0.15$\\\bottomrule
+\end{tabular}
+\end{center}
+
+In a bare chat, \texttt{lazy} makes these openings \emph{more} likely. After the tool call it makes them less likely, on 7 of 9 answers.
+
+This is not the overshoot we had expected, where the edit stacks on a push the tool context already makes. After the tool call, the edit's residual effect is \emph{smaller} (norm 6.7 vs.\ 9.8 at layer 29) and less aligned with the tool context's own shift (cosine 0.22 vs.\ 0.46).
+
+\paragraph{The extra component writes digits.}
+The kernel separated out the part of the edit's effect that appears only after the tool call (tool-context effect minus bare effect). Its logit lens at the last layer promotes the digits `` 9'', `` 2'', `` 3'', `` 4'' and `` 8''. It suppresses the curly quotes and punctuation that the edit promotes in a bare chat.
+
+That part grows from layer 14 on. It is the E4 failure, read directly from the residual stream: after Qwen has announced \texttt{lazy}, the edit pushes it to start with a number.
+
+\paragraph{Status.}
+6 of 10 passes are used. Selecting which of \texttt{lazy}'s 344 neurons, or which downstream neurons, carry the digit component, and the pre-registered evaluation of a fixed edit, were cut short when the Kaggle session was cancelled. We report the diagnosis as it stands.

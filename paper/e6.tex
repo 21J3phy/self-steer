@@ -1,0 +1,17 @@
+\section{From neuron values instead of outputs (E6--E8)}
+\label{sec:wsp}
+In E5, Claude built edits behaviorally. It wrote examples, the harness turned them into a dense vector, and Claude tuned a strength by reading outputs. It never looked at a neuron. That is not how Weight-Space Programming worked~\cite{takehi2026wsp}. There, the frontier model had a persistent kernel over the raw weights plus a small budget of forward passes that returned MLP activations and hidden states. It localized the problem to specific MLP output columns from those values and edited only those columns.
+
+We gave Claude the same kind of instruments over Qwen3.5-4B, running on Kaggle (2$\times$T4, the original Hugging Face weights in FP32). Every comparison in this section is regenerated there.
+\begin{itemize}
+\item \textbf{Python kernel.} A persistent kernel over the weights and over saved reads, with no access to model calls.
+\item \textbf{Activation reads.} \texttt{read\_activations} is a teacher-forced pass that returns every MLP neuron's activation, the residual stream and, optionally, a \emph{direct logit attribution} of every neuron to chosen target tokens at the positions where they are emitted.
+\item \textbf{Paired generations.} \texttt{generate} runs the original and the edited model side by side.
+\item \textbf{Column edits.} \texttt{save\_edit} changes specific \texttt{W\_down} columns, applied as $\Delta W\,x_S$ from the layer's own neuron activations.
+\item \textbf{Budget.} Each task gets 10 forward passes.
+\end{itemize}
+On a tiny model, a column edit is bit-for-bit an explicit weight edit, and the attribution read predicts the real logit drop from silencing a neuron within 5\%.
+
+\input{e6text.tex}
+\input{e7text.tex}
+\input{e8text.tex}
