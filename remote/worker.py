@@ -106,7 +106,8 @@ class Edit:
         self._dev = {}
 
     def layers(self):
-        return sorted(self.columns if self.kind == 'columns' else self.vectors)
+        # An add edit may also carry column changes (a bundle: bias patch plus neuron scaling, one window).
+        return sorted(set(self.columns) | (set() if self.kind == 'columns' else set(self.vectors)))
 
     def on(self, layer, device):
         key = (layer, str(device))
@@ -118,6 +119,13 @@ class Edit:
                 self._dev[key] = self.vectors[layer].to(device)
         return self._dev[key]
 
+    def cols_on(self, layer, device):
+        key = ('cols', layer, str(device))
+        if key not in self._dev:
+            i, d = self.columns[layer]
+            self._dev[key] = (i.to(device), d.to(device))
+        return self._dev[key]
+
     def scaled(self, gain):
         if gain == 1 or self.kind == 'ablate':
             return self
@@ -125,15 +133,15 @@ class Edit:
             return Edit(self.name, 'columns', columns={l: (i, d * gain) for l, (i, d) in self.columns.items()},
                         window=self.window, description=self.description, author=self.author, meta=self.meta)
         return Edit(self.name, self.kind, vectors={l: v * gain for l, v in self.vectors.items()}, window=self.window,
-                    description=self.description, author=self.author, meta=self.meta)
+                    columns=self.columns, description=self.description, author=self.author, meta=self.meta)
 
     def summary(self):
         s = {'name': self.name, 'kind': self.kind, 'layers': self.layers(), 'window': self.window,
              'description': self.description, 'author': self.author}
-        if self.kind == 'columns':
+        if self.columns:
             s['neurons_by_layer'] = {l: int(i.numel()) for l, (i, _) in self.columns.items()}
             s['weights_changed'] = int(sum(d.numel() for _, d in self.columns.values()))
-        else:
+        if self.kind != 'columns':
             s['norm_by_layer'] = {l: round(float(v.norm()), 3) for l, v in self.vectors.items()}
         return {**s, **{k: v for k, v in self.meta.items() if k != 'ops_full'}}
 
@@ -168,7 +176,7 @@ class Stack:
             live = []
             for a in self.actives:
                 e = a['edit']
-                touches = layer in (e.columns if e.kind == 'columns' else e.vectors)
+                touches = layer in e.columns or (e.kind != 'columns' and layer in e.vectors)
                 stop = end if a['stop'] is None else a['stop']
                 if touches and min(end, stop) > max(start, a['start']):
                     live.append(a)
@@ -180,13 +188,13 @@ class Stack:
                 e = a['edit']
                 stop = end if a['stop'] is None else a['stop']
                 mask = ((pos >= a['start']) & (pos < stop)).float()[None, :, None]
-                if e.kind == 'columns':
-                    idx, dw = e.on(layer, output.device)
+                if layer in e.columns:
+                    idx, dw = e.cols_on(layer, output.device)
                     result = result + (x[..., idx].float() @ dw.T) * mask
-                elif e.kind == 'ablate':
+                if e.kind == 'ablate' and layer in e.vectors:
                     v = e.on(layer, output.device)
                     result = result - (result @ v)[..., None] * v * mask
-                else:
+                elif e.kind == 'add' and layer in e.vectors:
                     result = result + e.on(layer, output.device) * mask
                 if layer == min(e.layers()):
                     a['steered'] += int(mask.sum())
@@ -626,6 +634,16 @@ class Worker:
         e._dev = {}
         self.lib[name] = e
         return e.summary()
+
+    def t_bundle_mode(self, name, base, columns_from, description=None):
+        """One mode = base's bias patch (an add edit) plus another edit's column changes, in base's window."""
+        b, c = self.lib[base], self.lib[columns_from]
+        if b.kind != 'add' or not c.columns:
+            raise ValueError('base must be an add edit and columns_from must carry column changes')
+        self.lib[name] = Edit(name, 'add', vectors=b.vectors, columns=c.columns, window=b.window,
+                              description=description or b.description, author='claude',
+                              meta={'base': base, 'columns_from': columns_from})
+        return self.lib[name].summary()
 
     def t_py(self, code):
         """Persistent kernel over the weights and saved reads. The model itself is not exposed."""

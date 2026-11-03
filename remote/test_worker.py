@@ -78,6 +78,29 @@ class WorkerTests(unittest.TestCase):
         self.assertTrue(torch.allclose(got, want, atol=1e-4))
         self.assertFalse(torch.allclose(got, base, atol=1e-4))
 
+    def test_bundle_equals_both_edits_live(self):
+        ids = self.e.encode('Hello there, how are you doing today?')
+        wk = W.Worker(self.e, budget=1)
+        wk.lib['lazy'] = self.lazy
+        wk.t_save_edit('fix', 'scale two neurons', [{'layer': 1, 'op': 'scale', 'neurons': [3, 7], 'factor': 0.5},
+                                                    {'layer': 2, 'op': 'scale', 'neurons': [5], 'factor': 2.0}])
+        s = wk.t_bundle_mode('lazy-fixed', 'lazy', 'fix')
+        self.assertEqual(s['layers'], [1, 2])
+        self.assertEqual(wk.lib['lazy-fixed'].window, 2)
+        self.e.stack.activate(wk.lib['lazy-fixed'], 3, 5, tag='t')
+        got = self.logits(ids)
+        self.e.stack.deactivate('t')
+        self.e.stack.activate(self.lazy, 3, 5, tag='t')
+        self.e.stack.activate(wk.lib['fix'], 3, 5, tag='t')
+        want = self.logits(ids)
+        self.e.stack.deactivate('t')
+        self.assertTrue(torch.allclose(got, want, atol=1e-5))
+        self.assertTrue(torch.allclose(got[:3], self.logits(ids)[:3], atol=1e-5))   # before the window: untouched
+        wk.t_add_mode('lazy2', 'lazy-fixed')
+        self.e.stack.activate(wk.lib['lazy2'], 3, 5, tag='t')
+        self.assertTrue(torch.allclose(self.logits(ids), want, atol=1e-5))
+        self.e.stack.deactivate('t')
+
     def test_incremental_decode_matches_full(self):
         ids = self.e.encode('one two three four five six seven')
         r = W.Runner(self.e)

@@ -151,3 +151,25 @@ Every outcome is reported whatever its direction. Deviations from this plan are 
 - Passes 3–6: teacher-forced reads of the placebo answers (first 6 answer tokens, the `lazy` window) in four contexts: bare, bare + `lazy`, tool, tool + `lazy`.
 - From these, the kernel compares the edit's cost to the good answers' log-probability in the bare vs. the tool context, and how the tool context's own shift aligns with each of the 344 `lazy` neuron vectors.
 - The fix is a neuron-level change to `lazy`: dropping or rescaling some of its 344 neurons, or scaling downstream columns while it is on. It is registered under the name `lazy`, so the tool Qwen sees is unchanged.
+
+---
+
+# Addendum 4 (2026-11-03 ~07:40, after the Kaggle session was cancelled externally at ~02:45)
+
+**What was lost.** The worker's in-memory state (saved edits, the kernel namespace) and its trace log. Every call and result is still in `runs/remote/calls.jsonl`, and most of its work files were recovered in `runs/remote/v2_output/`.
+
+**What E7 had found before the cancellation**, from reads 3–6 (first 6 tokens of the 9 well-formed placebo answers):
+- `lazy` raises the log-prob of good openings in a bare chat (+0.30) but lowers it after the tool call (−0.15).
+- The part of the edit's effect that appears only after the tool call promotes digit tokens at the last layer.
+
+**Relaunch (Nirav approved).**
+- The worker now lets an add edit carry column changes (`bundle_mode`), so one switchable mode can be `lazy` plus neuron scaling inside the same 6-token window. This is tested on CPU.
+- Budget accounting: E7 had used 6 of 10 passes. The 4 reads are re-run unchanged to restore them in the new session, as a determinism check (they should match the recovered files). The budget is set to 8, so 4 passes remain, as before.
+
+**The fix is chosen from reads and weights only:**
+- which downstream neurons carry the tool-only digit push (their extra activation × how strongly their column writes digits), and/or
+- which of `lazy`'s 344 neurons write digits directly.
+
+**Then:**
+- one read checks that the fixed edit no longer lowers the good openings after the tool call;
+- the pre-registered evaluation runs as in Addendum 2: self / self-fixed / placebo on 24 questions × seeds 17 and 29, blind-graded.
