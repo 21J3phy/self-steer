@@ -18,7 +18,7 @@ Pass & What Claude ran & Result\\\midrule
 \end{table}
 
 \paragraph{The first read was misleading.}
-Contrasting a kid-style answer with a normal answer mostly measures the two texts, not the model's state. The kernel showed this before any generation was spent. If every neuron in layers 16--31 were set to its kid-text level, their direct writes would close only 27\% of the final-layer gap; the edit actually built from that read closed 12\% and did nothing.
+Contrasting a kid-style answer with a normal answer mostly measures the two texts, not the model's state. The kernel showed why, after the null result of pass 4: if every neuron in layers 16--31 were set to its kid-text level, their direct writes would close only 27\% of the final-layer gap; the edit actually built from that read closed 12\% and did nothing.
 
 \paragraph{A matched context fixed it.}
 Pass 5 read the same texts with and without the instruction, so only the model's state differs. The logit lens of that difference at the last layer is unmistakable:

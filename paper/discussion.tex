@@ -21,7 +21,7 @@ The behaviors were not local.
 \item \textbf{eli5.} MLP neurons write only a fifth of the instruction's effect directly; attention carries the rest.
 \item \textbf{E7.} The digit push sits in layer 31, after everything a column edit upstream could change.
 \end{itemize}
-The kernel was most useful for saying \emph{in advance} what would not work. It predicted pass 4's null result for eli5, the off-target cost of amplification, and the small effect of the E7 fix. That saved passes, but it did not produce an edit that beats a one-line prompt.
+The kernel was most useful for saying what would not work. It explained the first eli5 edit's null result after the fact. It then ruled out matching neurons to the instructed level before any pass was spent on it, predicted the off-target cost of amplification, and flagged the E7 fix as weak before the evaluation. That saved passes, but it did not produce an edit that beats a one-line prompt.
 
 \paragraph{Prompting is not a substitute for small edits, nor always the reverse.} A one-line ``be concise'' system prompt shortened answers far more than any edit, and it cost 29 points of accuracy, mostly by suppressing the working needed for arithmetic and scheduling. For style requests (\S\ref{sec:e5}), prompting was competitive with or better than the CAA edits Claude built. Edits earn their place when a behavior needs to be switched precisely, measured, or reversed, and when the prompt channel is unavailable or untrusted.
 
